@@ -1,0 +1,163 @@
+<!-- https://pji.co.kr/user/w_memberJoin -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/회원가입.css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header>
+      <h1>회원가입</h1>
+      <!-- 현제위치나 들어가거나 안내말이 들어가는 부븐 -->
+      <p>홈>회원가입</p>
+    </header>
+
+    <form action="">
+      <div class="group">
+        <h2>정보입력</h2>
+        <p>*필수사항 입니다.</p>
+      </div>
+      <fieldset>
+        <legend>정보입력</legend>
+        <!-- 양식에 들어가는 콘텐츠는 일반적인 마크업을 할 수 있고, tabe태그를 사용할 수있다 -->
+        <table cellpadding="0" cellspacing="0">
+          <!-- border="1" -->
+          <tr>
+            <th class="line"><label for="userName">이름</label><span class="star" title="필수사항">*</span></th>
+            <td class="line"><input type="text" required id="userName" class="box" placeholder="이름을 입력해주세요"></td>
+            <!-- required 입력해주세요 경고창 -->
+          </tr>
+          <tr>
+            <th><label for="userId">아이디</label><span class="star" title="필수사항">*</span></th>
+            <td><input type="id" id="userId" class="box" placeholder="영문,숫자 조합으로 입력해주세요">
+              <button value="중복체크">중복체크</button>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <lable for="">비밀번호</lable><span class="star" title="필수사항">*</span>
+            </th>
+            <td><input type="password" id="password_1" class="box" placeholder="영문,숫자 조합으로 입력해주세요">
+              <input type="password" id="password_2" class="box" placeholder="비밀번호를 한번 더 입력해주세요">
+            </td>
+          </tr>
+          <tr>
+
+            <th>
+              <lable for="">이메일</lable><span class="star" title="필수사항">*</span>
+            </th>
+            <td><input type="email" id="email" placeholder="이메일을 입력해주세요"></td>
+          </tr>
+          <tr>
+            <th>
+              <lable for="">전화번호</lable><span class="star" title="필수사항">*</span>
+            </th>
+            <td><select title="휴대폰 앞자리번호">
+                <option value="02" selected>02</option>
+                <!-- selecred 는 제일 먼저 보이는 -->
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="033">033</option>
+              </select>
+              <input id="tel_1" type="tel" required size="4" maxlength="4" title="휴대폰 중간자리번호">
+              <input id="tel_2" type="tel" required size="4" maxlength="4" title="휴대폰 끝자리번호">
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <lable for="">휴대폰</lable><span class="star" title="필수사항">*</span>
+            </th>
+            <td><select>
+                <option value="02" selected>02</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="033">033</option>
+              </select>
+              <input id="tel_3" type="tel" required size="4" maxlength="4" title="휴대폰 중간자리번호">
+              <input id="tel_4" type="tel" required size="4" maxlength="4" title="휴대폰 끝자리번호">
+              <!-- title 커서올리면 말풍선이 나옴 -->
+              <!-- size="4" 글자만큼 입력가능 -->
+              <button value="인증번호 전송">인증번호 전송</button>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <lable for="">인증번호</lable><span class="star">*</span>
+            </th>
+            <td><input type="text" value="" id="text" class="box"></td>
+          </tr>
+          <tr>
+            <th>
+              <lable for="">생년월일</lable><span class="star">*</span>
+            </th>
+            <td class="year">
+              <p> ※ 만 14세 미만의 어린이는 가입이 불가능 합니다.</p>
+              <!-- 먼저 알고 나서 선택가능하기 때문에 p테그가 먼저 옴 -->
+              <input type="radio" id="birthday_t">
+              <lable for="birthday_t">양력</lable>
+              <input type="radio" id="birthday_s">
+              <lable for="birthday_s">양력</lable>
+              <!-- lable에 id는 안 넣어도 됌 -->
+              <select>
+                <option value="2023년" selected>2023년</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="033">033</option>
+              </select>
+              <select>
+                <option value="4월" selected>4월</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="033">033</option>
+              </select>
+              <select>
+                <option value="18일" selected>18일</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="033">033</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <lable for="">성별</lable><span class="star">*</span>
+            </th>
+            <td><input type="radio" id="sex_1">
+              <lable for="birthday_t">남성</lable>
+              <input type="radio" id="sex_2">
+              <lable for="birthday_t">여성</lable>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <h2>약관 동의 및 마케팅 동의</h2>
+
+      <fieldset>
+        <legend>약관동의</legend>
+        <input type="checkbox">
+        <label for="">모든 약관 및 마케팅에 동의합니다.</label>
+        <hr>
+        <input class="check" type="checkbox">
+        <label for="">본인은 만 14세 이상입니다.</label>
+        <input class="check" type="checkbox">
+        <label for="">이용약관 동의</label>
+        <input class="check" type="checkbox">
+        <label for="">개인정보 수집 및 이용 동의</label>
+        <input class="check" type="checkbox">
+        <label for="">위치기반 서비스 이용약관</label>
+      </fieldset>
+    </form>
+    <button class="submit" type="submit">제출하기</button>
+  </div>
+</body>
+
+</html>
+
+<!-- <legend>여기에는 스트롱 테그 안됌, 안보이게</legend> -->

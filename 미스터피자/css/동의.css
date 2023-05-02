@@ -1,0 +1,146 @@
+/*전체 스타일*/
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(246, 246, 246);
+  font-size: 12px;
+}
+#wrap {
+  position: relative;
+  margin: 0 auto;
+  width: 1100px;
+} /*전체적으로 포함*/
+
+/*회원가입,홈>회원가입*/
+h1 {
+  text-align: center;
+  padding-top: 30px;
+}
+p.p {
+  position: absolute;
+  right: 20px;
+  top: 50px;
+}
+
+/*양식 스타일*/
+form {
+  position: relative;
+  padding: 0 50px 50px;
+  margin: 30px 0;
+  background-color: rgb(255, 255, 255);
+  width: 1000px;
+  border-radius: 20px;
+} /*form 양식 안에 있는 내용입니다*/
+form fieldset {
+  border: 0;
+}
+fieldset legend {
+  display: none;
+}
+
+/*정보입력,약관 동의 및 마케팅 동의*/
+h2 {
+  padding: 50px 0;
+  font-weight: bolder;
+}
+p.p1 {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color: rgb(228, 26, 26);
+  font-weight: bolder;
+} /* '*'빨간 주의 문구가 들어갔습니다*/
+
+/*테이블스타일*/
+table {
+  width: 100%;
+}
+table th,
+table td {
+  border-bottom: 1px solid rgb(187, 187, 187);
+  padding: 20px 0;
+} /*테이블 아래 라인*/
+table th.line,
+table td.line {
+  border-top: 1px solid rgb(187, 187, 187);
+} /*테이블 아래 라인*/
+/*th 스타일*/
+th {
+  width: 150px;
+  font-size: 13px;
+}
+th label {
+  font-weight: bolder;
+} /*정보부분 굵게*/
+th span.star {
+  color: rgb(241, 22, 22);
+  font-weight: bolder;
+} /*정보의 "별"표시입니다*/
+/*td 스타일*/
+td input {
+  vertical-align: middle;
+  padding-left: 2px;
+  margin-left: 5px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid rgb(215, 215, 215);
+} /*텍스트 박스 스타일입니다*/
+td button {
+  vertical-align: middle;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: rgb(255, 255, 255);
+  margin-left: 10px;
+} /*정보에 중복체크와 인증번호 전송 스타일입니다*/
+td select {
+  padding: 1px 5px;
+  margin-left: 5px;
+  width: 130px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid rgb(215, 215, 215);
+} /*전화번호와 휴대폰 번호 선택 박스 스타일입니다*/
+/* td.year{} */
+td.year p {
+  color: rgb(228, 26, 26);
+  font-weight: bolder;
+  padding-top: 10px;
+}
+
+/*두번째 서식*/
+fieldset.form_2 input {
+  margin: 10px;
+}
+li {
+  padding: 10px;
+  list-style: none;
+  float: left;
+}
+/*제출하기*/
+div.submit {
+  padding-bottom: 50px;
+}
+div.submit button {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin-bottom: 300px;
+  border: 0;
+  color: rgb(255, 255, 255);
+  border-radius: 30px;
+  margin: 0 auto;
+  background-color: rgb(213, 84, 84);
+}
+
+/* 버튼에는 마진 페딩 안됌 */
+/* :vertical 미들은 블럭엔 안돼 */
+/* margin 0 auto 는 안에가 블럭일때만!!! */
+/* display 인라인
+text-index -30px */
+
+/* input[]{} 속성선택자 */
+/* :vertical-align : middle;  수직방향 미들*/

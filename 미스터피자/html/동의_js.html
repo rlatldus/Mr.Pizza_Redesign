@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function join() {
+      var members = document.getElementsByName("member")
+      var result = [];
+
+      for (var i = 0; i < members.length; i++) {
+        var member = members.item(i);
+        if (member.checked) {
+          result.push(member.value);
+          // continue;
+        } else {
+          alert("체크되지 않았습니다.")
+        }
+      }
+    }
+
+    // function join(){
+    //     var members = document.getElementsByName("member")
+    //     var result=[];
+
+    //         // var member= members.item(1);
+    //         var member= members.item(1);
+    //         if(member.checked){
+    //             result.push(member.value);
+    //             alert("제출되었습니다.")
+    //             // continue;
+    //         }else{
+    //             alert("체크되지 않았습니다.")
+    //         }
+    //     }
+
+    // var plusTen = function(){
+
+    //     var  num = prompt("숫자를 입력해주세요","")
+    //     alert(Number(num)+10);
+
+    // }
+    // plusTen();
+    // alert(typeof(plusTen));
+    // alert(plusTen);
+    // alert(prompt)
+
+    // var add = plusTen;
+    // add();
+
+    // // 익명함수>> 함수 실행 plusTen(); 을 위에 하면 오류
+    // var plusTen = function () {
+    // }
+    // alert("10을 더한다")
+    // var plusTen = function () {
+    // }
+    // alert("10을 더함")
+
+    // // 선언적함수 위치가 필요없음
+    // function plusTen() {
+    //   alert("10을 더한다")
+    // }
+    // function plusTen() {
+    //   alert("10을 더함")
+    // }
+    // plusTen();
+
+
+
+
+  </script>
+</head>
+
+<body>
+  <h1>약관동의 체크값 가져오기</h1>
+  <form onsubmit="join()">
+    <legend>약관동의</legend>
+    <fieldset>
+      <h2>
+        <label for="">선택약관안내</label>
+        <input type="checkbox" id="choice" name="member">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, quam reprehenderit! Soluta, quidem tempore
+          modi doloremque necessitatibus aperiam explicabo harum quod placeat. Inventore eaque repellendus totam beatae
+          molestias quam eligendi.</p>
+      </h2>
+      <h2>
+        <label for="">필수약관안내</label>
+        <input type="checkbox" id="choiced" name="member">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptatem doloribus porro aliquam. Ea
+          molestiae itaque officiis eaque a fugiat provident, totam eligendi earum aliquid assumenda quasi eos harum
+          consequatur.</p>
+      </h2>
+      <button type="reset">취소</button>
+      <button type="submit">확인</button>
+    </fieldset>
+  </form>
+</body>
+
+</html>

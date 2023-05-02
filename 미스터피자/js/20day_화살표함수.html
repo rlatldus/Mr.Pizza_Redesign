@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // const a =()=>{
+        //     alert("sksk")
+        // }
+        // a();
+
+        // let xyz = (a,b,c)=>{
+        //     let result="a+b+c";
+        //     return alert(result);
+        // }
+        // xyz(1,2,3);
+
+
+        //TODO 화살표 함수와 그냥 함수는 다르다
+        function BlackDog() {
+            this.dogName = "화이트";
+            return {
+                dogName: "블랙",
+                bark: function () {
+                    console.log(this.dogName + "멍멍");
+
+                }
+            }
+        }
+
+        let blackDog = new BlackDog();
+        blackDog.bark();
+
+        function WhiteDog() {
+            this.dogName = "화이트";
+            return {
+                dogName: "블랙",
+                bark: () => {
+                    console.log(this.dogName + "멍멍");
+                }
+            };
+        }
+        let whiteDog = new WhiteDog();
+        whiteDog.bark();
+
+
+        // prompt("안녕하세요")
+        
+        // //TODO 커피머신함수== this와 함께 화살표 함수를 사용할 수 없어, total에 값이 더해지기 때문에 변수
+        // let coffee_r=prompt("돈 넣어주세요","");
+        // let cola= prompt("돈 넣어주세요","");
+        // let americano= prompt("돈 넣어주세요","");
+
+                function coffeeMachine () {
+                    const americano = 1000;
+                    const latte = 1500;
+                    const cola = 1000;
+                    let total=null;
+                    
+
+                    for (let i = 0; i < arguments.length; i++) {
+                        total += arguments[i];
+                    }
+                    // alert(total);
+                    if (total == 1000) {
+                        const oder = confirm("아메리카노, 콜라 중 아메리카노를 선택하세요?");
+                        if (oder == true) {
+                            alert("아메리카노 나왔어요");
+                        } else {
+                            alert("콜라를 주문하시겠습니다");
+                        }
+                        console.log(total);
+                        // let total = [];
+                    } else if (total < 1000) {
+                        alert(total);
+                        alert("금액이 모자라요");
+                        console.log(total);
+                        // let total = [];
+                    } else if (total > 1500) {
+                        alert("돈 가져가세요");
+                        console.log(total);
+                        // let total = [];
+                    };
+                }
+
+                coffeeMachine(0,1000);
+
+
+
+        //     const coffeeMachine = (arguments) => {
+        //         const coffee_r = 1000;
+        //         const cola = 1500;
+        //         const americano = 900;
+        //         let total = 0;
+        //         for (let i = 0; i < arguments.length; i++) {
+        //             total += arguments[i];
+        //             console.log("total");
+        //         }
+        //             if (total <americano) {
+        //                 // let total=[];
+        //                 alert("돈이 부족해요");
+        //             }else{
+        //                 // let total=[];
+        //                 alert("맛있게 드세요");
+        //             }
+                
+        // }
+
+        // coffeeMachine(100,100,10000,200);
+
+
+        // var a= prompt("뭘 먹나요?","");
+
+        // let ame=900;
+        // let ame_l=1500;
+        // let se=1000;
+        // let ca=2500;
+
+        // let total=[];
+        // if(a=='아메리카노'){
+        //     alert(`아메리카노 나왔어요 가격은${ame}원 입니다`)
+        // }else if(a=='아메리카노 라지'){
+        //     alert(`아메리카노 나왔어요 가격은${ame_l}원 입니다`)
+        // }else if(a=='식혜'){
+        //     alert(`아메리카노 나왔어요 가격은${se}원 입니다`)
+        // }else if(a=='카페라떼'){
+        //     alert(`아메리카노 나왔어요 가격은${ca}원 입니다`)
+        // };
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

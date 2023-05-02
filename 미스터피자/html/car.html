@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="car copy.css">
+  <!-- <script src="car.js"></script> -->
+  <script>
+
+    function showCar(x) {
+      //getAttribut 는 속성을 가저오는
+      //setAttribut 은 속성을 바꾸는
+      var source = x.getAttribute("href");
+      var placeholder = document.getElementById("placeholder");
+      placeholder.setAttribute("src", source);
+
+      var y = document.getElementsByClassName("y");
+
+      for (var i = 0; i < y.length; i++) {
+        var colors = y.item(i);
+        if (x == colors) {
+          x.setAttribute("style", "background-color: yellow");
+        } else {
+          colors.setAttribute("style", "background-color: black");
+        }
+      }
+
+      // if(color.style.backgroundColor ==)
+    }
+
+
+    // var box = 1;
+    // function pre() {
+    //     alert("이전");
+    //     box--;
+    //     if (box < 1) {
+    //         box= 3;
+    //     };
+    //     if (box == 1) {
+    //         document.getElementById("one").style.backgroundColor = "yellow";
+    //         document.getElementById("three").style.backgroundColor = "black";
+    //         document.getElementById("two").style.backgroundColor = "black";
+
+    //     };
+    //     if (box == 2) {
+    //         document.getElementById("two").style.backgroundColor = "yellow";
+    //         document.getElementById("three").style.backgroundColor = "black";
+    //         document.getElementById("two").style.backgroundColor = "black";
+    //     };
+    //     if (box == 3) {
+    //         document.getElementById("three").style.backgroundColor = "yellow";
+    //         document.getElementById("one").style.backgroundColor = "black";
+    //         document.getElementById("two").style.backgroundColor = "black";
+
+    //     };
+    //     if (box == 4) {
+    //     };
+    //     document.getElementById("placeholder").src="images/car_"+box+".jpg";
+
+    // }
+
+    // function next() {
+    //     alert("다음");
+    //     box++;
+    //     if (box > 4) {
+    //         box= 1;
+    //     };
+    //     if (box == 1) {
+    //         document.getElementById("one").style.backgroundColor = "yellow";
+    //         document.getElementById("three").style.backgroundColor = "black";
+    //         document.getElementById("two").style.backgroundColor = "black";
+
+    //     };
+    //     if (box == 2) {
+    //         document.getElementById("two").style.backgroundColor = "yellow";
+    //         document.getElementById("three").style.backgroundColor = "black";
+    //         document.getElementById("two").style.backgroundColor = "black";
+    //     };
+    //     if (box == 3) {
+    //         document.getElementById("three").style.backgroundColor = "yellow";
+    //         document.getElementById("one").style.backgroundColor = "black";
+    //         document.getElementById("two").style.backgroundColor = "black";
+
+    //     };
+    //     if (box == 4) {
+    //     };
+    //     document.getElementById("placeholder").src="images/car_"+box+".jpg";
+
+    // }
+
+
+
+    var count = 0;
+    function next() {
+      var image = document.getElementById("placeholder");
+      count++;
+      console.log(count);
+      if (count == 1) {
+        image.setAttribute("src", "images/car_grey.jpg");
+        document.getElementById("one").style.backgroundColor = "black";
+        document.getElementById("two").style.backgroundColor = "yellow";
+        document.getElementById("three").style.backgroundColor = "black";
+      } else if (count == 2) {
+        image.setAttribute("src", "images/car_basy.jpg");
+        document.getElementById("one").style.backgroundColor = "black";
+        document.getElementById("two").style.backgroundColor = "black";
+        document.getElementById("three").style.backgroundColor = "yellow";
+      } else if (count == 3) {
+        image.setAttribute("src", "images/car_black.jpg");
+        document.getElementById("one").style.backgroundColor = "yellow";
+        document.getElementById("two").style.backgroundColor = "black";
+        document.getElementById("three").style.backgroundColor = "black";
+        count = 0;
+      }
+    };
+
+
+
+    // function next() {
+    //     const images = [
+    //         { src: "images/car_grey.jpg", bgColor: ["black", "yellow", "black"] },
+    //         { src: "images/car_basy.jpg", bgColor: ["black", "black", "yellow"] },
+    //         { src: "images/car_black.jpg", bgColor: ["yellow", "black", "black"] }
+    //     ];
+
+    //     const image = document.getElementById("placeholder");
+    //     const count = (parseInt(image.getAttribute("data-count")) + 1) % images.length;
+
+    //     image.setAttribute("src", images[count].src);
+    //     image.setAttribute("data-count", count);
+
+    //     for (let i = 1; i <= 3; i++) {
+    //         document.getElementById(`one${i}`).style.backgroundColor = images[count].bgColor[i - 1];
+    //     }
+    // }
+
+
+  </script>
+</head>
+
+<body>
+  <section id="sideImage">
+    <h3>자동차 색상</h3>
+    <div class="class">
+      <div>
+        <button onclick="pre(); return false;">이전</button>
+        <button id="a" onclick="next();  return false;">다음</button>
+        <img src="images/car_white.jpg" id="placeholder" alt="car">
+      </div>
+    </div>
+    <ul class="control">
+      <li><a href="images/car_grey.jpg" class="y on" id="one" onclick="showCar(this); return false">숫자</a></li>
+      <li><a href="images/car_basy.jpg" class="y" id="two" onclick="showCar(this); return false">숫자</a></li>
+      <li><a href="images/car_black.jpg" class="y" id="three" onclick="showCar(this); return false">숫자</a></li>
+      <!-- <li><a href="images/car_red.jpg" class="y"id="four"  onclick="showCar(this); return false">숫자</a></li> -->
+    </ul>
+  </section>
+
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+
+}
+
+h2{
+  padding: 10px;
+}
+
+#wrap {
+  margin: 20px 0;
+
+  #header {
+
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    header {
+      left: 50%;
+      transform: translate(-50%, 0%);
+      position: relative;
+      width: 1024px;
+      height: 100px;
+      // background-color: aqua;
+      font-size: 20px;
+      font-weight: bolder;
+      display: flex;
+
+      h1 {
+        position: absolute;
+        padding: 20px 0px;
+        font-size: 40px;
+
+        a {
+          display: block;
+          color: rgb(186, 13, 13);
+        }
+      }
+
+      nav {
+        position: absolute;
+        right: 0px;
+
+        ul#main {
+          display: flex;
+          text-align: center;
+
+          li {
+            padding: 30px 35px;
+            display: inline-block;
+            &:hover ul.sub {
+              height: 100px;
+            }
+
+            a {
+              &:hover {
+                color: red;
+              }
+
+
+            }
+
+            ul.sub {
+              position: absolute;
+              top: 100px;
+              left: -100px;
+              flex-direction: row;
+              overflow: hidden;
+              height: 1px;
+              display: flex;
+
+
+              li {
+                width: 150px;
+                padding: 10px 0;
+                margin: 30px 20px;
+                border: 2px solid rgb(0, 0, 0);
+                border-radius: 25px;
+                background-color: rgb(255, 255, 255);
+
+
+                a {
+                  font-size: 14px;
+                  display: block;
+
+                  &:hover li {
+                    border-color: red;
+                  }
+
+                  //FIXME 안됨
+                  &:hover {
+                    color: red;
+
+                  }
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  width: 100%;
+
+  #section {
+    margin: 0 auto;
+    width: 1024px;
+
+    #left {
+      display: flex;
+
+      section {
+        margin: 20px;
+        width: 300px;
+        height: 100vh;
+        // background-color: azure;
+
+        ul {
+
+          li {
+
+            margin: 10px;
+            padding: 10px;
+            width: 180px;
+            border: 2px solid rgb(0, 0, 0);
+          }
+        }
+
+        form {
+          width: 180px;
+          margin: 10px;
+          // padding: 20px;
+          border: 1px solid black;
+
+          h3 {
+            // padding: 20px;
+
+            background-color: rgb(201, 201, 201);
+
+          }
+
+          fieldset {
+
+            legend {
+              display: none;
+
+              input {
+                padding: 20px;
+
+              }
+            }
+
+
+          }
+
+        }
+      }
+    }
+    //TODO두번째 세[ㄱ션
+    #right {
+      width: 100%;
+      text-align: center;
+
+      section {
+        width: 100%;
+          h2{
+            color: rgb(189, 0, 0);
+          }
+          .article{
+            display: flex;
+            // flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+          article{
+            // background-color: aqua;
+            width: 30%;
+            form{
+              width: 100%;
+              padding: 20px 10px;
+              img{
+                width: 234px;
+              }
+            h4{
+              text-align: left;
+              padding: 10px;
+            }
+            }
+          }
+        }
+      }
+    }
+  }
+}

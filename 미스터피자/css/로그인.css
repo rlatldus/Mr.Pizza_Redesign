@@ -1,0 +1,91 @@
+/*여백초기화*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/*테두리없앰*/
+fieldset {
+  border: 0;
+}
+/*제목숨김-보일 수 있지만 숨김*/
+/*세로정렬*/
+label,
+input,
+select {
+  vertical-align: middle;
+}
+
+legend {
+  display: none;
+}
+/*기본 링크 스타일*/
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+a:focus {
+  color: black;
+  text-decoration: none;
+}
+/*로그인영역*/
+section.login {
+  width: 300px;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+}
+/*로그인제목*/
+section.login h3 {
+  background-color: rgb(27, 27, 27);
+  padding: 5px;
+}
+/*로그인 폼영억*/
+section.login form {
+  width: 300px;
+  background-color: rgb(255, 255, 255);
+}
+form table {
+  width: 290px;
+  border-collapse: collapse;
+  border: 0px solid red;
+  margin: 0 5px;
+}
+
+table td {
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+}
+/*로그인, 비밀번호 입력상자*/
+td button {
+  font-size: 12px;
+  padding: 20px 10px;
+  border: 0;
+  background-color: rgb(76, 76, 76);
+  color: aliceblue;
+}
+table input.box {
+  width: 100px;
+  padding: 5px;
+}
+
+.find {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid violet;
+  background-color: rgb(255, 255, 255);
+  margin: 0 5px;
+}
+
+/* 마진보다 패딩을 쓰기!! */
