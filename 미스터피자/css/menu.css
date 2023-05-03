@@ -44,6 +44,9 @@ h2 {
   display: block;
   color: rgb(186, 13, 13);
 }
+#wrap #header header h1 a img {
+  width: 200px;
+}
 #wrap #header header nav {
   position: absolute;
   right: 0px;
@@ -58,18 +61,25 @@ h2 {
 }
 #wrap #header header nav ul#main li:hover ul.sub {
   height: 100px;
+  box-shadow: 0px 15px 5px -2px rgba(128, 128, 128, 0.585);
 }
 #wrap #header header nav ul#main li a:hover {
   color: red;
 }
 #wrap #header header nav ul#main li ul.sub {
+  background-color: white;
   position: absolute;
   top: 100px;
-  left: -100px;
+  left: 62%;
+  transform: translate(-62%, 0%);
+  width: 100%;
   flex-direction: row;
   overflow: hidden;
-  height: 1px;
+  height: 0px;
   display: flex;
+  padding: 0 30%;
+  border-top: 1px solid black;
+  transition: all 0.5s;
 }
 #wrap #header header nav ul#main li ul.sub li {
   width: 150px;
