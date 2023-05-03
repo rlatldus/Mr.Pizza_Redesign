@@ -3,6 +3,39 @@
   padding: 0;
 }
 
+@keyframes move {
+  0% {
+    height: 0;
+    border-top: 1px solid #dfdfdf;
+  }
+  100% {
+    height: 100px;
+    border-top: 1px solid rgb(248, 193, 91);
+    box-shadow: 0px 15px 5px -2px rgba(199, 198, 198, 0.5843137255);
+  }
+}
+@keyframes moveLi {
+  0% {
+    border: 2px solid rgb(255, 255, 255);
+  }
+  50% {
+    border: 2px solid rgb(255, 255, 255);
+  }
+  100% {
+    border: 2px solid rgb(0, 0, 0);
+  }
+}
+@keyframes moveLiA {
+  0% {
+    color: white;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: rgb(0, 0, 0);
+  }
+}
 a {
   text-decoration: none;
   color: black;
@@ -17,87 +50,105 @@ h2 {
 }
 
 #wrap {
-  margin: 20px 0;
+  padding: 20px 0;
 }
 #wrap #header {
+  align-items: center;
+  vertical-align: middle;
   text-align: center;
-  margin: 0 auto;
   width: 100%;
-  border-bottom: 1px solid black;
 }
 #wrap #header header {
-  left: 50%;
-  transform: translate(-50%, 0%);
+  margin: 0 auto;
+  align-items: center;
   position: relative;
-  width: 1024px;
+  width: 1200px;
   height: 100px;
   font-size: 20px;
   font-weight: bolder;
   display: flex;
+  justify-content: space-between;
 }
 #wrap #header header h1 {
-  position: absolute;
   padding: 20px 0px;
   font-size: 40px;
+  flex: 1;
 }
 #wrap #header header h1 a {
   display: block;
-  color: rgb(186, 13, 13);
+  color: #ba0d0d;
 }
 #wrap #header header h1 a img {
-  width: 200px;
+  width: 180px;
 }
 #wrap #header header nav {
-  position: absolute;
+  flex: 8;
   right: 0px;
 }
 #wrap #header header nav ul#main {
   display: flex;
-  text-align: center;
+  justify-content: center;
 }
 #wrap #header header nav ul#main li {
-  padding: 30px 35px;
-  display: inline-block;
+  margin: 0 15px;
 }
 #wrap #header header nav ul#main li:hover ul.sub {
-  height: 100px;
-  box-shadow: 0px 15px 5px -2px rgba(128, 128, 128, 0.585);
+  animation: move 2s ease alternate forwards;
+}
+#wrap #header header nav ul#main li:hover ul.sub li {
+  animation: moveLi 2s ease alternate forwards;
+}
+#wrap #header header nav ul#main li:hover ul.sub li a {
+  animation: moveLiA 2s ease alternate forwards;
+}
+#wrap #header header nav ul#main li .menu {
+  padding: 20px 0px;
+  flex: 1;
+}
+#wrap #header header nav ul#main li .menu a {
+  line-height: 6.25;
+  font-size: 40px;
 }
 #wrap #header header nav ul#main li a:hover {
   color: red;
 }
 #wrap #header header nav ul#main li ul.sub {
-  background-color: white;
+  background-color: #ffffff;
   position: absolute;
-  top: 100px;
-  left: 62%;
-  transform: translate(-62%, 0%);
-  width: 100%;
-  flex-direction: row;
   overflow: hidden;
-  height: 0px;
+  top: 100px;
+  left: 0px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   display: flex;
-  padding: 0 30%;
-  border-top: 1px solid black;
-  transition: all 0.5s;
+  justify-content: center;
+  height: 0;
 }
 #wrap #header header nav ul#main li ul.sub li {
   width: 150px;
   padding: 10px 0;
   margin: 30px 20px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 25px;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
 }
 #wrap #header header nav ul#main li ul.sub li a {
   font-size: 14px;
   display: block;
+  color: #ffffff;
 }
 #wrap #header header nav ul#main li ul.sub li a:hover li {
   border-color: red;
 }
 #wrap #header header nav ul#main li ul.sub li a:hover {
   color: red;
+}
+#wrap #header header div.menu img {
+  padding: 10px;
+  opacity: 0.8;
+  width: 30px;
+  border: 3px solid rgba(255, 0, 0, 0.966);
+  border-radius: 50%;
 }
 
 main {
