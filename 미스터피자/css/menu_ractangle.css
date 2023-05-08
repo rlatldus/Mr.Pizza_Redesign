@@ -1,17 +1,30 @@
 .edge_list {
-  margin-top: 44px 0 0;
+  margin-top: 50px 0 0;
   justify-content: space-between;
   display: flex;
   padding: 0;
 }
+.edge_list li {
+  width: 100%;
+}
 .edge_list li a {
-  padding: 100px;
+  text-align: left;
+  padding: 10px 0 0 20px;
+  margin: 20px 0;
   display: block;
-  height: 68px;
+  height: 75px;
   border: 1px solid #c7c7c7;
   font-family: NGBold;
   color: #666;
   background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_edge.gif) no-repeat 226px center;
+}
+.edge_list li a p {
+  padding-top: 10px;
+  font-family: NGBold;
+  color: #666;
+}
+.edge_list li a span {
+  color: #ff7400;
 }
 
 /*# sourceMappingURL=menu_ractangle.css.map */
