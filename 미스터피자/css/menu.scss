@@ -3,38 +3,48 @@
   padding: 0;
 }
 
-@keyframes move{
-  0%{
+legend {
+  display: none;
+}
+
+@keyframes move {
+  0% {
     height: 0;
     border-top: 1px solid #dfdfdf;
   }
-  100%{
+
+  100% {
     height: 100px;
     border-top: 1px solid rgb(248, 193, 91);
     box-shadow: 0px 15px 5px -2px #c7c6c695;
   }
 }
 
-@keyframes moveLi{
-  0%{
+@keyframes moveLi {
+  0% {
     border: 2px solid rgb(255, 255, 255);
   }
-  50%{
+
+  50% {
     border: 2px solid rgb(255, 255, 255);
   }
-  100%{
+
+  100% {
     border: 2px solid rgb(0, 0, 0);
   }
 }
-@keyframes moveLiA{
-  0%{
-    color:white
+
+@keyframes moveLiA {
+  0% {
+    color: white
   }
-  50%{
-    color:white
+
+  50% {
+    color: white
   }
-  100%{
-    color:rgb(0, 0, 0)
+
+  100% {
+    color: rgb(0, 0, 0)
   }
 }
 
@@ -49,7 +59,7 @@ li {
 }
 
 h2 {
-  padding: 10px;
+  padding: 50px 10px 10px 10px;
 }
 
 #wrap {
@@ -73,10 +83,12 @@ h2 {
       display: flex;
       justify-content: space-between;
 
-      h1 {
-        padding: 20px 0px;
-        font-size: 40px;
-        flex: 1;
+      div {
+        display: block;
+        width: 164px;
+        height: 45px;
+        background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png)0 0 no-repeat;
+        text-indent: -999em;
 
         a {
           display: block;
@@ -88,7 +100,7 @@ h2 {
           }
         }
       }
-      
+
 
       nav {
         flex: 8;
@@ -97,34 +109,40 @@ h2 {
         ul#main {
           display: flex;
           justify-content: center;
-          
+
           li {
             margin: 0 15px;
 
-            &:hover ul.sub{
+            &:hover ul.sub {
               animation: move 2s ease alternate forwards;
             }
-            &:hover ul.sub li{
-              animation: moveLi 2s ease alternate  forwards;
+
+            &:hover ul.sub li {
+              animation: moveLi 2s ease alternate forwards;
             }
-            &:hover ul.sub li a{
-              animation: moveLiA 2s ease alternate  forwards;
+
+            &:hover ul.sub li a {
+              animation: moveLiA 2s ease alternate forwards;
             }
 
             .menu {
-              padding: 20px 0px;
-              flex: 1;
+              display: inline-block;
+              vertical-align: top;
+              width: 50px;
+              height: 50px;
+              margin-right: 10px;
 
               a {
                 line-height: 6.25;
                 font-size: 40px;
               }
             }
+
             a {
               &:hover {
                 color: red;
               }
-            
+
             }
 
             ul.sub {
@@ -147,8 +165,8 @@ h2 {
                 border: 2px solid rgb(255, 255, 255);
                 border-radius: 25px;
                 background-color: #ffffff;
-                
-                
+
+
                 a {
                   font-size: 14px;
                   display: block;
@@ -170,14 +188,14 @@ h2 {
           }
         }
       }
-      div.menu{
-        img{
-          padding: 10px;
-        opacity: 0.8;
-        width: 30px; 
-        border: 3px solid rgba(255, 0, 0, 0.966);
-        border-radius: 50%;
-      }
+
+      div.menu {
+        display: inline-block;
+        vertical-align: top;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png)0 0 no-repeat;
       }
     }
   }
@@ -185,55 +203,66 @@ h2 {
 
 main {
   width: 100%;
+  border-top: 1px solid #cccccc;
 
   #section {
+
+    // NOTE 왼쪽
     margin: 0 auto;
     width: 1024px;
 
     #left {
+      //left
       display: flex;
 
-      section {
+      section.right_menu1 {
+        padding-top: 0px;
         margin: 20px;
-        width: 300px;
-        height: 100vh;
-        // background-color: azure;
+        // width: 300px;
+        // height: 100vh;
+
 
         ul {
-
-          li {
-
-            margin: 10px;
-            padding: 10px;
-            width: 180px;
-            border: 2px solid rgb(0, 0, 0);
-          }
-        }
-
-        form {
-          width: 180px;
+          
+          width: 100%;
           margin: 10px;
-          // padding: 20px;
-          border: 1px solid black;
-
-          h3 {
-            // padding: 20px;
-
-            background-color: rgb(201, 201, 201);
-
-          }
-
-          fieldset {
-
-            legend {
-              display: none;
-
-              input {
-                padding: 20px;
-
+          li{
+            width: 200px;
+            margin-bottom: 8px;
+            display: list-item;
+            text-align: -webkit-match-parent;
+              a{
+                display: block;
+                padding: 10px 23px 10px 18px;
+                border: 1px solid #cccccc;
+                font-size: 15px;
+                font-family: NGBold;
+                color: #666666;
+              background: url(../image/bg_lnbActive2On.gif) no-repeat 170px center;
               }
             }
+          
+        }
 
+        form.menual {
+          width: 200px;
+          margin: 10px;
+
+          fieldset {
+            margin-top: 50px;
+            border: 1px solid  #eeeeee;
+            h3 {
+              padding: 0 14px;
+              line-height: 43px;
+              background: #eeeeee;
+              font-size: 16px;
+            }
+
+            input {
+              padding: 20px;
+              margin: 10px;
+
+            }
 
           }
 
@@ -241,40 +270,68 @@ main {
       }
     }
 
-    //TODO두번째 세[ㄱ션
+    //NOTE 두번째 세[ㄱ션
     #right {
       width: 100%;
       text-align: center;
 
       section {
         width: 100%;
-
-        h2 {
-          color: rgb(189, 0, 0);
+        .titlename{ ////FIXME 여기
+        .name {
+          padding: 40px 0 0 0;
+          line-height: 26px;
+          font-size: 26px;
+          color: #cb1919;
+          text-align: center;
         }
-
+        p{margin-top: 10px;
+          font-size: 16px;
+          text-align: center;
+          padding: 0 0 30px 0;
+      }
+      }
         .article {
-          display: flex;
-          // flex-direction: column;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          align-content: space-around;
+          form {
+            display: flex;
+            width: 100%;
+            margin: 0 auto;
+            // flex-direction: column;
+            flex-wrap: wrap;
+            justify-content:center;
+                border-top: 1px solid rgb(194, 194, 194);
+                align-content: space-around;
+            
+            fieldset {
 
-          article {
-            // background-color: aqua;
-            width: 30%;
-
-            form {
+              margin: 30px 0;
+              border: 0;
+              display: flex;
+              height: 100%;
               width: 100%;
-              padding: 20px 10px;
+              flex-wrap: wrap;
+              // justify-content: space-between;
 
-              img {
-                width: 234px;
-              }
+              article {
+                border: 1px solid rgb(194, 194, 194);
+                margin: 0.5%;
+                background-color: rgb(255, 255, 255);
+                width: 32%;
 
-              h4 {
-                text-align: left;
-                padding: 10px;
+                img {
+                  width: 90%;
+                  margin-top: 5%;
+                }
+
+                h4 {
+                  text-align: left;
+                  padding: 10px;
+                }
+
+                .input {
+                  // background-color: #ba0d0d;
+                  padding: 10px;
+                }
               }
             }
           }

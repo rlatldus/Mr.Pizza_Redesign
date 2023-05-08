@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+legend {
+  display: none;
+}
+
 @keyframes move {
   0% {
     height: 0;
@@ -46,7 +50,7 @@ li {
 }
 
 h2 {
-  padding: 10px;
+  padding: 50px 10px 10px 10px;
 }
 
 #wrap {
@@ -69,16 +73,18 @@ h2 {
   display: flex;
   justify-content: space-between;
 }
-#wrap #header header h1 {
-  padding: 20px 0px;
-  font-size: 40px;
-  flex: 1;
+#wrap #header header div {
+  display: block;
+  width: 164px;
+  height: 45px;
+  background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
+  text-indent: -999em;
 }
-#wrap #header header h1 a {
+#wrap #header header div a {
   display: block;
   color: #ba0d0d;
 }
-#wrap #header header h1 a img {
+#wrap #header header div a img {
   width: 180px;
 }
 #wrap #header header nav {
@@ -102,8 +108,11 @@ h2 {
   animation: moveLiA 2s ease alternate forwards;
 }
 #wrap #header header nav ul#main li .menu {
-  padding: 20px 0px;
-  flex: 1;
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 #wrap #header header nav ul#main li .menu a {
   line-height: 6.25;
@@ -143,16 +152,18 @@ h2 {
 #wrap #header header nav ul#main li ul.sub li a:hover {
   color: red;
 }
-#wrap #header header div.menu img {
-  padding: 10px;
-  opacity: 0.8;
-  width: 30px;
-  border: 3px solid rgba(255, 0, 0, 0.966);
-  border-radius: 50%;
+#wrap #header header div.menu {
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
 }
 
 main {
   width: 100%;
+  border-top: 1px solid #cccccc;
 }
 main #section {
   margin: 0 auto;
@@ -161,30 +172,46 @@ main #section {
 main #section #left {
   display: flex;
 }
-main #section #left section {
+main #section #left section.right_menu1 {
+  padding-top: 0px;
   margin: 20px;
-  width: 300px;
-  height: 100vh;
 }
-main #section #left section ul li {
+main #section #left section.right_menu1 ul {
+  width: 100%;
   margin: 10px;
-  padding: 10px;
-  width: 180px;
-  border: 2px solid rgb(0, 0, 0);
 }
-main #section #left section form {
-  width: 180px;
+main #section #left section.right_menu1 ul li {
+  width: 200px;
+  margin-bottom: 8px;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+main #section #left section.right_menu1 ul li a {
+  display: block;
+  padding: 10px 23px 10px 18px;
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  font-family: NGBold;
+  color: #666666;
+  background: url(../image/bg_lnbActive2On.gif) no-repeat 170px center;
+}
+main #section #left section.right_menu1 form.menual {
+  width: 200px;
   margin: 10px;
-  border: 1px solid black;
 }
-main #section #left section form h3 {
-  background-color: rgb(201, 201, 201);
+main #section #left section.right_menu1 form.menual fieldset {
+  margin-top: 50px;
+  border: 1px solid #eeeeee;
 }
-main #section #left section form fieldset legend {
-  display: none;
+main #section #left section.right_menu1 form.menual fieldset h3 {
+  padding: 0 14px;
+  line-height: 43px;
+  background: #eeeeee;
+  font-size: 16px;
 }
-main #section #left section form fieldset legend input {
+main #section #left section.right_menu1 form.menual fieldset input {
   padding: 20px;
+  margin: 10px;
 }
 main #section #right {
   width: 100%;
@@ -193,27 +220,51 @@ main #section #right {
 main #section #right section {
   width: 100%;
 }
-main #section #right section h2 {
-  color: rgb(189, 0, 0);
+main #section #right section .titlename .name {
+  padding: 40px 0 0 0;
+  line-height: 26px;
+  font-size: 26px;
+  color: #cb1919;
+  text-align: center;
 }
-main #section #right section .article {
+main #section #right section .titlename p {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  padding: 0 0 30px 0;
+}
+main #section #right section .article form {
   display: flex;
+  width: 100%;
+  margin: 0 auto;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  border-top: 1px solid rgb(194, 194, 194);
   align-content: space-around;
 }
-main #section #right section .article article {
-  width: 30%;
-}
-main #section #right section .article article form {
+main #section #right section .article form fieldset {
+  margin: 30px 0;
+  border: 0;
+  display: flex;
+  height: 100%;
   width: 100%;
-  padding: 20px 10px;
+  flex-wrap: wrap;
 }
-main #section #right section .article article form img {
-  width: 234px;
+main #section #right section .article form fieldset article {
+  border: 1px solid rgb(194, 194, 194);
+  margin: 0.5%;
+  background-color: rgb(255, 255, 255);
+  width: 32%;
 }
-main #section #right section .article article form h4 {
+main #section #right section .article form fieldset article img {
+  width: 90%;
+  margin-top: 5%;
+}
+main #section #right section .article form fieldset article h4 {
   text-align: left;
+  padding: 10px;
+}
+main #section #right section .article form fieldset article .input {
   padding: 10px;
 }
 
