@@ -117,15 +117,15 @@ li {
             margin: 0 15px;
 
             &:hover ul.sub {
-              animation: move 2s ease alternate forwards;
+              animation: move 1s ease alternate forwards;
             }
 
             &:hover ul.sub li {
-              animation: moveLi 2s ease alternate forwards;
+              animation: moveLi 1s ease alternate forwards;
             }
 
             &:hover ul.sub li a {
-              animation: moveLiA 2s ease alternate forwards;
+              animation: moveLiA 1s ease alternate forwards;
             }
 
             .menu {
@@ -353,10 +353,12 @@ li {
 
                   .r_line {
                     display: none; // FIXME
+                    // overflow: hidden;
                     position: absolute;
                     top: 0px;
                     left: 0px;
                     width: 100%;
+                    // height: 0;
                     height: 518px;
                     border: 2px solid #cb1919;
                     background-color: white;
@@ -388,12 +390,14 @@ li {
                   }
 
                   .menu_ops {
-                    display: none; //FIXME
+                    // display: none; //FIXME
                     position: absolute;
                     left: 2px;
-                    top: 50px;
+                    top: 280px;
                     width: 255px;
-                    background-color: white;
+                    height: 0;
+                    overflow: hidden;
+                    // background-color: white;
 
                     p {
 
@@ -408,7 +412,7 @@ li {
                     }
 
                     .gold {
-                      display: none;
+                      // display: none;
                       position: absolute;
                       left: 9px;
                       top: 35px;

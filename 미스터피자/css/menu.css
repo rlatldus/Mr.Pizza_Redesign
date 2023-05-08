@@ -98,13 +98,13 @@ li {
   margin: 0 15px;
 }
 #wrap #header header nav #main li:hover ul.sub {
-  animation: move 2s ease alternate forwards;
+  animation: move 1s ease alternate forwards;
 }
 #wrap #header header nav #main li:hover ul.sub li {
-  animation: moveLi 2s ease alternate forwards;
+  animation: moveLi 1s ease alternate forwards;
 }
 #wrap #header header nav #main li:hover ul.sub li a {
-  animation: moveLiA 2s ease alternate forwards;
+  animation: moveLiA 1s ease alternate forwards;
 }
 #wrap #header header nav #main li .menu {
   display: inline-block;
@@ -295,12 +295,12 @@ li {
   padding: 8px;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops {
-  display: none;
   position: absolute;
   left: 2px;
-  top: 50px;
+  top: 280px;
   width: 255px;
-  background-color: white;
+  height: 0;
+  overflow: hidden;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops p a {
   display: block;
@@ -310,7 +310,6 @@ li {
   background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold {
-  display: none;
   position: absolute;
   left: 9px;
   top: 35px;
