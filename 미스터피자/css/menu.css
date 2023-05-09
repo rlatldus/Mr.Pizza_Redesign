@@ -310,21 +310,24 @@ li {
   background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold {
+  z-index: 10;
   position: absolute;
   left: 9px;
   top: 35px;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold li {
-  padding: 5px 0;
   width: 237px;
   border: 1px solid #e2e2e2;
   background: #fff;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold li a {
   display: block;
-  line-height: 33px;
+  line-height: 30px;
   padding: 0 10px;
   background: #fafafa;
+}
+#wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold li a:hover {
+  background: #e4e4e4;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn {
   margin-top: 30px;
@@ -337,10 +340,50 @@ li {
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li {
   width: 33.3%;
 }
-#wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li a {
+#wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .aaa {
+  position: relative;
+  margin-left: -1px;
+  border: 1px solid #cccccc;
+  text-indent: -9999em;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: NGBold;
+  color: #cb1919;
   padding: 15px 0px;
   display: block;
-  border: 1px solid #e2e2e2;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .b {
+  position: relative;
+  margin-left: -1px;
+  border: 1px solid #cccccc;
+  text-indent: -9999em;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: NGBold;
+  color: #cb1919;
+  padding: 15px 0px;
+  display: block;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .c {
+  position: relative;
+  margin-left: -1px;
+  border: 1px solid #cccccc;
+  text-indent: -9999em;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: NGBold;
+  color: #cb1919;
+  padding: 15px 0px;
+  display: block;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_text {
   padding: 10px 0;
