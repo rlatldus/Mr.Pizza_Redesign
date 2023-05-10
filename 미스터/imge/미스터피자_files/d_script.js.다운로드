@@ -1,0 +1,585 @@
+/*
+    2014.04 ~
+    author :  an.hyo-ju ( anoju@cntt.co.kr ) in CNTT
+*/
+
+$(function(){ 
+	pageTitle();
+	lnbActive();
+	headActive();
+	formStyle();
+	inputFile();
+	headerUi();
+	layerCtrl();
+	slideCtrl();
+	tapMotion();
+	quickBtn();
+	fixedMotion();
+	menuView();
+
+	topBtn();
+	snsCtrl();
+	etcCtrl();
+	scrollItem()
+	//placeholder
+	$(":input[placeholder]").placeholder();
+
+
+});
+function headerUi() {
+	$('.btn_gnb').click(function(){
+		$('body').toggleClass('gnb_open');
+	})
+	$('.lang_wrap button').click(function(){
+		$('.lang_list').slideToggle();
+	})
+}
+
+/* page title */
+function pageTitle(){
+	var titTxt = $('#location > li > strong').text();
+
+	if($('#list_tit').size() > 0){
+		titTxt =  $('#list_tit').text();
+		document.title = titTxt + ' | 미스터피자 World champ';
+	}else if($('#location').size() > 0){
+		document.title = titTxt + ' | 미스터피자 World champ';
+	}
+}
+
+
+/*lnb*/
+function lnbActive(){
+	var lnbTxt = $('#lnb a');
+	var mlnbTxt = $('#menu_lnb a');
+	var current = $.trim($('#location > li > strong').text());
+	
+	if($('#lnb').size() > 0){
+		lnbTxt.each(function() {
+			 if ( $(this).text() == current) {
+				$(this).parents('li').addClass('active');
+			}
+		});
+	}
+
+	if($('#menu_lnb').size() > 0){
+		mlnbTxt.each(function() {
+			 if ( $(this).text() == current) {
+				$(this).parent().addClass('active');
+			}
+		});
+	} 
+	$(window).load(function(){
+		var $locaTxt = $(document).find('#location_title').text()
+			$menuName = $('.menu_category').find('a');
+		$menuName.each(function(){
+			if($(this).text() == $locaTxt){
+				$(this).addClass('on');
+			}
+		})
+	})
+	
+}
+
+
+/*장바구니*/
+function quickBtn(){
+
+	$('.quick_menu .inBox > a').click(function(){
+		$(this).parent().toggleClass('on').siblings().removeClass('on');
+		//수정 장바구니 안열려있을때만 처리하도록
+		if($('.quick_cart').parent().hasClass('on') != true && $('.quick_order').parent().hasClass('on') != true && $('.quick_good').parent().hasClass('on') != true) {
+			$(this).next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+		}
+		//$(this).next().toggle(500).parent().siblings().children('.quick_box').hide(500);		
+		return false;
+	});
+
+	$('.q_close').click(function(){		
+		var box =$(this).parents('.quick_box');
+		box.hide(500,function(){
+			box.prev().focus();
+			$(this).parents('.inBox').removeClass('on');
+		});
+		return false;
+	});
+
+	$('.cart_open').click(function(){
+		$('.quick_cart').trigger('click');
+		return false;
+	});
+	
+	$('.q_navi a').click(function(){
+		var idx = $(this).index();
+		$(this).addClass('on').siblings().removeClass('on');
+		$('.q_best_wrap > div').stop().animate({left: -(idx * 385)})
+		return false;
+	});	
+
+	if($('#quick').size() > 0){
+		$(window).scroll(function(){
+			var top = $(this).scrollTop();
+			if( top > 0){				
+				$('#quick').addClass('top');
+			}else{
+				$('#quick').removeClass('top');
+			}
+		});
+	}
+	
+	//퀵 메뉴 라디오
+	$('.q_rdoList li label').click(function(){
+		if(!$(this).hasClass('disabled')){
+			$(this).parent().addClass('on').siblings().removeClass('on');
+		}
+	});
+}
+
+
+/*폼요소*/
+function formStyle(){
+	$('label .checkbox,label .radio').focus(function(){
+		$(this).parent().addClass('hover');
+	}).blur(function(){
+		$(this).parent().removeClass('hover');
+	});
+
+	if($('.spinner').size() > 0){
+		$( '.spinner' ).spinner({
+			min: 0,
+			max: 9,
+			create: function( event, ui ) {
+				//add custom classes and icons
+				//수정
+				$(this)
+				.next().addClass('btnPlus').html('<i class="icon icon-plus"></i>')
+				.next().addClass('btnMinus').html('<i class="icon icon-minus"></i>')
+				//$(this)
+				//.next().html('<i class="icon icon-plus"></i>')
+				//.next().html('<i class="icon icon-minus"></i>')
+			}
+		});
+		/*
+		$('.datepicker').focus(function(){
+			$(this).next().trigger('click');
+		});
+		*/
+	}
+	
+	//추가
+	$('.btnPlus').click(function(){
+		//alert('1');
+		//alert($(this).parents('.small_spin').find('#pro_plus').val());
+		var data = $(this).parents('.small_spin').find('#pro_plus').val();
+		var spinner = $( ".spinner" ).spinner();
+		
+		spinner.spinner( "disable" );		//수량 증가시 이중클릭 못하도록 spinner disable
+		cartProductQuantity(data, this, 'plus', spinner);
+		//alert($(this).prev().val());
+	});
+	
+	//추가
+	$('.btnMinus').click(function(){
+		//alert('2');
+		//alert($(this).parents('.small_spin').find('#pro_minus').val());
+		var data = $(this).parents('.small_spin').find('#pro_minus').val();
+		var spinner = $( ".spinner" ).spinner();
+		
+		spinner.spinner( "disable" );		//수량 증가시 이중클릭 못하도록 spinner disable
+		cartProductQuantity(data, this, 'minus', spinner);
+		//alert($(this).prev().prev().val());
+	});
+
+	if($('.datepicker').size() > 0){
+		$( '.datepicker' ).datepicker({
+			closeText: '닫기',
+			prevText: '이전달',
+			nextText: '다음달',
+			currentText: '오늘',
+			monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+			dayNamesMin: ['일','월','화','수','목','금','토'],
+			dateFormat: 'yy.mm.dd',
+			showMonthAfterYear: true,
+			showOn: 'button',
+			buttonText: '기간조회'
+		});
+	}
+
+}
+function inputFile(){
+	$('.input_file > input').click(function(){
+		$('.btn_file input').trigger('click');
+	});
+
+	$('.input_file > input').focus(function(){
+		$('.btn_file input').trigger('click');
+	});
+	
+	$('.btn_file .btn').click(function(e){
+		e.preventDefault();
+		$('.btn_file input').trigger('click');
+	});
+	
+	$('.btn_file input').change(function(){
+		$('.input_file > input').val($(this).val());
+	});
+}
+
+
+/* TOP 버튼 */
+function topBtn() {
+    $('.btn_top').click(function() {
+		$("html,body").animate( {scrollTop:0 }, 500, 'easeInOutQuart' );
+		return false;
+    });
+}
+
+
+/* Tap */
+function tapMotion(){	
+	$('.tabMotion a').click(function() {
+		var href = $(this).attr('href');		
+		$(href).show().siblings('.tab_cont').hide();;
+		$(this).parent().addClass('on').siblings().removeClass('on');
+		return false;
+    });
+
+	if($('.tabMotion').size() > 0){
+		$('.tabMotion').each(function() {
+			$(this).children('li').eq(0).children('a').trigger('click');	
+		}); 		
+	}
+}
+
+
+/*레이어 팝업*/
+ function layerCtrl() {
+    $('.pop_open').click(function() {
+        var _this =$(this);
+        var vCont = _this.attr('href');
+		var mh =  $(vCont).height();
+		//console.log(mh);
+
+        $('#contents').after('<span class=bgLayer></span>');
+        $('.bgLayer').fadeTo('fast', 0.6, function() {
+            $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+                //$(this).attr('tabIndex',0).focus();
+            });
+
+            $(vCont).find('.pop_close').click(function() {
+                $('.bgLayer').remove();               
+				$(this).parents('.pop_layer').hide(300,function(){
+					//$(this).removeAttr('tabindex');
+				});
+                _this.focus();
+				return false;
+            });
+        });		
+		return false;
+    });
+    
+    //추가
+    $('.popLogin_open').click(function() {
+        var _this =$(this);
+        var vCont = _this.attr('href');
+        var mh =  577;
+
+        $('#contents').after('<span class="bgLayer"></span>');
+        $('.bgLayer').fadeTo('fast', 0.6, function() {
+            $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+                $(this).attr('tabIndex',0).focus();
+            });
+
+            $(vCont).find('.pop_close').click(function() {
+                $('.bgLayer').remove();               
+				$(this).parents('.pop_layer').hide(300,function(){
+					$(this).removeAttr('tabindex');
+				});
+                _this.focus();
+				return false;
+            });
+        });		
+		return false;
+    });
+ }
+
+ /* slide */
+ function slideCtrl() {
+    $('.slide_on').click(function() {
+        var _this =$(this);
+        var vCont = _this.next('.slide_box');
+		$(this).parent().toggleClass('on').siblings().removeClass('on');
+		vCont.slideToggle(500).parent().siblings().children('.slide_box').slideUp(500);
+		vCont.find('.slide_off').click(function() {
+			vCont.slideUp(500);
+			$(this).parents('.slide_box').parent().removeClass('on');
+			_this.focus();
+			return false;
+		});		
+		return false;
+    });
+ }
+ 
+function menuView() {
+    //메뉴상세
+    var sliderNum = $('.product_img li').length;
+	if(sliderNum > 1){
+		var slider = $('.product_img > ul').bxSlider({
+			prevText:'이전',
+			nextText:'다음'				
+		});
+	}
+	var sliderNum2 = $('.topping_roll li').length;
+	if(sliderNum2 > 4){
+		var slider = $('.topping_roll > ul').bxSlider({
+			infiniteLoop: false,
+			hideControlOnEnd: true,
+			minSlides: 4,
+			maxSlides: 4,
+			slideWidth: 225,
+			prevText:'이전',
+			nextText:'다음'				
+		});
+	}
+	
+	//엣지옵션			
+	$('.edge a').hover(function(){
+		$(this).parent().addClass('hover').siblings().removeClass('hover');
+	},function(){
+		$(this).parent().removeClass('hover');
+	});
+ }
+
+/* SNS 퍼가기 */
+function snsCtrl(){
+    $('.btn_fb').click(function() {
+        snsLinker(0,$(this));
+        return false;
+    });
+
+    $('.btn_twt').click(function() {
+        snsLinker(1,$(this));
+        return false;
+    });
+
+    $('.btn_m2day').click(function() {
+        snsLinker(2,$(this));
+        return false;
+    });
+};
+
+function snsLinker(idx,tar){
+    var url   = "";
+    var title = document.title;
+	var _this = tar;
+	var link 
+
+	if(_this.hasClass('list_sns')){
+		var linkTxt  = _this.parent().siblings('a').attr('href');
+		link  = 'http://www.kidsnkeys.co.kr' + linkTxt
+	}else{
+		link  = document.location;
+	}
+
+	//console.log(link);
+
+     switch(idx)
+     {
+          //페이스북
+          case 0 : url = "http://www.facebook.com/sharer.php?u="+link+"&t="+encodeURIComponent(title);break;
+          //트위터
+          case 1 : url = "http://twitter.com/home?status="+encodeURIComponent(title)+" : "+link; break;
+          //미투데이
+          case 2 : url = "http://me2day.net/posts/new?new_post[body]='" + encodeURIComponent(title)+"' : "+ link +"&new_post[tags]="+encodeURIComponent("sns달기 테스트"); break;
+     }
+
+     var retPop = window.open(url,'sns','height=500px, width=750px');
+     if(retPop == null){
+          alert("팝업 차단을 사용안함으로 설정해주시기 바랍니다." );
+     }
+     return false;
+}
+
+function fixedMotion(){
+	/*if($('.pay_box').size() > 0){
+		var tip = $('.pay_box').offset().top;
+		var bH = $('body').height();
+		var boxH = $('.pay_box').outerHeight();
+		var a = 353;
+		var b = bH-a-boxH
+		
+		$(window).scroll(function(){
+			var top = $(this).scrollTop();
+			console.log(top,b);
+			if(top > b){
+				$('.pay_box').addClass('bot').removeAttr('style');
+			}else{
+				$('.pay_box').stop().animate({'top':top < tip? 30 : top - tip + 30},100)
+				$('.pay_box').removeClass('bot');					
+			}
+		});
+	}
+	*/
+	
+	if($('.pay_box').size()>0){		
+		var f=$('.pay_box').offset().top;
+		var h=$('.pay_box').position().top;
+		console.log(f,h);
+		$(window).scroll(function(){				
+			var b=$('.pay_box').outerHeight();
+			var d=$('.order_wrap').height();
+			var e=d-b;
+			//console.log(d,b,e,h)
+			var c=$(this).scrollTop();						
+			$('.pay_box').stop().animate({
+				top:c<f?30:c>e+f?e-h+30:c-f+30
+			});
+		});
+	}
+}
+
+/*기타*/
+ function etcCtrl(){
+	//TIP
+	$('.tip').hover(function() {
+		$(this).parents('.tip_box').find('.tip_view').show(300);
+	},function(){
+		$(this).parents('.tip_box').find('.tip_view').hide(300);
+	}).focus(function(){
+		$(this).parents('.tip_box').find('.tip_view').show(300);
+	}).blur(function(){
+		$(this).parents('.tip_box').find('.tip_view').hide(300);
+	});
+
+	//QNA 
+	$('.qna_motion dt a').click(function() {
+		if($(this).parents('.qna_motion').hasClass('tbl_style')){			
+			$(this).parents('tr').toggleClass('on').siblings().removeClass('on')
+			$(this).parent().next().slideToggle(300).parents('tr').siblings().find('dd').slideUp(300);;
+		}else{
+			$(this).parent('dt').toggleClass('on').siblings('dt').removeClass('on')
+			$(this).parent().next().slideToggle(300).siblings('dd').slideUp(300);
+		}		
+		return false;
+	});
+	$('.qna_motion dd .btn_close').click(function() {		
+		$('.qna_motion').find('.on').removeClass('on');
+		$('.qna_motion dd').slideUp(300);
+		return false;
+	});
+
+	//인증수단
+	$('.user_chk > ul > li > a').hover(function(){
+		$(this).parent().addClass('hover');
+		$(this).next().show().parent().siblings().children('div').hide();
+	},function(){
+		$(this).parent().removeClass('hover');
+	});
+
+	$('.user_chk > ul > li > a').focus(function(){
+		$(this).parent().addClass('hover');
+		$(this).next().show().parent().siblings().children('div').hide();
+	}).blur(function(){
+		$(this).parent().removeClass('hover');
+	});
+	
+	
+	//인쇄
+	$('.btn_print .button').click(function() {
+		window.print();
+		return false;
+	})
+	
+	//피자 스페셜
+	$('.chise_special .button').click(function() {
+		$('.chise_special_view').slideDown(500);
+		return false;
+	});
+	
+	$('.chise_special_view .btn_close').click(function() {
+		$('.chise_special_view').slideUp(500);
+		return false;
+	});
+
+ }
+ 
+ 
+ /*lnb*/
+ function headActive(){
+ 	//gnb
+ 	var $header = $('#header');
+ 	var gnbTxt = $('#gnb a');
+ 	var lnbTxt = $('#lnb a');
+ 	var gnbLink = $('#gnb .insub');
+ 	var depth2 = $('#gnb > ul > li > .gnb_box');
+ 	var gnbCurrent = $('#lnb h1').text();
+ 	var lnbCurrent = $('#location strong').text();
+
+ 	//gnb in
+     gnbLink.on('mouseenter focus',function() {
+ 		if (!$('.bg_gnb').hasClass('on')){
+ 			$('.bg_gnb').addClass('on');
+ 			$('.bg_gnb').stop().slideDown(300);
+ 		}
+ 		depth2.removeClass('on');
+ 		$(this).next('.gnb_box').addClass('on').find('a').stop().css({top:-39}).animate({top:0},300,function(){
+ 			$(this).removeAttr('style')
+ 		});
+     });
+
+ 	//gnb out
+     $header.on('mouseleave',function() {
+        depth2.removeClass('on');
+ 	   $('.bg_gnb').removeClass('on').stop().slideUp(300);
+     });
+
+ 	$('#header a').blur(function() {
+ 		setTimeout(function(){
+ 			if( !$('#header a').is(':focus') ) {
+ 				depth2.removeClass('on');				
+ 				$('.bg_gnb').removeClass('on').stop().slideUp(300);
+ 			}
+ 		},10);
+     });
+ }
+	
+//scroll-animation
+ function scrollItem(){
+   var $elements = $.find('*[data-animation]'),
+ 	  $window = $(window);
+  
+   if($elements.length > 0){
+ 	  $(window).on('scroll resize', checkInView);
+ 	  $(window).trigger('scroll');
+   };
+
+   function checkInView() {
+     var $winHeight = $window.height(),
+ 		$scrollTop = $window.scrollTop(),
+ 		$winBottom = ($scrollTop + $winHeight);
+
+     $.each($elements, function() {
+       var $el = $(this),
+ 		  $elHeight = $($el).outerHeight(),
+ 		  $elTop = $($el).offset().top,
+ 		  $elBottom = ($elTop + $elHeight),
+ 		  $animationClass = $el.data('animation'),
+ 		  $delay = $el.data('delay'),
+ 		  $duration = $el.data('duration');
+
+ 	  if(!$el.hasClass('animated')){
+ 		if($delay>0){
+ 			$el.css({
+ 				'-webkit-animation-delay':$delay+'ms',
+ 				'animation-delay':$delay+'ms'
+ 			})
+ 		}
+ 		$el.addClass('animated');
+ 	  }
+ 		
+       if (($elBottom >= $scrollTop) && ($elTop <= $winBottom)) {
+         $el.addClass($animationClass);
+       }
+     });
+   }
+ }

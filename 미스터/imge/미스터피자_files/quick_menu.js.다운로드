@@ -1,0 +1,881 @@
+//----------------------------------------------------
+// 퀵메뉴 - 장바구니 열기
+//----------------------------------------------------
+function cartOpen() {
+
+	var date = new Date();
+	
+	var dummy = String(date.getFullYear())+String(date.getMonth()+1)+String(date.getDate())+String(date.getHours())+String(date.getMinutes())+String(date.getSeconds());
+	
+	//장바구니 퀵메뉴가 열리지 않을때만 장바구니 정보 갱신
+	if($('.quick_cart').parent().hasClass('on') != true) {
+		$('#quick').load("/order/quickCartOpen?dummy="+dummy);
+	}
+	
+	//$('#quickCart').html("");
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 장바구니 열기(제품 수량 변경 또는 삭제 시)
+//----------------------------------------------------
+function cartOpenNontoggle() {
+	
+	var date = new Date();
+	
+	var dummy = String(date.getFullYear())+String(date.getMonth()+1)+String(date.getDate())+String(date.getHours())+String(date.getMinutes())+String(date.getSeconds());
+	
+	//장바구니 퀵메뉴가 열리지 않을때만 장바구니 정보 갱신
+	if($('.quick_cart').parent().hasClass('on') != true) {
+		$('#quick').load("/order/quickCartOpenNontoggle?dummy="+dummy);
+	}
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 재주문
+//----------------------------------------------------
+function reOrderOpen() {
+
+	if($('.quick_order').parent().hasClass('on') != true) {
+		$('#quick').load("/order/reOrderOpen");
+	}
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 추천메뉴
+//----------------------------------------------------
+function recommendOpen() {
+	
+	if($('.quick_good').parent().hasClass('on') != true) {
+		$('#quick').load("/order/recommendOpen");
+	}
+}
+
+//----------------------------------------------------
+//추천메뉴 제품 상세보기 이동
+//----------------------------------------------------
+function go_recommendProduct_detail(key, gubun) {
+
+	var frm = null;
+	frm = document.getElementById("recommendForm");
+	
+	frm.product_key.value = key;
+	frm.product_gubun.value = gubun;
+	
+	//alert(frm.product_key.value + '||' + frm.product_gubun.value);
+	
+	frm.action = "/menu/productView";
+	frm.method = "post";
+	frm.target = "_self";
+	frm.submit();
+	
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 재주문(그대로 주문하기 전 장바구니 초기화)
+//----------------------------------------------------
+function getOrderDataUse(order_id, period) {
+		
+	$.ajax({
+		type: "POST",
+		url: "/order/directOrderPrevDelete",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			//alert(data);
+			var result = data;
+			
+			switch(result)
+			{
+				case "ORDER_ID_NONE":
+				case "SUCCESS":
+					setReOrderData(order_id, period);
+					break;
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 재주문(그대로 주문하기)
+//----------------------------------------------------
+function setReOrderData(order_id, period) {
+	
+	var params = {
+		call_order_id : order_id,
+		period : period
+	};
+	
+	$.ajax({
+		type: "POST",
+		url: "/order/setReOrderData",
+		data: params,
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			//alert(data);
+			var result = data;
+			
+			switch(result)
+			{
+				case "SUCCESS":
+					//alert("장바구니에 담았습니다.");
+					$('.pop_close').trigger('click');
+					cartOpen();
+					
+					setTimeout(function(){					// 장바구니 담고 2초후 닫기
+						//$('.quick_cart').trigger('click');
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+				    },2000);
+					break;
+				case "ERROR_DATA_NONE":
+					$('.pop_close').trigger('click');
+					alert("이전 주문내역 중 무료제품 제외한 재주문 가능한 상품이 없습니다.");
+					break;
+				case "NOT_SALE_PRODUCT":
+					$('.pop_close').trigger('click');
+					alert('스마티피자, 날씬특가메뉴, 허니세트메뉴\n전품목 배달주문 일시 중단(`15. 12. 10 ~ `16. 3월 중)');
+					break;
+				default:
+					$('.pop_close').trigger('click');
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + result);
+					break;
+				
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 장바구니 제품 수량 조절
+//----------------------------------------------------
+function cartProductQuantity(data, object, qty_type, spinner) {
+	//alert(data);
+	
+	var temp = '';
+	var class_id = '';
+	var base_id = '';
+	var size_id = '';
+	var product_id = '';
+	var qty_flag = '';
+	var order_seq = 0;
+	
+	if(data != null && data != undefined)
+		temp = data.split('|||');
+	
+	class_id = temp[0];
+	base_id = temp[1];
+	size_id = temp[2];
+	product_id = temp[3];
+	qty_flag = temp[4];
+	order_seq = temp[5];
+	
+	/*순살치킨 무료 2017-11-31까지 사용예정*/
+	if(class_id+""+base_id+""+size_id+""+product_id == "0205010070" && qty_flag == "P" ){
+		alert("[무료]순살치킨은 수량조절이 불가능합니다.");
+		$(object).prev().val(Number($(object).prev().val())-1);
+		spinner.spinner( "enable" );
+		return false;
+	}
+	
+	if((class_id+""+base_id+""+size_id+""+product_id == "0202020240" 
+		|| class_id+""+base_id+""+size_id+""+product_id == "0203020220"
+		|| class_id+""+base_id+""+size_id+""+product_id == "0204023290"
+		|| class_id+""+base_id+""+size_id+""+product_id == "0201020200") && qty_flag == "P" ) {
+		alert("[반값]사이드 대상 제품은 수량조절이 불가능합니다.");
+		$(object).prev().val(Number($(object).prev().val())-1);
+		spinner.spinner( "enable" );
+		return false;
+	}
+
+	var params = {
+		class_id : class_id,
+		base_id : base_id,
+		size_id : size_id,
+		product_id : product_id,
+		qty_flag : qty_flag,
+		order_seq : order_seq
+	};
+	
+	$.ajax({
+		type: "POST",
+		url: "/order/cartProductQuantity",
+		data: params,
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			var result = data;
+			
+			switch(result)
+			{
+				case "SUCCESS":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						//$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						//cartOpen();
+						cartOpenNontoggle();
+					}	
+					break;
+				case "SALADALL_NONE":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert('미스터뉴욕 피자 주문시 스파게티 선택가능합니다.\n미스터 뉴욕 피자를 선택해 주세요.');
+					break;
+				case "HomeSalad_NONE":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert('홍크러쉬 또는 로열홍새우 피자 주문시 [무료]홈샐러드가 증정됩니다.\n홍크러쉬 또는 로열홍새우 피자를 선택해 주세요.');
+					break;					
+				case "SALADALL_OVER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					//alert("피자 1판당 샐러드 1개 선택 가능합니다.\n선택하신 샐러드 수량을 확인해 주시기 바랍니다.");
+					//alert('주문 1건당 스파게티 1개 선택 가능합니다.\n선택하신 스파게티 수량을 확인해 주시기 바랍니다.');
+					alert('[무료]생생페스타는 프리미엄 피자 한판당 1개 선택 가능합니다.\n선택하신 프리미엄 피자 수량을 확인해 주시기 바랍니다.');
+					break;
+				case "FESTA_OVER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					//alert("피자 1판당 샐러드 1개 선택 가능합니다.\n선택하신 샐러드 수량을 확인해 주시기 바랍니다.");
+					//alert('주문 1건당 스파게티 1개 선택 가능합니다.\n선택하신 스파게티 수량을 확인해 주시기 바랍니다.');
+					alert('이벤트 피자 한판당 1개 선택 가능합니다.\n선택하신 이벤트 피자 수량을 확인해 주시기 바랍니다.');
+					break;
+				case "NewMenuSide_OVER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9) {
+							$(object).prev().val(Number($(object).prev().val())-1);
+							cartPlusCalc(object);
+						}
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+							cartMinusCalc(object);
+					}
+					spinner.spinner( "enable" );
+					alert('신제품 1개당 [반값]사이드 1개 선택 가능합니다.\n선택하신 신제품 수량을 확인해 주시기 바랍니다.');
+					break;
+				case "PRINGLES_OVER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					//alert("피자 1판당 샐러드 1개 선택 가능합니다.\n선택하신 샐러드 수량을 확인해 주시기 바랍니다.");
+					//alert('주문 1건당 스파게티 1개 선택 가능합니다.\n선택하신 스파게티 수량을 확인해 주시기 바랍니다.');
+					alert('[무료]프링글스는 홈런박스 한판당 1개 선택 가능합니다.\n선택하신 홈런박스 수량을 확인해 주시기 바랍니다.');
+					break;
+				case "SALAD_REGULAR_OVER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("치킨 증정 대상 피자보다 홈샐러드 갯수가 많습니다.\n홈샐러드 수량을 확인해 주시기 바랍니다.");
+					break;
+				case "SALAD_LARGE_OVER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("치킨 증정 대상 피자보다 순살치킨 갯수가 많습니다.\n순살치킨 수량을 확인해 주시기 바랍니다.");
+					break;
+				case "COUPON_ALREADY_USE":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("쿠폰이 적용된 메뉴입니다.");
+					break;
+				case "PIZZA_OVER_5_CALL_CENTER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("피자6판 이상 주문 시\n콜센터(1577-0077)로 주문하시기 바랍니다.");
+					break;
+				case "CART_OVER_20":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("장바구니에 20개 이상 담으실수 없습니다.");
+					break;
+				case "ITEM_MAXIMUM_9":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("최대 9개까지 가능합니다.");
+					break;
+				case "ITEM_MAXIMUM_5":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 5) {
+							$(object).prev().val(Number($(object).prev().val())-1);
+						}
+					} else if(qty_type == 'minus') {
+						$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("최대 5개까지 가능합니다.");
+					break;
+				case "ERROR_APPLY_TOPPING_NONE":
+					alert("토핑을 추가할 제품이 없습니다.");
+					$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+					cartOpenNontoggle();
+					break;	
+				case "TOPPING_OVER_5":
+					alert("토핑은 피자 한판 당 최대 5개까지만 추가할 수 있습니다.");
+					$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+					cartOpenNontoggle();
+					break;
+				case "PIZZA_SAND_TOPPING_OVER":
+					if(qty_type == 'plus') {
+						if(Number($(object).prev().val()) < 9)
+							$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+							$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					alert("토핑은 피자샌드 1개당 1개만 추가할 수 있습니다.");
+					spinner.spinner( "enable" );
+					break;
+				case "BCSET_QTY_OVER":
+					if(qty_type == 'plus') {
+						$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+						$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert('BC세트는 수량조절이 불가합니다.');
+					break;
+				case "PIZZA_OVER_SAMSUNG_SET":
+					if(qty_type == 'plus') {
+						$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+						$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert('삼성카드 포장 1+1 이벤트는 1회 주문 시 2판까지만 구매 가능합니다.(피자 총 4판 수령)');
+					break;
+				default:
+					if(qty_type == 'plus') {
+						$(object).prev().val(Number($(object).prev().val())-1);
+					} else if(qty_type == 'minus') {
+						$(object).prev().prev().val(Number($(object).prev().prev().val())+1);
+					}
+					spinner.spinner( "enable" );
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + result);
+					break;
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 장바구니 제품 삭제
+//----------------------------------------------------
+function cartProductDel(class_id, base_id, size_id, product_id, order_seq) {
+	
+	if(order_seq == null || order_seq == undefined)
+		order_seq = 0;
+	
+	var params = {
+		class_id : class_id,
+		base_id : base_id,
+		size_id : size_id,
+		product_id : product_id,
+		order_seq : order_seq
+	};
+	
+	$.ajax({
+		type: "POST",
+		url: "/order/cartProductDel",
+		data: params,
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			var result = data;
+			
+			switch(result)
+			{
+				case "SUCCESS":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						//$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						//cartOpen();
+						cartOpenNontoggle();
+					}	
+					break;
+				default:
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + result);
+					break;
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 장바구니 가기
+//----------------------------------------------------
+function goCart() {
+	//alert('장바구니');
+	//$('.popLogin_open').trigger('click');
+	$.ajax({
+		type: "POST",
+		url: "/order/goCartCheck",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			var result = data;
+			
+			switch(result)
+			{
+				case "ITEM_ZERO":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						
+						alert('장바구니에 제품이 없습니다.\n장바구니에 제품을 담아주세요.');
+					}	
+					break;
+				case "SHORTFALL_IN_AMOUNT":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						
+						cartOpen();		//장바구니 갱신
+						
+						setTimeout(function(){					// 장바구니 담고 2초후 닫기
+							//$('.quick_cart').trigger('click');
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+					    },2000);
+						
+					} else {
+						cartOpen();		//장바구니 갱신
+						
+						setTimeout(function(){					// 장바구니 담고 2초후 닫기
+							//$('.quick_cart').trigger('click');
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+					    },2000);
+					}
+					//alert('샐러드메뉴를 제외한 주문금액이\n14,000원 이상이어야 주문이 가능합니다.');
+					//alert('주문금액이 14,000원 이상이어야 주문이 가능합니다.');
+					alert('샐러드메뉴/배달비 제외한 주문금액이\n19,900원 이상이어야 주문이 가능합니다.');
+					break;
+				case "NOT_SALE_PRODUCT":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						
+						cartOpen();		//장바구니 갱신
+						
+						setTimeout(function(){					// 장바구니 담고 2초후 닫기
+							//$('.quick_cart').trigger('click');
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+					    },2000);
+						
+					} else {
+						cartOpen();		//장바구니 갱신
+						
+						setTimeout(function(){					// 장바구니 담고 2초후 닫기
+							//$('.quick_cart').trigger('click');
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+					    },2000);
+					}
+					alert('스마티피자, 날씬특가메뉴, 허니세트메뉴\n전품목 배달주문 일시 중단(`15. 12. 10 ~ `16. 3월 중)');	
+					break;
+				case "NOT_LOGIN":
+					$('.popLogin_open').trigger('click');
+					break;
+				case "NOT_SELECTION_BRANCH":
+					if($('input:radio[name=q_cartRdo]:checked').val() == 'D')
+						setOrderTypeSelection(1, 'move');
+					else if($('input:radio[name=q_cartRdo]:checked').val() == 'P')
+						setOrderTypeSelection(2, 'move');
+					//location.href="/order/deliveryOrder";
+					break;
+				case "SAMSUNGSET_ORDER_TYPE_ERROR":
+					alert("삼성카드 포장 1+1 세트메뉴는 포장주문으로만 주문가능합니다.\n주문유형을 방문포장으로 변경하신 후 진행해주세요.");
+					location.href = "/order/visitOrder";
+					break;
+				case "GO_CART":
+					//location.href="/order/myCart";
+					chkFirstPromotion('/order/myCart');
+					break;
+				default:
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + result);
+					break;
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+//----------------------------------------------------
+//퀵메뉴 - 바로주문
+//----------------------------------------------------
+function goDirectOrder() {
+
+	$.ajax({
+		type: "POST",
+		url: "/order/goDirectOrderCheck",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			var result = data;
+			
+			switch(result)
+			{
+				case "ITEM_ZERO":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						
+						alert('장바구니에 제품이 없습니다.\n장바구니에 제품을 담아주세요.');
+					}	
+					break;
+				case "SHORTFALL_IN_AMOUNT":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+					}
+					//alert('샐러드메뉴를 제외한 주문금액이\n14,000원 이상이어야 주문이 가능합니다.');
+					//alert('주문금액이 14,000원 이상이어야 주문이 가능합니다.');
+					alert('샐러드메뉴/배달비 제외한 주문금액이\n19,900원 이상이어야 주문이 가능합니다.');
+					break;
+				case "NOT_SALE_PRODUCT":
+					// 장바구니 퀵메뉴가 열려있을때
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						
+						alert('스마티피자, 날씬특가메뉴, 허니세트메뉴\n전품목 배달주문 일시 중단(`15. 12. 10 ~ `16. 3월 중)');
+					}	
+					break;
+				case "NOT_LOGIN":
+					$('.popLogin_open').trigger('click');
+					break;
+				case "NOT_SELECTION_BRANCH":
+					if($('input:radio[name=q_cartRdo]:checked').val() == 'D')
+						setOrderTypeSelection(1, 'move');
+					else if($('input:radio[name=q_cartRdo]:checked').val() == 'P')
+						setOrderTypeSelection(2, 'move');
+					//location.href="/order/deliveryOrder";
+					break;
+				case "BRANCH_PRODUCT_NONE":
+					chkFirstPromotion('/order/myCart');
+					break;
+				case "SAMSUNGSET_ORDER_TYPE_ERROR":
+					alert("삼성카드 포장 1+1 세트메뉴는 포장주문으로만 주문가능합니다.\n주문유형을 방문포장으로 변경하신 후 진행해주세요.");
+					location.href = "/order/visitOrder";
+					break;
+				case "GO_ORDER":
+					//location.href="/order/payment";
+					chkFirstPromotion('/order/payment');
+					break;
+				default:
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + result);
+					break;
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+//----------------------------------------------
+//추가 토핑 레이어 팝업 출력
+//----------------------------------------------
+function openToppingPopup(class_id, base_id, size_id, product_id, order_seq, menu_group1){
+	
+	$("#p_class_id").val(class_id);
+	$("#p_base_id").val(base_id);
+	$("#p_size_id").val(size_id);
+	$("#p_product_id").val(product_id);
+	$("#p_order_seq").val(order_seq);
+	
+	$.ajax({
+		type: "POST",
+		url: "/menu/getToppingList",
+		data: {
+				size_id : size_id,
+				menu_group1 : menu_group1
+			},
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "json",
+		success: function(data) 
+		{
+			if(data.length == 0)
+			{
+				alert("토핑 정보가 없습니다.");
+				return;
+			}
+			else{
+
+				var toppingList = "";
+				
+				for(var i=0;i<data.length;i++){
+					
+					var price = data[i].price;
+					var price_format = data[i].price_format;
+					var product_nm = data[i].product_nm;
+					var class_id = data[i].class_id;
+					var base_id = data[i].base_id;
+					var size_id = data[i].size_id;
+					var product_id = data[i].product_id;
+					var product_key = class_id+base_id+size_id+product_id;
+				
+					if(menu_group1 == "MP01" || menu_group1 == "MP02" || menu_group1 == "MP35"){	//MP01 피자제품일 경우 모든 토핑 노출
+						if(data[i].class_id+data[i].base_id+data[i].size_id+data[i].product_id != "0703010010"){
+							toppingList += '<tr>';
+							//toppingList += '	<th scope="row">';
+							//toppingList += '		<img src="http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201531713414146.jpg?timestamp=1431495857383" style="width:100px" alt="토핑 이미지">'; //임시 이미지
+							//toppingList += '	</th>';
+							toppingList += '	<td><strong>' + product_nm + '</strong></td>';
+							toppingList += '	<td class="t_right">' + price_format + '원</td>';
+							//toppingList += '	<td class="small_spin"><input class="spinner2 top_qty" type="text" value="1" title="수량입력" readonly /></td>';
+							toppingList += '	<td class="t_center"><a href="javascript:setPizzaToppingInsert(\'' + product_key + '\',\'' + price + '\')" class="button h25">추가</a></td>';
+							toppingList += '</tr>';
+						}
+						
+					}else if(menu_group1 == "MP30"){	// 피자샌드의 경우 치즈추가 토핑만 노출
+						if(data[i].class_id+data[i].base_id+data[i].size_id+data[i].product_id == "0703010010"){
+							
+							toppingList += '<tr>';
+							//toppingList += '	<th scope="row">';
+							//toppingList += '		<img src="http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201531713414146.jpg?timestamp=1431495857383" style="width:100px" alt="토핑 이미지">'; //임시 이미지
+							//toppingList += '	</th>';
+							toppingList += '	<td><strong>' + product_nm + '</strong></td>';
+							toppingList += '	<td class="t_right">' + price_format + '원</td>';
+							//toppingList += '	<td class="small_spin"><input class="spinner2 top_qty" type="text" value="1" title="수량입력" readonly /></td>';
+							toppingList += '	<td class="t_center"><a href="javascript:setPizzaToppingInsert(\'' + product_key + '\',\'' + price + '\')" class="button h25">추가</a></td>';
+							toppingList += '</tr>';
+						}
+					}else{	// DIY 피자는 모든 토핑 노출
+						if(data[i].class_id+data[i].base_id+data[i].size_id+data[i].product_id != "0703010010"){
+							toppingList += '<tr>';
+							//toppingList += '	<th scope="row">';
+							//toppingList += '		<img src="http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201531713414146.jpg?timestamp=1431495857383" style="width:100px" alt="토핑 이미지">'; //임시 이미지
+							//toppingList += '	</th>';
+							toppingList += '	<td><strong>' + product_nm + '</strong></td>';
+							toppingList += '	<td class="t_right">' + price_format + '원</td>';
+							//toppingList += '	<td class="small_spin"><input class="spinner2 top_qty" type="text" value="1" title="수량입력" readonly /></td>';
+							toppingList += '	<td class="t_center"><a href="javascript:setPizzaToppingInsert(\'' + product_key + '\',\'' + price + '\')" class="button h25">추가</a></td>';
+							toppingList += '</tr>';
+						}
+						
+					}
+						
+				}
+				
+				$("#toppingList").empty();
+				$("#toppingList").append(toppingList);
+				
+				$("#topping_open").trigger("click");
+				$( '.spinner2' ).spinner({
+						min: 1,
+						max: 5,
+						create: function( event, ui ) {
+							$(this)
+							.next().addClass('t_btnPlus').html('<i class="icon icon-plus"></i>')
+							.next().addClass('t_btnMinus').html('<i class="icon icon-minus"></i>');
+						}
+				});
+			}
+		},
+		error: function() 
+		{
+			window.alert("요청 실패");
+		}
+	});
+	
+} 
+
+//----------------------------------------------
+//추가토핑 장바구니 담기
+//----------------------------------------------
+function setPizzaToppingInsert(product_key, price) {
+	
+	if(!product_key || !price) {
+		alert('잘못된 요청입니다.');
+		return;
+	}
+	
+	var params = {
+		topping_product_key : product_key //토핑 제품키
+		,price : price
+		,product_key : $("#p_class_id").val()+$("#p_base_id").val()+$("#p_size_id").val()+$("#p_product_id").val() //피자 제품키
+		,order_seq : $("#p_order_seq").val()
+	};
+	
+	$.ajax({
+		type: "POST",
+		url: "/order/setPizzaTopping",
+		data: params,
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			//alert(data);
+			var result = data;
+			
+			switch(result)
+			{
+				case "SUCCESS":
+						
+					var cur_url = location.href.split("/");
+					
+					if(cur_url[cur_url.length-1] == "myCart"){
+						
+						var date = new Date();
+						
+						var dummy = String(date.getFullYear())+String(date.getMonth()+1)+String(date.getDate())+String(date.getHours())+String(date.getMinutes())+String(date.getSeconds());
+						
+						$('#myCartList').load("/order/myCartList?dummy="+dummy);
+					}
+					else{
+						if($('.quick_cart').parent().hasClass('on') != true) {	// 장바구니 퀵메뉴가 열려있지 않을때
+							cartOpen();
+							//$('.quick_cart').trigger('click');
+						} else {												// 장바구니 퀵메뉴가 열려있을 떄
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+							
+							cartOpen();
+						}
+	
+						setTimeout(function(){					// 장바구니 담고 2초후 닫기
+							//$('.quick_cart').trigger('click');
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+					    },2000);						
+					}
+					break;
+				case "COUPON_ALREADY_USE":
+					alert("쿠폰이 적용된 메뉴입니다.");
+					break;
+				case "ERROR_PRODUCT_DATA_NONE":
+					alert("장바구니에 담을 제품정보가 없습니다.");
+					break;
+				case "ERROR_QTY_FORMAT":
+					alert("장바구니에 담을 제품 수량 정보가 없습니다.");
+					break;
+				case "NO_ORDER_ID":
+					alert('주문 정보가 없습니다.\n다시 시도해주십시오.');
+					location.href="/index";
+					break;
+				case "NOT_AVAILABLE_PIZZA":
+					alert('토핑 추가가 불가능한 제품입니다.');
+					break;
+				case "ERROR_APPLY_TOPPING_NONE":
+					alert('토핑을 추가할 제품이 없습니다.');
+					break;
+				case "TOPPING_OVER_5":
+					alert('토핑은 피자 한판 당 최대 5개까지만 추가할 수 있습니다.');
+					break;
+				case "TOPPING_TYPE_OVER_3":
+					alert('토핑 종류는 최대 3가지까지 선택하실 수 있습니다.');
+					break;
+				case "PIZZA_SAND_TOPPING_OVER":
+					alert("토핑은 피자샌드 1개당 1개만 추가할 수 있습니다.");
+					break;
+				default:
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + result);
+					break;
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}

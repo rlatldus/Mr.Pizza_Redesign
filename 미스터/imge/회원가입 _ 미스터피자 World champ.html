@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.mrpizza.co.kr/login_join/join#zipcode -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>회원가입 | 미스터피자 World champ</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<!-- Head -->
+	
+
+
+
+
+
+
+
+<meta name="viewport" content="width=1100">
+<meta property="og:image" content="//cdn.mrpizza.co.kr/2014_resources/images/logo_1200x630.jpg">
+<meta name="twitter:image" content="//cdn.mrpizza.co.kr/2014_resources/images/logo_1200x630.jpg">
+<link rel="shortcut icon" href="https://cdn.mrpizza.co.kr/2014_resources/images/favicon.ico">
+
+<!-- style 71 -->
+<link rel="stylesheet" href="./회원가입 _ 미스터피자 World champ_files/d_common.css" media="all">
+<link rel="stylesheet" href="./회원가입 _ 미스터피자 World champ_files/d_contents.css" media="all">
+
+<!--[if lte IE 8]>
+	  <link rel="stylesheet" href="/css/ie.css" />
+<![endif]-->
+<!-- //style -->
+
+<!-- javascript -->
+<script async="" src="./회원가입 _ 미스터피자 World champ_files/tfa.js.다운로드" id="tb_tfa_script"></script><script src="./회원가입 _ 미스터피자 World champ_files/1388168051328271" async=""></script><script async="" src="./회원가입 _ 미스터피자 World champ_files/fbevents.js.다운로드"></script><script async="" src="./회원가입 _ 미스터피자 World champ_files/analytics.js.다운로드"></script><script src="./회원가입 _ 미스터피자 World champ_files/jquery-1.10.2.min.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/jquery-migrate-1.2.1.min.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/jquery-ui-1.10.3.custom.min.js.다운로드"></script>
+<!-- <script src="/js/lib/modernizr-2.6.2.min.js"></script> -->
+<!--[if lt IE 9]>
+	<script src="/js/lib/css3-mediaqueries.js"></script>
+	<script src="/js/lib/html5shiv_last.js"></script>
+<![endif]-->	
+<script src="./회원가입 _ 미스터피자 World champ_files/plugins.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/d_script.js.다운로드"></script>
+
+<script src="./회원가입 _ 미스터피자 World champ_files/site_function.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/cookies.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/quick_menu.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/commonRegExr.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/first_promotion.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/cart.js.다운로드"></script>
+
+<script type="text/javascript">
+	$(function(){
+		//PopLogin Enter Key Event
+		$("ul.pop_login input").keyup(function(e){
+			if(e.keyCode == '13')
+			{
+				onPopLogin();
+			}
+		});
+		
+		getLogin();		//cookie Check
+	});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87908554-1', 'auto'); // 블루오렌지
+  ga('send', 'pageview');
+
+</script>
+	<!-- //Head -->
+	
+	<script src="./회원가입 _ 미스터피자 World champ_files/zipcode.js.다운로드"></script>
+	<script src="./회원가입 _ 미스터피자 World champ_files/commonRegExr.js.다운로드"></script>
+	<script src="./회원가입 _ 미스터피자 World champ_files/join.js.다운로드"></script>
+	
+	<script type="text/javascript">
+		function MobileAuthSuccess(){
+			joinOverLapChk(); // 중복 가입 체크
+		}
+		
+		function IpinAuthSuccess(){
+			joinOverLapChk(); // 중복 가입 체크
+		}
+		
+		function popClose(){
+			$('.bgLayer').remove();
+			$('.pop_layer').hide(500,function(){
+				$(this).removeAttr('tabindex');
+				$(this).prev().focus();
+			});
+		}
+		
+		function PCCPhone(){
+			//frames["PCCAuth"].location.href="/include/auth/pcc_V3_input_seed";
+			$("#PCCAuth").attr("src","/include/auth/kg_ci_web");
+		}
+		
+		function PCCIpin(){
+			//frames["PCCAuth"].location.href="/include/auth/ipin_input_seed";
+			$("#PCCAuth").attr("src","/include/auth/ipin1");
+		}
+
+		//약관동의 팝업
+		$(function(){
+			$('#tabRules a').click(function() {
+				var href = $(this).attr('href');		
+				$(href).show().siblings('.tab_cont').hide();
+				$(this).parent().addClass('on').siblings().removeClass('on');
+				return false;
+		    });
+			$('.popRules').click(function() {
+				var tabIdx =  $(this).attr('tabIdx');
+				$("#tabRules li").eq(tabIdx - 1).addClass('on').siblings().removeClass('on');
+				$('.tab_cont').hide();
+				$('#tab' + tabIdx ).show();
+				
+		        var _this =$(this);
+		        var vCont = _this.attr('href');
+				var mh =  $(vCont).height();
+		        $('#contents').after('<span class=bgLayer></span>');
+		        $('.bgLayer').fadeTo('fast', 0.6, function() {
+		            $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+		                $(this).attr('tabIndex',0).focus();
+		            });
+	
+		            $(vCont).find('.pop_close').click(function() {
+		                $('.bgLayer').remove();               
+						$(this).parents('.pop_layer').hide(300,function(){
+							$(this).removeAttr('tabindex');
+						});
+		                _this.focus();
+						return false;
+		            });
+		        });		
+				return false;
+		    });
+			
+			//마케팅 동의 선택 시 전체동의, 동의하지 않음 선택 삭제
+			$(".evt_chk").click(function(){
+				$("#disagree").removeAttr("checked");
+				$("#m_all_chk").removeAttr("checked");
+			});
+			
+			//마케팅 활용 동의하지 않음
+			$("#disagree").click(function(){
+				$(".mkt_chk").removeAttr("checked");
+			});
+			
+			//마케팅 전체 동의
+			$("#m_all_chk").click(function(){
+				if($("#m_all_chk").attr("checked")) {
+					$(".mkt_chk").attr("checked","checked");
+					$("#disagree").removeAttr("checked");
+				} else
+					$(".mkt_chk").removeAttr("checked");
+			});
+			
+			
+		});
+		
+		
+	</script>
+	<!-- //javascript -->
+<meta http-equiv="origin-trial" content="A727AcAeLCei/ZogJHBlJUS63SxP6AeIROo7qXrkjrxkoxBu0eSSmypAHmGYwk4HjBMQp5nxCFODzfVnUIe31AQAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjg4MDgzMTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A727AcAeLCei/ZogJHBlJUS63SxP6AeIROo7qXrkjrxkoxBu0eSSmypAHmGYwk4HjBMQp5nxCFODzfVnUIe31AQAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjg4MDgzMTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="./회원가입 _ 미스터피자 World champ_files/f.txt"></script><script type="text/javascript" charset="UTF-8" defer="" src="./회원가입 _ 미스터피자 World champ_files/adn_check_1.0.2.ad.다운로드"></script></head>
+
+<body style="" class="">
+<!-- WIDERPLANET  SCRIPT START 2017.7.13 -->
+<div id="wp_tg_cts" style="display:none;"><script id="wp_tag_script_1682987944786" charset="UTF-8" src="./회원가입 _ 미스터피자 World champ_files/wpc.php"></script><script id="wp_onsite_script" charset="UTF-8" src="./회원가입 _ 미스터피자 World champ_files/onsite.js.다운로드"></script></div>
+<script type="text/javascript">
+var wptg_tagscript_vars = wptg_tagscript_vars || [];
+wptg_tagscript_vars.push(
+(function() {
+    return {
+        wp_hcuid:"",  /*Cross device targeting을 원하는 광고주는 로그인한 사용자의 Unique ID (ex. 로그인 ID, 고객넘버 등)를 암호화하여 대입.
+                     *주의: 로그인 하지 않은 사용자는 어떠한 값도 대입하지 않습니다.*/
+        ti:"20768",
+        ty:"Join",                        /*트래킹태그 타입*/
+        device:"web",                  /*디바이스 종류 (web 또는 mobile)*/
+        items:[{
+            i:"회원가입",          /*전환 식별 코드 (한글, 영문, 숫자, 공백 허용)*/
+            t:"회원가입",          /*전환명 (한글, 영문, 숫자, 공백 허용)*/
+            p:"1",               /*전환가격 (전환 가격이 없을 경우 1로 설정)*/
+            q:"1"                /*전환수량 (전환 수량이 고정적으로 1개 이하일 경우 1로 설정)*/
+        }]
+    };
+}));
+</script>
+<script type="text/javascript" async="" src="./회원가입 _ 미스터피자 World champ_files/wp_astg_4.0.js.다운로드"></script>
+<!-- // WIDERPLANET  SCRIPT END 2017.7.13 -->
+	<!-- skipNavi -->
+	<div id="skipNavi">
+		<a href="https://www.mrpizza.co.kr/login_join/join#contents">본문 바로가기</a>
+		<a href="https://www.mrpizza.co.kr/login_join/join#gnb">주메뉴 바로가기</a>
+		<a href="https://www.mrpizza.co.kr/login_join/join#footer">사이트정보 바로가기</a>
+	</div>
+	<!-- //skipNavi -->
+
+	<!-- wrap -->
+	<div id="wrap">
+		<!-- header -->
+		
+
+
+
+
+
+<script src="./회원가입 _ 미스터피자 World champ_files/rsamode.js.다운로드"></script>
+
+<script>
+	var RSAModulus = "e85cad325d5ce1558045326a06bb1f7ee2b9bf3237c33129d7240eb542a9a4e253138f201e4d0913e400ee0308119f1842b8ccb079a29ff26e583e7a7c3ed1e8498d8145c5d2f93923b20195c1d61920648d5ce24bf218c229f48c6215c30ec480042472ede5b7a9fccfcd4c34de5e20c66db610ded41524311ec4c627f03839";
+	var RSAExponent = "10001";
+</script>
+<form id="encModeForm" hidden="true">
+</form>
+
+<header class="header">
+	<div class="inner_renew">
+		<div class="gnb_wrap">
+			<h1><a href="https://www.mrpizza.co.kr/">로고</a></h1>
+			<nav class="gnb">
+				<ul>
+					<li class="order_gnb">
+					
+						
+							<a href="https://www.mrpizza.co.kr/login_join/join#popLogin" class="popLogin_open"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_gnb_01.png" alt="바로주문"></i><span><strong>바로주문</strong></span></a>
+						 
+						
+						
+						
+					</li>
+					<li>
+						<a href="https://www.mrpizza.co.kr/menu/premium"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_gnb_02.png" alt="메뉴"></i>메뉴</a>
+						<ul>
+							<li><a href="https://www.mrpizza.co.kr/menu/premium">피자</a></li>
+							<li><a href="https://www.mrpizza.co.kr/menu/pizzasand">1인용피자</a></li>
+							<li><a href="https://www.mrpizza.co.kr/menu/collab">특가세트</a></li>
+							<li><a href="https://www.mrpizza.co.kr/menu/appetizer">샐러드&amp;사이드</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="https://www.mrpizza.co.kr/store/store_search"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_gnb_03.png" alt="매장"></i>매장</a>
+						<ul>
+							<li><a href="https://www.mrpizza.co.kr/store/store_search">매장찾기</a></li>
+							<li><a href="https://www.mrpizza.co.kr/store/storeBuffet_search">뷔페매장</a></li>
+							<li><a href="https://www.mrpizza.co.kr/store/store_menu">매장전용메뉴</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="https://www.mrpizza.co.kr/event/event_on"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_gnb_04.png" alt="이벤트"></i>이벤트</a>
+						<ul>
+							<li><a href="https://www.mrpizza.co.kr/event/new_menu">신제품 소개</a></li>
+							<li><a href="https://www.mrpizza.co.kr/event/event_on">진행중 이벤트</a></li>
+							<li><a href="https://www.mrpizza.co.kr/event/event_off">종료된 이벤트</a></li>
+							<li><a href="https://www.mrpizza.co.kr/discount/allianceDiscount">할인안내</a></li>
+						</ul>
+					</li>
+					<li>
+						<!-- 비로그인상태 -->
+						<!-- <a href="/login_join/login"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_05.png" alt="마이미피"></i>마이미피</a> -->
+						<!-- 로그인상태 -->
+						<!-- <a href="/mypage/myMipi"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_gnb_05.png" alt="마이미피"></i>마이미피</a> -->
+						
+							
+								<a href="https://www.mrpizza.co.kr/login_join/login"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_gnb_05.png" alt="마이미피"></i>마이미피</a>
+								
+								<ul>
+									
+								</ul>
+							 
+							
+							
+						
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="hd_btn_area">
+			
+				 
+					
+					<a href="https://www.mrpizza.co.kr/order/myCart" class="btn_cart"><strong class="top_cart_num">0</strong><span class="blind">장바구니</span></a>		
+				
+			
+			<button type="button" class="btn_gnb"><i></i><span class="blind">gnb열기</span></button>
+		</div>
+	</div>
+</header>
+
+	<!-- 무료제공 프로모션 팝업 -->
+	
+
+<script type="text/javascript">
+	function PromotionTypeChk(type){ //type 노출되는 항목갯수
+
+		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
+		console.log("eventchk400 = "+eventchk400);
+		if(typeof eventchk400 === "undefined"){
+			alert("피자만 구매하기 또는 증정품 중 한가지를 선택해 주세요.");
+			return;			
+		}else if(eventchk400 == "other"){
+			//일반 진행
+			chkSelectionPromotion('other');
+			return;
+		}else if(eventchk400 == "PM0470_Large_1"){
+			setCartDataFreeMenu('sideproductItem_400_Large_1', '', '');	
+			/*팝업 닫기*/
+			alert("[무료]증정품은 The 오븐치킨만 선택하여 주문 가능합니다.\nThe 오븐치킨은 피자 수량만큼 변경하실 수 있습니다.");
+			$("#pop_order_event_Large").hide();
+			$(".bgLayer").hide();				
+		}
+		else if(eventchk400 == "PM0470_Regular_2"){
+			setCartDataFreeMenu('sideproductItem_400_Regular_2', '', '');	
+			/*팝업 닫기*/
+			alert("[무료]증정품은 하프치킨(오븐치킨 반마리)만 선택하여 주문 가능합니다.\n하프치킨(오븐치킨 반마리)은 피자 수량만큼 변경하실 수 있습니다.");
+			$("#pop_order_event_Regular").hide();
+			$(".bgLayer").hide();	
+		}
+	}	
+	
+</script>	
+
+<style>
+.pop_newPromotion1906 .select_item label{width:228px;}
+.pop_newPromotion1906 .select_item label.item_txt{width:auto;font-size:14px;display:inline-block;height:auto;}
+.pop_newPromotion201117.promotion_R .select_item label{width:228px;}
+.pop_newPromotion201117.promotion_R .select_item label.item2{height:144px;}
+.pop_newPromotion201117.promotion_R .select_item label.item2 .lbl{background:url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/pc_R_off.jpg) no-repeat;}
+.pop_newPromotion201117.promotion_R .select_item label.item2 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2022_resources/images/20220901/pc_R_on.jpg') no-repeat;}
+.pop_newPromotion210219.promotion_L .select_item label.item3 .lbl{background:url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/pc_off.jpg) no-repeat;}
+.pop_newPromotion210219.promotion_L .select_item label.item3 input:checked+.lbl{background: url('//cdn.mrpizza.co.kr/2022_resources/images/20220901/pc_on.jpg') no-repeat;}
+</style>
+
+<!-- 프리미엄 9종 L 주문시 -->
+<article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion210219 promotion_L hide" id="pop_order_event_Large">
+	<h2>미스터피자</h2>
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">닫기</a>
+	<div>
+		<h5 class="event_tit">
+		프리미엄피자 L을 주문하면,<br>
+		스페셜 사이드메뉴가 공짜!
+		</h5>
+		<div class="select_item">
+			<label class="item_txt">
+				<input type="radio" name="eventchk400" id="" class="radio" title="프로모션 메뉴정보" value="other">
+				<span class="lbl">피자만 구매하기 (제휴/포장 등 할인 가능)</span>
+			</label>
+			<div class="item_select">
+				<h5>치킨드림</h5>
+				
+				<label class="item3">
+					<input type="radio" name="eventchk400" id="" title="프로모션 메뉴정보" value="PM0470_Large_1">
+					<span class="lbl">The  오븐치킨</span>
+				</label>
+				<!-- <p style="font-size: 12px;position: absolute;bottom: 11px;left: 0;width: 100%;">※ 일부 매장은 해당 사이드 대신 오븐치킨으로 제공됩니다.</p>-->
+				
+			</div>
+			<div class="pop_text">
+				<p>치킨드림 프로모션은 제휴, 쿠폰 등 다른 할인과 중복 적용되지 않습니다.</p>
+			</div>
+			
+		</div>
+		<input type="radio" name="sideproductItem_400_Large_1" id="sideproductItem_400_1" value="2302010030|||0|||1" style="display:none;" title="프로모션 메뉴정보 확인(리얼 빠삭 순살 치킨 FULL BOX(리얼+양념))" checked="">
+		<p class="button_wrap">
+			<a href="javascript:PromotionTypeChk(&#39;400&#39;)" class="btn_submit">확인</a>
+		</p>
+	</div>
+</article>
+
+
+<!-- 프리미엄 9종 R 주문시 -->
+<article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion201117 promotion_R hide" id="pop_order_event_Regular">
+	<h2>미스터피자</h2>
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">닫기</a>
+	<div>
+		<h5 class="event_tit">
+		프리미엄피자 R을 주문하면,<br>
+		스페셜 사이드메뉴가 공짜!
+		</h5>
+		<div class="select_item">
+			<label class="item_txt">
+				<input type="radio" name="eventchk400" id="" class="radio" title="프로모션 메뉴정보" value="other">
+				<span class="lbl">피자만 구매하기 (제휴/포장 등 할인 가능)</span>
+			</label>
+			<div class="item_select">
+				<h5>치킨드림</h5>
+			 
+				<label class="item2">
+					<input type="radio" name="eventchk400" id="" title="프로모션 메뉴정보" value="PM0470_Regular_2">
+					<span class="lbl">리얼 빠삭 순살 치킨 HALF BOX(리얼)</span>
+				</label>
+			</div>
+			<div class="pop_text">
+				<p>치킨드림 프로모션은 제휴, 쿠폰 등 다른 할인과 중복 적용되지 않습니다.</p>
+			</div>
+		</div>
+		<input type="radio" name="sideproductItem_400_Regular_2" id="sideproductItem_400_R_2" value="2302010040|||0|||1" style="display:none;" title="프로모션 메뉴정보 확인(리얼 빠삭 순살 치킨 HALF BOX(리얼))" checked="">
+		<p class="button_wrap">
+			<a href="javascript:PromotionTypeChk(&#39;400&#39;)" class="btn_submit">확인</a>
+		</p>
+	</div>
+</article>
+
+
+
+	<!-- //무료제공 프로모션 팝업 -->
+	
+	<!-- 무료제공 프로모션 팝업_두번째 -->
+	
+
+<script type="text/javascript">
+	function PetPromotionTypeChk(type){ //type 노출되는 항목갯수
+
+		var eventchk400 = $("input:radio[name=eventchk400]:checked").val();
+		
+		if(eventchk400 === "undefined"){
+			alert("항목을 선택해주세요.");
+			return;			
+		}else if(eventchk400 == "other"){
+			//일반 진행
+			chkSelectionPromotion('other');
+			return;
+		}else if(eventchk400 == "PM0460_Large_1"){
+			setCartDataFreeMenu('petsideproductItem_400_Large_1', '', '');	
+			/*팝업 닫기*/
+			alert("[무료]증정품은 펫치블스, 펫페퍼로니 중 한가지만 선택하여 주문 가능합니다.\n펫치블스는 피자 수량만큼 변경하실 수 있습니다.");
+			$("#pop_order_event_pet_Large").hide();
+			$(".bgLayer").hide();				
+		}else if(eventchk400 == "PM0460_Large_2"){
+			setCartDataFreeMenu('petsideproductItem_400_Large_2', '', '');	
+			/*팝업 닫기*/
+			alert("[무료]증정품은 펫치블스, 펫페퍼로니 중 한가지만 선택하여 주문 가능합니다.\n펫페퍼로니는 피자 수량만큼 변경하실 수 있습니다.");
+			$("#pop_order_event_pet_Large").hide();
+			$(".bgLayer").hide();				
+		}
+	}	
+	
+</script>	
+
+<!-- 핫앤뉴 7종 L 주문시 -->
+<article class="pop_wrap pop_layer pop_newPromotion1906 pop_newPromotion1909 promotion_L hide" id="pop_order_event_pet_Large">
+	<h2>미스터피자</h2>
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">닫기</a>
+	<div>
+		<h5 class="event_tit">
+		핫앤뉴 7종 (L)를 주문하면,<br>
+		펫피자가 공짜!
+		</h5>
+		<div class="select_item">
+			<label class="item1">
+				<input type="radio" name="eventchk400" id="" title="프로모션 메뉴정보" value="other">
+				<span class="lbl">피자만 구매하기 (제휴 할인 가능)</span>
+			</label>
+			<div class="item_select">
+				<h5>펫피자 받기(택1)</h5>
+				<label class="item2">
+					<input type="radio" name="eventchk400" id="" title="프로모션 메뉴정보" value="PM0460_Large_1">
+					<span class="lbl">펫 치블스</span>
+				</label>
+				<label class="item3">
+					<input type="radio" name="eventchk400" id="" title="프로모션 메뉴정보" value="PM0460_Large_2">
+					<span class="lbl">펫페러로니</span>
+				</label>
+			</div>
+			<div class="pop_text">
+				<p>펫피자 증정 프로모션은 제휴, 쿠폰 등 다른 할인과 중복적용되지 않습니다.</p>
+				<p>온라인 주문 시 펫피자 증정 프로모션은 왕창드림 프로모션과 함께 주문이 되지 않습니다. 각각 별도 주문해주시기 바랍니다.</p>
+				<p>매장 별 상황에 따라 선택하신 펫피자가 품절일 경우, 다른 품목으로 대체 증정될 수 있습니다.</p>
+			</div>
+			
+		</div>
+		<input type="radio" name="petsideproductItem_400_Large_1" id="petsideproductItem_400_1" value="2305020060|||0|||1" style="display:none;" title="프로모션 메뉴정보 확인(펫치블스)" checked="">
+		<input type="radio" name="petsideproductItem_400_Large_2" id="petsideproductItem_400_2" value="2305020070|||0|||1" style="display:none;" title="프로모션 메뉴정보 확인(펫페퍼로니)" checked="">
+		<p class="button_wrap">
+			<a href="javascript:PetPromotionTypeChk(&#39;400&#39;)" class="btn_submit">확인</a>
+		</p>
+	</div>
+</article>
+
+
+	<!-- //무료제공 프로모션 팝업 -->
+	
+		<!-- //header -->
+
+		<!-- container -->
+		<form id="frm" name="frm">
+		
+		<!-- 모바일 / IPIN 인증 유무 Flag -->
+		<input type="hidden" id="mobile_check" name="mobile_check" value="">
+		<input type="hidden" id="ipin_check" name="ipin_check" value="">
+		
+		<!-- ID / PWD 사용가능 유무 Flag -->
+		<input type="hidden" id="id_check" name="id_check" value="">
+		<input type="hidden" id="pwd_check" name="pwd_check" value="">
+		
+		<input type="hidden" id="cust_name" name="cust_name" value="">
+		<input type="hidden" id="cust_sex" name="cust_sex" value="">
+		<input type="hidden" id="cust_birth" name="cust_birth" value="">
+		<input type="hidden" id="cust_bgubun" name="cust_bgubun" value="R">
+		
+		<!-- 본인인증 결과 리턴값 -->
+		<input type="hidden" id="key_ipin_di" name="key_ipin_di" value="">
+		<input type="hidden" id="key_ipin_ci" name="key_ipin_ci" value="">
+		<input type="hidden" id="sex" name="sex" value="">
+		<input type="hidden" id="birth" name="birth" value="">
+		<input type="hidden" id="cellNo" name="cellNo" value="">	
+		
+		<input type="hidden" id="smsyn" name="smsyn" value="">
+		<input type="hidden" id="mailyn" name="mailyn" value="">
+		<input type="hidden" id="addryn" name="addryn" value="">		
+				
+		<input type="hidden" id="cust_hpost1" name="cust_hpost1" value="123">
+		<input type="hidden" id="cust_hpost2" name="cust_hpost2" value="456">
+		<input type="hidden" id="add_new_gubun" name="add_new_gubun" value="">
+		
+		<div id="container">
+			<!-- lnb -->
+			
+
+<aside id="lnb">
+	<h1>회원공간</h1>
+	<ul>
+		<li><a href="https://www.mrpizza.co.kr/login_join/login" title="로그인">로그인</a></li>
+		<li class="active"><a href="https://www.mrpizza.co.kr/login_join/join" title="회원가입">회원가입</a></li>
+		<li><a href="https://www.mrpizza.co.kr/login_join/findID" title="아이디/비밀번호 찾기">아이디/비밀번호 찾기</a></li>
+	</ul>
+</aside>
+			<!-- //lnb -->
+
+			<!-- contents -->
+			<section id="contents">
+				<ul id="location">
+					<li><a class="home" href="https://www.mrpizza.co.kr/index">HOME</a></li>
+					<li><span>회원공간</span></li>
+					<li><strong>회원가입</strong></li>
+				</ul>
+
+				<div class="cont_top">
+					<h1>회원가입</h1>
+				</div>
+
+				<h2 class="line_tit">1. 약관동의</h2>
+				<div class="join_form">
+					<p class="agree_all">
+						<label>
+							<input id="all_chk" name="all_chk" type="checkbox" class="checkbox">
+							<strong class="lbl f14">모든 약관에 동의합니다.</strong>
+						</label>
+					</p>						
+					<article class="txt_terms">
+						<p class="mt10">
+							<label>
+								<input id="agree_chk" name="agree_chk" class="checkbox agree_chk" type="checkbox">
+								<span class="lbl">서비스 이용약관 동의 (필수)</span>
+							</label>
+							<a href="https://www.mrpizza.co.kr/login_join/join#popRules" tabidx="1" class="button popRules h25 f_right">약관 전체보기</a>
+						</p>
+						<p class="mt10">
+							<label>
+								<input id="agree_chk2" name="agree_chk2" class="checkbox agree_chk" type="checkbox">
+								<span class="lbl">개인정보처리방침_개인정보 수집 및 이용안내 동의 (필수)</span>
+							</label>
+							<a href="https://www.mrpizza.co.kr/login_join/join#popRules" tabidx="2" class="button popRules h25 f_right">약관 전체보기</a>
+						</p>
+						<p class="mt10 hidden">
+							<label class="f_left">
+								<input id="agree_chk3" name="agree_chk3" class="checkbox agree_chk" type="checkbox">
+								<span class="lbl">개인정보처리방침_개인정보의 취급위탁 동의(필수)</span>
+							</label>
+							<a href="https://www.mrpizza.co.kr/login_join/join#popRules" tabidx="3" class="button popRules h25 f_right">약관 전체보기</a>
+						</p>							
+					</article>
+				</div>
+				
+				<h2 class="line_tit mt50">2. 본인인증</h2>
+				<div class="join_form">
+					<div class="user_chk">
+						<ul>
+							<li class="">
+								<a href="javascript:PCCPhone();" class="phone">
+									<strong>휴대폰 인증</strong>
+									<p>생년월일, 성명, 휴대폰 정보를 통한 <br>휴대폰 인증 서비스 입니다.</p>
+									<span class="button grad btn_move h30 w100">인증하기<span class="gt">&gt;</span></span>
+									<i></i>
+								</a>
+								<div style="display: block;">
+									<ul class="txt_list">
+										<li>미스터피자는 개정 정보통신망법 제23조에 따라 회원 가입시에는 주민등록번호를 수집하지 않습니다. </li>
+										<li>휴대폰 인증은 가입하시는 분 명의의 휴대폰으로만 인증이 가능합니다. </li>
+										<li>인증이 되지 않을 경우, 미스터피자 고객센터(080-001-1100)로 문의하시기 바랍니다. </li>
+									</ul>
+								</div>
+							</li>
+							<li class="">
+								<a href="javascript:PCCIpin();" class="ipin">
+									<strong>아이핀 인증</strong>
+									<p>방송통신위원회에서 주관하는 <br>사이버 신원확인 번호를 사용한 아이핀ID <br>인증 서비스 입니다.</p>
+									<span class="button grad btn_move h30 w100">인증하기<span class="gt">&gt;</span></span>
+									<i></i>
+								</a>
+								<div style="display: none;">
+									<ul class="txt_list">
+										<li>아이핀(i-PIN)은 방송통신위원회에서 주관하는 주민등록번호 대체 수단으로 미스터피자에 주민등록번호를 입력하지 않고 가입할 수 있는 서비스 입니다.</li>
+										<li>아이핀 가입을 위해서는 아이핀ID가 있어야 합니다. <a href="http://i-pin.kisa.or.kr/kor/main.jsp" class="t_blue underline" target="_blank" title="아이핀ID 발급받기 새창열림">아이핀ID 발급받기</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 휴대폰 인증완료 -->
+				<p class="chk_success phone_chk hide">휴대폰 인증이 완료 되었습니다.</p>
+				<!-- //휴대폰 인증완료 -->
+
+				<!-- 아이핀 인증완료 -->
+				<p class="chk_success ipin_chk hide">아이핀 인증이 완료 되었습니다.</p>
+				<!-- //아이핀 인증완료 -->
+
+				<h2 class="line_tit mt50">3. 정보입력 (필수입력사항)</h2>
+
+				<div class="join_form">					
+					<p><input type="text" id="name" name="name" class="inp1 inp_use" title="회원이름" placeholder="본인인증 시 자동입력" readonly="" disabled=""></p>
+					<div class="mt10 tip_box">
+						<input type="text" class="inp1 inp_use" id="cust_id" name="cust_id" maxlength="12" title="아이디 입력" placeholder="아이디 입력, 6-12자리로 아이디 생성" disabled="">
+						<!-- <a href="#" class="tip ml6">TIP</a>
+						<p class="tip_view">
+							<i class="bg"></i>
+							페이스북 ID로 첫 로그인 시 20% 할인쿠폰을 드립니다. 로그인 후 나의 쿠폰함에서 확인하세요.
+						</p> -->
+					</div>
+					<p class="mt10 f12">
+						<span id="resultID" style="visibility:hidden">*사용 가능한 아이디입니다.</span>
+						<!--  
+						<span class="t_blue" id="successID" style='visibility:hidden'>*사용 가능한 아이디입니다.</span>
+						<span class="t_red" id="failedID" style='visibility:hidden'>*영문 숫자 조합으로 만들어주세요.</span>
+						-->
+					</p>
+
+					<div class="mt20 tip_box">
+						<input type="password" class="inp1 inp_use" id="cust_pwd" name="cust_pwd" maxlength="16" title="비밀번호 입력" placeholder="비밀번호 입력, 10-16자리 영문,숫자 조합" disabled="">
+						<!-- <a href="#" class="tip ml6">TIP</a>
+						<div class="tip_view">
+							<i class="bg"></i>
+							<p><strong>비밀번호 만들기</strong></p>
+							<ol class="mt5">
+								<li class="t_red">1.8-16자의 영문,숫자 사용가능</li>
+								<li>2. </li>
+								<li>3. 비밀번호 안전도는 사용불가,취약 ,안전으로 나뉩니다.</li>
+							</ol>
+						</div> -->
+					</div>
+					<p class="mt10"><input type="password" class="inp1 inp_use" id="cust_pwd_chk" name="cust_pwd_chk" maxlength="16" title="비밀번호 재입력" placeholder="비밀번호 재입력" disabled=""></p>
+					<p class="mt10 f12">
+						<span id="resultPwd" style="visibility:hidden">10-16자의 영문,숫자로 만들어주세요.</span>
+						<!-- 
+						<span class="t_red" id="failedPwd" style='visibility:hidden'>취약: 보안이 취약하여 사용할 수 없습니다.</span>
+						<span class="t_blue" id="successPwd" style='visibility:hidden'>안전 : 사용가능하며 안전한 비밀번호 입니다.</span>
+						<span class="t_red">불가:조합기에 적합하지 않습니다.</span>
+						-->
+					</p>
+
+					<p class="mt20">
+						<select class="sel1 inp_use" id="mobile1" name="mobile1" title="연락처 앞자리 선택" disabled="">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="019">019</option>
+						</select>
+						<input type="text" class="inp2 ml6 inp_use" id="mobile2" name="mobile2" maxlength="4" onkeyup="chkNum(this);" title="연락처 앞자리 입력" disabled="">
+						<input type="text" class="inp2 ml6 inp_use" id="mobile3" name="mobile3" maxlength="4" onkeyup="chkNum(this);" title="연락처 뒷자리 입력" disabled="">
+					</p>
+
+					<p class="mt10">						
+						<input type="text" class="inp2 inp_use" id="email_id" name="email_id" maxlength="25" onkeyup="chkEngNumSpecialEmail(this);" title="이메일주소 앞자리 입력" disabled="">
+						<span class="ml6">@</span>
+						<input type="text" class="inp2 ml6 inp_use" id="email_domain" name="email_domain" title="이메일주소 뒷자리 입력" disabled="">
+						<select class="ml6 sel2 inp_use" id="email_sample" name="email_sample" onchange="emailSelect();" title="이메일주소 뒷자리 선택" disabled="">
+							<option value="">직접입력</option>
+							<option value="naver.com">naver.com</option>
+							<option value="daum.net">daum.net</option>
+							<option value="hanmail.net">hanmail.net</option>
+							<option value="nate.com">nate.com</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="paran.com">paran.com</option>
+							<option value="chol.com">chol.com</option>
+							<option value="dreamwiz.com">dreamwiz.com</option>
+							<option value="empal.com">empal.com</option>
+							<option value="freechal.com">freechal.com</option>
+							<option value="hanafos.com">hanafos.com</option>
+							<option value="hanmir.com">hanmir.com</option>
+							<option value="hitel.net">hitel.net</option>
+							<option value="hotmail.com">hotmail.com</option>
+							<option value="korea.com">korea.com</option>
+							<option value="lycos.co.kr">lycos.co.kr</option>
+							<option value="netian.com">netian.com</option>
+							<option value="yahoo.co.kr">yahoo.co.kr</option>
+							<option value="yahoo.com">yahoo.com</option>
+						</select>
+					</p>
+					
+					<div class="mt30">
+						<p>
+							<!-- <input type="text" class="inp3" id="cust_hpost1" name="cust_hpost1" title="우편번호 앞자리 입력" readonly />
+							<span class="ml6">-</span>
+							<input type="text" class="inp3 ml6" id="cust_hpost2" name="cust_hpost2" title="우편번호 뒷자리 입력" readonly />-->
+							<input type="text" class="inp4 inp_use" id="cust_haddr" name="cust_haddr" title="회원 기본주소" readonly="" disabled="">
+							<a href="https://www.mrpizza.co.kr/login_join/join#zipcode" class="button ml6 pop_open zip_open">주소찾기<span class="gt">&gt;</span></a>
+						</p>
+						<p class="mt10">
+							<!-- <input type="text" class="inp4" id="cust_haddr" name="cust_haddr" title="회원 기본주소" readonly /> -->
+							<input type="text" class="inp4 inp_use" id="cust_daddr" name="cust_daddr" title="회원 상세주소" readonly="" disabled="">
+						</p>
+						<p class="mt5 bullet_red">입력하신 주소는 기본 배송지로 설정됩니다.</p>
+					</div>
+					
+					<p class="mt25 f16"><strong>마케팅 활용 동의 (선택)</strong></p>
+					<p class="mt5">
+					마케팅/홍보를 위해 아래 항목의 정보를 이용하는데 동의하십니까? 동의 거부시 할인 및 이벤트 정보안내 서비스가 제한됩니다. <br>
+					<strong class="t_red">이메일, SMS, 주소(전단) 모두 수신 동의 시 프리미엄 피자 20% 할인 쿠폰을 드립니다.</strong></p>		
+
+					<table class="tbl_style line mt20">
+						<caption>마케팅 활용 동의 테이블</caption>
+						<colgroup>
+							<col style="width:20%">
+							<col style="width:20%">
+							<col style="width:20%">
+							<col style="width:20%">
+							<col style="width:20%">
+						</colgroup>
+						<tbody><tr>
+							<th rowspan="2">
+								동의함 <br><br>
+								<label>
+									<input id="m_all_chk" name="all_chk" type="checkbox" title="전체동의" class="checkbox mkt_chk">
+									<span class="lbl">전체 동의</span>
+								</label>
+							</th>
+							<td>이메일</td>
+							<td>SMS</td>
+							<td>주소(전단)</td>
+							<th>동의하지 않음</th>							
+						</tr>
+						<tr>
+							<td class="bor_left">
+								<label>
+									<input id="event_email_check" name="event_email_check" type="checkbox" title="이메일 및 주소 수신 동의" class="checkbox mkt_chk evt_chk">
+									<span class="lbl hide"><i>이메일 및 주소 수신 동의</i></span>
+								</label>
+							</td>
+							<td>
+								<label>
+									<input id="event_sms_check" name="event_sms_check" type="checkbox" title="SMS 수신 동의" class="checkbox mkt_chk evt_chk">
+									<span class="lbl hide"><i>SMS 수신 동의</i></span>
+								</label>
+							</td>
+							<td>
+								<label>
+									<input id="event_dm_check" name="event_dm_check" type="checkbox" title="주소(전단)" class="checkbox mkt_chk evt_chk">
+									<span class="lbl hide"><i>주소</i></span>
+								</label>
+							</td>
+							<td>
+								<label>
+									<input id="disagree" name="disagree" type="checkbox" class="checkbox">
+									<span class="lbl hide"><i>동의하지 않음</i></span>
+								</label>
+							</td>
+						</tr>
+					</tbody></table>
+							
+					<!-- <p class="agree_all">
+						<label>
+							<input id="all_chk" name="all_chk" type="checkbox" class="checkbox" />
+							<strong class="lbl f14">모든 약관에 동의합니다.</strong>
+						</label>
+					</p>				
+								
+					<article class="txt_terms">
+						<p class="mt10">
+							<label>
+								<input id="agree_chk" name="agree_chk" class="checkbox agree_chk" type="checkbox" />
+								<span class="lbl">서비스 이용약관 동의 (필수)</span>
+							</label>
+							<a href="#popRules" tabIdx="1" class="button popRules h25 f_right">약관 전체보기</a>
+						</p>
+						<p class="mt10">
+							<label>
+								<input id="agree_chk2" name="agree_chk2" class="checkbox agree_chk" type="checkbox" />
+								<span class="lbl">개인정보 수집 및 이용안내 동의 (필수)</span>
+							</label>
+							<a href="#popRules" tabIdx="2" class="button popRules h25 f_right">약관 전체보기</a>
+						</p>
+						<p class="mt10 hidden">
+							<label class="f_left">
+								<input id="agree_chk3" name="agree_chk3" class="checkbox agree_chk" type="checkbox" />
+								<span class="lbl">개인정보의 취급위탁 동의(필수)</span>
+							</label>
+							<a href="#popRules" tabIdx="3" class="button popRules h25 f_right">약관 전체보기</a>
+						</p>							
+					</article> -->
+					
+
+				</div>
+				<p class="mt40 t_center">
+					<a href="javascript:void(0);" class="button red h45 w170" id="submitJoinCheck">회원가입<span class="gt">&gt;</span></a>
+					<a href="https://www.mrpizza.co.kr/index" class="button h45 w170">취소<span class="gt">&gt;</span></a>
+				</p>
+				
+				<!-- <p class="mt10"><a href="#popMarketing" class="button pop_open">마케팅 활용동의 안내 팝업(개발 완료후 해당 버튼 삭제)</a></p> -->
+				
+			</section>
+			<!-- //contents -->
+			<!-- 우편번호검색(다음aip 변경후 소스) -->
+			
+
+
+<!-- pop_layer -->
+<!-- 
+<article id="zipcode" class="pop_layer hide"></article>
+ -->
+<article id="zipcode" class="pop_wrap pop_layer zipcode hide">
+	<h1>주소찾기</h1>			
+	
+	
+	<input type="hidden" id="search_result_gubun" name="search_result_gubun"> <!-- 지번:1, 도로명:2 -->
+	
+	<input type="hidden" id="search_result_code" name="search_result_code">
+	<input type="hidden" id="search_result_sido" name="search_result_sido" value="">
+	<input type="hidden" id="search_result_gugun" name="search_result_gugun" value="">
+	<input type="hidden" id="search_result_dong" name="search_result_dong" value="">
+	<input type="hidden" id="search_result_ri" name="search_result_ri" value="">
+	<input type="hidden" id="search_result_fullname" name="search_result_fullname" value="">
+	<input type="hidden" id="search_result_place_name" name="search_result_place_name">
+	<input type="hidden" id="search_result_bunji" name="search_result_bunji" value="">
+	<input type="hidden" id="search_result_building" name="search_result_building" value="">
+	<input type="hidden" id="search_result_point_x" name="search_result_point_x" value="">
+	<input type="hidden" id="search_result_point_y" name="search_result_point_y" value="">
+	<input type="hidden" id="search_result_add_type" name="search_result_add_type">
+	<input type="hidden" id="search_result_flag" name="search_result_flag">
+	<input type="hidden" id="search_result_convertRoad" name="search_result_convertRoad" value="">	
+
+	<input type="hidden" id="search_result_zipcode" name="search_result_zipcode" value="">
+	<input type="hidden" id="search_result_addr" name="search_result_addr" value="">
+	
+	<input type="hidden" id="search_result_branch_idx" name="search_result_branch_idx" value="">
+	<input type="hidden" id="search_result_branch_title" name="search_result_branch_title" value="">
+	<input type="hidden" id="search_result_branch_zoneidx" name="search_result_branch_zoneidx" value="">
+	<input type="hidden" id="search_result_branch_zonetitle" name="search_result_branch_zonetitle" value="">
+	<input type="hidden" id="search_result_branch_zonetime" name="search_result_branch_zonetime" value="">
+	
+	
+	
+	<div class="pop_cont">
+		<div id="orderDaumZipcode" class="daum_zipcode" style="height: 72px;"><div id="__daum__layer_1" style="position: relative; width: 100%; height: 100%; background-color: rgb(255, 255, 255); z-index: 0; overflow: hidden; min-width: 300px; margin: 0px; padding: 0px;"><iframe frameborder="0" title="우편번호서비스 레이어 프레임" src="./회원가입 _ 미스터피자 World champ_files/saved_resource.html" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; border: 0px none; margin: 0px; padding: 0px; overflow: hidden; min-width: 300px;"></iframe></div></div> <!-- 다음주소검색 삽입 -->
+
+		<div class="ziplist list" style="display:none">
+			<p class="mt25 mb10">해당하는 주소를 선택해 주세요.</p>
+			<select id="zipcheckList" onchange="getaddr();"></select>
+		</div>
+		<div class="store mt25 mb10"><strong class="t_black">배달가능매장</strong> <span id="storename" class="t_red f14"></span></div>
+		<div class="inp">
+			<input type="text" id="orderAddress1" class="input w_100 readonly full_address" readonly="" title="기본주소" placeholder="기본주소">
+	        <input type="text" id="orderAddress2" class="input w_100 mt5 addressDetail" title="상세주소" placeholder="상세주소">
+		</div>
+		<p class="mt25 t_center">
+			<a href="javascript:void(0);" class="button w115 red addressSubmit">확인<span class="gt">&gt;</span></a>
+			<a href="javascript:void(0);" class="button w115 searchAddrReset">재입력<span class="gt">&gt;</span></a>
+		</p>
+		
+		<p class="cont_tit tit3 mt25 mb10">유의사항</p>
+		<ul class="txt_list">
+			<li>번지/건물명이 없는 경우 배달이 불가능합니다.</li>
+			<li>아파트/빌라 동호수, 사무실 층수, 기타 위치 정보는 상세주소에 입력해 주세요.</li>
+		</ul>
+	</div>
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">팝업닫기</a>
+</article>
+
+<script src="./회원가입 _ 미스터피자 World champ_files/postcode.v2.js.다운로드"></script><script charset="UTF-8" type="text/javascript" src="./회원가입 _ 미스터피자 World champ_files/221018.js.다운로드"></script>
+<script src="./회원가입 _ 미스터피자 World champ_files/sdk.js.다운로드"></script><script charset="UTF-8" src="./회원가입 _ 미스터피자 World champ_files/kakao.js.다운로드"></script><script charset="UTF-8" src="./회원가입 _ 미스터피자 World champ_files/services.js.다운로드"></script>
+<script type="text/javascript" src="./회원가입 _ 미스터피자 World champ_files/maps.js.다운로드"></script><script type="text/javascript" src="./회원가입 _ 미스터피자 World champ_files/maps-geocoder.js.다운로드"></script>
+<script>
+var geocoder = new daum.maps.services.Geocoder();
+	
+daumPostcode('orderDaumZipcode','orderAddress1');
+function daumPostcode(mapId,inputId) {
+	initInputDate();
+	$("#orderAddress1").val("");
+	$("#orderAddress2").val("");
+	$("#zipcheckList").empty();
+	$(".ziplist").hide();
+	
+    var mapWrap = document.getElementById(mapId);
+    new daum.Postcode({ 
+        oncomplete: function(data) {
+            // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var fullAddr = data.address; // 최종 주소 변수
+            var extraAddr = ''; // 조합형 주소 변수
+            
+            // 기본 주소가 도로명 타입일때 조합한다.
+            if(data.addressType === 'R'){
+                //법정동명이 있을 경우 추가한다.
+                if(data.bname !== ''){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있을 경우 추가한다.
+                if(data.buildingName !== ''){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+            }
+            
+            geocoder.addressSearch(data.address, function(results, status) {
+                // 정상적으로 검색이 완료됐으면
+                if (status === daum.maps.services.Status.OK) {
+                    var result = results[0]; //첫번째 결과의 값을 활용
+                    console.log(result);
+                    //console.log(data);
+                    
+                    var custFullAddr = "";
+                    var sido = data.sido;
+                    var sigungu = data.sigungu;
+                    var bname = data.bname; // 법정동/법정리 이름
+                    var bname1 = data.bname1; // 법정리의 읍/면 이름
+                    var bname2 = data.bname2; // 법정동/법정리 이름
+                    var hname = data.hname; // 행정동
+                    var buildingName = data.buildingName; // 건물명
+                    var roadAddress = data.roadAddress;
+                    var jibunAddress = data.jibunAddress;
+                    var roadname = data.roadname;
+
+                    var userSelectedType = data.userSelectedType;
+
+                    var rname = "";
+                    var jibun = "";
+                    var rnameDetail = "";
+                    var jibunDetail = "";
+                    var query = data.query;
+
+                    rname = roadAddress.replace(sido, "").replace(sigungu, "").replace(" ", "").replace(" ", "");
+                    if(bname1 != ""){
+                    	rname = rname.replace(bname1, "").replace(" ", "");
+                    }
+                    
+                    jibun = jibunAddress.replace(sido, "").replace(sigungu, "").replace(" ", "").replace(" ", "");
+                    if(bname1 != ""){
+                    	jibun = jibun.replace(bname1, "").replace(" ", "");
+                    }
+
+                    if (hname !== "") {
+                       rname += "(" + hname + ")";
+                       bname += "(" + hname + ")";
+                    }
+
+                    jibunDetail = jibun.replace(bname2, "").replace(" ", "");
+                    rnameDetail = rname.replace(roadname, "").replace(" ", "");
+                    	
+                    var re = /[`'\"\\(\=]/gi;
+
+                    if (buildingName != "") {
+                    	buildingName = buildingName.replace(re, " ");
+                    }
+                    
+        			//console.log("roadAddress : " + roadAddress + "\n" + "jibunAddress: " + jibunAddress + "\n" + "rname: " + rname + "\n" + "jibun: " + jibun + "\n" + "bname : " + bname + "\n" + "bname1 : " + bname1);
+        			//console.log("bname2 : " + bname2 + "\n"+ "buildingName : " + buildingName + "\n"+ "jibunDetail : " + jibunDetail + "\n"+ "rnameDetail : " + rnameDetail );
+                    
+        			initInputDate();
+        			
+        			$("#search_result_gubun").val(2);
+					$("#search_result_sido").val(sido);
+					$("#search_result_gugun").val(sigungu);
+					
+					/*도로명주소데이터가 없을경우 지번우선등록*/
+					if(roadAddress == ""){
+						if(bname1 != ""){
+							$("#search_result_dong").val(bname1);
+							$("#search_result_ri").val(bname2);
+						}else{
+							$("#search_result_dong").val(bname);
+							$("#search_result_ri").val();
+						}
+						$("#search_result_bunji").val(jibunDetail);
+					}else{
+						$("#search_result_dong").val(roadname);
+						$("#search_result_bunji").val(rnameDetail);
+						if(bname1 != ""){
+							$("#search_result_convertRoad").val(bname1+" "+jibun);
+						}else{
+							$("#search_result_convertRoad").val(jibun);
+						}
+						
+					}
+					
+					$("#search_result_building").val(buildingName);
+					
+					$("#search_result_point_x").val(result.x);
+            	    $("#search_result_point_y").val(result.y);
+            	    
+					$("#storename").empty();
+					
+					if(roadAddress == ""){
+						custFullAddr = jibunAddress+" "+buildingName ;
+						$("#search_result_fullname").val(jibunAddress+" "+buildingName);
+						$("#search_result_addr").val(jibunAddress+" "+buildingName);
+					}else{
+						custFullAddr = roadAddress +" "+buildingName+" / "+jibun;
+						$("#search_result_fullname").val(roadAddress +" "+buildingName);
+						$("#search_result_addr").val(roadAddress +" "+buildingName);
+					}
+					
+					
+					
+					
+					document.getElementById(inputId).value = custFullAddr;
+					
+					getXY(data.jibunAddress, userSelectedType, query, data.zonecode, buildingName);
+					
+                    
+                }
+            });
+        },
+        // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
+        onresize : function(size) {
+        	console.log(size);
+        	mapWrap.style.height = size.height+'px';
+        },      
+        width : '100%',
+        height : '100%'
+    }).embed(mapWrap, {
+    	//기본값 true, 선택 후 자동닫힘 방지
+        autoClose: false
+    });
+    
+}
+
+function getXY(daumaddr, selecttype, query, zonecode, buildingName){
+	if (daumaddr == "") {
+		if (selecttype == "R") {
+			$("#search_result_branch_idx").val("");
+			$("#search_result_branch_title").val("");
+			$("#search_result_branch_zoneidx").val("");
+			$("#search_result_branch_zonetitle").val("");
+			$("#search_result_branch_zonetime").val("");
+			
+			initInputDate();
+			$("#orderAddress1").val("");
+			$("#orderAddress2").val("");
+			$("#zipcheckList").empty();
+			$(".ziplist").hide();
+			
+			alert("고객님 죄송합니다. \n해당 도로명 주소로는 매장 연결이 어렵습니다. \n* 지번 주소 \"더보기\"중 한개를 선택 부탁드립니다.");
+			return;
+		}else{
+			$("#search_result_branch_idx").val("");
+			$("#search_result_branch_title").val("");
+			$("#search_result_branch_zoneidx").val("");
+			$("#search_result_branch_zonetitle").val("");
+			$("#search_result_branch_zonetime").val("");
+			
+			initInputDate();
+			$("#orderAddress1").val("");
+			$("#orderAddress2").val("");
+			$("#zipcheckList").empty();
+			$(".ziplist").hide();
+			
+			alert("검색된 주소가 없습니다.");
+			return;
+		}
+	}
+
+	getSearchDupSection(zonecode, buildingName);
+	
+}
+
+/* 중복상권 검색로직 */
+function getSearchDupSection(zip_code, buildingName){
+	$(".ziplist").hide();
+	$("#zipcheckList").empty();
+	
+	var params = {
+			zipcode : zip_code,	
+	}
+	
+	$.ajax({
+		type: 'POST',
+		url : "/common/zip_code_check.json",
+		data : params,
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "json",
+		async : false,
+		success: function(data){
+			//console.log(data);
+			if (data != null) {
+				if(data.length > 0){
+					var htmlString = "";
+					if(buildingName == "목동신시가지아파트7단지" || buildingName == "서울대학교" || buildingName == "의정부 롯데캐슬 골드파크 2단지"){
+						for(var i = 0; i < data.length; i++){
+							
+							htmlString = htmlString + '<option value="'+data[i].x+'|'+data[i].y+'" >'+data[i].address_name+'</option>';
+						}
+						$("#search_result_branch_idx").val("");
+						$("#search_result_branch_title").val("");
+						$("#search_result_branch_zoneidx").val("");
+						$("#search_result_branch_zonetitle").val("");
+						$("#search_result_branch_zonetime").val("");
+						
+						$("#zipcheckList").append("<option value=''>주소를 선택해주세요</option>" + htmlString);
+						$(".ziplist").show();
+					}else{
+						
+						$("#search_result_branch_idx").val("");
+						$("#search_result_branch_title").val("");
+						$("#search_result_branch_zoneidx").val("");
+						$("#search_result_branch_zonetitle").val("");
+						$("#search_result_branch_zonetime").val("");
+						
+						$(".ziplist").hide();
+						$("#zipcheckList").empty();
+						
+						getlist2();
+					}
+					
+				}else{
+					getlist2();
+				}
+				
+			}else if (typeof data.length == "undefined") {
+				alert('통신 환경이 불안정 합니다.');
+			} else if (data.length == 0) {
+				
+			}
+		}
+	});
+	
+}
+
+function getaddr(){
+	var addrSelect = document.getElementById("zipcheckList");
+	$("#storename").empty();
+	
+	// 선택한 셀렉트박스 옵션의 value 값 가져오기
+	var selectedValue = addrSelect.options[addrSelect.selectedIndex].value;
+	
+	var pointvalue = selectedValue.split("|");
+	//console.log(pointvalue[0]+" / "+pointvalue[1]);
+	
+	var x = pointvalue[0];
+    var y = pointvalue[1];
+    
+    var oPoint = new naver.maps.LatLng( y, x);
+	//var newpoint = oPoint.toTM128();
+	var utmk = naver.maps.TransCoord.fromLatLngToUTMK(oPoint); // 위/경도 -> UTMK
+    var newpoint = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
+   
+    var xpoint = newpoint.x;
+    var ypoint = newpoint.y;
+	
+	//console.log("xpoint = "+ xpoint +", ypoint = " + ypoint);
+	$("#search_result_point_x").val(xpoint);
+	$("#search_result_point_y").val(ypoint);
+	
+	var selectedBuildingName = $("#zipcheckList option:checked").text();
+	$("#search_result_building").val(selectedBuildingName);
+	
+	//좌표로 매장찾기
+	var mode = 0;
+	if(popCon == "#zipcode")
+		mode = 1; 
+	searchBranch(xpoint.toString(), ypoint.toString(), mode);
+	
+}
+
+function getlist2(){
+	var x = $("#search_result_point_x").val();
+	var y = $("#search_result_point_y").val();
+	
+	if( x == "" || y == ""){
+		alert("검색된 매장이 없습니다.");
+		return;
+	}
+	
+	var oPoint = new naver.maps.LatLng( y, x);
+	//var newpoint = oPoint.toTM128();
+	var utmk = naver.maps.TransCoord.fromLatLngToUTMK(oPoint); // 위/경도 -> UTMK
+    var newpoint = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
+   
+    var xpoint = newpoint.x;
+    var ypoint = newpoint.y;
+	
+	console.log("xpoint = "+ xpoint +", ypoint = " + ypoint);
+	$("#search_result_point_x").val(xpoint);
+	$("#search_result_point_y").val(ypoint);
+	//좌표로 매장찾기
+	var mode = 0;
+	if(popCon == "#zipcode")
+		mode = 1; 
+	searchBranch(xpoint.toString(), ypoint.toString(), mode);
+}
+
+function initInputDate(){
+	$("#search_result_sido").val("");
+	$("#search_result_gugun").val("");
+	$("#search_result_dong").val("");
+	$("#search_result_ri").val("");
+	$("#search_result_bunji").val("");
+	$("#search_result_convertRoad").val("");
+	$("#search_result_building").val("");
+	$("#search_result_point_x").val("");
+    $("#search_result_point_y").val("");
+    $("#search_result_fullname").val("");
+	$("#search_result_addr").val("");
+	
+	$("#search_result_branch_idx").val("");
+	$("#search_result_branch_title").val("");
+	$("#search_result_branch_zoneidx").val("");
+	$("#search_result_branch_zonetitle").val("");
+	$("#search_result_branch_zonetime").val("");
+	
+	$("#storename").empty();
+	
+}
+</script>
+
+
+			<!-- 다음api 변경전 소스 -->
+			
+			
+			<!--
+			<article id="zipcode" class="pop_layer hide"><iframe src="/login_join/pop_zipcode" frameborder="0" title="우편번호 검색"></iframe></article>
+			-->
+			<!-- //우편번호검색 -->
+		</div>
+		</form>
+		<!-- //container -->
+
+		<!-- pop layer -->
+		
+		<article id="popMarketing" class="pop_wrap pop_layer pop_redhead hide">
+			<h1>마케팅 활용동의 안내</h1>
+			<div class="pop_cont">
+				<div class="t_center">
+					<img src="./회원가입 _ 미스터피자 World champ_files/pop_marketing.jpg" alt="프리미엄피자 20% 할인쿠폰">
+					<p class="blind">마케팅 활용 동의(이메일, SMS, 주소[전단])를 모두 선택하시는 경우에 한해서만 프리미엄피자 20% 할인쿠폰이 증정됩니다. 3가지 사항 모두에 동의하시겠습니까?</p>
+				</div>				
+				
+				<p class="t_center mt10">
+					<a href="https://www.mrpizza.co.kr/login_join/join#" id="submitJoin" class="button h40 w180 pop_close">동의하지 않고, 가입하기</a>
+					<a href="https://www.mrpizza.co.kr/login_join/join#" id="mAllFocus" class="button h40 w180 red pop_close">동의하고 쿠폰 받기</a>
+				</p>
+			</div>
+			<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">닫기</a>
+		</article>
+		
+		
+
+
+
+
+
+<!-- pop_layer -->
+<article id="popLogin" class="pop_wrap pop_layer hide">
+	<h1>로그인</h1>			
+	<div class="pop_cont">
+		<form id="popLoginForm" name="popLoginForm">
+		<div class="pop_loginWrap">
+			<div class="f_left">
+				<h2 class="cont_tit tit0">회원로그인</h2>
+				<ul class="pop_login mt20">
+					<li><input type="text" id="popUser_id" name="user_id" placeholder="아이디" title="아이디 입력" maxlength="16"></li>
+					<li><input type="password" id="popUser_pwd" name="user_pwd" placeholder="비밀번호" title="비밀번호 입력" maxlength="16"></li>
+					<li class="btn">
+						<a href="javascript:void(0);" onclick="javascript:onPopLogin();" class="button red h80">로그인 <span class="gt">&gt;</span></a>
+					</li>
+					<li class="chk">
+						<label>
+							<input id="popIdcheck" name="idcheck" type="checkbox" class="checkbox" title="아이디저장">
+							<span class="lbl">아이디저장</span>
+						</label>
+						<a href="https://sepay.org/spm/join?regSiteCode=NM&amp;ctgCode=1&amp;subCode=1" class="btn_login_phone">
+							<img src="./회원가입 _ 미스터피자 World champ_files/img_login_btn_phone_m.png" alt="휴대폰간편입력 로그인버튼">
+						</a>
+						<!-- <div class="sns_login tip_box">
+							<a href="#" class="fb" target="_blank" title="새창열림">페이스북 로그인</a>
+							<a href="#" class="tip">TIP</a>
+							<p class="tip_view">
+								<i class="bg"></i>
+								페이스북 ID로 첫 로그인 시 20% 할인쿠폰을 드립니다. 로그인 후 나의 쿠폰함에서 확인하세요.
+							</p>
+						</div> -->
+					</li>
+				</ul>
+				<p class="t_red mt5" id="popLoginResult" style="visibility: hidden">*아이디 또는 비밀번호를 다시 확인해 주세요.</p>
+				<p class="mt20 naver_login_btn_wrap">
+					<a href="https://www.mrpizza.co.kr/login_join/findID" class="button grad btn_move w120 f12">아이디/비밀번호찾기</a>
+					<a href="https://www.mrpizza.co.kr/login_join/join" class="button grad btn_move w80 f12">회원가입하기</a>
+					<span id="naver_id_login_popup"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=token&amp;client_id=HrPgLEnk0VGTGSOYakKo&amp;redirect_uri=https%3A%2F%2Fwww.mrpizza.co.kr%2Flogin_join%2FNaverResult&amp;state=37c63e17-84eb-4800-82df-e97de955cd19" onclick="window.open(this.href, &#39;naverloginpop&#39;, &#39;titlebar=1, resizable=1, scrollbars=yes, width=600, height=550&#39;); return false" id="naver_id_login_anchor" class="naver_btn"><img src="./회원가입 _ 미스터피자 World champ_files/big_g.PNG" border="0" title="네이버 아이디로 로그인" width="152.625px" height="33px"></a> </span> <!-- 네이버 로그인 -->
+					<!-- 페이코 버튼 노출 영역 -->
+					<a href="javascript:order();" class="payco_login_btn">페이코 로그인</a>
+					<!-- // 페이코 버튼 노출 영역 -->
+				</p>
+
+				<h3 class="cont_tit tit3 mt30">회원혜택안내 <span class="txt">(마이페이지 내 내쿠폰에서 확인하세요)</span></h3>					
+				<ul class="login_list">
+					<li>
+						<p><img src="./회원가입 _ 미스터피자 World champ_files/img_login01.gif" alt="회원가입"></p>
+						<h4>회원가입</h4>
+						<div>신규가입 시 <br><strong class="t_red">프리미엄 피자 20% 할인쿠폰</strong></div>
+					</li>
+					<li>
+						<p><img src="./회원가입 _ 미스터피자 World champ_files/img_login02.gif" alt="정보수정"></p>
+						<h4>정보수정</h4>
+						<div>회원정보 업데이트 시 <br><strong class="t_red">프리미엄 피자 20% 할인쿠폰</strong></div>
+					</li>
+					<li>
+						<p><img src="./회원가입 _ 미스터피자 World champ_files/img_login03.gif" alt="생일쿠폰"></p>
+						<h4>생일쿠폰</h4>
+						<div>회원정보 기준 생일 시 <br><strong class="t_red">프리미엄 피자 20% 할인쿠폰</strong></div>
+					</li>
+				</ul>
+			</div>
+ 
+			<div class="f_right">
+				<h2 class="cont_tit tit0">비회원주문</h2>
+				<textarea class="mt20" readonly="readonly" title="비회원주문 이용약관">1.   수집하는 개인정보 항목
+   - 전화번호, 성명, 주소
+2.   수집 목적 
+   ① 성명, 주소: 제품의 전달, 청구서, 정확한 제품 배송지의 확보.
+3.   개인정보 보유기간 
+   ① 계약 또는 청약철회 등에 관한 기록 : 6개월
+   ② 대금결제 및 재화 등의 공급에 관한 기록 : 1년
+   ③ 소비자의 불만 또는 분쟁처리에 관한 기록 : 1년
+4.   비회원 주문 시 제공하신 모든 정보는 상기 목적에 필요한 용도 이외로는 사용되지 않습니다. 기타 자세한 사항은 '개인정보취급방침'을 참고하여주시기 바랍니다.
+				</textarea>
+
+				<div class="mt20 p1 hidden">
+					<label>
+						<input id="guest_agree_chk" name="guest_agree_chk" type="checkbox" class="checkbox">
+						<span class="lbl">약관에 동의합니다.</span>
+					</label>
+
+					<span class="f_right ">
+						<a href="javascript:void(0);" onclick="javascript:onGuestLogin();" class="button red">비회원주문 <span class="gt">&gt;</span></a>
+					</span>
+					<p class=" clear t_red mt10">* 비회원 이용 약관에 동의하셔야 주문이 가능합니다.</p>
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">팝업닫기</a>
+	
+	<!-- ##############################Payco Login############################## -->
+	<script>
+		function order() {
+			var payco_popup;
+			payco_popup = window.open("about:blank", 'popupLogin', 'top=100, left=300, width=727px, height=512px, resizble=no, scrollbars=yes');
+			$('#login_request').attr("target", "popupLogin");
+			$('#login_request').submit();
+		}
+	</script>
+	<!-- PayCo(페이코) 로그인창 띄우기 -->
+	<form id="login_request" name="login_request" target="_self" method="POST" action="https://id.payco.com/oauth2.0/authorize">
+		<input type="hidden" id="response_type" name="response_type" value="code">
+		<input type="hidden" id="client_id" name="client_id" value="3RDp_ofHRqnOajyx4UUw">
+		<input type="hidden" id="redirect_uri" name="redirect_uri" value="https://www.mrpizza.co.kr/login_join/paycoLoginStart"> 
+		<input type="hidden" id="serviceProviderCode" name="serviceProviderCode" value="FRIENDS">
+		<input type="hidden" id="viewType" name="viewType" value="">
+		<input type="hidden" id="userLocale" name="userLocale" value="ko_KR">
+		<input type="hidden" id="state" name="state" value="ab42ae">
+	</form>
+	
+	<!-- ##############################Payco Login############################## -->
+</article>
+<!-- //pop_layer -->
+
+
+
+  <script type="text/javascript" src="./회원가입 _ 미스터피자 World champ_files/naverLogin_implicit-1.0.2.js.다운로드" charset="utf-8"></script>
+
+  <script type="text/javascript">
+  	var naver_id_login = new naver_id_login("HrPgLEnk0VGTGSOYakKo", "https://www.mrpizza.co.kr/login_join/NaverResult");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("YOUR_SERVICE_URL");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+
+  </script>
+
+		
+		<article id="popRules" class="pop_wrap pop_layer hide">
+			<h1>이용약관</h1>
+			<div class="pop_cont">
+				<ul class="tabmenu2 tab180" id="tabRules">
+					<li><a href="https://www.mrpizza.co.kr/login_join/join#tab1">이용약관</a></li>
+					<li><a href="https://www.mrpizza.co.kr/login_join/join#tab2">개인정보처리방침(개인정보 수집 및 이용안내)</a></li>
+					<li><a href="https://www.mrpizza.co.kr/login_join/join#tab3">개인정보처리방침(개인정보 처리 업무 위탁)</a></li>
+				</ul>
+				<div id="tab1" class="tab_cont">
+					<div class="rules_txt_pop">
+						<p><strong>이용약관</strong></p>
+						<div>
+							<textarea readonly="readonly" title="이용약관">제1조(목적)
+본 약관은 주식회사 미스터피자 (이하 '회사')가 운영하는 인터넷 웹사이트 " www.mrpizza.co.kr " (이하 '본 사이트')와 모바일 웹 사이트 " m.mrpizza.co.kr "에서 제공하는 인터넷 관련 서비스(이하 "서비스")를 이용함에 있어 회사와 이용자의 권리 의무 및 책임사항을 규정하는데 그 목적이 있다. 
+
+제2조(용어의 정의) 
+① 본 약관에서 사용하는 용어의 정의는 다음과 같다. 
+가. '이용자'라 함은 본 사이트에 접속하여 본 약관에 따라 회사에서 제공하는 서비스를 이용하는 자를 말한다. 
+나. '회원'이라 함은 본 사이트에서 제공하는 무료 서비스를 제공받기 위해 회사가 규정하는 절차를 통해 가입하여 아이디(ID)를 부여받은 자를 말한다. 
+다. '아이디(ID)'라 함은 이용자가 서비스를 이용하고, 회사가 회원을 구분, 식별할 수 있도록, 이용자가 선정하고 회사가 부여하는 문자와 숫자의 조합을 말한다. 
+라. '비밀번호'라 함은 이용자가 부여받은 아이디(ID)와 동일한 회원임을 확인하고 권익을 보호받기 위하여, 이용자가 선정한 문자와 숫자의 조합을 말한다. 
+② 이 약관에서 사용하는 용어의 정의는 제1항에서 정한 것을 제외하고는 거래 관행 및 관계 법령을 따른다. 
+
+제3조(약관의 명시와 개정) 
+① 회사는 이 약관의 내용과 상호, 소재지, 대표자의 성명, 사업자등록번호, 연락처(전화, 팩스, 전자우편 주소 등)를 이용자가 알 수 있도록 인터넷 초기서비스 화면에 게시한다.
+② 이용자가 정해진 회원가입절차를 거쳐 회원등록을 완료하면 본 약관에 동의한 것으로 간주한다. 
+③ 회사는 "약관의 규제에 관한 법률", "전자거래기본법", "전자서명법", "정보통신망이용촉진등에관한법률(이하'정보통신망이용촉진법')", "방문판매등에관한법률", "소비자보호법" 등 관련법을 위배하지 않는 범위에서 임의로 이 약관을 개정할 수 있다. 
+④ 회사가 약관을 개정할 경우에는 적용 일자 및 개정 사유를 명시하여 현행 약관과 함께 본 사이트의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지한다.
+⑤ 회사가 약관을 개정할 경우에는 그 개정약관은 그 적용 일자이후에 체결되는 계약에만 적용되고 그 이전에 이미 체결된 계약에 대해서는 개정 전의 약관조항이 그대로 적용된다. 다만 이미 계약을 체결한 이용자가 개정약관 조항의 적용을 받기를 원하는 뜻을 제4항에 의한 개정약관의 공지기간 내에 회사에 송신하여 회사의 동의를 받은 경우에는 개정약관 조항이 적용된다.
+
+제4조 (약관이 정하지 않은 사항)
+본 약관에서 정하지 아니한 사항과 이 약관의 해석에 관하여는 정부가 제정한 전자거래소비자보호지침 및 관계법령 또는 상관례에 따른다. 
+
+제5조(서비스의 종류) 
+1. 회사는 다음의 서비스를 제공한다. 
+① 게시판에 글을 올릴 수 있다. 
+② 각종 이벤트 참여 
+③ 회사소식 e-mail 제공 
+④ 기타 회사가 정하는 서비스 
+2. 회사가 운영상 필요하다고 판단될 경우 서비스의 내용을 변경할 수 있으며 이로 인한 이용자가 입은 손해에 대해서는 배상하지 아니한다. 
+
+제6조(서비스의 중단) 
+① 회사는 컴퓨터 등 정보통신 설비의 보수점검이나 교체 및 고장, 통신의 두절, 천재지변 등의 불가항력적인 사유가 발생한 경우에는 서비스 제공을 일시 중단할 수 있다. 
+② 천재지변, 국가비상사태 등의 불가항력적인 경우를 제외하고는 사전에 이를 게시하거나 공지한다. 
+③ 천재지변, 국가비상사태 등의 불가항력적인 사유로 서비스의 제공을 중지한 경우에는, 당해 사유가 해소되는 즉시 이를 게시하거나 회원에게 통지하여야 한다. 
+④ 제휴 사이트의 경우 해당 사이트의 운영 약관에 따라 정한다. 
+⑤ 회사는 제6조 각항의 사유로 서비스의 제공이 일시적으로 중단됨으로 인하여 이용자 또는 제3자가 입은 손해에 대하여 배상하지 아니한다. 
+
+제7조(이용 계약의 성립) 
+① 이용자는 본 약관에 동의한 후 회사가 정한 양식에 따라 회원정보를 기입함으로써 회원가입을 신청한다. 
+② 회사는 제1항과 같이 회원으로 가입할 것을 신청한 이용자 중 다음 각 호에 해당하는 이용자에 대하여는 서비스의 제공을 거부하거나 제한할 수 있다. 
+가. 이용신청서에 기입한 이름이 본인의 실명이 아닐 경우 
+나. 이용신청서의 내용을 허위로 작성하였거나 기재를 누락하거나 오기가 있는 경우 
+다. 사회적 통념상 공공의 질서 및 사회 미풍양속을 해할 목적으로 신청한 경우 
+라. 회사의 정당한 업무 수행에 지장을 주는 경우 
+마. 기타 회원으로 등록하는 것이 회사의 기술상 현저히 지장이 있다고 판단되거나 이용신청자의 귀책사유로 이용승낙이 곤란한 경우 
+③ 회원가입계약의 성립 시기는 회사의 승낙이 회원에게 도달한 시점으로 한다. 
+④ 이용자가 만14세 미만인 경우에는 회원가입이 불가하다. 
+⑤ 회원은 등록사항에 변경이 있는 경우, 즉시 전자우편 기타 방법으로 회사에 그 변경사항을 알려야 한다. 
+
+제8조(회원의 의무) 
+① 회원은 공공의 질서 및 미풍양속을 저해하는 다음의 각 호에 관련되는 통신활동을 하여서는 안 된다. 
+가. 타 회원의 아이디(ID) 및 비밀번호를 사용하는 행위 
+나. 회사가 제공하는 서비스를 통하여 얻은 정보를 회사의 사전 승낙 없이 허가용도 이외의 목적으로 사용하거나 복제, 유통, 상업적으로 이용하려는 행위 
+다. 타 회원이나 제3자의 지적재산권 및 기타 권리를 침해하는 행위 
+라. 타 회원의 명예를 손상시키거나 고의적으로 불이익을 주는 행위 
+마. 범죄행위를 목적으로 하거나 범죄행위를 교사하는 내용 및 저질, 음란성 내용을 유포하는 행위 (기타 사회질서에 위배되는 행위 ) 
+바. 회사의 동의를 받지 아니하고 서비스의 내용과 관련 없는 내용 및 광고 등을 권유하거나, 게시 등 기타 다른 방법으로 전달하는 행위 
+사. 정보 서비스를 위해 하거나 혼란을 일으키는 해킹을 하거나 컴퓨터 바이러스 전염, 유포하는 행위 
+아. 기타 관계되는 법령에 위배되는 행위 
+② 아이디(ID)와 비밀번호의 관리 책임은 회원 본인에게 있으며 관리소홀로 인해 발생되는 모든 결과의 책임은 회원 본인에게 있다. 
+③ 본 서비스에 있어 회원의 아이디(ID)는 동시에 중복 사용할 수 없도록 되어 있으므로 타인에게 노출된 경우 즉시 비밀번호를 바꾸고 회사에 이를 통보해야 한다. 
+④ 회원은 본 약관에서 규정하는 사항 및 주의사항을 준수하여야 한다. 
+
+제9조(회원 탈퇴 및 자격 상실 등) 
+① 회원은 회사에 대하여 직접 서비스를 통하거나 서면 또는 전화, 전자 우편 등의 방법으로 탈퇴를 요청할 수 있으며, 회사는 탈퇴 요청이 접수되는 경우 회사 내부 확인절차를 거쳐 당해 회원에 대하여 서비스를 중지한다. 
+② 회사는 회원이 다음 각 호에 해당하는 행위를 하였을 경우에는 사전 통지 없이 회원 자격을 제한하거나 정지시킬 수 있다. 
+가. 타인의 이용자번호(ID) 및 비밀번호를 도용한 경우 
+나. 이용 가입 시 이용계약에 위반되는 허위사실을 기입하였을 경우 
+다. 컴퓨터 바이러스를 고의로 유포시켰을 경우 
+라. 다른 이용자가 본 사이트를 이용하는 것을 방해하거나 그 정보를 도용하는 등 전자거래질서를 위협하는 경우 
+마. 본 사이트를 이용하여 기타 관련 법률과 이 약관이 금지하는 행위를 하거나 미풍양속에 반하는 행위를 하는 경우 
+바. 기타 회사가 정한 이용신청요건이 미비 되었을 때 
+③ 회사는 다음 각 호에 해당하는 회원가입신청에 대하여는 승낙을 유보할 수 있습니다. 
+가. 설비에 여유가 없는 경우 
+나. 기술상의 지장이 있는 경우 
+다. 기타 회원가입신청을 유보하지 않을 수 없는 불가피한 사유가 있는 경우 
+라. 기타 본 약관의 규정을 위반하는 경우 
+④ 회사가 회원 자격을 제한/정지시킨 후, 동일한 행위가 2회 이상 반복되거나 30일 이내에 그 사유가 시정되지 아니하는 경우 회사는 회원 자격을 상실시킬 수 있다. 
+⑤ 회사가 회원자격을 상실시키는 경우에는 회원등록을 말소하며, 이 경우 회원에게 이를 통지하고, 회원등록 말소 전에 소명할 기회를 부여한다. 
+⑥ 제2항의 경우, 회사는 회원에게 손해배상을 청구할 수 있다. 
+
+제10조(회사의 의무) 
+① 회사는 관계법령 및 이 약관에서 금지하는 행위를 하지 않는다. 
+② 회사는 지속적이고 안정적인 서비스를 제공하기 위해 노력한다. 
+③ 회사는 서비스를 이용하는 회원이 제기하는 의견이나 불만사항이 정당하다고 인정되면 즉시 처리한다. 다만, 즉시 처리가 불가능한 경우에는 회원에게 그 사유와 처리되는 일정을 통지하여야 한다. 
+
+제11조(회원에 대한 통지) 
+① 회사가 회원에 대한 통지를 하는 경우, 회원이 회사에 제출한 전자 우편 주소로 할 수 있다. 
+② 회사는 불특정다수 회원에 대하여 통지를 하는 경우, 1주일 이상 회사의 게시판에 게시함으로써 개별 통지에 갈음할 수 있다. 
+
+제12조(개인정보 수집) 
+① 회사는 적법하고 공정한 수단에 의하여 서비스이용계약의 성립 및 이행에 필요한 최소한의 개인정보를 수집한다. 
+② 회사는 회원에게 보다 나은 서비스를 제공하기 위해 관심 분야 및 구매한 상품에 관한 추가정보를 수집할 수 있고, 이 경우 회원의 동의를 얻어야 한다. 
+
+제13조(수집의 범위) 
+① 회사는 회원가입 신청 시 기본적인 서비스 제공을 위해 이름, 아이디, 비밀번호, e-mail 주소, 거주지 주소(우편번호 포함), 전화번호, 이동전화번호 등에 관한 개인정보를 수집한다. 
+② 회사는 회원의 기본적 인권을 현저하게 침해할 우려가 있는 내용은 수집하지 않는다. 
+
+제14조(개인정보의 보유 및 이용기간, 파기) 
+회사는 회원이 탈퇴하거나 제16조에 따라 동의를 철회하는 경우, 지체 없이 수집된 회원정보를 파기하는 등 필요한 조치를 취한다. 
+제15조(개인정보의 제3자 제공의 금지) 
+① 회사는 개인정보를 회원의 동의 없이 제3자에게 제공하지 않는다. 단, 다음 각 호의 경우에는 예외로 한다. 
+가. 정보통신망이용촉진법 등 법률에 특별한 규정이 있는 경우 
+나. 서비스이용계약의 이행을 위하여 필요한 경우 
+다. 통계작성, 학술연구 또는 시장조사를 위하여 필요한 경우로서 특정 개인을 식별할 수 없는 형태로 제공하는 경우 
+② 회사는 회원의 개인정보를 회사의 제휴 사이트에서 활용할 수 있다. 
+
+제16조(개인정보의 동의 철회, 열람 또는 정정) 
+① 회원 또는 회원의 법정대리인은 언제든지 개인정보의 수집 및 이용, 목적 외의 사용, 제3자 제공에 대한 동의를 철회할 수 있다. 
+② 회원 또는 회원의 법정대리인은 언제든지 자신의 개인정보를 열람할 수 있으며, 스스로 정보 및 오류를 수정할 수 있다. 그 자세한 방법은 본 사이트의 공지, 서비스이용안내에서 정한 바에 따른다. 
+
+제17조(서비스의 제공) 
+① 회사는 업무상 또는 기술상 문제가 없는 한 365일 무휴 1일 24시간 서비스를 제공하기로 한다. 
+② 회사는 특정 회원이나 일부 서비스에 대해 이용가능 시간을 별도로 지정할 수 있다. 이 경우, 사전에 게시하여 공지한다. 
+③ 제휴 사이트의 경우 해당 사이트의 운영 약관에 따른다. 
+
+제18조(정보의 제공) 
+회사는 회원이 서비스를 이용하는 데 필요하다고 인정되는 다양한 정보를 전자우편이나 기타의 방법 등으로 회원에게 제공할 수 있으나, 회원은 회사에 대하여 전자 우편으로 수신을 거부하는 의사를 표시할 수 있다. 
+
+제19조(게시물 삭제) 
+회사는 회원이 게시하거나 제공하는 서비스 내용이 다음 각 호에 해당한다고 판단될 경우 사전 통지 없이 삭제할 수 있다. 
+① 다른 회원 또는 제3자를 비방하거나 명예를 손상시키는 내용인 경우 
+② 다량의 정보를 전송하여 서비스의 안정적 운영을 방해하는 경우 
+③ 허위 사실 유포 및 수신자의 의사에 반하는 광고성 정보를 전송하는 경우 
+④ 공공질서 및 미풍양속에 위반되는 내용인 경우 
+⑤ 제3자의 지적재산권을 침해하는 내용인 경우 
+⑥ 기타 이 약관이나 법령에 위반된다고 판단되는 경우 
+
+제20조(계약사항의 변경) 
+회원이 서비스이용계약의 내용을 변경하고자 하는 경우에는 회사의 약관 및 이용안내에서 정한 바에 따라 이용계약의 변경신청서나 전화 등을 이용하여 변경할 수 있다. 
+
+제21조(지적재산권) 
+① 서비스와 관련된 저작권 등 일체의 지적재산권은 회사에 귀속한다. 
+② 이용자는 서비스를 이용함으로서 얻은 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 아니 된다. 
+③ 본 사이트에 회원이 게재한 자료와 게시물에 대한 권리와 책임은 게시 당사자에게 있으며 회사는 당해 회원의 동의 없이 이를 영리적인 목적으로 사용하지 않는다. 
+
+제22조(책임의 면제) 
+① 회사는 회원의 부주의나 고의로 인해서 발생된 어떠한 손해에 대해서도 책임을 지지 않는다. 
+② 회사는 회원이 회사의 서비스로부터 기대한 이익을 얻지 못하였거나, 서비스를 통해 취득한 자료를 취사선택하거나 이용함으로 인하여 입게 된 손해에 대하여 책임을 지지 않는다. 
+③ 회사는 회원의 귀책사유로 인한 서비스 이용의 장애에 대하여 책임을 지지 않는다. 
+④ 회사는 타인이 게시 또는 전송한 자료의 내용으로 인하여 회원에게 발생한 손해에 대해서는 책임을 지지 않는다. 
+⑤ 회사는 천재지변 등의 불가항력으로 인해 서비스를 제공할 수 없게 되어 발생한 손해에 대하여는 책임을 지지 않는다. 
+⑥ 회사가 제휴 사이트와의 계약에 의해 서비스를 제공하는 경우, 제휴 사이트가 제공하는 서비스로 인하여 발생하는 어떠한 손해에 대하여도 책임을 지지 않는다. 
+
+제23조(분쟁 시 준거법과 관할법원) 
+① 회사와 회원은 서비스와 관련하여 발생한 분쟁을 원만하게 해결하기 위하여 필요한 모든 노력을 하여야 한다. 
+② 전항의 경우에도 불구하고 분쟁으로 인한 소송이 제기될 경우 서울중앙지방법원을 관할법원으로 하여 해결토록 한다. 
+③ 회사와 이용자간에 발생하는 분쟁에 관하여는 한국법을 적용한다. 
+							</textarea>							
+						</div>
+					</div>
+				</div>
+				
+				<div id="tab2" class="tab_cont">
+					<div class="rules_txt_pop">
+						<p><strong>개인정보 수집 및 이용안내</strong></p>
+						<div>
+							<textarea readonly="readonly" title="개인정보취급방침">· 주식회사 미스터피자 (이하 '회사')는 고객님의 개인정보보호를 매우 중요시하며, 『정보통신망 이용촉진 및 정보보호 등에 관한 법률』및 『개인정보보호의 기술적 관리적 보호조치 기준』을 준수하고 있습니다. 또한 ‘개인정보취급방침’을 통하여 고객님께서 제공하시는 개인정보가 어떤 용도와 방식으로 이용되고 있으며 개인정보를 효과적이고 적극적으로 보호하기 위해 항상 노력하고 있음에 대해 알려드립니다.
+· 회사는 개인정보 취급방침을 홈페이지 첫 화면에 공개함으로써 고객님께서 언제나 용이하게 보실 수 있도록 조치하고 있습니다.
+· 회사의 개인정보 취급방침 중 중요한 사항이 변경되는 경우에는 변경되는 ‘개인정보취급방침’을 시행하기 전에 홈페이지(www.mrpizza.co.kr) 등을 통하여 변경이유 및 내용을 고객에게 공지 합니다.
+· 회사에서 운영 중인 홈페이지에서의 개인정보취급방침에 대하여 설명을 드리겠습니다. 다음의 내용은 본 사에서 운영하는 모든 웹사이트에 공통 적용되는 사항임을 알려드립니다.
+
+● 개인정보 수집·이용 안내
+
+1. 개인정보의 수집·이용 목적
+    -이용자에게 보다 나은 서비스를 제공하기 위해 홈페이지의 개선과 보완을 취한 통계분석
+    -이용자와 웹사이트간의 원활한 의사소통, 보안 침해 대응 등에 이용 될 수 있음
+    -이러한 정보는 법령의 규정에 따라 제출될 수 있음을 유념하시기 바랍니다
+    
+2. 개인정보 수집 항목
+· 회사는 회원 가입 시 이용자의 SNS가입(NAVER, PAYCO) 계정 메일, 휴대폰번호, 생년월일, [선택] 성별, 생년월일 필수 개인정보 항목을 수집하여 처리하고 있습니다.
+· 회사는 이용자의 기본적 인권 침해의 우려가 있는 민감한 개인정보(인종 및 민족, 사상 및 신조, 출신지 및 본적지, 정치적 성향 및 범죄기록, 건강상태 및 성생활 등)는 수집하지 않습니다. 
+· 회사의 홈페이지에 가입 시 수집되는 개인정보는 다음과 같습니다.
+  *필수사항
+    -이름:회원의 식별
+    -성별:우먼스데이 등 프로모션 혜택 제공
+    -주소:프로모션 안내, 경품발송(당첨자일 경우)
+    -휴대폰 번호:공지사항 안내, 신규서비스 소개, 경품이 모바일쿠폰으로 발송 될 경우 사용
+    -이메일:프로모션 안내(이벤트 런칭 시 이벤트 안내, 신규 서비스 소개 등), 공지사항 안내
+    -아이디, 비밀번호 : 로그인 정보 분실 시 제공 
+  *선택사항
+    -생년월일:생일 쿠폰 발송 시 사용
+    -직업:맞춤서비스, 마케팅 자료로 활용
+• 홈페이지를 이용할 경우 자동으로 수집·저장되는 개인정보 및 그 거부에 관한 사항은 다음과 같습니다.
+  *수집항목
+    -쿠키(cookie)
+    -이용자의 인터넷서버 도메인
+    -경유 웹사이트 주소
+    -OS종류
+    -웹브라우저 종류 및 버전
+※ 개인정보 자동 수집 장치의 설치/운영 및 거부에 관한 사항
+고객님께서는 쿠키 설치에 대한 선택권을 가지고 있습니다. 웹 브라우저 상단의 “도구 &gt; 인터넷옵션 &gt; 개인정보 &gt; 고급”에서 모든 쿠키를 다 받아들이거나, 쿠키가 설치될 때 통지를 보내도록 하거나, 아니면 모든 쿠키를 거부할 수 있습니다. 단, 고객님께서 쿠키 설치를 거부하였을 경우 서비스 이용에 불편이 있거나, 서비스 제공에 어려움이 있을 수 있습니다. 쿠키는 브라우저의 종료 시나 로그아웃 시 만료됩니다.
+
+3. 개인정보의 보유 및 이용기간
+· 회사는 고객님의 서비스 가입일로부터 고객님께 서비스를 제공하는 기간 동안에 한하여 고객님의 개인정보를 보유 및 이용하게 됩니다. 회원 탈퇴를 요청하거나 개인정보의 수집 및 이용에 대한 동의를 철회하는 경우, 수집/이용목적을 달성하거나 보유/이용기간이 종료한 경우, 사업폐지 등의 사유발생시 당해 개인정보를 지체없이 파기합니다.
+· 단, 요금의 정산, 소송이나 분쟁 등 기타 필요한 경우를 대비하여 일정기간 보유하여야 할 필요가 있을 경우 개인정보는 일정기간 보유합니다.
+
+4. 개인정보의 파기 절차 및 방법
+· 회사는 수집한 개인정보의 이용목적이 달성된 후에는 보관기간 및 이용기간에 따라 해당 정보를 지체없이 파기합니다. 파기절차, 방법, 시점은 다음과 같습니다. 
+파기절차 및 시점
+· 고객이 서비스 가입 등을 위해 기재한 개인정보는 서비스 해지 등 이용목적이 달성된 후 내부 방침 및 기타 관련 법령에 의한 방침에 의해 삭제되거나 파기합니다. 
+파기방법
+· 가입신청서 등 서면양식에 기재하거나, 종이에 출력된 개인정보는 분쇄기로 분쇄 또는 소각하여 파기하고, 전자적 파일형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.
+
+● 개인정보 수집 및 활용에 대한 동의
+· 회사는 고객님께서 개인정보 취급방침 또는 이용약관의 내용에 대해 '동의한다' 또는 '동의하지 않는다' 버튼을 클릭할 수 있는 절차를 마련하고 있으며, '동의한다'버튼을 클릭하면 개인정보 수집 및 활용에 대해 동의한 것으로 봅니다. 
+							</textarea>
+						</div>
+					</div>
+				</div>	
+				
+				<div id="tab3" class="tab_cont">
+					<div class="rules_txt_pop">
+						<p><strong>개인정보 취급 업무 위탁</strong></p>
+						<div>
+							<textarea readonly="readonly" title="개인정보 취급 업무 위탁">● 개인정보 취급 업무의 위탁
+
+1.개인정보의 제3자 제공
+· 회사는 개인정보보호정책 등에서 고지하거나 동의한 범위를 초과하여 회원의 개인정보를 이용하거나 제 3자에게 제공 또는 공개하지 않습니다. 다만, 법률의 규정에 의한 정보 제공의 경우나 기타 법령이 허용한 범위 내에서는 예외로 합니다.
+
+2. 개인정보의 취급위탁
+· 회사는 보다 나은 서비스 제공, 고객편의 제공 등 원활한 업무 수행을 위하여 다음과 같이 개인정보 취급 업무를 외부 전문업체에 위탁하여 운영하고 있습니다.
+· 회사는 위탁업무계약서 및 보안서약서 등을 통하여 개인정보보호 관련 법규의 준수, 개인정보에 관한 비밀유지, 제 3 자 제공에 대한 금지, 사고시의 책임부담, 위탁기간, 처리 종료 후의 개인정보의 반환 또는 파기 의무 등을 규정하고, 이를 준수하도록 관리하고 있습니다. 
+· 회사 서비스 제공을 위해 개인정보 위탁하는 업체 리스트는 다음과 같습니다.
+  *위탁 협력회사:씨엔티테크(주)
+  *위탁항목:회원정보,주문정보
+  *위탁업무내용(목적):콜센터 업무 대행, 웹사이트 개발 및 운영, 웹 호스팅
+  *보유 및 이용기간: 위탁계약 종료시 까지
+※ 위탁 업체 리스트는 해당 서비스 변경 및 계약기간에 따라 변경될 수 있으며 변경 시 공지사항을 통해 사전 공지합니다.
+
+■ 이용자 및 법정대리인의 권리와 그 행사 방법
+
+개인정보의 열람, 정정, 동의 철회(회원탈퇴)
+· 고객님은 언제든지 등록되어 있는 고객님의 개인정보를 열람하거나 정정하실 수 있습니다. 개인정보 열람 및 정정을 하고자 할 경우에는 '회원정보변경'을 클릭하여 직접 열람 또는 정정하실 수 있습니다. 
+· 회사는 고객이 개인정보에 대한 열람?증명 또는 정정을 요구하는 경우에는 고객의 요구에 성실하게 대응하고, 해당 개인정보에 오류가 있거나 보존기간을 경과한 것이 판명되는 등 정정ㆍ삭제를 할 필요가 있다고 인정되는 경우에는 지체 없이 정정?삭제를 합니다. 
+· 또한 회원가입 등을 통해 개인정보의 수집, 이용, 제공에 대해 동의하신 내용을 언제든지 철회하실 수 있습니다. 동의 철회(회원탈퇴)를 하고자 할 경우에는 '회원탈퇴'를 클릭하여 직접 신청하실 수 있습니다. 
+
+법정대리인의 권리
+· 회사는 만 14세 미만 아동(이하 '아동')이 제공한 개인정보로 인하여 아동 및 법정대리인이 불이익을 입지 않도록 보호 조치를 취하고 있습니다. 
+· 회사는 아동의 개인정보에 대하여 아래의 행위를 하는 경우에는 해당 아동의 법정대리인의 동의를 얻도록 하고 있습니다. 
+- 아동의 서비스가입을 위한 개인정보 수집하거나 서비스 가입 시 고지한 범위 또는 서비스 이용약관에 명시한 범위를 넘어 이동의 개인정보를 이용하거나 제 3 자에게 제공하고자 하는 경우
+- 아동의 개인정보를 제공받은 자가 개인정보를 제공받은 목적 외의 용도로 이용하거나 제 3 자에게 제공하는 경우 
+· 아동의 법정대리인은 아동의 개인정보에 대한 열람, 수정 및 삭제를 요청할 수 있으며, 회사는 이러한 요청에 지체 없이 필요한 조치를 취합니다. 
+
+■ 개인정보보호를 위한 기술 및 관리적 보호조치
+
+· 회사는 고객님의 개인정보를 보호하기 위해 기술적 대책과 관리적 대책을 마련하고 있으며, 이를 적용하고 있습니다.
+
+기술적 보호조치
+· 회사는 고객님의 개인정보를 취급함에 있어 개인정보가 분실, 도난, 누출, 변조 또는 훼손되지 않도록 안전성 확보를 위하여 다음과 같은 기술적 대책을 강구하고 있습니다. 
+- 고객님의 개인정보는 비밀번호에 의해 보호되며 파일 및 전송데이터를 암호화하거나 파일 잠금기능 (Lock)을 사용하여 중요한 데이터는 별도의 보안기능을 통해 보호되고 있습니다.
+- 회사는 백신프로그램을 이용하여 컴퓨터 바이러스에 의한 피해를 방지하기 위한 조치를 취하고 있습니다. 백신프로그램은 주기적으로 업데이트되며 갑작스런 바이러스가 출현할 경우 백신이 나오는 즉시 이를 제공함으로써 개인정보가 침해되는 것을 방지하고 있습니다. 
+- 회사는 암호알고리즘을 이용하여 네트워크 상의 개인정보를 안전하게 전송할 수 있는 보안장치(SSL)를 채택하고 있습니다. 
+- 해킹 등 외부침입에 대비하여 각 서버마다 침입차단시스템 및 취약점 분석시스템 등을 이용하여 보안에 만전을 기하고 있습니다. 
+
+관리적 보호조치
+· 회사는 고객의 개인정보에 대한 접근 및 관리에 필요한 절차 등을 마련하여 소속 직원으로 하여금 이를 숙지하고 준수하도록 하고 있으며, 고객님의 개인정보에 대한 접근권한을 최소한의 인원으로 제한하고 있습니다. 그 최소한의 인원에 해당하는 자는 다음과 같습니다.
+- 이용자를 직접 상대로 하여 마케팅 업무를 수행하는 자
+- 개인정보관리책임자 및 담당자 등 개인정보관리업무를 수행하는 자
+- 기타 업무상 개인정보의 취급이 불가피한 자 
+
+· 회사는 컴퓨터를 이용하여 고객의 개인정보를 처리하는 경우 개인정보에 대한 접근권한을 가진 담당자를 지정하여 ID 및 비밀번호를 부여하고, 해당 비밀번호를 정기적으로 갱신하고 있습니다. 
+
+· 개인정보를 취급하는 직원을 대상으로 새로운 보안 기술 습득 및 개인정보보호 의무 등에 관해 정기적인 사내 교육 및 외부 위탁교육을 실시하고 있습니다. 
+
+· 신규직원 채용 시 정보보호서약서 또는 개인정보보호서약서에 서명함으로 직원에 의한 정보유출을 사전에 방지하고 개인정보 취급방침에 대한 이행사항 및 직원의 준수여부를 감사하기 위한 내부절차를 마련하여 지속적으로 시행하고 있습니다. 
+
+· 직원 입사 및 퇴직 시 비밀유지서약서에 서명함으로 고객의 개인정보를 취급하였던 자가 직무상 알게 된 개인정보를 훼손ㆍ침해 또는 누설하지 않도록 하고 있습니다. 
+
+· 개인정보 관련 취급자의 업무 인수인계는 보안이 유지된 상태에서 철저하게 이뤄지고 있으며 입사 및 퇴사 후 개인정보 사고에 대한 책임을 명확히 하고 있습니다.
+
+· 전산실 및 자료 보관실 등을 특별 보호구역으로 설정하여 출입을 통제하고 있습니다. 
+
+■ 홈페이지 이용자의 주의사항
+
+· 링크사이트/웹 페이지
+- 본 사가 운영하는 여러 웹페이지에 포함된 링크 또는 배너를 클릭하여 다른 사이트 또는 웹페이지로 옮겨갈 경우 개인정보취급방침은 그 사이트 운영기관이 게시한 방침이 적용되므로 새로 방문한 사이트의 방침을 확인하시기 바랍니다.
+
+· 웹사이트 이용 중 다른 사람의 개인정보 취득
+- 본 사의 웹사이트에서 이메일 주소 등 식별할 수 있는 개인정보를 취득 또는 배포하여서는 아니 됩니다.
+
+· 이용자의 책임사항
+- 홈페이지를 이용하여 타인의 권익을 침해하거나 허위사실을 유포하여 관련 단체에 피해를 준 경우 모든 책임은 그 문서의 게시자에게 있으며, 당사자의 개인 정보는 [정보통신망 이용촉진 및 정보보호 등에 관한 법률]에 따라 보호받지 못할 수도 있습니다.
+
+※ 유의사항
+
+- 이용자가 홈페이지에 기재한 사항은 다른 사람들이 조회 또는 열람할 수도 있습니다.
+- 이용자가 기재한 사항은 관련 법규에 근거하여 필요한 다른 사람과 공유될 수 있으며, 관련법령의 시행과 정책개발의 자료로도 사용될 수 있습니다.
+- 또한, 이러한 정보는 타기관과 공유되거나, 필요에 의하여 제공될 수도 있습니다.
+- 보안을 위해 기술적/관리적 노력을 하고 있으나, 만약의 침해사고 시 문제가 될 수 있는 민감한 정보의 기재는 피하여 주시기 바랍니다.
+
+■ 의견 수렴 및 불만처리
+
+· 회사는 개인정보와 관련하여 고객의 의견을 매우 소중하게 생각합니다. 고객님께서 회사의 서비스를 이용하시며 발생하는 불만 또는 문의사항은 전화, 전자우편 또는 인터넷 홈페이지의 상담창구를 통하여 접수, 처리하고 있습니다. 기타 불만에 대한 내용은 다음 메일주소(webmaster@mrpizza.co.kr)로 보내주시면 신속/정확한 답변을 드리겠습니다.
+· 기타 개인정보 침해에 관한 상담이 필요한 경우에는 한국인터넷진흥원 개인정보침해신고센터, 경찰청 사이버테러대응센터 등으로 문의하실 수 있습니다. 
+
+개인정보침해신고센터
+- 전화 : 118
+- URL : http://www.118.or.kr
+
+경찰청 사이버테러대응센터
+- 전화 : 02-393-9112
+- URL : http://www.netan.go.kr/ 
+
+■ 개인정보관리책임자 및 담당자
+
+· 회사는 고객님의 정보를 안전하게 이용할 수 있도록 최선을 다하고 있으며 개인정보 관련 문의사항에 신속하고 성실하게 답변해드리고 있습니다. 개인정보를 보호하는데 있어 고객님께 고지한 사항들에 반하는 사고가 발생할 시에 개인정보관리책임자가 모든 책임을 집니다. 고객님의 개인정보를 취급하는 책임자 및 담당자는 다음과 같습니다.
+
+1. 개인정보관리책임자
+이름 : 이재이 팀장
+소속 : 마케팅팀
+연락처 : 02-590-7729
+e-mail : je3284@mrpizza.co.kr
+
+2. 개인정보보호담당자
+이름 : 정지숙 과장
+소속 : 마케팅팀
+연락처 : 02-590-7737
+e-mail : jjs8420@mrpizza.co.kr
+
+■ 최종 갱신일
+
+· 현 ‘개인정보취급방침’ 개정일은 2016년 3월 22일입니다
+
+· 부칙 1. (시행일) 이 약관은 2016년 3월 22일부터 시행한다 
+							</textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">닫기</a>
+		</article>
+		<!-- /pop layer -->
+		
+		<!-- quick -->
+		<section id="quick" class="">
+			
+
+
+
+
+	
+		
+		
+		
+		
+		
+	<input type="hidden" id="menuFlag" name="menuFlag" value="">
+		
+	
+	
+<section class="quick_wrap">
+	<ul class="quick_menu">
+		
+			
+				<li><a href="https://www.mrpizza.co.kr/login_join/login" class="quick_tit " id="quickLoginURL"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_quick_01.png" alt="로그인"></i>로그인</a></li>
+			 
+			
+			
+					
+		<!-- <li><a href="/login_join/login" class="quick_tit"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png" alt="로그인" /></i>로그인</a></li> -->
+		<li><a href="https://www.mrpizza.co.kr/login_join/join" class="quick_tit"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_quick_02.png" alt="회원가입"></i>회원가입</a></li>
+		<li class="inBox">
+			<a href="https://www.mrpizza.co.kr/login_join/join#" onclick="javascript:cartOpen();" class="quick_tit quick_cart" title="장바구니">
+				<i><img src="./회원가입 _ 미스터피자 World champ_files/ico_quick_03.png" alt="장바구니"></i>장바구니<em class="cart_num">0</em>
+			</a>
+			<section class="quick_box p0">
+				<ul class="q_rdoList">
+					
+					
+					<li class="on">
+						<label>
+							<input id="q_cartRdo_1" name="q_cartRdo" type="radio" class="radio" value="D" checked="">
+							<span class="lbl">배달주문</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input id="q_cartRdo_2" name="q_cartRdo" type="radio" class="radio" value="P">
+							<span class="lbl">방문포장</span>
+						</label>
+					</li>
+					
+				</ul>
+				
+				
+				<p class="q_price">
+					<b>주문금액</b>
+					<span><strong class="t_red"></strong>원</span>
+				</p>
+				<ul class="txt_list pl10">
+					<li>1회 주문 시 피자는 5판까지 주문 가능합니다.</li>
+					<li>1회 주문 시 음료는 5개까지 주문 가능합니다.</li>
+					<li>배달비와 샐러드메뉴 (홈샐러드/케이준샐러드) 제외한 결제금액 19,900원 이상 배달 가능합니다.</li>
+					<!--
+					<li>사이드만 주문시 샐러드메뉴 (홈샐러드/케이준샐러드/리코타샐러드) 제외한 결제금액 14,000원 이상 배달 가능합니다.</li>
+					-->
+				</ul>
+
+				<p class="mt20 mb20 t_center">
+					<a href="https://www.mrpizza.co.kr/login_join/join#" class="button q_close" title="창 닫기">창 닫기 <span class="gt">&gt;</span></a>
+					<a href="https://www.mrpizza.co.kr/login_join/join#" onclick="javascript:goCart();" class="button" title="장바구니 가기">장바구니 가기 <span class="gt">&gt;</span></a>
+					<a href="https://www.mrpizza.co.kr/login_join/join#" onclick="javascript:goDirectOrder();" class="button red" title="바로주문">바로주문 <span class="gt">&gt;</span></a>
+				</p>
+			</section>
+		</li>
+		<li class="inBox">
+			<a href="https://www.mrpizza.co.kr/login_join/join#" onclick="javascript:reOrderOpen();" class="quick_tit quick_order" title="재주문"><i><img src="./회원가입 _ 미스터피자 World champ_files/ico_quick_04.png" alt="재주문"></i>재주문</a>
+			<section class="quick_box">
+				<h1 class="tit1">
+					
+						
+							이전 주문 그대로 주문하기
+						 
+						
+								
+				</h1>
+				<ul class="tabmenu noline tabMotion mt20">
+					<li class="on"><a href="https://www.mrpizza.co.kr/login_join/join#q_tab01" title="배달주문"><span>배달주문</span></a></li>
+					<li><a href="https://www.mrpizza.co.kr/login_join/join#q_tab02" title="방문포장"><span>방문포장</span></a></li>
+				</ul>
+				<div id="q_tab01" class="tab_cont" style="display: block;">
+					
+					
+					<ul class="q_list">
+						<li>이전 주문 내역이 없습니다.</li>
+					</ul>
+					
+				</div>
+
+				<div id="q_tab02" class="tab_cont" style="display: none;">
+					
+					
+					<ul class="q_list">
+						<li>이전 주문 내역이 없습니다.</li>
+					</ul>
+					
+				</div>
+				<p class="mt10 t_center">
+					<a href="https://www.mrpizza.co.kr/login_join/join#" class="button w180 q_close" title="창닫기">창닫기 <span class="gt">&gt;</span></a>
+					<!--<a href="#" class="button red w180">전체메뉴 보기 <span class="gt">&gt;</span></a>-->
+				</p>
+			</section>
+		</li>
+	</ul>
+</section>
+
+<script type="text/javascript">
+// 상단 장바구니 개수와 맞춤
+$(".top_cart_num").html($(".cart_num").text());
+
+	if($('#menuFlag').val() == 'quick_cart') {
+		$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_cart').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		topBtn();
+		tapMotion();
+		formStyle();
+		//slideCtrl();
+	} else if($('#menuFlag').val() == 'quick_cart_non_toggle') {
+		$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		topBtn();
+		tapMotion();
+		formStyle();
+	} else if($('#menuFlag').val() == 'quick_order') {
+		$('.quick_order').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_order').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		tapMotion();
+	} else if($('#menuFlag').val() == 'quick_good') {
+		$('.quick_good').parent().toggleClass('on').siblings().removeClass('on');
+		$('.quick_good').next().toggle(500).parent().siblings().children('.quick_box').hide(500);
+		quickBtn();
+		tapMotion();
+	}
+</script>
+
+
+		</section>
+		<!-- /quick -->
+
+		<!-- footer -->
+		
+
+
+
+
+<!-- pop layer -->
+
+
+
+<!-- pop_layer -->
+<article id="popGroup" class="pop_wrap pop_layer hide">
+	<h1 class="no_txt">미스터피자 단체배달 안내</h1>			
+	<ul class="popGroup_tab tabMotion">
+		<li class="on"><a href="https://www.mrpizza.co.kr/login_join/join#popGroup1">단체배달</a></li>
+		<li><a href="https://www.mrpizza.co.kr/login_join/join#popGroup2">상품권</a></li>
+		<li><a href="https://www.mrpizza.co.kr/login_join/join#popGroup3">E-쿠폰</a></li>
+	</ul>
+	<div id="popGroup1" class="pop_cont pop_group pop_group1 tab_cont" style="display: block;">
+		<h2><img src="./회원가입 _ 미스터피자 World champ_files/tit_group.gif" alt="미스터피자 단체배달안내"></h2>
+		<p class="mt25"><strong class="f16">각종 행사, 이벤트, 모임 등 피자를 다량으로 주문하시려면 <span class="t_red">미스터피자 단체 배달 서비스</span>를 이용해 보세요.</strong></p>
+		<p><strong class="f16">주문부터 결제 까지 간편하게 이용하실 수 있습니다</strong></p>
+		<div>
+			<p><strong class="f18 t_dgray">이용안내</strong></p>
+			<ul class="txt_list mt10 f14">
+				<li>아래 문의전화(02-590-7744)로 주문하실 수 있습니다.</li>
+				<li>여러 곳으로 배송하며 결제를 한번에 할 때, 혹은 10판 이상 배송 시 이용 가능합니다.</li> 
+				<li>할인금액은 주문수량에 따라 차등 적용되며, 제휴 및 타 할인과 중복적용되지 않습니다.</li>
+				<li class="t_red">배달을 원하시는 날짜 2~3일 전에 미리 신청해주셔야 합니다.</li>
+				<li class="t_red">당일 주문은 최소 배송 4시간 전에 접수 받습니다.</li>
+				<li>결제는 현금 및 신용카드(법인/개인) 모두 가능합니다.</li>
+				<li>업무시간 : 09:00 ~ 18:00 / 토, 일, 공휴일 휴무</li>
+			</ul>
+		</div>
+		<p><img src="./회원가입 _ 미스터피자 World champ_files/txt_group_new190318.gif" alt="문의전화 02-590-7744"></p>
+	</div>
+	
+	<div id="popGroup2" class="pop_cont pop_group pop_group2 tab_cont" style="display: none;">
+		<h2><img src="./회원가입 _ 미스터피자 World champ_files/tit_group2.gif" alt="미스터피자 상품권 안내"></h2>
+		<p class="mt25"><strong class="f16">미스터피자 상품권으로 마음을 전하세요.</strong></p>
+		<div>
+			<p><strong class="f18 t_dgray">이용안내</strong></p>
+			<ul class="txt_list mt10 f14">
+				<li>아래 문의전화(02-590-7744)로 구매하실 수 있습니다.</li>
+				<li>주문 금액에 따라 할인율은 차등 적용됩니다.</li>
+				<li>구매하신 상품권은 2~3일 정도의 배달 시간이 소요됩니다.<br>
+				(단, 일요일 및 법정 공휴일에는 배송불가)</li>
+				<li>상품권은 전국으로 무료 배송해 드립니다.(5만원이상 구매 고객에 한함)</li>
+				<li>결제는 현금 및 신용카드(법인/개인) 모두 가능합니다.	</li>
+				<li>업무시간 : 09:00 ~ 18:00 /    토, 일, 공휴일 휴무</li>
+			</ul>
+		</div>
+		<p><img src="./회원가입 _ 미스터피자 World champ_files/txt_group_new.gif" alt="문의전화 02-590-7724"></p>
+	</div>
+	
+	<div id="popGroup3" class="pop_cont pop_group pop_group3 tab_cont" style="display: none;">
+		<h2><img src="./회원가입 _ 미스터피자 World champ_files/tit_group3.gif" alt="E-쿠폰"></h2>
+		<p class="f16 mt25 mb50"><strong>간편하게 모바일 쿠폰 (E-쿠폰) 발송 서비스를 이용해 보세요.</strong></p>		
+		
+		<div class="f14">
+			<p class="mt30"><strong class="f18 t_dgray">이용안내</strong></p>
+			<ul class="txt_list mt10">
+				<li>아래문의전화/이메일/홈페이지를통해문의하실수있습니다.</li>
+				<li>결제는 현금 및 신용카드(법인/개인) 모두 가능합니다.</li>
+				<li>업무시간 : 09:00 ~ 18:00 / 토, 일, 공휴일 휴무</li>
+			</ul>
+			<p>모바일 쿠폰마켓 홈페이지 : <a href="https://www.mcmarket.co.kr/" target="_blank" class="t_blue" title="쿠폰마켓 새창열림">https://www.mcmarket.co.kr/</a> </p>
+			<p class="mb30">모바일쿠폰마켓 접속 &gt; 상품찾기 &gt; 미스터피자 &gt; 상품선택 &gt; 발송신청하기</p>
+		</div>
+		<p><img src="./회원가입 _ 미스터피자 World champ_files/txt_group2.gif" alt="문의전화 070-4020-5289, 대표문의 sec_b2mall@coopnc.com"></p>
+	</div>
+	
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">팝업닫기</a>
+</article>
+<!-- //pop_layer -->
+
+
+<!-- /pop layer -->
+
+<!-- first promotion pop layer -->
+		<div style="display:none;position:absolute;left:0;top:0;z-index:9996;" id="sizeupsaladlayer">
+		</div>
+		<div style="display:none;position:absolute;left:0;top:0;z-index:9996;" id="sizeuplayer">
+		</div>
+		<div style="display:none;position:absolute;left:0;top:0;z-index:9996;" id="saladlayer">
+		</div>
+<!-- /first promotion pop layer -->
+
+<!-- pop topping -->
+
+
+
+<a href="https://www.mrpizza.co.kr/login_join/join#addTopping" id="topping_open" class="pop_open"><span class="blind">토핑추가 팝업 열기</span></a>
+<!-- pop_layer -->
+
+<article id="addTopping" class="pop_wrap pop_layer hide">
+
+	<input type="hidden" id="p_class_id" name="p_class_id" value="">
+	<input type="hidden" id="p_base_id" name="p_base_id" value="">
+	<input type="hidden" id="p_size_id" name="p_size_id" value="">
+	<input type="hidden" id="p_product_id" name="p_product_id" value="">
+	<input type="hidden" id="p_order_seq" name="p_order_seq" value="">
+	
+	<h1>추가 토핑 선택</h1>			
+	<div class="pop_cont pop_scroll">
+		<ul class="txt_list">
+			<li>토핑 추가는 피자 한판당 5가지까지 선택할 수 있습니다.</li>
+			<li>피자만 할인되는 경우, 토핑 금액에 대해서는 할인이 적용되지 않습니다. </li>
+			<li>같은 피자를 2판이상 담는 경우, 추가 토핑은 피자마다 동일하게 적용됩니다.</li>
+			<li>피자샌드인 경우 치즈추가는 피자샌드 1개당 1개만 추가할 수 있습니다.</li>
+		</ul>
+		<hr>				
+		<div class="add_topping">
+			<table>
+				<caption>주문내역</caption>
+				<colgroup>					
+					<col>
+					<col style="width:80px">
+					<col style="width:60px">
+				</colgroup>
+				<tbody id="toppingList">
+					<!-- <tr>
+						<th scope="row">
+							<img src="http://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201531713414146.jpg?timestamp=1431495857383" style="width:100px" alt="토핑 이미지">
+						</th>
+						<td><strong>과일크림치즈</strong></td>
+						<td class="t_right">1,000원</td>
+						<td class="small_spin"><input class="spinner" type="text" value="1" title="수량입력" readonly /></td>
+						<td class="t_center"><a href="#" class="button h25">추가</a></td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">팝업닫기</a>
+</article>
+
+<!-- //pop_layer -->
+
+<!-- // topping -->
+
+
+<footer class="footer_renew">
+	<div class="line_area">
+		<div class="inner_renew">
+			<ul class="link_list">
+				<li><a href="https://www.mrpizza.co.kr/login_join/rules"><span>개인정보처리방침</span></a></li>
+				<li><a href="https://www.mrpizza.co.kr/login_join/rules">이용약관</a></li>
+				<li><a href="https://www.mrpizza.co.kr/brand/franchise">가족점모집</a></li>
+				<li><a href="https://www.mrpizza.co.kr/cscenter/cscenter_main">고객만족센터</a></li>
+				<li><a href="https://www.mrpizza.co.kr/login_join/join#popGroupOrder" class="pop_open">단체주문/상품권</a></li>
+			</ul>
+			<div class="lang_wrap">
+				<button type="button">Korean</button>
+				<ul class="lang_list" style="display: none;">
+					<li><a href="http://usmpk.mrpizza.co.kr/en/" target="_blank">English</a></li>
+					<li><a href="http://chmpk.mrpizza.co.kr/ch/" target="_blank">Chinese</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="inner_renew">
+		<div class="info_wrap">
+			<address>경기도 성남시 분당구 판교로 255번길 35, 에이동 4층(삼평동) 대표이사:김영광,진형일 개인정보 관리책임자:한상근 통신판매업:2023-성남분당A-0191 <br> 사업자등록번호 666-81-02675</address>
+			<p class="copy">Copyright © Mr.Pizza All rights reserved.</p>
+			<ul class="sns_list">
+				<li class="facebook"><a href="https://www.facebook.com/%EB%AF%B8%EC%8A%A4%ED%84%B0%ED%94%BC%EC%9E%90-109366961739420" target="_blank"><span>미스터피자 페이스북</span></a></li>
+				<li class="kakaostory"><a href="https://story.kakao.com/ch/mrpizza" target="_blank"><span>미스터피자 카카오스토리</span></a></li>
+				<li class="instagram"><a href="https://instagram.com/mrpizzalove" target="_blank"><span>미스터피자 인스타그램</span></a></li>
+				<li class="blog"><a href="https://blog.naver.com/mrpizzalove" target="_blank"><span>미스터피자 블로그</span></a></li>
+			</ul>
+		</div>
+		<div class="award_wrap">
+			<ul>
+				<li><img src="./회원가입 _ 미스터피자 World champ_files/img_award_01.jpg" alt=""><span>대한민국 대표<br>고객만족도 조사<br>7회 수상<br>(2007·2009-2014)</span></li>
+				<li><img src="./회원가입 _ 미스터피자 World champ_files/img_award_02.jpg" alt=""><span>좋은기업 대상 <br>9회 연속수상</span></li>
+				<li><img src="./회원가입 _ 미스터피자 World champ_files/img_award_03.jpg" alt=""><span>브랜드스타<br>12회 연속수상</span></li>
+				<li><img src="./회원가입 _ 미스터피자 World champ_files/img_award_04_210119.jpg" alt=""><span>2021년<br>세계일류상품<br>차세대부분수상</span></li>
+				<li><img src="./회원가입 _ 미스터피자 World champ_files/img_award_05.jpg" alt=""><span>세계 피자대회<br>2019년 2관왕</span></li>
+			</ul>
+			<p class="num">전화주문 <strong>1577-0077</strong></p>
+		</div>
+	</div>
+</footer>
+<!-- popup -->
+<article id="popGroupOrder" class="pop_wrap pop_layer hide" style="margin-top: -188.5px; display: none;">
+	<h1>미스터피자</h1>			
+	<div class="pop_cont">
+<strong>단체주문 및 상품권 구매문의</strong><br><br>
+<strong>상담 가능 시간: 09:00~18:00 (점심시간 12:00~13:00 제외)</strong><br><br>
+<strong>상담 가능 번호: 02-590-7731</strong><br><br>
+
+(그외 시간에는 일반 주문 전화 <span style="color:#e20c3e;">1577-0077(단체주문 문의만 가능)</span> )<br>
+		<br>
+		단체주문은 여러 곳으로 배송하며 결제를 한번에 할 때,<br>
+혹은 10판 이상 배송 시 이용 가능합니다.<br>
+할인금액은 주문수량에 따라 차등 적용되며,<br>
+제휴 및 타 할인과 중복적용되지 않습니다.<br>
+배달을 원하시는 날짜 2~3일 전에 미리 신청해주셔야 합니다.<br>
+결제는 현금 및 신용카드(법인/개인) 모두 가능합니다.<br>
+	</div>
+	<a href="https://www.mrpizza.co.kr/login_join/join#" class="btn_close pop_close">팝업닫기</a>
+</article>
+<form id="recommendForm" name="recommendForm">
+	<input type="hidden" id="product_case" name="product_case" value="">
+	<input type="hidden" id="product_key" name="product_key" value="">
+	<input type="hidden" id="product_gubun" name="product_gubun" value="">
+	<input type="hidden" id="dough_id" name="dough_id" value="">
+	<input type="hidden" id="option_id" name="option_id" value="">
+</form>
+<script type="text/javascript">
+(function ()
+{
+    function k(a, b, c)
+    {
+        if (a.addEventListener) {
+            a.addEventListener(b, c, false);
+        }
+        else {
+            a.attachEvent && a.attachEvent("on" + b, c);
+        }
+    }
+    function g(a)
+    {
+        if (typeof window.onload != "function")
+        {
+            window.onload = a;
+        }
+        else {
+            var b = window.onload;
+            window.onload = function ()
+            {
+                b();
+                a();
+            }
+        }
+    }
+    function h()
+    {
+        var a = {};
+        for (type in {
+            Top : "", Left : ""
+        })
+        {
+            var b = type == "Top" ? "Y" : "X";
+            if (typeof window["page" + b + "Offset"] != "undefined") {
+                a[type.toLowerCase()] = window["page" + b + "Offset"];
+            }
+            else
+            {
+                b = document.documentElement.clientHeight ? document.documentElement : document.body;
+                a[type.toLowerCase()] = b["scroll" + type];
+            }
+        }
+        return a
+    }
+    function l()
+    {
+        var a = document.body, b;
+        if (window.innerHeight) {
+            b = window.innerHeight;
+        }
+        else if (a.parentElement.clientHeight) {
+            b = a.parentElement.clientHeight;
+        }
+        else if (a && a.clientHeight) {
+            b = a.clientHeight;
+        }
+        return b
+    }
+    function i(a)
+    {
+        this.parent = document.body;
+        this.createEl(this.parent, a);
+        this.size = Math.random() * 4 + 4;
+        this.el.style.width = Math.round(this.size) + "px";
+        this.el.style.height = Math.round(this.size) + "px";
+        this.maxLeft = document.body.offsetWidth - this.size;
+        this.maxTop = document.body.offsetHeight - this.size;
+        this.left = Math.random() * this.maxLeft;
+        this.top = h().top + 1;
+        this.angle = 1.4 + 0.2 * Math.random();
+        this.minAngle = 1.4;
+        this.maxAngle = 1.6;
+        this.angleDelta = 0.01 * Math.random();
+        this.speed = 2 + Math.random()
+    }
+    var j = false;
+    g(function ()
+    {
+        j = true;
+    });
+    var f = true;
+    window.createSnow = function (a, b)
+    {
+        if (j)
+        {
+            var c = [], m = setInterval(function ()
+            {
+                f && b > c.length && Math.random() < b * 0.0025 && c.push(new i(a));
+                !f && !c.length && clearInterval(m);
+                for (var e = h().top, n = l(), d = c.length - 1; d >= 0; d--) if (c[d]) if (c[d].top < e || c[d].top + c[d].size + 1 > e + n) {
+                    c[d].remove();
+                    c[d] = null;
+                    c.splice(d, 1)
+                }
+                else {
+                    c[d].move();
+                    c[d].draw()
+                }
+            }, 40);
+            k(window, "scroll", function ()
+            {
+                for (var e = c.length - 1; e >= 0; e--) {
+                    c[e].draw();
+                }
+            })
+        }
+        else {
+            g(function () 
+            {
+                createSnow(a, b) 
+            });
+        }
+    };
+    window.removeSnow = function ()
+    {
+        f = false;
+    };
+    i.prototype = 
+    {
+        createEl : function (a, b)
+        {
+            this.el = document.createElement("img");
+            this.el.setAttribute("src", b + "snow" + Math.floor(Math.random() * 4) + ".gif");
+            this.el.style.position = "absolute";
+            this.el.style.display = "block";
+            this.el.style.zIndex = "-1";
+            this.parent.appendChild(this.el)
+        },
+        move : function ()
+        {
+            if (this.angle < this.minAngle || this.angle > this.maxAngle) {
+                this.angleDelta =- this.angleDelta;
+            }
+            this.angle += this.angleDelta;
+            this.left += this.speed * Math.cos(this.angle * Math.PI);
+            this.top -= this.speed * Math.sin(this.angle * Math.PI)* 1.5;
+            if (this.left < 0) {
+                this.left = this.maxLeft;
+            }
+            else if (this.left > this.maxLeft) {
+                this.left = 0;
+            }
+        },
+        draw : function ()
+        {
+            this.el.style.top = Math.round(this.top) + "px";
+            this.el.style.left = Math.round(this.left) + "px";
+        },
+        remove : function ()
+        {
+            this.parent.removeChild(this.el);
+            this.parent = this.el = null;
+        }
+    }
+})();
+
+
+</script>
+<!-- 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 --> 
+<script type="text/javascript" src="./회원가입 _ 미스터피자 World champ_files/wcslog.js.다운로드"> </script> 
+<script type="text/javascript"> 
+if (!wcs_add) var wcs_add={};
+wcs_add["wa"] = "s_2f6be2a35c45";
+if (!_nasa) var _nasa={};
+wcs.inflow();
+wcs_do(_nasa);
+</script>
+<!-- 공통 스크립트 끝(네이버 키워드 광고) -->
+
+<!-- 애드베이리타겟팅태그  -->
+<iframe src="./회원가입 _ 미스터피자 World champ_files/view.html" scrolling="no" frameborder="0" width="0" height="0" title="애드베이리타겟팅태그"></iframe>
+<!-- 애드베이리타겟팅태그  -->
+
+
+<script type="text/javascript">
+    var roosevelt_params = {
+        retargeting_id:'j.tTpckL.PwfsNPJxhaxmA00',
+        tag_label:'J5IRXH6TReeTry1EPFIROw'
+    };
+</script>
+<!-- 다음 카카오 DDN -->
+<script type="text/javascript" src="./회원가입 _ 미스터피자 World champ_files/roosevelt.js.다운로드" async=""></script>
+<script type="text/javascript" charset="UTF-8" src="./회원가입 _ 미스터피자 World champ_files/kp.js.다운로드"></script><script type="text/javascript">
+      kakaoPixel('7829926935338663372').pageView();
+      kakaoPixel('2285893234673012525').pageView();
+      </script>
+      
+            <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1388168051328271');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1388168051328271&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<!-- Facebook Pixel Code -->
+<script>
+	function fbqSearchKeyword() {
+	var uri = document.referrer;
+	if (!uri) return;
+	var link = document.createElement('a');
+	link.setAttribute('href', uri);
+	var pattern = new RegExp('[\\?&](?:q|query)=([^&#]*)');
+	var query = link.search.match(pattern);
+	if (query && query.length > 0) {
+	var keyword = query[1].replace(/\+/gi, "%20");
+	}
+	if (keyword) {
+	fbq('trackCustom', 'SearchKeyword', {
+	hostname: link.hostname,
+	keyword: decodeURIComponent(keyword),
+	});
+	} }
+fbqSearchKeyword();
+</script>
+<!-- End Facebook Pixel Code -->
+<!-- Enliple Common Tracker v3.5 [공용] start -->
+<script type="text/javascript">
+   function mobRf(){
+       var rf = new EN();
+       rf.setData("userid", "mrpizza77");
+       rf.setSSL(true);
+       rf.sendRf();
+   }
+</script>
+<script src="./회원가입 _ 미스터피자 World champ_files/enliple_sns_min3.5.js.다운로드" defer="defer" onload="mobRf()"></script>
+<!-- Enliple Common Tracker v3.5 [공용] end -->
+
+
+<!-- Taboola Pixel Code -->
+
+<script type="text/javascript">
+
+  window._tfa = window._tfa || [];
+
+  window._tfa.push({notify: 'event', name: 'page_view', id: 1177527});
+
+  !function (t, f, a, x) {
+
+         if (!document.getElementById(x)) {
+
+            t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
+
+         }
+
+  }(document.createElement('script'),
+
+  document.getElementsByTagName('script')[0],
+
+  '//cdn.taboola.com/libtrc/unip/1177527/tfa.js',
+
+  'tb_tfa_script');
+
+</script>
+
+<noscript>
+
+  <img src='//trc.taboola.com/1177527/log/3/unip?en=page_view'
+
+      width='0' height='0' style='display:none'/>
+
+</noscript>
+
+<!-- End of Taboola Pixel Code -->
+
+<!-- Global site tag (gtag.js) - Google Ads: 763537271 -->
+<script async="" src="./회원가입 _ 미스터피자 World champ_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-763537271');
+</script>
+
+<!-- ADN Tracker[공통] start -->
+<script type="text/javascript">
+var adn_param = adn_param || [];
+adn_param.push([{ 	
+ ui:'100736',
+ ut:'Home'
+}]);
+</script>
+<script type="text/javascript" async="" src="./회원가입 _ 미스터피자 World champ_files/adn_tags_1.0.0.js.다운로드"></script>
+<!-- ADN Tracker[공통] end -->
+
+<!-- ADN 크로징 설치  start -->
+<script type="text/javascript">
+var adn_panel_param = adn_panel_param || [];
+adn_panel_param.push([{
+ ui:'100736',  
+ ci:'1007360004',
+ gi:'6902'
+}]);
+</script>
+<script type="text/javascript" async="" src="./회원가입 _ 미스터피자 World champ_files/adn_closingad_1.1.1.js.다운로드"></script>
+<!-- ADN 크로징 설치 end -->
+
+<script type="text/javascript" src="./회원가입 _ 미스터피자 World champ_files/1637"></script>
+<script type="text/javascript">
+ window.ne_tgm_q = window.ne_tgm_q || [];
+ window.ne_tgm_q.push(
+ {
+ 	tagType: 'visit',
+ 	device:'web',
+ 	uniqValue:'',
+ 	pageEncoding:'utf-8'
+ });
+ </script>
+
+
+		<!-- //footer -->
+
+		<iframe width="0" height="0" id="PCCAuth" name="PCCAuth" src="./회원가입 _ 미스터피자 World champ_files/saved_resource(1).html" title="빈프레임 내용없음"></iframe>
+		
+		<!-- 메조트래킹태그 -->
+		<script src="./회원가입 _ 미스터피자 World champ_files/vat-tag"></script>		
+		<!-- 메조트래킹태그 -->
+		
+		
+		<script src="./회원가입 _ 미스터피자 World champ_files/track"></script>
+	</div><div id="adn_container" style="display:none"><div id="adn_wrap_66493789239" style="display:none"><iframe frameborder="0" scrolling="no" width="0px" height="0px" src="./회원가입 _ 미스터피자 World champ_files/ads_1.0.2.html"></iframe></div></div>
+	<!-- //wrap -->
+
+
+<iframe id="ne_tgmiframe_0" width="0" height="0" style="position:absolute;width:0px;height:0px;display:none;" src="./회원가입 _ 미스터피자 World champ_files/saved_resource(2).html"></iframe><div id="adn_panel_wrap" class="closing_bg" style="display: none;"></div></body></html>

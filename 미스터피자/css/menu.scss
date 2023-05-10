@@ -1,3 +1,5 @@
+@import './function.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -24,29 +26,16 @@ legend {
 
 @keyframes moveLi {
   0% {
-    border: 2px solid rgb(255, 255, 255);
+    display: none;
   }
 
   50% {
-    border: 2px solid rgb(255, 255, 255);
+    display: none;
+
   }
 
   100% {
-    border: 2px solid rgb(0, 0, 0);
-  }
-}
-
-@keyframes moveLiA {
-  0% {
-    color: white
-  }
-
-  50% {
-    color: white
-  }
-
-  100% {
-    color: rgb(0, 0, 0)
+    display: block;
   }
 }
 
@@ -60,20 +49,149 @@ li {
 
 }
 
-// h2 {
-//   padding: 50px 10px 10px 10px;
-// }
+@media(max-width:686px){
 
-// NOTE 워랩
-#wrap {
-  padding: 20px 0;
+}
 
-  #header {
-    // TODO헤더
-    align-items: center;
-    vertical-align: middle;
-    text-align: center;
-    width: 100%;
+@media(min-width:687px){
+
+
+    header {
+      margin: 0 auto;
+      align-items: center;
+      position: relative;
+      width: 687px;
+      height: 100px;
+      font-size: 20px;
+      font-weight: bolder;
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        display: block;
+        width: 164px;
+        height: 45px;
+        background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png)0 0 no-repeat;
+        text-indent: -999em;
+
+        a {
+          display: block;
+          color: #ba0d0d;
+
+          img {
+            width: 180px;
+
+          }
+        }
+      }
+
+
+      nav {
+        flex: 8;
+        right: 0px;
+
+        #main {
+          display: flex;
+          justify-content: center;
+
+          li {
+            display: block;
+            padding: 32px 20px;
+
+            &:hover ul.sub {
+              animation: move 0.5s ease alternate forwards;
+            }
+
+            &:hover ul.sub li {
+              animation: moveLi 0.5s ease alternate forwards;
+            }
+
+            &:hover ul.sub li a {
+              animation: moveLiA 0.5s ease alternate forwards;
+            }
+
+
+            .menu {
+              display: inline-block;
+              vertical-align: top;
+              width: 50px;
+              height: 50px;
+              margin-right: 10px;
+
+              a {
+                padding: auto;
+                display: block;
+                font-size: 40px;
+              }
+            }
+
+            a {
+              &:hover {
+                color: red;
+              }
+
+            }
+
+            ul.sub {
+              background-color: #ffffff;
+              position: absolute;
+              overflow: hidden;
+              top: 100px;
+              left: 0px;
+              width: 100vw;
+              margin-left: calc(-50vw + 50%);
+              display: flex;
+              justify-content: center;
+              height: 0;
+
+
+              li {
+                width: 150px;
+                padding: 10px 0;
+                margin: 30px 20px;
+                border: 2px solid #000000;
+                border-radius: 25px;
+                background-color: #ffffff;
+
+                &:hover {
+                  border: 2px solid red;
+                }
+
+                &:hover a {
+                  color: red;
+                }
+
+                a {
+                  font-size: 14px;
+                  display: block;
+                  color: #000000;
+
+                  &:hover li {
+                    border: 1px solid red;
+                  }
+
+                }
+              }
+            }
+
+          }
+        }
+      }
+
+      div.menu {
+        display: inline-block;
+        vertical-align: top;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png)0 0 no-repeat;
+      }
+    }
+  }
+
+
+
+@media(min-width:1024px){
 
     header {
       margin: 0 auto;
@@ -114,19 +232,21 @@ li {
           justify-content: center;
 
           li {
-            margin: 0 15px;
+            display: block;
+            padding: 32px 20px;
 
             &:hover ul.sub {
-              animation: move 1s ease alternate forwards;
+              animation: move 0.5s ease alternate forwards;
             }
 
             &:hover ul.sub li {
-              animation: moveLi 1s ease alternate forwards;
+              animation: moveLi 0.5s ease alternate forwards;
             }
 
             &:hover ul.sub li a {
-              animation: moveLiA 1s ease alternate forwards;
+              animation: moveLiA 0.5s ease alternate forwards;
             }
+
 
             .menu {
               display: inline-block;
@@ -136,7 +256,8 @@ li {
               margin-right: 10px;
 
               a {
-                line-height: 6.25;
+                padding: auto;
+                display: block;
                 font-size: 40px;
               }
             }
@@ -165,25 +286,27 @@ li {
                 width: 150px;
                 padding: 10px 0;
                 margin: 30px 20px;
-                border: 2px solid rgb(255, 255, 255);
+                border: 2px solid #000000;
                 border-radius: 25px;
                 background-color: #ffffff;
 
+                &:hover {
+                  border: 2px solid red;
+                }
+
+                &:hover a {
+                  color: red;
+                }
 
                 a {
                   font-size: 14px;
                   display: block;
-                  color: #ffffff;
+                  color: #000000;
 
                   &:hover li {
-                    border-color: red;
+                    border: 1px solid red;
                   }
 
-                  //FIXME 안됨
-                  &:hover {
-                    color: red;
-
-                  }
                 }
               }
             }
@@ -203,6 +326,19 @@ li {
     }
   }
 
+
+
+
+// NOTE 워랩
+#wrap {
+  padding: 20px 0;
+  #header {
+    // TODO헤더
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+  }
   // --------------------헤더 끝
   main {
     width: 100%;
@@ -239,11 +375,6 @@ li {
               font-family: NGBold;
               color: #666666;
               background: url(../image/bg_lnbActive2On.gif) no-repeat 170px center;
-
-              &:nth-child(1) {
-                // border: 2px solid #cb1919;
-
-              }
 
               img {
                 padding: 1px 10px 0;
@@ -352,7 +483,7 @@ li {
                   height: 236px;
 
                   .r_line {
-                  display: none; // FIXME
+                    display: none; // FIXME
                     // overflow: hidden;
                     position: absolute;
                     top: 0px;
@@ -365,7 +496,7 @@ li {
 
                   }
 
-                  img{
+                  img {
                     position: absolute;
                     left: 14px;
                     width: 90%;
@@ -429,8 +560,9 @@ li {
                           line-height: 30px;
                           padding: 0 10px;
                           background: #fafafa;
-                          &:hover{
-                          background: #e4e4e4;
+
+                          &:hover {
+                            background: #e4e4e4;
 
                           }
                         }
@@ -449,19 +581,7 @@ li {
                         li {
                           width: 33.3%;
 
-                          // a {
-                          //   position: relative;
-                          //   margin-left: -1px;
-                          //   border: 1px solid #cccccc;
-                          //   text-indent: -9999em;
-                          //   font-size: 12px;
-                          //   font-family: NGBold;
-                          //   color: #cb1919;
-                          //   padding: 15px 0px;
-                          //   display: block;
-                          //   background-repeat: no-repeat;
-                          // }
-                          .aaa{
+                          .aaa {
                             position: relative;
                             margin-left: -1px;
                             border: 1px solid #cccccc;
@@ -476,7 +596,8 @@ li {
                             background-repeat: no-repeat;
                             background-position: center center;
                           }
-                          .b{
+
+                          .b {
                             position: relative;
                             margin-left: -1px;
                             border: 1px solid #cccccc;
@@ -491,14 +612,15 @@ li {
                             background-repeat: no-repeat;
                             background-position: center center;
                           }
-                          .c{
+
+                          .c {
                             position: relative;
                             margin-left: -1px;
                             border: 1px solid #cccccc;
                             text-indent: -9999em;
                             font-size: 12px;
                             font-weight: bold;
-                            font-family: NGBold;
+                            @include font ('NG');
                             color: #cb1919;
                             padding: 15px 0px;
                             display: block;
@@ -517,7 +639,6 @@ li {
                     }
                   }
                 }
-
               }
             }
           }

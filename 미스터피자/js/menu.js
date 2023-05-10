@@ -109,3 +109,14 @@ $('.option4').click(function (e){
 $('article img.pizza1 ').attr("src","../image/2023314153028392.jpg"); // 기본값으로 되돌림
 })
 })
+
+$(function(){
+
+  $('ul#main li').hover(function(){
+    $(this).children('ul').css('z-index','20');
+    $(this).children('ul li').css('border','2px solid red');
+
+  },function(){
+    $(this).children('ul').css('z-index','0');
+  })
+})

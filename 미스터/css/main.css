@@ -1,0 +1,1105 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+* body {
+  font-size: 12px;
+  font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  color: #333;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+#wrap {
+  border: 0px solid red;
+}
+
+header#header,
+div#contents,
+footer.footer_renew {
+  margin: 0 auto;
+}
+
+/* 공통 */
+button {
+  background: none;
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+
+a {
+  background: transparent;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+a:focus {
+  color: black;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+.blind {
+  display: none;
+}
+
+
+/* 서브이미지 잠시 안 보이게 주석처리해놈 */
+.submenu {
+  display: none;
+}
+
+/* 헤더 시작*/
+
+div #header {
+  width: 100%;
+  height: 100px;
+
+}
+
+div #header div.inner_box {
+  border: 0px solid tomato;
+  width: 1160px;
+  height: 70px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+#header h1 a {
+  display: block;
+  width: 164px;
+  position: relative;
+}
+
+div #header div.inner_box h1 {
+  border: 0px solid green;
+  float: left;
+  padding-right: 40px;
+  vertical-align: center;
+}
+
+div #header div.inner_box h1 img {
+  height: 50px;
+}
+
+div #header div.inner_box ul li img {
+  height: 35px;
+}
+
+div #header div.inner_box:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+div#wrap #header div.inner_box nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+div#wrap #header div.inner_box nav.main_nav {
+  display: inline-block;
+}
+
+div#wrap #header div.inner_box .box_wrap {
+  display: inline-block;
+}
+
+div#wrap #header div.inner_box nav ul li {
+  float: left;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+div #header div.inner_box nav ul li a {
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+div #header div.inner_box nav ul li img {
+  padding-right: 7px;
+  vertical-align: middle;
+}
+
+#header nav.main_nav ul li.order_gnb {
+  position: relative;
+}
+
+#header nav.main_nav ul li.order_gnb span:before {
+  content: "";
+  display: block;
+  height: 10px;
+  position: absolute;
+  left: 86px;
+  top: 20px;
+  background: #ffda30;
+  width: 80px;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+.order_gnb span strong {
+  position: relative;
+  z-index: 2;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding-left: 12px;
+  color: #e20c3e;
+  font-weight: bold;
+  font-size: 22 px;
+}
+
+/* 장바구니 마이페이지*/
+div #header:after {
+  content: "";
+  display: block;
+  clear: both;
+
+}
+
+div #header div.btn_area {
+  border: 0px solid black;
+  float: right;
+  text-decoration: none;
+  width: auto;
+  margin-right: 50px;
+}
+
+div #header div.btn_area a {
+  padding: 4px;
+}
+
+
+/* 헤더영역 끝 // */
+
+/* 팝업창 */
+.pop_main {
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 60;
+}
+
+.pop_main.pop_wrap h1 {
+  position: absolute;
+  left: -999em;
+}
+
+.pop_main.pop_wrap .pop_cont {
+  padding: 0px
+}
+
+.pop_main.pop_wrap .btn_close {
+  background: none;
+}
+
+.pop_main .chk {
+  padding: 5px 10px;
+  line-height: 23px;
+  background: #1d1f23;
+  color: #fff;
+  overflow: hidden;
+}
+
+.pop_main .chk label {
+  float: left;
+}
+
+.pop_main .chk a {
+  float: right;
+  color: #fff;
+}
+
+article#todayPop div.pop_cont p img {
+  vertical-align: middle;
+  border: 0;
+  width: 400px;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+
+/* 서브메뉴 */
+.quick_wrap {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 1;
+  margin-top: -177.5px
+}
+
+.quick_wrap>ul {
+  background: #f4f4f4;
+  border-radius: 18px 0 0 18px;
+  padding: 0 5px;
+  position: relative;
+  overflow: visible;
+}
+
+.quick_wrap>ul>li+li {
+  border-top: #dbdbdb 1px solid;
+}
+
+.quick_wrap>ul>li>a.quick_tit {
+  display: block;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #8c8c8c;
+  width: 80px;
+  position: relative;
+}
+
+.quick_wrap>ul>li>a.quick_tit:hover,
+.quick_wrap>ul>li.on>a.quick_tit {
+  color: #000;
+}
+
+.quick_wrap>ul>li>a>i {
+  display: block;
+  margin: 0 auto 4px;
+}
+
+.quick_wrap .cart_num {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  display: block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #e20c3e;
+  font-size: 11px;
+  color: #fff;
+  padding-top: 1px;
+  box-sizing: border-box;
+}
+
+/* 콘텐츠 영역시작  */
+div#contents {
+  border: 0px solid hotpink;
+  margin: 0 auto;
+  width: 100%;
+  vertical-align: middle;
+
+
+}
+
+/* 1단 */
+/* 메인배너 */
+/* banner */
+.banner {
+  position: relative;
+  width: 1920px;
+  height: 450px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.banner ul {
+  position: absolute;
+  margin: 0px;
+  padding: 0;
+  list-style: none;
+  left: 0;
+  top: 0;
+  transition: 0.8s;
+}
+
+.banner ul:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.banner ul li {
+  float: left;
+  height: 450px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
+}
+
+.banner ul li img {
+  overflow: hidden;
+  width: 1920px;
+}
+
+
+/* 이벤트 슬라이드 1 */
+/* 2단 */
+.inner_renew {
+  width: 1160px;
+}
+section.evt_cf_wrap div.inner_renew {
+  width: 1160px;
+  height: 280px;
+  border: 0px solid green;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+}
+
+div.evt_wrap {
+  width: 565px;
+  height: 280px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+div.swiper-container {
+  position: relative;
+  border:0px solid black;
+}
+
+div.swiper-container ul#swiper-slide:after{
+  display: block;
+  clear: both;
+  content: "";
+}
+
+div.swiper-container ul#swiper-slide {
+position: absolute;left:0; width:1695px; height:280px; border:0px solid red;
+}
+
+div.swiper-container ul#swiper-slide li {
+  float: left;
+}
+
+div.swiper-container ul li img{
+  border-radius: 17px;
+}
+
+
+/* 활성화아이콘 */
+
+ul.control:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+ul.control {
+  position: absolute; bottom: -250px; left: 210px; border:0px solid red; 
+}
+
+ul.control li {
+  float: left; width: 12px; height:2px;  margin-right:50px; bottom: 0; text-indent: -9999px;
+}
+
+ul.control li a {
+  font-size:10px; 
+  display:block; padding:00px; background-color:rgb(255, 255, 255);; border-radius:80%;
+}
+ul.control li a:active {
+  background-color: rgb(255, 255, 255);
+  width: 20px;
+  height: 10px;
+  border-radius:30%;
+}
+ul.control li a:focus{
+  background-color: rgb(255, 255, 255);
+  width: 28px;
+  height: 10px;
+  border-radius:30%;
+}
+
+/* 슬라이드 버튼 */
+
+/* .evt_wrap .control {position:absolute;bottom:25px;left:25%;transform:translateX(-50%);} */
+
+/* 신규오픈점 슬라이드 2  */
+/* .evt_cf_wrap .store_banner_wrap {
+  float: right;
+  width: 565px;
+  height: 280px;
+  position: relative;
+}
+.bxslider .store_slide { position: absolute; padding: 0; list-style: none; }
+*/
+.store_banner_wrap:before {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.store_banner_wrap {
+  width: 565px;
+  height: 280px;
+}
+
+.bxslider {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bxslider ul {
+  float: right;
+  padding: 0;
+  list-style: none;
+  display: block;
+  border-radius: 17px;
+}
+
+.bxslider ul li {
+  position: absolute;
+  right: -596px;
+  top: -280px;
+}
+
+.bxslider ul li img {
+  max-width: 100%;
+  border-radius: 17px;
+}
+
+
+/* 슬라이드버튼 */
+.bx-controls-direction a {
+  display: block;
+  width: 37px;
+  height: 54px;
+  position: absolute;
+  top: 50%;
+  margin-top: -27px;
+  font-size: 0px;
+  text-indent: -9999em;
+}
+
+.bx-prev {
+  left: 600px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_prev.png) no-repeat;
+}
+
+.bx-next {
+  right: 6px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_next.png) no-repeat;
+}
+
+.bx-controls-auto {
+  position: absolute;
+  left: 40px;
+  bottom: 25px;
+  z-index: 51;
+}
+
+.bx-controls-auto-item a {
+  display: inline-block;
+  width: 12px;
+  height: 15px;
+  text-indent: -999em;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_player.png) no-repeat left top;
+}
+
+.bx-controls-auto-item .bx-stop {
+  background-position: right top;
+}
+
+
+/* 3단 */
+/* 디스카운트 할인 슬라이드  */
+.dc_slide_wrap .inner_renew{
+  width: 1160px;
+} 
+.dc_slide_wrap {
+  border: 0px solid firebrick;
+  width: 100%;
+  height: 353px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  background: #efefef;
+}
+
+.dc_slide_wrap h3 {
+  text-align: center;
+  font-size: 22px;
+  position: relative;
+  color: #000;
+  padding-top: 40px;
+  margin-bottom: 30px;
+  font: normal 22px "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  font-weight: bold;
+}
+
+.dc_slide_wrap h3:before {
+  content: '';
+  display: block;
+  width: 58px;
+  height: 58px;
+  background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dc_slide_wrap h3 span {
+  position: relative;
+  z-index: 1;
+}
+
+section.dc_slide_wrap {
+  border: 0px solid darkblue;
+  background: #efefef;
+  padding-bottom: 50px;
+  display: block;
+}
+
+section.dc_slide_wrap .inner_renew {
+  position: relative;
+  margin: 0 auto;
+  border: 5px solid darkcyan;
+  /* overflow: hidden; */
+}
+.dc_area {
+  width: 1900px;
+}
+.dc_slide_wrap li {
+  padding: 0 5px;
+  box-sizing: border-box;
+  display: table;
+  float: left;
+}
+
+.dc_slide_wrap li a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: 200px;
+  background: #fff;
+  border-radius: 18px;
+  line-height: 1.2;
+}
+
+.dc_slide_wrap li a span {
+  font-weight: bold;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #000;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.dc_slide_wrap li a strong {
+  font-family: 'NGBold2';
+  color: #e20c3e;
+  font-size: 45px;
+}
+
+section.dc_slide_wrap .dc_area ul:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+section.dc_slide_wrap .dc_arear ul li {
+  float: left;
+  box-sizing: content-box
+}
+/* 할인영역 버튼 */
+button {
+  font-style: normal;
+  text-decoration: none;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: button;
+  cursor: pointer;
+  font-size: 100%;
+
+}
+
+.dc_slide_wrap .btn_prev,
+.dc_slide_wrap .btn_next {
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 186px;
+  border: solid #b1b1b1;
+  border-width: 2px 2px 0 0;
+}
+
+.dc_slide_wrap .btn_prev {
+  transform: rotate(-135deg);
+  left: -30px;
+}
+
+
+.dc_slide_wrap .btn_next {
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 186px;
+  border: solid #b1b1b1;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+  right: -30px;
+}
+
+.dc_slide_wrap .btn_prev:hover,
+.dc_slide_wrap .btn_prev:active,
+.dc_slide_wrap .btn_next:hover,
+.dc_slide_wrap .btn_next:active {
+  border-color: #000;
+}
+
+/* 4단 */
+/* 공지사항영역 */
+/* notice */
+section.notice div.notice_fra_wrap .inner_renew {
+  position: relative;
+  width: 1160px;
+  margin: 0 auto;
+  height: 340px;
+}
+
+.notice_fra_wrap {
+  border: 0px sloid rgb(228, 188, 11);
+  padding-top: 31px;
+  margin: 0 auto;
+}
+
+.notice_fra_wrap h3 {
+  padding-top: 29px;
+  position: relative;
+  font-size: 18px;
+  color: #000;
+  padding-bottom: 20px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.notice_fra_wrap h3:before {
+  content: '';
+  display: block;
+  width: 58px;
+  height: 58px;
+  background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+
+.notice_fra_wrap h3 span {
+  position: relative;
+  z-index: 1;
+}
+
+div.noice .inner_renew:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.notice_wrap {
+  float: left;
+  width: 565px;
+}
+
+.fra_wrap {
+  float: right;
+  width: 565px;
+}
+
+.notice_wrap {
+  position: relative;
+}
+
+.notice_wrap .notice_area {
+  border: 1px solid #e6e6e6;
+  border-radius: 17px;
+  width: 562px;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  backface-visibility: hidden;
+  z-index: 1;
+}
+
+.notice_wrap ul:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.notice_wrap ul li {
+  width: 281px;
+  border-left: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  overflow: hidden;
+  float: left;
+}
+
+.notice_wrap ul li a {
+  display: block;
+  padding: 40px 30px 112px;
+  position: relative;
+}
+
+.notice_wrap ul li a strong {
+  display: block;
+  color: #000;
+  font-size: 16px;
+  height: 48px;
+  overflow: hidden;
+
+  /* -webkit-box정렬 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-family: "맑은고딕";
+}
+
+.notice_wrap ul li a .time {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-size: 1em;
+  color: #8c8c8c;
+}
+
+.notice_wrap ul li a i {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 24px;
+  right: 20px
+}
+
+.notice_wrap ul li.notice a i {
+  background: #ffda30 url(/imge/ico_notice.png) 0 0 no-repeat;
+}
+
+.notice_wrap ul li.news a i {
+  background: #ffda30 url(/imge/ico_notice.png) 0 0 no-repeat;
+}
+
+.notice_wrap ul li.swiper-slide-active {
+  border-left: none;
+}
+
+
+.notice_wrap .btn_prev,
+.notice_wrap .btn_next {
+  display: block;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 33px;
+  border: solid #bcbcbc;
+  border-width: 3px 3px 0 0;
+}
+
+.notice_wrap .btn_prev {
+  transform: rotate(-135deg);
+  right: 27px;
+}
+
+.notice_wrap .btn_next {
+  transform: rotate(45deg);
+  right: 5px;
+}
+.notice_wrap .btn_prev:hover,
+.notice_wrap .btn_prev:active,
+.notice_wrap .btn_next:hover,
+.notice_wrap .btn_next:active {
+  border-color: #000;
+}
+
+/* 홍보안내 */
+.fra_wrap .franchise_wrap {
+  width: 100%;
+  height: 200px;
+  background: url(/imge/bg_franchise.png) 0 0 no-repeat;
+  text-align: center;
+  font-family: 'Nanum Gothic', sans-serif;
+  padding-top: 58px;
+  font-weight: bold;
+}
+
+.fra_wrap .franchise_wrap p {
+  font-size: 20px;
+  color: #fff;
+  ;
+}
+
+.fra_wrap .franchise_wrap strong {
+  font-size: 50px;
+  color: #ffda30;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+
+
+/* 콘텐츠 영역 끝 // */
+
+
+/* 푸터영역시작  */
+footer {
+  padding-bottom: 40px;
+  margin: 0 auto;
+  width: 100%;  height: 250px;
+  /* position: absolute; */
+  
+}
+/* 사이트이용안내 영역 시작 -- */
+.footer_renew .line_area {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  position: relative;
+  height: 25px;
+  display: block;
+}
+/* 개인정보처리방침 등.. 리스트 */
+.footer_renew .line_area .link_list ul:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.footer_renew .line_area .link_list li {
+  float: left;
+  margin-left: 620px;
+}
+
+.footer_renew .line_area .link_list li+li {
+  margin-left: 40px;
+  font-size: 14px;
+}
+
+.footer_renew .line_area .link_list li span {
+  color: #dc0000;
+  font-size: 14px;
+}
+
+/* 다른나라 홈페이지 링크 부분 */
+.dropdown {
+  position: absolute;
+  top: 0px;
+  right: 530px;
+  font-size: 1.5em;
+  display: inline-block;
+  width: 168px;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  height: 49px;
+  line-height: 49px;
+  padding-left: 21px;
+  padding-right: 31px;
+  box-sizing: border-box;
+  text-align: left;
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png') 92% 50% no-repeat;
+}
+
+.dropdown-content {
+  border: 1px solid #dddddd;
+  width: 168px;
+  display: none;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  /* 다른 요소들보다 앞에 배치 */
+  text-align: left;
+}
+
+.dropdown-content a {
+  font-size: 1em;
+  display: block;
+  padding-left: 20px;
+  background: #fff;
+  border: solid #dddddd;
+  border-width: 0 1px 1px 1px;
+  height: 49px;
+  line-height: 49px;
+  box-sizing: border-box;
+}
+
+.dropdown-content a:hover {
+  background: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 푸터- 주소영역 */
+.footer_renew .info_wrap address {
+  font-style: normal;
+  font-size: 14px;
+  color: #8c8c8c;
+  position: absolute;
+  left: 500px;
+  top: 5px;
+  padding-top: 10px;
+}
+
+/* 카피라이터 */
+.footer_renew .info_wrap .copy {
+  padding-top: 5px;
+  font-size: 14px;
+  color: #8c8c8c;
+  position: absolute;
+  left: 500px;
+  top: 50px;
+  padding-bottom: 20px;
+  font-size: 1em;
+}
+
+/* 사이트정보 영역 시작 -- */
+.footer_renew div.info_wrap {
+  position: relative;
+  padding-bottom: 42px
+}
+
+/* 푸터 sns 링크 영역 */
+.footer_renew .sns_list {
+  position: absolute;
+  right: 457px;
+  top: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.footer_renew .sns_list:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.footer_renew .sns_list li {
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.footer_renew .sns_list a {
+  display: block;
+  width: 31px;
+  height: 31px;
+  border-radius: 20%;
+}
+
+.footer_renew .sns_list a span {
+  display: block;
+  font-size: 0;
+  width: 31px;
+  height: 31px;
+}
+
+.footer_renew .sns_list li.facebook span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_facebook.png') 0 0 no-repeat
+}
+
+.footer_renew .sns_list li.kakaostory span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_kakaostory.png') 0 0 no-repeat;
+}
+
+.footer_renew .sns_list li.instagram span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_instagram.png') 0 0 no-repeat;
+}
+
+.footer_renew .sns_list li.blog span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_blog.png') 0 0 no-repeat;
+}
+
+/* 사이트정보 안 쪽 수상내역  */
+.footer_renew .award_wrap {
+  padding-top: 40px;
+  position: relative;
+  margin-left: 430px;
+}
+
+.footer_renew .award_wrap ul>li {
+  float: left;
+  font-size: 14px;
+  display: table;
+}
+
+.footer_renew .award_wrap ul>li+li {
+  margin-left: 10px;
+}
+
+.footer_renew .award_wrap ul>li img {
+  float: left;
+  margin-right: 2px;
+}
+
+.footer_renew .award_wrap ul>li span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.footer_renew .award_wrap .num {
+  position: absolute;
+  top: 35px;
+  right: 450px;
+  font-family: 'Jua', sans-serif;
+  color: #484848;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer_renew .award_wrap .num strong {
+  color: #e20c3e;
+  font-size: 30px;
+  font-family: 'Jua', sans-serif;
+  font-weight: bold;
+}
+/* 사이트정보 영역 종료 // */
+
+
+/* 푸터영역 끝 //  */

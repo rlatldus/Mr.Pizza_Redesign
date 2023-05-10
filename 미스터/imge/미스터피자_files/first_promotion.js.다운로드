@@ -1,0 +1,1267 @@
+var goUrl = '';
+
+//--------------------------------------------------------------------------------------------------------
+// 우선 적용 프로모션 체크
+// @사이즈업, 샐러드 증정 프로모션 같은 경우는 앞단에서 체크하여
+//  Layer Popup을 띄우는 형식
+// @param url : 프로모션을 진행하지 않거나, 프로모션에 해당하는 상품들이 아닐 경우 이동할 페이지 URL
+//--------------------------------------------------------------------------------------------------------
+function chkFirstPromotion(url) {
+	
+	goUrl = url;
+	
+	$.ajax({
+		type: "POST",
+		url: "/order/chkFirstPromotion",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "json",
+		success: function(data) 
+		{
+			if(data.length > 0) {
+				
+				//alert(data[0].result + '//' + data[0].pDual_pop_url + '//' + data[0].sizeup_pop_url + '//' + data[0].salad_pop_url);
+				var cur_url = location.href.split("/");
+				
+				if(data[0].result == 'SUCCESS') 
+				{
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						if(goUrl != '')
+							location.href=goUrl;
+					}
+				}
+			
+				//---------------------------------------------------------
+				//사이즈업 관련 결과값
+				//---------------------------------------------------------
+				else if(data[0].result == 'ERROR_ECOUPON_SIZEUP')		//사이즈업 이벤트는 E쿠폰과 함께 주문 불가
+				{
+					alert('무료 사이즈업 이벤트는 E쿠폰과 함께 주문 불가');
+				}
+				else if(data[0].result == 'ERROR_SET_SIZEUP')			//사이즈업 이벤트는 세트메뉴와 함께 주문 불가
+				{
+					alert('무료 사이즈업 이벤트는 세트메뉴와 함께 주문 불가');
+				}
+				else if(data[0].result == 'SUCCESS_SIZEUP_PROMOTION')	//사이즈업 이벤트 가능
+				{
+					/* 장바구니 담기시 사이즈업 팝업을 띄우고 싶다면 이 주석을 풀면됨
+					//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+					}
+					
+					popSizeup(data[0].sizeup_pop_url);
+					*/
+					
+					//팝업을 사용하지 않고 바로 진행시 이 코드를 사용
+					location.href=goUrl;
+				}
+				else if(data[0].result == 'SIZEUP_MORE')				//사이즈업 추가로 가능
+				{
+					setSizeUpDiscountApply();
+				}
+				//---------------------------------------------------------
+				//샐러드 무료증정(연결상품 제한없음) 관련 결과값
+				//---------------------------------------------------------
+				else if(data[0].result == 'ERROR_ECOUPON_SALAD_ALL')	//샐러드 무료 제공 이벤트는 E쿠폰과 함께 주문 불가
+				{
+					//alert('제휴카드/쿠폰/세트메뉴 주문을 하시려면\n무료 샐러드를 삭제해 주시기 바랍니다.');
+					alert('제휴카드/쿠폰/세트메뉴 주문을 하시려면\n스파게티를 삭제해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_SET_SALADALL')			//샐러드 무료 제공 이벤트는 세트메뉴와 함께 주문 불가
+				{
+					//alert('제휴카드/쿠폰/세트메뉴 주문을 하시려면\n무료 샐러드를 삭제해 주시기 바랍니다.');
+					alert('제휴카드/쿠폰/세트메뉴 주문을 하시려면\n스파게티를 삭제해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'SALADALL_NONE')
+				{
+					alert('로열홍새우 피자 주문시 베스트 메뉴 반값 선택가능합니다.\n로열홍새우 피자를 선택해 주세요.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'HomeSalad_NONE')
+				{
+					alert('홍크러쉬 또는 로열홍새우 피자 주문시 [무료]홈샐러드가 증정됩니다.\n홍크러쉬 또는 로열홍새우 피자를 선택해 주세요.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'HomeSalad4_NONE')
+				{
+					alert('이벤트 대상의 프리미엄 피자가 없습니다.\n이벤트 대상의 프리미엄 피자가 있어야만,\n[무료]홈샐러드가 증정됩니다.\n이벤트를 확인해주세요.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}				
+				else if(data[0].result == 'SALADALL_OVER')				//피자 1판당 샐러드 1개 선택 가능
+				{
+					//alert('피자 1판 당 샐러드 1개 선택 가능합니다.\n선택하신 샐러드 수량을 확인해 주시기 바랍니다.');
+					alert('로열홍새우 피자 구매 수량만큼 반값 선택가능합니다.\n로열홍새우 피자를 선택해 주세요.');					
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'CHICKEN_OVER')				//피자 1판당 샐러드 1개 선택 가능
+				{				
+					alert('프리미엄 4종 L피자 1개당 [무료]오븐치킨 제품 1개를 담을 수 있습니다.\n선택하신 [무료]오븐치킨 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'TY_OVER')				//피자 1판당 샐러드 1개 선택 가능
+				{				
+					alert('[무료]순살치킨은 주문 한건당 1개 선택 가능합니다.\n선택하신 순살치킨 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'HomeSalad_OVER')				//피자 1판당 홈샐러드 1개 선택 가능
+				{				
+					alert('[무료]홈샐러드는 주문 한건당 1개 선택 가능합니다.\n선택하신 무료홈샐러드 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'HomeSalad4_OVER')				//피자 1판당 홈샐러드 1개 선택 가능
+				{				
+					alert('[무료]홈샐러드는 이벤트 프리미엄 피자 한건당 1개 선택 가능합니다.\n선택하신 무료홈샐러드 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}					
+				else if(data[0].result == 'CHICKEN_NONE')				//피자 1판당 샐러드 1개 선택 가능
+				{				
+					alert('[무료]오븐치킨은 대상 제품 프리미엄 4종  라지 피자를 구매하실 때 이용이 가능합니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}							
+				
+				
+				else if(data[0].result == 'SALADALL_LESS')				//대상제품보다 샐러드 개수가 작을 경우
+				{
+					alert('피자 1판 당 샐러드 1개 선택 가능합니다.\n선택하신 샐러드 수량을 확인해 주시기 바랍니다.');
+					location.href='/menu/freemenu';
+				}
+				else if(data[0].result == 'SUCCESS_SALADALL_PROMOTION')
+				{
+					
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)					
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						//popSalad(data[0].salad_pop_url);
+						popSaladEvent2("#pop_order_event_2");
+					}
+					
+				}
+				else if(data[0].result == 'SUCCESS_HomeSalad4_PROMOTION') /*홈셀러드 4구 증정*/
+				{
+					
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)					
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						popSaladEvent2("#pop_order_event_390");
+					}
+									
+				}
+				/*
+				 * 신제품 반값 + 치킨드림 행사 일 경우
+				 * 
+				 */
+				else if(data[0].result == 'SUCCESS_CHICKEN_PROMOTION')
+				{
+					
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)					
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						popSaladEvent2("#pop_order_event_400");
+					}
+					
+				}
+				else if(data[0].result == 'SUCCESS_TY_PROMOTION')
+				{
+					
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)					
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						popSaladEvent2("#pop_order_event_5");
+					}
+					
+				}	
+				else if(data[0].result == 'SUCCESS_HomeSalad_PROMOTION')
+				{
+					
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)					
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						popSaladEvent2("#pop_order_event_6");
+					}
+					
+				}						
+				else if(data[0].result == 'ERROR_TY_COUPONUSE')
+				{
+					alert('현재 순살치킨 무료한마리에 사용된 쿠폰은 사용할 수 없는 상태입니다.\n[이미 사용 처리된 쿠폰, 쿠푠 기간 만료 등]');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}				
+				
+				//--------------------------------------------------------
+				//생생페스타 관련 결과값
+				//--------------------------------------------------------
+				else if(data[0].result == 'SUCCESS_REGULAR_FESTA_PROMOTION_POP')	//레귤러 관련한 상품 가능(팝업)
+				{
+					popProductEvent('#pop_order_event_Regular');
+				}
+				else if(data[0].result == 'SUCCESS_REGULAR_FESTA_PROMOTION') //레귤러 관련한 상품 가능(2차 팝업)
+				{
+					popProductEvent('#free_steak_next');
+				}
+				else if(data[0].result == 'SUCCESS_LARGE_FESTA_PROMOTION_POP')	//라지 관련한 상품 가능(팝업)
+				{
+					popProductEvent('#pop_order_event_Large');
+				}
+				else if(data[0].result == 'SUCCESS_LARGE_FESTA_PROMOTION')		//라지 관련한 상품 가능(자동증가)
+				{
+					setCartDataFreeMenu('sideproductItem_7','','')
+				}
+				else if(data[0].result == 'SUCCESS_PET_PIZZA_PROMOTION_POP')	//펫피자 라지 관련한 상품 가능(팝업)
+				{
+					popProductEvent('#pop_order_event_pet_Large');
+				}
+				else if(data[0].result == 'DUPLICATE_FREE_PRODUCT'){ 
+					alert('왕창드림 프로모션의 증정제품과 펫피자 프로모션의 증정제품은 함께 주문이 되지 않습니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_ECOUPON_FESTA') 
+				{
+					alert('무료 증정 이벤트는 E쿠폰과 함께 주문 불가합니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_SET_FESTA')
+				{
+					alert('세트메뉴는 무료 증정 이벤트와 같이 주문할 수 없습니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'FESTA_OVER')				//피자 1판당 제품 1개 선택 가능
+				{				
+					alert('이벤트 피자 한판당 1개 선택 가능합니다.\n선택하신 이벤트 피자 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				
+				//---------------------------------------------------------
+				//신제품 주문시 사이드 반값 프로모션 관련 결과값
+				//---------------------------------------------------------
+				else if(data[0].result == 'SUCCESS_NewMenuSide_PROMOTION') //레귤러 관련한 상품 가능(2차 팝업)
+				{
+					popProductEvent('#newMenu_side');
+				}
+				else if(data[0].result == 'NewMenuSide_OVER') 
+				{
+					alert('신제품 1개당 [반값]사이드 1개 선택 가능합니다.\n선택하신 신제품 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'NewMenuSide_NONE')
+				{
+//					alert('치킨 드림 대상 Large피자 주문 시 순살치킨 선택 가능합니다.\n치킨 드림 대상 Large피자를 선택해 주세요.');
+					alert('사이드반값 대상 신제품 주문 시 사이드 선택 가능합니다.\n사이드반값 대상 신제품을 선택해 주세요.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_ECOUPON_NewMenu') 
+				{
+					alert('사이드 반값 이벤트는 E쿠폰과 함께 주문 불가합니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_SET_NewMenu')
+				{
+					alert('세트메뉴는 사이드 반값 이벤트와 같이 주문할 수 없습니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				
+				
+				//---------------------------------------------------------
+				//프링글스 무료증정(연결상품 제한있음) 관련 결과값
+				//---------------------------------------------------------
+				else if(data[0].result == 'SUCCESS_PRINGLES_PROMOTION')		//라지 관련한 상품 가능(자동증가)
+				{
+					setCartDataFreeMenu('pringlesItem','','')
+				}
+				else if(data[0].result == 'PRINGLES_OVER') 
+				{
+					alert('[무료]프링글스는 홈런박스 한판당 1개 선택 가능합니다.\n선택하신 홈런박스 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'HOMERUNBOX_ZERO')
+				{
+//					alert('치킨 드림 대상 Large피자 주문 시 순살치킨 선택 가능합니다.\n치킨 드림 대상 Large피자를 선택해 주세요.');
+					alert('프링글스 대상 홈런박스 주문 시 프링글스 선택 가능합니다.\n프링글스 대상 홈런박스를 선택해 주세요.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+								
+				//---------------------------------------------------------
+				//샐러드 무료증정(연결상품 제한있음) 관련 결과값
+				//---------------------------------------------------------
+				else if(data[0].result == 'ERROR_ECOUPON_SALAD')
+				{
+					alert('베스트 메뉴 이벤트는 E쿠폰과 함께 주문 불가합니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_ECOUPON_CHICKEN')
+				{
+					alert('[무료]순살치킨 한마리 증정 이벤트는 E쿠폰과 함께 주문 불가합니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_ECOUPON_HomeSalad')
+				{
+					alert('[무료]홈샐러드 증정 이벤트는 E쿠폰과 함께 주문 불가합니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}	
+				else if(data[0].result == 'ERROR_SET_SALAD')
+				{
+					alert('세트메뉴는 베스트 메뉴 이벤트와 같이 주문할 수 없습니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'ERROR_SET_CHICKEN')
+				{
+					alert('세트메뉴는 [무료]오븐치킨 증정 이벤트와 같이 주문할 수 없습니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}				
+				else if(data[0].result == 'ERROR_SET_HomeSalad')
+				{
+					alert('세트메뉴는 [무료]홈샐러드 증정 이벤트와 같이 주문할 수 없습니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}					
+				else if(data[0].result == 'ERROR_SET_SALAD_1')
+				{
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						alert('세트메뉴는 치킨 드림 이벤트와 같이 주문할 수 없습니다.');
+						location.href=goUrl;
+					}
+				}
+				else if(data[0].result == 'PIZZA_REGULAR_ZERO')
+				{
+					
+					//alert('치킨 드림 대상 Regular피자 주문 시 홈샐러드 선택 가능합니다.\n치킨 드림 대상 Regular피자를 선택해 주세요.');
+					alert('이벤트대상 Regular피자 주문 시 \n무료증정제품 선택 가능합니다.\이벤트대상 Regular피자를 선택해 주세요.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+					
+					//홈샐러드 판매중인 제품이므로 체크 안하도록 변경
+					/*if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						location.href=goUrl;
+					}*/
+				}
+				else if(data[0].result == 'SALAD_REGULAR_OVER')
+				{
+					alert('치킨 드림 대상 피자보다 홈샐러드 갯수가 많습니다.\n홈샐러드 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'PIZZA_LARGE_ZERO')
+				{
+//					alert('치킨 드림 대상 Large피자 주문 시 순살치킨 선택 가능합니다.\n치킨 드림 대상 Large피자를 선택해 주세요.');
+					alert('이벤트대상 Large피자 주문 시 무료증정제품 선택 가능합니다.\n이벤트대상 Large피자를 선택해 주세요.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'SALAD_LARGE_OVER')
+				{
+					alert('치킨 드림 대상 피자보다 순살치킨 갯수가 많습니다.\n순살치킨 수량을 확인해 주시기 바랍니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}
+				else if(data[0].result == 'PROMOTION_OVER_2')
+				{
+					alert('치킨 한마리 무료 프로모션과 베스트 메뉴  프로모션 중복으로 이용하실 수 없습니다.');
+					if(cur_url[cur_url.length-1] == "payment"){
+						//결제하기 버튼 이중클릭 방지해제
+						$(".pay_btn").attr("href","javascript:goOrderBefore();");
+					}
+				}												
+				else if(data[0].result.indexOf("SUCCESS_REGULAR_SALAD_PROMOTION_1") != -1) 
+				{
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else if(cur_url[cur_url.length-1] == "myCart" || cur_url[cur_url.length-1] == "myCart#") {
+						alert('매장 사정으로 치킨 드림 행사가 조기 종료되었습니다.\n보다 상세한 내용은 매장으로 문의 주시기 바랍니다.');
+						location.href=goUrl;
+					} else {
+						
+						var temp = data[0].result.split("::");
+						//alert(temp[0] + '//' + temp[1]);
+						
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						//$("#pop_salSelect").attr("href", "javascript:chkSelectionPromotion('saladR');");
+						$("#sideproductItem_1").val('0204023240|||5900|||'+temp[1]);
+						popProductEvent('#pop_order_event_R');
+						//popSalad(data[0].salad_pop_url);
+					}
+
+				}
+				else if(data[0].result.indexOf("SUCCESS_LARGE_SALAD_PROMOTION_1") != -1)
+				{
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else if(cur_url[cur_url.length-1] == "myCart" || cur_url[cur_url.length-1] == "myCart#") {
+						alert('매장 사정으로 치킨 드림 행사가 조기 종료되었습니다.\n보다 상세한 내용은 매장으로 문의 주시기 바랍니다.');
+						location.href=goUrl;
+					} else {
+						
+						var temp = data[0].result.split("::");
+						//alert(temp[0] + '//' + temp[1]);
+						
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						//$("#pop_salSelect").attr("href", "javascript:chkSelectionPromotion('saladL');");
+						$("#sideproductItem_2").val('0204023190|||18000|||'+temp[1]);
+						popProductEvent('#pop_order_event_L');
+						//popSalad(data[0].salad_pop_url);
+					}
+				}
+				else if(data[0].result.indexOf("SUCCESS_TOGETHER_SALAD_PROMOTION_1") != -1)
+				{
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else if(cur_url[cur_url.length-1] == "myCart" || cur_url[cur_url.length-1] == "myCart#") {
+						alert('매장 사정으로 치킨 드림 행사가 조기 종료되었습니다.\n보다 상세한 내용은 매장으로 문의 주시기 바랍니다.');
+						location.href=goUrl;
+					} else {
+						var temp = data[0].result.split("::");
+						//alert(temp[0] + '//' + temp[1] + '//' + temp[2]);
+						
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						//$("#pop_salSelect").attr("href", "javascript:chkSelectionPromotion('saladAll');");
+						$("#sideproductItem_3").val('0204023240|||5900|||'+temp[1]);
+						$("#sideproductItem_4").val('0204023190|||18000|||'+temp[2]);
+						popProductEvent('#pop_order_event_RL');
+					}
+				}
+				//else if(data[0].result == 'SUCCESS_REGULAR_SALAD_PROMOTION')
+				else if(data[0].result.indexOf("SUCCESS_REGULAR_SALAD_PROMOTION") != -1) 
+				{
+					
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						
+						var temp = data[0].result.split("::");
+						//alert(temp[0] + '//' + temp[1]);
+						
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						//$("#pop_salSelect").attr("href", "javascript:chkSelectionPromotion('saladR');");
+						$("#sideproductItem_1").val('0204023240|||5900|||'+temp[1]);
+						popProductEvent('#pop_order_event_R');
+						//popSalad(data[0].salad_pop_url);
+					}
+
+				}
+				//else if(data[0].result == 'SUCCESS_LARGE_SALAD_PROMOTION')
+				else if(data[0].result.indexOf("SUCCESS_LARGE_SALAD_PROMOTION") != -1)
+				{
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						
+						var temp = data[0].result.split("::");
+						//alert(temp[0] + '//' + temp[1]);
+						
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						//$("#pop_salSelect").attr("href", "javascript:chkSelectionPromotion('saladL');");
+						$("#sideproductItem_2").val('0204023190|||18000|||'+temp[1]);
+						popProductEvent('#pop_order_event_L');
+						//popSalad(data[0].salad_pop_url);
+					}
+				}
+				else if(data[0].result.indexOf("SUCCESS_TOGETHER_SALAD_PROMOTION") != -1)
+				{
+					if(cur_url[cur_url.length-1] == "payment"){
+						goOrder();
+					} else {
+						var temp = data[0].result.split("::");
+						//alert(temp[0] + '//' + temp[1] + '//' + temp[2]);
+						
+						//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+						if($('.quick_cart').parent().hasClass('on') == true) {
+							$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+							$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+						}
+						
+						//$("#pop_salSelect").attr("href", "javascript:chkSelectionPromotion('saladAll');");
+						$("#sideproductItem_3").val('0204023240|||5900|||'+temp[1]);
+						$("#sideproductItem_4").val('0204023190|||18000|||'+temp[2]);
+						popProductEvent('#pop_order_event_RL');
+					}
+				}
+				else if(data[0].result == 'SUCCESS_SIZEUP_SALADALL_PROMOTION')
+				{
+					//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+					}
+					
+					popSizeupSalad(data[0].pDual_pop_url);
+				}
+				else if(data[0].result == 'SUCCESS_SIZEUP_SALAD_PROMOTION')
+				{
+					//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+					if($('.quick_cart').parent().hasClass('on') == true) {
+						$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+						$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+					}
+					
+					popSizeupSalad(data[0].pDual_pop_url);
+				}
+				else
+				{
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + data[0].result);
+				}
+					
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+//----------------------------------------------------------
+//사이즈업 팝업 노출
+//----------------------------------------------------------
+function popSizeup(url) {
+	
+	$.ajax({
+		url : url,
+		contentType: "text/html; charset=utf-8",
+		dataType: "html",
+		success: function(data) 
+		{
+			$("#sizeuplayer").html("");
+			$("#sizeuplayer").append(data);
+			
+			viewLayerPopup('sizeuplayer', '200','300');
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	});
+	
+}
+
+//----------------------------------------------------------
+//샐러드 팝업 노출
+//----------------------------------------------------------
+function popSalad(url) {
+	
+	$.ajax({
+		url : url,
+		contentType: "text/html; charset=utf-8",
+		dataType: "html",
+		success: function(data) 
+		{
+			$("#saladlayer").html("");
+			$("#saladlayer").append(data);
+			
+			viewLayerPopup('saladlayer', '200','300');
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	});
+}
+
+//----------------------------------------------------------
+//사이즈업, 샐러드 동시진행 팝업 노출
+//----------------------------------------------------------
+function popSizeupSalad(url) {
+	
+	$.ajax({
+		url : url,
+		contentType: "text/html; charset=utf-8",
+		dataType: "html",
+		success: function(data) 
+		{
+			$("#sizeupsaladlayer").html("");
+			$("#sizeupsaladlayer").append(data);
+			
+			viewLayerPopup('sizeupsaladlayer', '200','300');
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	});
+	
+}
+
+//----------------------------------------------------------
+//선택 프로모션 체크
+//----------------------------------------------------------
+function chkSelectionPromotion(flag) {
+	
+	if(flag == 'sizeup') {
+		setSizeUpDiscountApply();
+	} else if(flag == 'salad') {
+		location.href='/menu/freemenu';
+	} else if(flag == 'saladR') {
+		setCartDataFreeMenu('sideproductItem_1', '', '');
+		$('.pop_close').trigger('click');
+	} else if(flag == 'saladL') {
+		setCartDataFreeMenu('sideproductItem_2', '', '');
+		$('.pop_close').trigger('click');
+	} else if(flag == 'saladAll') {
+		setCartDataFreeMenu('sideproductItem_3', '', '');
+		//sleep(1000);
+		//setCartDataFreeMenu('sideproductItem_4', '', '');
+		$('.pop_close').trigger('click');
+	} else if(flag == 'other') {
+		if(goUrl == ''){
+			$('.bgLayer').remove();
+			$('.pop_layer').hide(500,function(){
+				$(this).removeAttr('tabindex');
+			});
+			return;
+		} else
+			location.href=goUrl;
+	}
+}
+
+function sleep(num){	//[1/1000초]
+	var now = new Date();
+	var stop = now.getTime() + num;
+	while(true){
+		now = new Date();
+		if(now.getTime() > stop)return;
+	}
+}
+
+//----------------------------------------------------------
+//사이즈업 프로모션 할인 처리
+//----------------------------------------------------------
+function setSizeUpDiscountApply() {
+		
+	$.ajax({
+		type: "POST",
+		url: "/order/setSizeUpDiscountApply",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			if(data == 'SUCCESS') {
+				
+				//퀵메뉴 장바구니 닫기(퀵메뉴 열려있을때)
+				if($('.quick_cart').parent().hasClass('on') == true) {
+					$('.quick_cart').parent().toggleClass('on').siblings().removeClass('on');
+					$('.quick_cart').next().toggle(0).parent().siblings().children('.quick_box').hide(500);
+				}
+				
+				setLayerPopHide('sizeuplayer', 'show');
+				setLayerPopHide('sizeupsaladlayer', 'show');
+				alert('사이즈업 할인을 받았습니다.\n기타 모든 할인 중복 적용 불가합니다.');
+				location.href=goUrl;
+				
+			} else if(data == 'ERROR_DISCOUNT_NONE') {
+				setLayerPopHide('sizeuplayer', 'show');
+				setLayerPopHide('sizeupsaladlayer', 'show');
+				alert('사이즈업을 받을 피자가 없습니다.');
+			} else {
+				setLayerPopHide('sizeuplayer', 'show');
+				setLayerPopHide('sizeupsaladlayer', 'show');
+				alert('잘못된 요청입니다.\n다시 확인해주십시오.');
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
+
+function setSizeUpDiscountApply_payment(){
+	$("#popSizeup").hide();
+	/*
+	 * 사이즈업 프로모션 매장인지체크
+	 */
+	$.ajax({
+		type: "POST",
+		url: "/order/chkBranchSizeUp",
+		data: { branch_id : $("#branch_id").val() },
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			if ( data == 'N'){
+				alert('사이즈업 가능매장이 아닙니다.');
+				setLayerPopHide('sizeuplayer', 'show');
+				setLayerPopHide('sizeupsaladlayer', 'show');
+				return;
+			}else{
+				
+				$.ajax({
+					type: "POST",
+					url: "/order/setSizeUpDiscountApply",
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					dataType: "text",
+					success: function(data) 
+					{
+						if(data == 'SUCCESS') {
+							setLayerPopHide('sizeuplayer', 'show');
+							setLayerPopHide('sizeupsaladlayer', 'show');
+							/*
+							 * 사이즈업 팝업 창
+							 */
+							var vCont = '#popSizeupAlret3';
+							var mh =  $(vCont).height();
+					        $('#contents').after('<span class=bgLayer></span>');
+					        $('.bgLayer').fadeTo('fast', 0.6, function() {
+					            $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+					                $(this).attr('tabIndex',0).focus();
+					            });
+
+					            $(vCont).find('.pop_close').click(function() {
+					                $('.bgLayer').remove();               
+									$(this).parents('.pop_layer').hide(300,function(){
+										$(this).removeAttr('tabindex');
+									});
+					                _this.focus();
+									return false;
+					            });
+					        });
+					        
+					        
+							$("#sizeup_flag").val("Y");
+							
+							
+							$.ajax({
+								type: "POST",
+								url: "/order/getBasketInfo",
+								contentType: "application/x-www-form-urlencoded; charset=utf-8",
+								dataType: "json",
+								success: function(data) 
+								{
+									if(data.result == "SUCCESS"){
+										/*
+										 * 장바구니 세팅
+										 */
+										var html = "";
+										var basketList = data.basketList;
+										var basketToppingList = data.basketToppingList;
+										
+										for(var i = 0; i< basketList.length; i++){
+											html += "<li>                                                                                         ";
+											html += "	<span class='name'>"+basketList[i].product_nm+"</span>                                   ";
+											html += "	                                                                                     ";
+											if(basketList[i].class_id == '05' && basketList.size_id == '99'){
+												
+												html += "			<span></span>                                                        ";
+											}else{
+												if( i % 2 == 0){
+													html += "					<span class='t_red'>"+basketList[i].size_gubun2+"</span> ";
+												}else{
+													html += "					<span class='t_org'>"+basketList[i].size_gubun2+"</span> ";
+												}
+											}
+											html += "	<span class='num'>"+basketList[i].qty+"</span>                                           ";
+											html += "	<strong>"+basketList[i].list_price_format+"원</strong>                                   ";
+											
+											if(basketToppingList != null){
+												
+												html += "<div class='add_topping'>                                                                                        ";
+												html += "	<table>                                                                                                  ";
+												html += "		<colgroup>                                                                                       ";
+												html += "			<col />                                                                                  ";
+												html += "			<col style='width:30px' />                                                               ";
+												html += "			<col style='width:60px' />                                                               ";
+												html += "		</colgroup>                                                                                      ";
+												html += "		<tbody>                                                                                          ";
+												html += "		                                                                                                 ";
+												
+												for(var j = 0; j < basketToppingList.length ; j ++){
+													if(basketList[i].order_seq == basketToppingList[j].order_seq){
+														
+														html += "					<tr>                                                                     ";
+														html += "						<th scope='row'>"+basketToppingList[j].product_nm+"</th>             ";
+														html += "						<td class='t_center'>"+basketToppingList[j].qty+"</td>               ";
+														html += "						<td class='t_right'>"+basketToppingList[j].list_price_format+"원</td> ";
+														html += "					</tr>                                                                    ";
+													}
+												}
+												html += "			                                                                                         ";
+												html += "		</tbody>                                                                                         ";
+												html += "	</table>                                                                                                 ";
+												html += "</div>                                                                                                           ";
+											}
+											
+											html += "</li>                                                                                        ";
+										}
+										$(".p_list").html(html);
+										
+										
+										
+										
+										
+										/*
+										 * 금액 세팅
+										 */
+										var list_price = data.list_price;
+										var mobile_desc_price = data.mobileGift_desc_price;
+										var card_desc_price = data.card_desc_price;
+										var promo_desc_price = data.promo_desc_price;
+										var coupon_desc_price = data.coupon_desc_price;
+										var eCoupon_desc_price = data.eCoupon_desc_price;
+										var payment_price = data.payment_price;
+										$('#list_price').val(list_price);
+										$('#order_list_price').html(chkThousand(parseInt(list_price))+'원');
+										$('#order_mobile_desc_price').html('-'+chkThousand(parseInt(mobile_desc_price))+'원');
+										$('#order_card_desc_price').html('-'+chkThousand(parseInt(card_desc_price))+'원');
+										$('#order_promo_desc_price').html('-'+chkThousand(parseInt(promo_desc_price))+'원');
+										$('#order_coupon_desc_price').html('-'+chkThousand(parseInt(coupon_desc_price))+'원');
+										$('#order_ecoupon_desc_price').html('-'+chkThousand(parseInt(eCoupon_desc_price))+'원');
+										$('#order_payment_price').html(chkThousand(parseInt(payment_price)));
+										
+										
+										$("#coupon_type").val('');
+										/*
+										 * 모든 체크박스 해제
+										 */
+										$('input[name="dc_opt"]').attr('checked', false);
+										
+										
+									}else{
+										alert("세션이 만료되었습니다.");
+										location.href = "/";
+									}
+								}
+							});
+							
+							
+						} else if(data == 'ERROR_DISCOUNT_NONE') {
+							setLayerPopHide('sizeuplayer', 'show');
+							setLayerPopHide('sizeupsaladlayer', 'show');
+							alert('사이즈업을 받을 피자가 없습니다.');
+						} else {
+							setLayerPopHide('sizeuplayer', 'show');
+							setLayerPopHide('sizeupsaladlayer', 'show');
+							alert('사이즈업을 받을 피자가 없습니다.');
+						}
+					},
+					error: function(request, error) 
+					{
+						window.alert("요청 실패");
+						alert(request.statusText);
+						alert(request.responseText);
+					}
+				}); // ajax
+			} 
+		}
+	});
+}
+function sizeUpPopup(){
+	if($("#sizeup_flag").val() == 'Y'){
+		alert('이미 사이즈업 할인을 받으셨습니다.');
+	}else{
+		
+		var vCont = '#popSizeup';
+		var mh =  $(vCont).height();
+		$('#contents').after('<span class=bgLayer></span>');
+		$('.bgLayer').fadeTo('fast', 0.6, function() {
+			$(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+				$(this).attr('tabIndex',0).focus();
+			});
+			
+			$(vCont).find('.pop_close').click(function() {
+				$('.bgLayer').remove();               
+				$(this).parents('.pop_layer').hide(300,function(){
+					$(this).removeAttr('tabindex');
+				});
+				_this.focus();
+				return false;
+			});
+		});
+	}
+}
+/*
+ * 사이즈업 프로모션 매장인지체크
+ */
+function chkSizeUpBranch(){
+	$.ajax({
+		type: "POST",
+		url: "/order/chkBranchSizeUp",
+		data: { branch_id : $("#branch_id").val() },
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text",
+		success: function(data) 
+		{
+			// 프로모션이 종료 되었을 경우 그냥 진행
+			if(data == 'PROMOTION_END')
+				chkDeliveryComplete();
+			else{
+				
+				var vCont = '';
+				if(data == 'Y'){
+					vCont = '#popSizeupAlret1';
+				}else if(data == 'N'){
+					vCont = '#popSizeupAlret2';
+				}
+				
+				var mh =  $(vCont).outerHeight();
+		        $('#contents').after('<span class=bgLayer></span>');
+		        $('.bgLayer').fadeTo('fast', 0.6, function() {
+		            $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+		                $(this).attr('tabIndex',0).focus();
+		            });
+	
+		            $(vCont).find('.pop_close').click(function() {
+		                $('.bgLayer').remove();               
+						$(this).parents('.pop_layer').hide(300,function(){
+							$(this).removeAttr('tabindex');
+						});
+		                _this.focus();
+						return false;
+		            });
+		        });
+			}
+		}
+	});
+}
+
+//----------------------------------------------------------
+// 샐러드 팝업 노출
+//----------------------------------------------------------
+function popSaladEvent() {
+	
+	var vCont = '#pop_order_event_1';
+	//var vCont = '#pop_order_event_L';
+	
+	var mh =  $(vCont).outerHeight();
+    $('#contents').after('<span class=bgLayer></span>');
+    $('.bgLayer').fadeTo('fast', 0.6, function() {
+        $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+            $(this).attr('tabIndex',0).focus();
+        });
+
+        $(vCont).find('.pop_close').click(function() {
+            $('.bgLayer').remove();               
+			$(this).parents('.pop_layer').hide(300,function(){
+				$(this).removeAttr('tabindex');
+			});
+			$(this).focus();
+			return false;
+        });
+    });
+}
+//----------------------------------------------------------
+// 팝업 노출2
+//----------------------------------------------------------
+function popSaladEvent2(vCont) {
+	
+
+	var mh =  $(vCont).outerHeight();
+	$('#contents').after('<span class=bgLayer></span>');
+	$('.bgLayer').fadeTo('fast', 0.6, function() {
+     $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+         $(this).attr('tabIndex',0).focus();
+     });
+
+     $(vCont).find('.pop_close').click(function() {
+         $('.bgLayer').remove();               
+			$(this).parents('.pop_layer').hide(300,function(){
+				$(this).removeAttr('tabindex');
+			});
+			$(this).focus();
+			return false;
+     });
+ });
+}
+
+
+//----------------------------------------------------------
+//레귤러/라지별 제품증정 팝업 노출
+//----------------------------------------------------------
+function popProductEvent(view) {
+	
+	var vCont = view;
+	
+	var mh =  $(vCont).outerHeight();
+    $('#contents').after('<span class=bgLayer></span>');
+    $('.bgLayer').fadeTo('fast', 0.6, function() {
+        $(vCont).css({'margin-top':-(mh/2)}).show(300, function() {
+            $(this).attr('tabIndex',0).focus();
+        });
+
+        $(vCont).find('.pop_close').click(function() {
+            $('.bgLayer').remove();               
+			$(this).parents('.pop_layer').hide(300,function(){
+				$(this).removeAttr('tabindex');
+			});
+			$(this).focus();
+			return false;
+        });
+    });
+}
+
+//----------------------------------------------------------
+//프로모션 할인 체크 전 우선적용 프로모션 상품개수 확인
+//----------------------------------------------------------
+function chkDiscountPromotion(val, mode) {
+	
+	$.ajax({
+		type: "POST",
+		url: "/order/chkFirstPromotion",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "json",
+		success: function(data) 
+		{
+			if(data.length > 0) {
+				
+				//alert(data[0].result + '//' + data[0].pDual_pop_url + '//' + data[0].sizeup_pop_url + '//' + data[0].salad_pop_url);
+				var cur_url = location.href.split("/");
+				
+				if(data[0].result == 'SUCCESS') 
+				{
+					setDiscountCouponUse(val, mode);
+				}
+				//---------------------------------------------------------
+				//샐러드 무료증정(연결상품 제한있음) 관련 결과값
+				//---------------------------------------------------------
+				else if(data[0].result == 'ERROR_ECOUPON_SALAD')
+				{
+					alert('베스트 메뉴 이벤트는 E쿠폰과 함께 주문 불가합니다.');
+				}
+				else if(data[0].result == 'ERROR_ECOUPON_CHICKEN')
+				{
+					alert('[무료]오븐치킨 증정 이벤트는 E쿠폰과 함께 주문 불가합니다.');	
+				}
+				else if(data[0].result == 'ERROR_ECOUPON_HomeSalad')
+				{
+					alert('[무료]홈샐러드 증정 이벤트는 E쿠폰과 함께 주문 불가합니다.');	
+				}				
+				else if(data[0].result == 'ERROR_SET_CHICKEN')
+				{
+					alert('세트메뉴는 [무료]순살치킨 한마리 증정 이벤트와 같이 주문할 수 없습니다.');
+				}		
+				else if(data[0].result == 'ERROR_SET_HomeSalad')
+				{
+					alert('세트메뉴는 [무료]홈샐러드 증정 이벤트와 같이 주문할 수 없습니다.');
+				}					
+				else if(data[0].result == 'ERROR_SET_SALAD')
+				{
+					alert('세트메뉴는 베스트 메뉴 이벤트와 같이 주문할 수 없습니다.');
+				}
+				else if(data[0].result == 'ERROR_SET_SALAD_1')
+				{
+					alert('세트메뉴는 치킨 드림 이벤트와 같이 주문할 수 없습니다.');
+				}
+				else if(data[0].result == 'PIZZA_REGULAR_ZERO')
+				{
+//					alert('치킨 드림 대상 Regular피자 주문 시 홈샐러드 선택 가능합니다.\n치킨 드림 대상 Regular피자를 선택해 주세요.');
+					alert('이벤트대상 Regular피자 주문 시 \n무료증정제품 선택 가능합니다.\이벤트대상 Regular피자를 선택해 주세요.');
+				}
+				else if(data[0].result == 'SALAD_REGULAR_OVER')
+				{
+					alert('치킨 드림 대상 피자보다 홈샐러드 갯수가 많습니다.\n홈샐러드 수량을 확인해 주시기 바랍니다.');
+				}
+				else if(data[0].result == 'PIZZA_LARGE_ZERO')
+				{
+//					alert('치킨 드림 대상 Large피자 주문 시 순살치킨 선택 가능합니다.\n치킨 드림 대상 Large피자를 선택해 주세요.');
+					alert('이벤트대상 Large피자 주문 시 무료증정제품 선택 가능합니다.\n이벤트대상 Large피자를 선택해 주세요.');
+				}
+				else if(data[0].result == 'HOMERUNBOX_ZERO')
+				{
+//					alert('치킨 드림 대상 Large피자 주문 시 순살치킨 선택 가능합니다.\n치킨 드림 대상 Large피자를 선택해 주세요.');
+					alert('프링글스 대상 홈런박스 주문 시 \n프링글스 선택 가능합니다.\n프링글스 대상 프리미엄 홈런박스를 선택해 주세요.');
+				}
+				else if(data[0].result == 'SALAD_LARGE_OVER')
+				{
+					alert('치킨 드림 대상 피자보다 순살치킨 갯수가 많습니다.\n순살치킨 수량을 확인해 주시기 바랍니다.');
+				}
+				else if(data[0].result.indexOf("SUCCESS_REGULAR_SALAD_PROMOTION_1") != -1) 
+				{
+					alert('매장 사정으로 치킨 드림 행사가 조기 종료되었습니다.\n보다 상세한 내용은 매장으로 문의 주시기 바랍니다.');
+				}
+				else if(data[0].result.indexOf("SUCCESS_LARGE_SALAD_PROMOTION_1") != -1)
+				{
+					alert('매장 사정으로 치킨 드림 행사가 조기 종료되었습니다.\n보다 상세한 내용은 매장으로 문의 주시기 바랍니다.');
+				}
+				else if(data[0].result.indexOf("SUCCESS_TOGETHER_SALAD_PROMOTION_1") != -1)
+				{
+					//alert('매장 사정으로 치킨 드림 행사가 조기 종료되었습니다.\n보다 상세한 내용은 매장으로 문의 주시기 바랍니다.');
+					setDiscountCouponUse(val, mode);
+				}
+				//else if(data[0].result == 'SUCCESS_REGULAR_SALAD_PROMOTION')
+				else if(data[0].result.indexOf("SUCCESS_REGULAR_SALAD_PROMOTION") != -1) 
+				{
+					alert('치킨 드림 대상 피자보다 홈샐러드 갯수가 적습니다.\n홈샐러드 수량을 확인해 주시기 바랍니다.');
+				}
+				//else if(data[0].result == 'SUCCESS_LARGE_SALAD_PROMOTION')
+				else if(data[0].result.indexOf("SUCCESS_LARGE_SALAD_PROMOTION") != -1)
+				{
+					alert('치킨 드림 대상 피자보다 순살치킨 갯수가 적습니다.\n순살치킨 수량을 확인해 주시기 바랍니다.');
+				}
+				else if(data[0].result.indexOf("SUCCESS_TOGETHER_SALAD_PROMOTION") != -1)
+				{
+					alert('치킨 드림 대상 피자보다 증정제품 갯수가 적습니다.\n증정제품 수량을 확인해 주시기 바랍니다.');
+				}
+				else
+				{
+					alert("잘못된 결과입니다. \n다시 확인해주십시오.\n errMsg : " + data[0].result);
+				}
+					
+			}
+		},
+		error: function(request, error) 
+		{
+			window.alert("요청 실패");
+			alert(request.statusText);
+			alert(request.responseText);
+		}
+	}); // ajax
+}
