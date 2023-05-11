@@ -1,5 +1,5 @@
 // $(document).ready(function(){
- //
+//
 // var container =$('.slideShow'),
 // slideGroup = container.find('.slider'),
 // slides = slideGroup.find('a'),
@@ -13,29 +13,29 @@
 // interval = 3500, //3.5초
 // timer;
 
-// // 
+// //
 // // 슬라이드 가로로 배열
 // // slides 마다 할 일, left값 0%,100%,200%..
 // console.log(slides);
 // slides.each(function(i){
-// // 
+// //
 //     var newLeft = i*100 +'%';
 //     $(this).css({left:newLeft});
 //     // var i = 2; i +2; ==> i+=2;
 //     // indicatorHtml = indicatorHtml +??
 //     // indicatorHtml += +??
-// // 
+// //
 //     indicatorHtml += '<a href="">'+(i+1)+'</a>';
 //     // console.log(indicatorHtml);
-//   // 
+//   //
 //   }); //slides.each
 //   // A.text(B); a요소의 b의 내용을 글씨 형태로 추가
 //   // A.html(B); a요소의 b의 내용을 html 형태로 추가
 // indicator.html(indicatorHtml);
-// // 
+// //
 // // var newContent = '<a href="">더 보기</a>';
 // // $target.text(newContent);
-// // 
+// //
 // // 슬라이드 이동함수
 // function goToSlide(index){
 //                 slideGroup.animate({ left: -100 * index + '%' },
@@ -94,7 +94,6 @@
 //         });
 // 				// updateNav();
 //       });
-
 
 /* // 메인배너
 var mbNum = $('.slider li').length;
@@ -195,7 +194,6 @@ getLogin(); //cookie Check*/
 // navPrev = document.getElementById('prev')//ID prev
 // navNext = document.getElementById('next')//ID Next
 
-
 // // console.log(slidesCount);
 
 // //슬라이드 높이 확인하여 부모의 높이로 지정하기
@@ -222,64 +220,74 @@ getLogin(); //cookie Check*/
 // 	sliderContainer[0].style.left = idx *-100 +'%';
 // 	currrenIndex = idx;
 // }
-$(document).ready(function() {
-	//사용할 배너
-	var $banner = $(".banner").find("ul");
+// $(document).ready(function () {
+//   $(document).mousemove(function (e) {
+//     console.log(e.pageX + ', ' + e.pageY);
+//   });
+// });
 
-	var $bannerWidth = $banner.children().outerWidth();//배너 이미지의 폭
-	var $bannerHeight = $banner.children().outerHeight(); // 높이
-	var $bannerLength = $banner.children().length;//배너 이미지의 갯수
-	var rollingId;
+$(document).ready(function () {
+  //사용할 배너
+  var $banner = $('.banner').find('ul');
 
-	//정해진 초마다 함수 실행
-	rollingId = setInterval(function() { rollingStart(); }, 3000);//다음 이미지로 롤링 애니메이션 할 시간차
+  var $bannerWidth = $banner.children().outerWidth(); //배너 이미지의 폭
+  var $bannerHeight = $banner.children().outerHeight(); // 높이
+  // var $bannerLength = $banner.children().length; //배너 이미지의 갯수
+  // var rollingId;
 
-	//마우스 오버시 롤링을 멈춘다.
-	banner.mouseover(function(){
-		//중지
-		clearInterval(rollingId);
-		$(this).css("cursor", "pointer");
-	});
-	//마우스 아웃되면 다시 시작
-	banner.mouseout(function(){
-		rollingId = setInterval(function() { rollingStart(); }, 9000);
-		$(this).css("cursor", "default");
-	});
-	
-	function rollingStart() {
-		$banner.css("width", $bannerWidth * $bannerLength + "px");
-		$banner.css("height", $bannerHeight + "px");
-		//alert(bannerHeight);
-		//배너의 좌측 위치를 옮겨 준다.
-		$banner.animate({left: - $bannerWidth + "px"},180, function() { //숫자는 롤링 진행되는 시간이다.
-			//첫번째 이미지를 마지막 끝에 복사(이동이 아니라 복사)해서 추가한다.
-			$(this).append("<li>" + $(this).find("li:first").html() + "</li>");
-			//뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
-			$(this).find("li:first").remove();
-			//다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
-			$(this).css("left",0);
-			//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
-		});
-	}
-}); 
+  //정해진 초마다 함수 실행
+  const rollingId = setInterval(function () {
+    rollingStart();
+  }, 3000); //다음 이미지로 롤링 애니메이션 할 시간차
+
+  //마우스 오버시 롤링을 멈춘다.
+  // $banner.mouseover(function () {
+  //   //중지
+  //   clearInterval(rollingId);
+  //   $(this).css('cursor', 'pointer');
+  // });
+  // //마우스 아웃되면 다시 시작
+  // $banner.mouseout(function () {
+  //   rollingId = setInterval(function () {
+  //     rollingStart();
+  //   }, 3000);
+  //   $(this).css('cursor', 'default');
+  // });
+
+  function rollingStart() {
+    $banner.css('width', $bannerWidth + 'px');
+    $banner.css('height', $bannerHeight + 'px');
+    $banner.animate({ left: '-1920px' }, 180, function () {
+      setTimeout(
+        function () {
+          $(this).append('<li>' + $(this).find('li:first').html() + '</li>');
+          $(this).find('li:first').remove();
+          $(this).css('left', 0);
+        }.bind(this),
+        1000
+      );
+    });
+  }
+});
 
 //마우스 오버시 롤링을 멈춘다.
-$banner.mouseover(function(){
-	//중지
-	clearInterval(rollingId);
-	$(this).css("cursor", "pointer");
-});
-//마우스 아웃되면 다시 시작
-$banner.mouseout(function(){
-	rollingId = setInterval(function() { rollingStart(); }, 9000);
-	$(this).css("cursor", "default");
-});
+// $banner.mouseover(function () {
+//   //중지
+//   clearInterval(rollingId);
+//   $(this).css('cursor', 'pointer');
+// });
+// //마우스 아웃되면 다시 시작
+// $banner.mouseout(function () {
+//   rollingId = setInterval(function () {
+//     rollingStart();
+//   }, 9000);
+//   $(this).css('cursor', 'default');
+// });
 
-//-->  
+//-->
 
 // 혜택 공간 슬라이드
 
 // --
-
 
 // 메인 레이어팝업
