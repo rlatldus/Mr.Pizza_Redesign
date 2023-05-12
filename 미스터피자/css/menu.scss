@@ -49,594 +49,764 @@ li {
 
 }
 
+
+header {
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  width: 1160px;
+  height: 100px;
+  font-size: 20px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+
+  .logo {
+    display: block;
+    width: 164px;
+    height: 45px;
+    background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png)0 0 no-repeat;
+    text-indent: -999em;
+
+    a {
+      display: block;
+      color: #ba0d0d;
+
+      img {
+        width: 180px;
+
+      }
+    }
+  }
+
+
+  nav {
+    flex: 8;
+    right: 0px;
+
+    #main {
+      display: flex;
+      justify-content: center;
+
+      li {
+        display: block;
+        padding: 32px 20px;
+
+        &:hover ul.sub {
+          animation: move 0.5s ease alternate forwards;
+        }
+
+        &:hover ul.sub li {
+          animation: moveLi 0.5s ease alternate forwards;
+        }
+
+        &:hover ul.sub li a {
+          animation: moveLiA 0.5s ease alternate forwards;
+        }
+
+
+        .menu {
+          display: inline-block;
+          vertical-align: top;
+          width: 50px;
+          height: 50px;
+          margin-right: 10px;
+            background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png)0 0 no-repeat;
+
+          a {
+            padding: auto;
+            display: block;
+            font-size: 40px;
+          }
+        }
+
+        a {
+          &:hover {
+            color: red;
+          }
+
+        }
+
+        ul.sub {
+          background-color: #ffffff;
+          position: absolute;
+          overflow: hidden;
+          top: 100px;
+          left: 0px;
+          width: 100vw;
+          margin-left: calc(-50vw + 50%);
+          display: flex;
+          justify-content: center;
+          height: 0;
+
+
+          li {
+            width: 150px;
+            padding: 10px 0;
+            margin: 30px 20px;
+            border: 2px solid #000000;
+            border-radius: 25px;
+            background-color: #ffffff;
+
+            &:hover {
+              border: 2px solid red;
+            }
+
+            &:hover a {
+              color: red;
+            }
+
+            a {
+              font-size: 14px;
+              display: block;
+              color: #000000;
+
+              &:hover li {
+                border: 1px solid red;
+              }
+
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  div.menu {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png)0 0 no-repeat;
+  }
+}
+#wrap{
+  padding: 20px 0;
+
+  
+}
+
+
 @media(max-width:686px){
+  header {
+    width: 100%;
+    nav {
+      display: none;
+    }
+
+    .right_menu{
+      
+      .btn_gnb{
+        display: inline-block;
+        width: 50px;
+        vertical-align: top;
+        height: 50px;
+        background: #e20c3e;
+        border-radius: 50%;
+        position: relative;
+
+      }
+    }
+  }
+  
+  #left{
+    display: none;
+  }
+  
+}
+
+#right {
+  width: 100%;
+  text-align: center;
+
+  section.right_menu1 {
+    padding: 20px 0;
+    // width: 300px;
+    // height: 100vh;
+    width: 100%;
+
+    .location {
+      font-size: 12px;
+      font-style: normal;
+      text-decoration: none;
+      color: #333;
+      text-align: right;
+    }
+
+    .titlename {
+
+      ////FIXME 여기
+      .name {
+        padding: 40px 0 0 0;
+        line-height: 26px;
+        font-size: 26px;
+        color: #cb1919;
+        text-align: center;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 16px;
+        text-align: center;
+        padding: 0 0 30px 0;
+      }
+    }
+
+    .article {
+      form {
+        display: flex;
+        width: 85%;
+        margin: 0 auto;
+        // flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-top: 1px solid rgb(194, 194, 194);
+        align-content: space-around;
+
+        fieldset {
+
+          margin: 30px 0;
+          border: 0;
+          display: flex;
+          height: 100%;
+          width: 100%;
+          flex-wrap: wrap;
+          // justify-content: space-between;
+
+          article {
+            position: relative;
+            padding: 10px 0;
+            border: 1px solid #c2c2c2;
+            margin: 1%;
+            background-color: #ffffff;
+            width: 100%;
+            height: 236px;
+
+            .r_line {
+              display: none; // FIXME
+              // overflow: hidden;
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              width: 100%;
+              // height: 0;
+              height: 518px;
+              border: 2px solid #cb1919;
+              background-color: white;
+
+            }
+
+            img {
+              position: absolute;
+              left: 11px;
+              width: 75%;
+
+            }
+
+            h4 {
+              display: inline-block;
+              margin: 0;
+              line-height: 19px;
+              min-height: 14px;
+              min-width: 14px;
+              font-weight: normal;
+              position: absolute;
+              left: 14px;
+              top: 180px;
+              text-align: left;
+              padding: 10px 1%;
+              font-size: 16px;             
+              font-family: NGBold;
+            }
+
+            .input{
+              position: absolute;
+              top: 200px;
+              padding: 20px 5%;
+            }
+
+
+            .menu_ops {
+              // display: none; //FIXME
+              position: absolute;
+              left: 2px;
+              top: 280px;
+              width: 100%;
+              // height: 0; //NOTE
+              overflow: hidden; // 
+              // background-color: white;
+
+              p {
+
+                a { // 골드
+                  display: block;
+                  line-height: 33px;
+                  margin: 0 3%;
+                  // padding: 0 5px;
+                  border: 1px solid #969696;
+                  background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
+                }
+              }
+
+              .gold {
+                width: 94%;
+                // padding: 0 10px;
+                z-index: 10;
+                // display: none;
+                position: absolute;
+                left: 9px;
+                top: 35px;
+
+                li {
+                  // padding: 5px 0;
+                  // width: 250%;
+                  // width: 20.43103448275862%;
+                  border: 1px solid #e2e2e2;
+                  background: #fff;
+
+                  a {
+                    display: block;
+                    line-height: 30px;
+                    background: #fafafa;
+
+                    &:hover {
+                      background: #e4e4e4;
+
+                    }
+                  }
+                }
+              }
+
+              .menu_btn {
+                margin-top: 30px;
+
+                ul {
+
+                  display: flex;
+                  width: 100%;
+                  padding: 0 3%;
+
+                  li {
+                    width: 33.3%;
+
+                    .aaa {
+                      position: relative;
+                      margin-left: -1px;
+                      border: 1px solid #cccccc;
+                      text-indent: -9999em;
+                      font-size: 12px;
+                      font-weight: bold;
+                      font-family: NGBold;
+                      color: #cb1919;
+                      padding: 15px 0px;
+                      display: block;
+                      background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
+                      background-repeat: no-repeat;
+                      background-position: center center;
+                    }
+
+                    .b {
+                      position: relative;
+                      margin-left: -1px;
+                      border: 1px solid #cccccc;
+                      text-indent: -9999em;
+                      font-size: 12px;
+                      font-weight: bold;
+                      font-family: NGBold;
+                      color: #cb1919;
+                      padding: 15px 0px;
+                      display: block;
+                      background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
+                      background-repeat: no-repeat;
+                      background-position: center center;
+                    }
+
+                    .c {
+                      position: relative;
+                      margin-left: -1px;
+                      border: 1px solid #cccccc;
+                      text-indent: -9999em;
+                      font-size: 12px;
+                      font-weight: bold;
+                      @include font ('NG');
+                      color: #cb1919;
+                      padding: 15px 0px;
+                      display: block;
+                      background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
+                      background-repeat: no-repeat;
+                      background-position: center center;
+                    }
+                  }
+                }
+              }
+
+              .menu_text {
+                padding: 10px 0;
+                font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.pizza_style{
+color: #f17304 !important;
+cursor: default;
+font-family: NGBold;
+font-size: 16px;
+font-weight: bold;
+padding: 5px;
+}
+.pizza_style_s {
+color: #cb1919 !important;
+cursor: default;
+font-family: NGBold;
+font-size: 16px;
+font-weight: bold;
+padding: 5px;
 
 }
 
-@media(min-width:687px){
-
-
+@media(min-width:687px)and (max-width:1159px){
     header {
-      margin: 0 auto;
-      align-items: center;
-      position: relative;
       width: 687px;
-      height: 100px;
-      font-size: 20px;
-      font-weight: bolder;
-      display: flex;
-      justify-content: space-between;
-
-      div {
-        display: block;
-        width: 164px;
-        height: 45px;
-        background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png)0 0 no-repeat;
-        text-indent: -999em;
-
-        a {
-          display: block;
-          color: #ba0d0d;
-
-          img {
-            width: 180px;
-
-          }
-        }
-      }
-
-
       nav {
-        flex: 8;
-        right: 0px;
-
         #main {
-          display: flex;
-          justify-content: center;
-
           li {
-            display: block;
-            padding: 32px 20px;
-
-            &:hover ul.sub {
-              animation: move 0.5s ease alternate forwards;
+            img, span{
+              text-align: center;
+              display: block;
+              margin: auto;
             }
-
-            &:hover ul.sub li {
-              animation: moveLi 0.5s ease alternate forwards;
-            }
-
-            &:hover ul.sub li a {
-              animation: moveLiA 0.5s ease alternate forwards;
-            }
-
-
             .menu {
-              display: inline-block;
-              vertical-align: top;
-              width: 50px;
-              height: 50px;
-              margin-right: 10px;
-
               a {
-                padding: auto;
-                display: block;
-                font-size: 40px;
+                text-align: center;
               }
             }
-
-            a {
-              &:hover {
-                color: red;
-              }
-
-            }
-
-            ul.sub {
-              background-color: #ffffff;
-              position: absolute;
-              overflow: hidden;
-              top: 100px;
-              left: 0px;
-              width: 100vw;
-              margin-left: calc(-50vw + 50%);
-              display: flex;
-              justify-content: center;
-              height: 0;
-
-
-              li {
-                width: 150px;
-                padding: 10px 0;
-                margin: 30px 20px;
-                border: 2px solid #000000;
-                border-radius: 25px;
-                background-color: #ffffff;
-
-                &:hover {
-                  border: 2px solid red;
-                }
-
-                &:hover a {
-                  color: red;
-                }
-
-                a {
-                  font-size: 14px;
-                  display: block;
-                  color: #000000;
-
-                  &:hover li {
-                    border: 1px solid red;
-                  }
-
-                }
-              }
-            }
-
           }
         }
-      }
-
-      div.menu {
-        display: inline-block;
-        vertical-align: top;
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-        background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png)0 0 no-repeat;
       }
     }
-  }
-
-
-
-@media(min-width:1024px){
-
-    header {
-      margin: 0 auto;
-      align-items: center;
-      position: relative;
-      width: 1024px;
-      height: 100px;
-      font-size: 20px;
-      font-weight: bolder;
-      display: flex;
-      justify-content: space-between;
-
-      div {
-        display: block;
-        width: 164px;
-        height: 45px;
-        background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png)0 0 no-repeat;
-        text-indent: -999em;
-
-        a {
-          display: block;
-          color: #ba0d0d;
-
-          img {
-            width: 180px;
-
-          }
-        }
-      }
-
-
-      nav {
-        flex: 8;
-        right: 0px;
-
-        #main {
-          display: flex;
-          justify-content: center;
-
-          li {
-            display: block;
-            padding: 32px 20px;
-
-            &:hover ul.sub {
-              animation: move 0.5s ease alternate forwards;
-            }
-
-            &:hover ul.sub li {
-              animation: moveLi 0.5s ease alternate forwards;
-            }
-
-            &:hover ul.sub li a {
-              animation: moveLiA 0.5s ease alternate forwards;
-            }
-
-
-            .menu {
-              display: inline-block;
-              vertical-align: top;
-              width: 50px;
-              height: 50px;
-              margin-right: 10px;
-
-              a {
-                padding: auto;
-                display: block;
-                font-size: 40px;
-              }
-            }
-
-            a {
-              &:hover {
-                color: red;
-              }
-
-            }
-
-            ul.sub {
-              background-color: #ffffff;
-              position: absolute;
-              overflow: hidden;
-              top: 100px;
-              left: 0px;
-              width: 100vw;
-              margin-left: calc(-50vw + 50%);
-              display: flex;
-              justify-content: center;
-              height: 0;
-
-
-              li {
-                width: 150px;
-                padding: 10px 0;
-                margin: 30px 20px;
-                border: 2px solid #000000;
-                border-radius: 25px;
-                background-color: #ffffff;
-
-                &:hover {
-                  border: 2px solid red;
-                }
-
-                &:hover a {
-                  color: red;
-                }
-
-                a {
-                  font-size: 14px;
-                  display: block;
-                  color: #000000;
-
-                  &:hover li {
-                    border: 1px solid red;
-                  }
-
-                }
-              }
-            }
-
-          }
-        }
-      }
-
-      div.menu {
-        display: inline-block;
-        vertical-align: top;
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-        background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png)0 0 no-repeat;
-      }
-    }
-  }
-
-
 
 
 // NOTE 워랩
 #wrap {
-  padding: 20px 0;
-  #header {
-    // TODO헤더
-    align-items: center;
-    vertical-align: middle;
-    text-align: center;
-    width: 100%;
-  }
+
   // --------------------헤더 끝
   main {
+  // width: 100%;
+  border-top: 1px solid #cccccc;
+  
+  #section {
+    justify-content:center;
+    margin: 0 auto;
     width: 100%;
-    border-top: 1px solid #cccccc;
-
-    #section {
-      margin: 0 auto;
-      width: 1024px;
-      display: flex;
-
-      #left {
-
-        // NOTE 왼쪽
-        h2 {
-          padding-top: 100px;
-        }
-
-        ul {
-          width: 100%;
-          margin: 10px;
-
-          li {
-            width: 200px;
-            margin-bottom: 8px;
-            display: list-item;
-            text-align: -webkit-match-parent;
-
-
-            a {
-              display: block;
-              padding: 8px 23px 8px 18px;
-              border: 1px solid #cccccc;
-              font-size: 15px;
-              font-family: NGBold;
-              color: #666666;
-              background: url(../image/bg_lnbActive2On.gif) no-repeat 170px center;
-
-              img {
-                padding: 1px 10px 0;
-              }
-            }
-          }
-
-        }
-
-        form.menual {
-          width: 200px;
-          margin: 10px;
-
-          fieldset {
-            margin-top: 50px;
-            border: 1px solid #eeeeee;
-
-            h3 {
-              padding: 0 14px;
-              line-height: 43px;
-              background: #eeeeee;
-              font-size: 16px;
-            }
-
-            input {
-              padding: 20px;
-              margin: 10px;
-
-            }
-
-          }
-
-        }
+    display: flex;
+  
+    #left {
+      width: 25%;
+      padding-left: 2.72413793103%;
+      
+      // NOTE 왼쪽
+      h2 {
+        padding-top: 100px;
       }
-
-
-      // --------------------왼쪽 섹션 끝
-
-      //NOTE 두번째 세[ㄱ션
-      #right {
+  
+      ul {
         width: 100%;
-        text-align: center;
-
-        section.right_menu1 {
-          padding-top: 0px;
-          margin: 20px;
-          // width: 300px;
-          // height: 100vh;
-          width: 100%;
-
-          .location {
-            font-size: 12px;
-            font-style: normal;
-            text-decoration: none;
-            color: #333;
-            text-align: right;
+        margin-top: 10px;
+  
+        li {
+          // width: 150px;
+          margin-bottom: 8px;
+          display: list-item;
+          text-align: -webkit-match-parent;
+  
+  
+          a {
+            display: block;
+            padding: 8px 5px 8px ;
+            border: 1px solid #cccccc;
+            font-size: 15px;
+            font-family: NGBold;
+            color: #666666;
+            background: url(../image/bg_lnbActive2On.gif) no-repeat 95% center;
+  
+            img {
+              padding: 1px 10px 0;
           }
-
-          .titlename {
-
-            ////FIXME 여기
-            .name {
-              padding: 40px 0 0 0;
-              line-height: 26px;
-              font-size: 26px;
-              color: #cb1919;
-              text-align: center;
-            }
-
-            p {
-              margin-top: 10px;
-              font-size: 16px;
-              text-align: center;
-              padding: 0 0 30px 0;
-            }
           }
+        }
+  
+      }
+  
+      form.menual {
+        // width: 16.379310344827587%;
+        margin: 10px 0.8620689655172413%;
+  
+        fieldset {
+          margin-top: 50px;
+          border: 1px solid #eeeeee;
+  
+          h3 {
+            padding: 5px 10%;
 
-          .article {
-            form {
+            line-height: 43px;
+            background: #eeeeee;
+            font-size: 16px;
+          }
+  
+          input {
+            padding: 20px 1.7241379310344827%;
+            margin: 10px 5%;
+            vertical-align: middle;
+  
+          }
+  
+        }
+  
+      }
+    }
+  
+  
+    // --------------------왼쪽 섹션 끝
+  
+    //NOTE 두번째 세[ㄱ션
+    #right {
+      width: 75%;
+      text-align: center;
+  
+      section.right_menu1 {
+        padding: 20px 0;
+        // width: 300px;
+        // height: 100vh;
+        width: 100%;
+  
+        .location {
+          font-size: 12px;
+          font-style: normal;
+          text-decoration: none;
+          color: #333;
+          text-align: right;
+        }
+  
+        .titlename {
+  
+          ////FIXME 여기
+          .name {
+            padding: 40px 0 0 0;
+            line-height: 26px;
+            font-size: 26px;
+            color: #cb1919;
+            text-align: center;
+          }
+  
+          p {
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+            padding: 0 0 30px 0;
+          }
+        }
+  
+        .article {
+          form {
+            display: flex;
+            width: 85%;
+            margin: 0 auto;
+            // flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-top: 1px solid rgb(194, 194, 194);
+            align-content: space-around;
+  
+            fieldset {
+  
+              margin: 30px 0;
+              border: 0;
               display: flex;
+              height: 100%;
               width: 100%;
-              margin: 0 auto;
-              // flex-direction: column;
               flex-wrap: wrap;
-              justify-content: center;
-              border-top: 1px solid rgb(194, 194, 194);
-              align-content: space-around;
-
-              fieldset {
-
-                margin: 30px 0;
-                border: 0;
-                display: flex;
-                height: 100%;
-                width: 100%;
-                flex-wrap: wrap;
-                // justify-content: space-between;
-
-                article {
-                  position: relative;
-                  padding: 10px 0;
-                  border: 1px solid rgb(194, 194, 194);
-                  margin: 0.5%;
-                  background-color: rgb(255, 255, 255);
-                  width: 32%;
-                  height: 236px;
-
-                  .r_line {
-                    display: none; // FIXME
-                    // overflow: hidden;
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    width: 100%;
-                    // height: 0;
-                    height: 518px;
-                    border: 2px solid #cb1919;
-                    background-color: white;
-
+              // justify-content: space-between;
+  
+              article {
+                position: relative;
+                padding: 10px 0;
+                border: 1px solid #c2c2c2;
+                margin: 1%;
+                background-color: #ffffff;
+                width: 47%;
+                height: 236px;
+  
+                .r_line {
+                  display: none; // FIXME
+                  // overflow: hidden;
+                  position: absolute;
+                  top: 0px;
+                  left: 0px;
+                  width: 100%;
+                  // height: 0;
+                  height: 518px;
+                  border: 2px solid #cb1919;
+                  background-color: white;
+  
+                }
+  
+                img {
+                  position: absolute;
+                  left: 11px;
+                  width: 92%;
+  
+                }
+  
+                h4 {
+                  display: inline-block;
+                  margin: 0;
+                  line-height: 19px;
+                  min-height: 14px;
+                  min-width: 14px;
+                  font-weight: normal;
+                  position: absolute;
+                  left: 14px;
+                  top: 180px;
+                  text-align: left;
+                  padding: 10px 1%;
+                  font-size: 16px;             
+                  font-family: NGBold;
+                }
+  
+                .input{
+                  position: absolute;
+                  top: 200px;
+                  padding: 20px 5%;
+                }
+  
+  
+                .menu_ops {
+                  // display: none; //FIXME
+                  position: absolute;
+                  left: 2px;
+                  top: 280px;
+                  width: 100%;
+                  // height: 0; //NOTE
+                  overflow: hidden; // 
+                  // background-color: white;
+  
+                  p {
+  
+                    a { // 골드
+                      display: block;
+                      line-height: 33px;
+                      margin: 0 3%;
+                      // padding: 0 5px;
+                      border: 1px solid #969696;
+                      background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
+                    }
                   }
-
-                  img {
+  
+                  .gold {
+                    width: 94%;
+                    // padding: 0 10px;
+                    z-index: 10;
+                    // display: none;
                     position: absolute;
-                    left: 14px;
-                    width: 90%;
-                    margin-top: 5%;
-
-                  }
-
-                  h4 {
-                    position: absolute;
-                    left: 14px;
-                    top: 180px;
-                    text-align: left;
-                    padding: 10px;
-
-                  }
-
-                  .input {
-                    position: absolute;
-                    top: 230px;
-                    padding: 8px;
-
-                  }
-
-                  .menu_ops {
-                    // display: none; //FIXME
-                    position: absolute;
-                    left: 2px;
-                    top: 280px;
-                    width: 255px;
-                    height: 0; //NOTE
-                    overflow: hidden; // 
-                    // background-color: white;
-
-                    p {
-
+                    left: 9px;
+                    top: 35px;
+  
+                    li {
+                      // padding: 5px 0;
+                      // width: 250%;
+                      // width: 20.43103448275862%;
+                      border: 1px solid #e2e2e2;
+                      background: #fff;
+  
                       a {
                         display: block;
-                        line-height: 33px;
-                        margin: 0 8px;
-                        // padding: 0 5px;
-                        border: 1px solid #969696;
-                        background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
+                        line-height: 30px;
+                        background: #fafafa;
+  
+                        &:hover {
+                          background: #e4e4e4;
+  
+                        }
                       }
                     }
-
-                    .gold {
-                      z-index: 10;
-                      // display: none;
-                      position: absolute;
-                      left: 9px;
-                      top: 35px;
-
+                  }
+  
+                  .menu_btn {
+                    margin-top: 30px;
+  
+                    ul {
+  
+                      display: flex;
+                      width: 100%;
+                      padding: 0 3%;
+  
                       li {
-                        // padding: 5px 0;
-                        width: 237px;
-                        border: 1px solid #e2e2e2;
-                        background: #fff;
-
-                        a {
+                        width: 33.3%;
+  
+                        .aaa {
+                          position: relative;
+                          margin-left: -1px;
+                          border: 1px solid #cccccc;
+                          text-indent: -9999em;
+                          font-size: 12px;
+                          font-weight: bold;
+                          font-family: NGBold;
+                          color: #cb1919;
+                          padding: 15px 0px;
                           display: block;
-                          line-height: 30px;
-                          padding: 0 10px;
-                          background: #fafafa;
-
-                          &:hover {
-                            background: #e4e4e4;
-
-                          }
+                          background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
+                          background-repeat: no-repeat;
+                          background-position: center center;
+                        }
+  
+                        .b {
+                          position: relative;
+                          margin-left: -1px;
+                          border: 1px solid #cccccc;
+                          text-indent: -9999em;
+                          font-size: 12px;
+                          font-weight: bold;
+                          font-family: NGBold;
+                          color: #cb1919;
+                          padding: 15px 0px;
+                          display: block;
+                          background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
+                          background-repeat: no-repeat;
+                          background-position: center center;
+                        }
+  
+                        .c {
+                          position: relative;
+                          margin-left: -1px;
+                          border: 1px solid #cccccc;
+                          text-indent: -9999em;
+                          font-size: 12px;
+                          font-weight: bold;
+                          @include font ('NG');
+                          color: #cb1919;
+                          padding: 15px 0px;
+                          display: block;
+                          background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
+                          background-repeat: no-repeat;
+                          background-position: center center;
                         }
                       }
                     }
-
-                    .menu_btn {
-                      margin-top: 30px;
-
-                      ul {
-
-                        display: flex;
-                        width: 237px;
-                        padding: 0 10px;
-
-                        li {
-                          width: 33.3%;
-
-                          .aaa {
-                            position: relative;
-                            margin-left: -1px;
-                            border: 1px solid #cccccc;
-                            text-indent: -9999em;
-                            font-size: 12px;
-                            font-weight: bold;
-                            font-family: NGBold;
-                            color: #cb1919;
-                            padding: 15px 0px;
-                            display: block;
-                            background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
-                            background-repeat: no-repeat;
-                            background-position: center center;
-                          }
-
-                          .b {
-                            position: relative;
-                            margin-left: -1px;
-                            border: 1px solid #cccccc;
-                            text-indent: -9999em;
-                            font-size: 12px;
-                            font-weight: bold;
-                            font-family: NGBold;
-                            color: #cb1919;
-                            padding: 15px 0px;
-                            display: block;
-                            background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
-                            background-repeat: no-repeat;
-                            background-position: center center;
-                          }
-
-                          .c {
-                            position: relative;
-                            margin-left: -1px;
-                            border: 1px solid #cccccc;
-                            text-indent: -9999em;
-                            font-size: 12px;
-                            font-weight: bold;
-                            @include font ('NG');
-                            color: #cb1919;
-                            padding: 15px 0px;
-                            display: block;
-                            background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
-                            background-repeat: no-repeat;
-                            background-position: center center;
-                          }
-                        }
-                      }
-                    }
-
-                    .menu_text {
-                      padding: 10px 0;
-                      font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
-
-                    }
+                  }
+  
+                  .menu_text {
+                    padding: 10px 0;
+                    font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  
                   }
                 }
               }
@@ -646,4 +816,24 @@ li {
       }
     }
   }
+  }
+  }
+  .pizza_style{
+  color: #f17304 !important;
+  cursor: default;
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  }
+  .pizza_style_s {
+  color: #cb1919 !important;
+  cursor: default;
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  
+  }
+  
 }
