@@ -1,0 +1,10 @@
+/* 여백초기화 */
+*{margin:0; padding: 0;}
+/* 블릿표시없앰 */
+ul li{list-style: none;}
+/* 폼관련스타일 */
+fieldset{border: 0;}
+legend{display: none;}
+/* 정렬 */
+input,select{vertical-align: middle;}
+/* 기본링크스타일 */
