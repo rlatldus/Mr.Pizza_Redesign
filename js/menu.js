@@ -119,4 +119,21 @@ $(function(){
   },function(){
     $(this).children('ul').css('z-index','0');
   })
-})
+
+
+
+  
+    // 상단 메뉴 클릭 시 이미지 띄우기
+    $('.btn_gnb').click(function() {
+      if ($('#left').css('left') === '0px'){
+        $('#left').animate({left: '-600px'}, 1000);
+      } else {
+        $('#left').animate({left: '0'}, 'fast');
+      }
+    });
+    
+  });
+
+
+
+
