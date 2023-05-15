@@ -149,6 +149,193 @@ header div.menu {
 #wrap {
   padding: 20px 0;
 }
+#wrap #right {
+  text-align: center;
+}
+#wrap #right section.right_menu1 {
+  padding: 20px 0;
+  width: 100%;
+}
+#wrap #right section.right_menu1 .location {
+  font-size: 12px;
+  font-style: normal;
+  text-decoration: none;
+  color: #333;
+  text-align: right;
+}
+#wrap #right section.right_menu1 .name {
+  padding: 40px 0 0 0;
+  line-height: 26px;
+  font-size: 26px;
+  color: #cb1919;
+  text-align: center;
+}
+#wrap #right section.right_menu1 p {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  padding: 0 0 30px 0;
+}
+#wrap .article form {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid #c2c2c2;
+  align-content: space-around;
+}
+#wrap .article form fieldset {
+  margin: 30px 0;
+  border: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+}
+#wrap .article form fieldset article {
+  position: relative;
+  padding: 10px 0;
+  border: 1px solid #c2c2c2;
+  background-color: #ffffff;
+  height: 236px;
+}
+#wrap .article form fieldset article .r_line {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 518px;
+  border: 2px solid #cb1919;
+  background-color: white;
+}
+#wrap .article form fieldset article img {
+  position: absolute;
+  left: 11px;
+}
+#wrap .article form fieldset article h4 {
+  display: inline-block;
+  margin: 0;
+  line-height: 19px;
+  min-height: 14px;
+  min-width: 14px;
+  font-weight: normal;
+  position: absolute;
+  left: 14px;
+  top: 180px;
+  text-align: left;
+  font-size: 16px;
+  font-family: NGBold;
+}
+#wrap .article form fieldset article .input {
+  position: absolute;
+  top: 200px;
+  padding: 20px 5%;
+}
+#wrap .article form fieldset article .menu_ops {
+  position: absolute;
+  left: 2px;
+  top: 280px;
+}
+#wrap .article form fieldset article .menu_ops p a {
+  display: block;
+  line-height: 33px;
+  border: 1px solid #969696;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 95% center;
+}
+#wrap .article form fieldset article .menu_ops .gold {
+  z-index: 10;
+  position: absolute;
+  left: 8px;
+  top: 45px;
+}
+#wrap .article form fieldset article .menu_ops .gold li {
+  border: 1px solid #e2e2e2;
+  background: #fff;
+}
+#wrap .article form fieldset article .menu_ops .gold li a {
+  display: block;
+  line-height: 30px;
+  background: #fafafa;
+}
+#wrap .article form fieldset article .menu_ops .gold li a:hover {
+  background: #e4e4e4;
+}
+#wrap .article form fieldset article .menu_ops .menu_btn {
+  margin-top: 30px;
+}
+#wrap .article form fieldset article .menu_ops .menu_btn ul {
+  display: flex;
+}
+#wrap .article form fieldset article .menu_ops .menu_btn ul li {
+  width: 33.3%;
+}
+#wrap .article form fieldset article .menu_ops .menu_btn ul li .aaa {
+  position: relative;
+  margin-left: -1px;
+  border: 1px solid #cccccc;
+  text-indent: -9999em;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: NGBold;
+  color: #cb1919;
+  padding: 15px 0px;
+  display: block;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#wrap .article form fieldset article .menu_ops .menu_btn ul li .b {
+  position: relative;
+  margin-left: -1px;
+  border: 1px solid #cccccc;
+  text-indent: -9999em;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: NGBold;
+  color: #cb1919;
+  padding: 15px 0px;
+  display: block;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#wrap .article form fieldset article .menu_ops .menu_btn ul li .c {
+  position: relative;
+  margin-left: -1px;
+  border: 1px solid #cccccc;
+  text-indent: -9999em;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: NGBold;
+  color: #cb1919;
+  padding: 15px 0px;
+  display: block;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#wrap .article form fieldset article .menu_ops .menu_text {
+  padding: 10px 0;
+  font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+}
+#wrap .pizza_style {
+  color: #f17304 !important;
+  cursor: default;
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+}
+#wrap .pizza_style_s {
+  color: #cb1919 !important;
+  cursor: default;
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+}
 
 @media (max-width: 686px) {
   header {
@@ -172,210 +359,36 @@ header div.menu {
 }
 #right {
   width: 100%;
-  text-align: center;
-}
-#right section.right_menu1 {
-  padding: 20px 0;
-  width: 100%;
-}
-#right section.right_menu1 .location {
-  font-size: 12px;
-  font-style: normal;
-  text-decoration: none;
-  color: #333;
-  text-align: right;
-}
-#right section.right_menu1 .titlename .name {
-  padding: 40px 0 0 0;
-  line-height: 26px;
-  font-size: 26px;
-  color: #cb1919;
-  text-align: center;
-}
-#right section.right_menu1 .titlename p {
-  margin-top: 10px;
-  font-size: 16px;
-  text-align: center;
-  padding: 0 0 30px 0;
-}
-#right section.right_menu1 .article form {
-  display: flex;
-  width: 85%;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  justify-content: center;
-  border-top: 1px solid rgb(194, 194, 194);
-  align-content: space-around;
-}
-#right section.right_menu1 .article form fieldset {
-  margin: 30px 0;
-  border: 0;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  flex-wrap: wrap;
 }
 #right section.right_menu1 .article form fieldset article {
-  position: relative;
-  padding: 10px 0;
-  border: 1px solid #c2c2c2;
-  margin: 1%;
-  background-color: #ffffff;
+  margin: 1% 0;
   width: 100%;
-  height: 236px;
-}
-#right section.right_menu1 .article form fieldset article .r_line {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 518px;
-  border: 2px solid #cb1919;
-  background-color: white;
 }
 #right section.right_menu1 .article form fieldset article img {
-  position: absolute;
-  left: 11px;
   width: 75%;
 }
 #right section.right_menu1 .article form fieldset article h4 {
-  display: inline-block;
-  margin: 0;
-  line-height: 19px;
-  min-height: 14px;
-  min-width: 14px;
-  font-weight: normal;
-  position: absolute;
-  left: 14px;
-  top: 180px;
-  text-align: left;
   padding: 10px 1%;
-  font-size: 16px;
-  font-family: NGBold;
 }
 #right section.right_menu1 .article form fieldset article .input {
   position: absolute;
   top: 200px;
   padding: 20px 5%;
 }
-#right section.right_menu1 .article form fieldset article .menu_ops {
-  position: absolute;
-  left: 2px;
-  top: 280px;
-  width: 100%;
-  overflow: hidden;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops p a {
-  display: block;
-  line-height: 33px;
-  margin: 0 3%;
-  border: 1px solid #969696;
-  background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
-}
 #right section.right_menu1 .article form fieldset article .menu_ops .gold {
-  width: 94%;
-  z-index: 10;
-  position: absolute;
-  left: 9px;
-  top: 35px;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .gold li {
-  border: 1px solid #e2e2e2;
-  background: #fff;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .gold li a {
-  display: block;
-  line-height: 30px;
-  background: #fafafa;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .gold li a:hover {
-  background: #e4e4e4;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .menu_btn {
-  margin-top: 30px;
+  width: 85%;
 }
 #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul {
-  display: flex;
   width: 100%;
   padding: 0 3%;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li {
-  width: 33.3%;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .aaa {
-  position: relative;
-  margin-left: -1px;
-  border: 1px solid #cccccc;
-  text-indent: -9999em;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: NGBold;
-  color: #cb1919;
-  padding: 15px 0px;
-  display: block;
-  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .b {
-  position: relative;
-  margin-left: -1px;
-  border: 1px solid #cccccc;
-  text-indent: -9999em;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: NGBold;
-  color: #cb1919;
-  padding: 15px 0px;
-  display: block;
-  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .c {
-  position: relative;
-  margin-left: -1px;
-  border: 1px solid #cccccc;
-  text-indent: -9999em;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: NGBold;
-  color: #cb1919;
-  padding: 15px 0px;
-  display: block;
-  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-#right section.right_menu1 .article form fieldset article .menu_ops .menu_text {
-  padding: 10px 0;
-  font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
-}
-
-.pizza_style {
-  color: #f17304 !important;
-  cursor: default;
-  font-family: NGBold;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 5px;
-}
-
-.pizza_style_s {
-  color: #cb1919 !important;
-  cursor: default;
-  font-family: NGBold;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 5px;
 }
 
 @media (min-width: 687px) and (max-width: 1159px) {
   header {
     width: 687px;
   }
-  header nav #main li img, header nav #main li span {
+  header nav #main li img,
+  header nav #main li span {
     text-align: center;
     display: block;
     margin: auto;
@@ -440,87 +453,16 @@ header div.menu {
   }
   #wrap main #section #right {
     width: 75%;
-    text-align: center;
-  }
-  #wrap main #section #right section.right_menu1 {
-    padding: 20px 0;
-    width: 100%;
-  }
-  #wrap main #section #right section.right_menu1 .location {
-    font-size: 12px;
-    font-style: normal;
-    text-decoration: none;
-    color: #333;
-    text-align: right;
-  }
-  #wrap main #section #right section.right_menu1 .titlename .name {
-    padding: 40px 0 0 0;
-    line-height: 26px;
-    font-size: 26px;
-    color: #cb1919;
-    text-align: center;
-  }
-  #wrap main #section #right section.right_menu1 .titlename p {
-    margin-top: 10px;
-    font-size: 16px;
-    text-align: center;
-    padding: 0 0 30px 0;
-  }
-  #wrap main #section #right section.right_menu1 .article form {
-    display: flex;
-    width: 85%;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-top: 1px solid rgb(194, 194, 194);
-    align-content: space-around;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset {
-    margin: 30px 0;
-    border: 0;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    flex-wrap: wrap;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article {
-    position: relative;
-    padding: 10px 0;
-    border: 1px solid #c2c2c2;
     margin: 1%;
-    background-color: #ffffff;
     width: 47%;
-    height: 236px;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .r_line {
-    display: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 518px;
-    border: 2px solid #cb1919;
-    background-color: white;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article img {
-    position: absolute;
-    left: 11px;
     width: 92%;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article h4 {
-    display: inline-block;
-    margin: 0;
-    line-height: 19px;
-    min-height: 14px;
-    min-width: 14px;
-    font-weight: normal;
-    position: absolute;
-    left: 14px;
-    top: 180px;
-    text-align: left;
     padding: 10px 1%;
-    font-size: 16px;
-    font-family: NGBold;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .input {
     position: absolute;
@@ -528,113 +470,17 @@ header div.menu {
     padding: 20px 5%;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops {
-    position: absolute;
-    left: 2px;
-    top: 280px;
     width: 100%;
-    overflow: hidden;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops p a {
-    display: block;
-    line-height: 33px;
     margin: 0 3%;
-    border: 1px solid #969696;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold {
     width: 94%;
-    z-index: 10;
-    position: absolute;
-    left: 9px;
-    top: 35px;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold li {
-    border: 1px solid #e2e2e2;
-    background: #fff;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold li a {
-    display: block;
-    line-height: 30px;
-    background: #fafafa;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold li a:hover {
-    background: #e4e4e4;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn {
-    margin-top: 30px;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul {
-    display: flex;
     width: 100%;
     padding: 0 3%;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li {
-    width: 33.3%;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .aaa {
-    position: relative;
-    margin-left: -1px;
-    border: 1px solid #cccccc;
-    text-indent: -9999em;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: NGBold;
-    color: #cb1919;
-    padding: 15px 0px;
-    display: block;
-    background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .b {
-    position: relative;
-    margin-left: -1px;
-    border: 1px solid #cccccc;
-    text-indent: -9999em;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: NGBold;
-    color: #cb1919;
-    padding: 15px 0px;
-    display: block;
-    background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn ul li .c {
-    position: relative;
-    margin-left: -1px;
-    border: 1px solid #cccccc;
-    text-indent: -9999em;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: NGBold;
-    color: #cb1919;
-    padding: 15px 0px;
-    display: block;
-    background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_text {
-    padding: 10px 0;
-    font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
-  }
-  .pizza_style {
-    color: #f17304 !important;
-    cursor: default;
-    font-family: NGBold;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px;
-  }
-  .pizza_style_s {
-    color: #cb1919 !important;
-    cursor: default;
-    font-family: NGBold;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px;
   }
 }
 

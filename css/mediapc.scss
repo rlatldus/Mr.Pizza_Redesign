@@ -33,10 +33,9 @@
                             display: list-item;
                             text-align: -webkit-match-parent;
 
-
                             a {
                                 display: block;
-                                padding: 8px 5px 8px ;
+                                padding: 8px 5px 8px;
                                 border: 1px solid #cccccc;
                                 font-size: 15px;
                                 font-family: NGBold;
@@ -84,235 +83,64 @@
                 //NOTE 두번째 세[ㄱ션
                 #right {
                     width: 80%;
-                    text-align: center;
 
                     section.right_menu1 {
-                        padding: 20px 0;
-                        // width: 300px;
-                        // height: 100vh;
-                        width: 100%;
-
-                        .location {
-                            font-size: 12px;
-                            font-style: normal;
-                            text-decoration: none;
-                            color: #333;
-                            text-align: right;
-                        }
-
-                        .titlename {
-
-                            ////FIXME 여기
-                            .name {
-                                padding: 40px 0 0 0;
-                                line-height: 26px;
-                                font-size: 26px;
-                                color: #cb1919;
-                                text-align: center;
-                            }
-
-                            p {
-                                margin-top: 10px;
-                                font-size: 16px;
-                                text-align: center;
-                                padding: 0 0 30px 0;
-                            }
-                        }
 
                         .article {
                             form {
-                                display: flex;
-                                width: 85%;
-                                margin: 0 auto;
-                                // flex-direction: column;
-                                flex-wrap: wrap;
-                                justify-content: center;
-                                border-top: 1px solid rgb(194, 194, 194);
-                                align-content: space-around;
 
                                 fieldset {
 
-                                    margin: 30px 0;
-                                    border: 0;
-                                    display: flex;
-                                    height: 100%;
-                                    width: 100%;
-                                    flex-wrap: wrap;
-                                    // justify-content: space-between;
-
                                     article {
-                                        position: relative;
-                                        padding: 10px 0;
-                                        border: 1px solid #c2c2c2;
                                         margin: 0.5%;
-                                        background-color: #ffffff;
                                         width: 32%;
-                                        height: 236px;
 
-                                        .r_line {
-                                            display: none; // FIXME
-                                            // overflow: hidden;
-                                            position: absolute;
-                                            top: 0px;
-                                            left: 0px;
-                                            width: 100%;
-                                            // height: 0;
-                                            height: 518px;
-                                            border: 2px solid #cb1919;
-                                            background-color: white;
 
-                                        }
 
                                         img {
-                                            position: absolute;
-                                            left: 11px;
                                             width: 92%;
                                             margin-top: 2%;
-
                                         }
 
                                         h4 {
-                                            display: inline-block;
-                                            margin: 0;
-                                            line-height: 19px;
-                                            min-height: 14px;
-                                            min-width: 14px;
-                                            font-weight: normal;
-                                            position: absolute;
-                                            left: 14px;
-                                            top: 180px;
-                                            text-align: left;
                                             padding: 10px;
-                                            font-size: 16px;
-                                            font-family: NGBold;
                                         }
 
                                         .input {
-                                            position: absolute;
-                                            top: 200px;
                                             padding: 8px;
                                             padding: 20px;
-
-
                                         }
 
 
                                         .menu_ops {
-                                            // display: none; //FIXME
-                                            position: absolute;
-                                            left: 2px;
-                                            top: 280px;
                                             width: 255px;
-                                            height: 0; //NOTE
-                                            overflow: hidden; // 
-                                            // background-color: white;
 
                                             p {
+                                                width: 92%;
 
                                                 a {
-                                                    display: block;
-                                                    line-height: 33px;
                                                     margin: 0 8px;
-                                                    // padding: 0 5px;
-                                                    border: 1px solid #969696;
-                                                    background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 210px center;
                                                 }
                                             }
 
                                             .gold {
-                                                z-index: 10;
-                                                // display: none;
-                                                position: absolute;
-                                                left: 9px;
-                                                top: 35px;
+                                                width: 85%;
 
                                                 li {
-                                                    // padding: 5px 0;
-                                                    width: 237px;
-                                                    border: 1px solid #e2e2e2;
-                                                    background: #fff;
 
                                                     a {
-                                                        display: block;
                                                         line-height: 30px;
-                                                        padding: 0 10px;
-                                                        background: #fafafa;
 
-                                                        &:hover {
-                                                            background: #e4e4e4;
-
-                                                        }
                                                     }
                                                 }
                                             }
 
                                             .menu_btn {
-                                                margin-top: 30px;
 
                                                 ul {
-
-                                                    display: flex;
                                                     width: 237px;
                                                     padding: 0 10px;
-
-                                                    li {
-                                                        width: 33.3%;
-
-                                                        .aaa {
-                                                            position: relative;
-                                                            margin-left: -1px;
-                                                            border: 1px solid #cccccc;
-                                                            text-indent: -9999em;
-                                                            font-size: 12px;
-                                                            font-weight: bold;
-                                                            font-family: NGBold;
-                                                            color: #cb1919;
-                                                            padding: 15px 0px;
-                                                            display: block;
-                                                            background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
-                                                            background-repeat: no-repeat;
-                                                            background-position: center center;
-                                                        }
-
-                                                        .b {
-                                                            position: relative;
-                                                            margin-left: -1px;
-                                                            border: 1px solid #cccccc;
-                                                            text-indent: -9999em;
-                                                            font-size: 12px;
-                                                            font-weight: bold;
-                                                            font-family: NGBold;
-                                                            color: #cb1919;
-                                                            padding: 15px 0px;
-                                                            display: block;
-                                                            background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
-                                                            background-repeat: no-repeat;
-                                                            background-position: center center;
-                                                        }
-
-                                                        .c {
-                                                            position: relative;
-                                                            margin-left: -1px;
-                                                            border: 1px solid #cccccc;
-                                                            text-indent: -9999em;
-                                                            font-size: 12px;
-                                                            font-weight: bold;
-                                                            // @include font ('NG');
-                                                            color: #cb1919;
-                                                            padding: 15px 0px;
-                                                            display: block;
-                                                            background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
-                                                            background-repeat: no-repeat;
-                                                            background-position: center center;
-                                                        }
-                                                    }
                                                 }
-                                            }
-
-                                            .menu_text {
-                                                padding: 10px 0;
-                                                font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
-
                                             }
                                         }
                                     }
@@ -325,22 +153,4 @@
         }
     }
 
-    .pizza_style {
-        color: #f17304 !important;
-        cursor: default;
-        font-family: NGBold;
-        font-size: 16px;
-        font-weight: bold;
-        padding: 5px;
-    }
-
-    .pizza_style_s {
-        color: #cb1919 !important;
-        cursor: default;
-        font-family: NGBold;
-        font-size: 16px;
-        font-weight: bold;
-        padding: 5px;
-
-    }
 }
