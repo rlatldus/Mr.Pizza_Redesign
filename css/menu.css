@@ -450,6 +450,9 @@ header div.menu {
   }
 }
 @media (min-width: 687px) and (max-width: 1159px) {
+  .fa-solidfa-bars {
+    display: none;
+  }
   #header {
     width: 100%;
   }

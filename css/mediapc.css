@@ -1,4 +1,7 @@
 @media (min-width: 1160px) {
+  .fa-solidfa-bars {
+    display: none;
+  }
   #wrap header {
     width: 1160px;
   }
