@@ -2,7 +2,9 @@
 
     // NOTE 워랩
     #wrap {
-
+        header{
+            width: 1160px;
+        }
         // --------------------헤더 끝
         main {
             width: 100%;
@@ -15,6 +17,7 @@
                 display: flex;
 
                 #left {
+                    display: block;
                     width: 25%;
                     padding-left: 2.72413793103%;
 
@@ -40,7 +43,7 @@
                                 font-size: 15px;
                                 font-family: NGBold;
                                 color: #666666;
-                                background: url(../image/bg_lnbActive2On.gif) no-repeat 95% center;
+                                background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
 
                                 img {
                                     padding: 1px 10px 0;
@@ -51,23 +54,23 @@
                     }
 
                     form.menual {
-                        width: 200px;
-                        margin: 10px;
+                        width: 100%;
+                        margin: 10px 0.8620689655172413%;
 
                         fieldset {
                             margin-top: 50px;
                             border: 1px solid #eeeeee;
 
                             h3 {
-                                padding: 0 14px;
+                                padding: 5px 10%;
                                 line-height: 43px;
                                 background: #eeeeee;
                                 font-size: 16px;
                             }
 
                             input {
-                                padding: 20px;
-                                margin: 10px;
+                                padding: 20px 1.7241379310344827%;
+                                margin: 10px 5%;
                                 vertical-align: middle;
 
                             }
@@ -98,6 +101,8 @@
 
 
                                         img {
+            left: 11px;
+
                                             width: 92%;
                                             margin-top: 2%;
                                         }
@@ -107,24 +112,25 @@
                                         }
 
                                         .input {
-                                            padding: 8px;
                                             padding: 20px;
                                         }
 
 
                                         .menu_ops {
-                                            width: 255px;
+            margin: 0 10px;
 
                                             p {
-                                                width: 92%;
 
                                                 a {
-                                                    margin: 0 8px;
+                                                    margin-left: 3px;
+
                                                 }
                                             }
 
                                             .gold {
-                                                width: 85%;
+                                                width: 100%;
+                                                left: 2px;
+
 
                                                 li {
 
@@ -136,11 +142,10 @@
                                             }
 
                                             .menu_btn {
+                                                margin-right: 3px;
+                                                margin-left: -4px;
 
-                                                ul {
-                                                    width: 237px;
-                                                    padding: 0 10px;
-                                                }
+                                                ul {}
                                             }
                                         }
                                     }
