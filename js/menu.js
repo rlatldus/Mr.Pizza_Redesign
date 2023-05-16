@@ -1,7 +1,7 @@
 // alert('a');
 
 $(function () {
-  //NOTE - 호버 시 이미지 나옴
+  //NOTE - 호버 시 피자 옵션 나옴
   $('form fieldset article').mouseenter(function () {
     $(this).children('i').stop().slideDown(1); //자식선택하기
     $(this).children('.menu_ops').css('height', '300px'); //자식선택하기
@@ -10,21 +10,14 @@ $(function () {
   $('form fieldset article').mouseleave(function () {
     $(this).children('i').stop().slideUp(1);
     $(this).children('.menu_ops').css('height', '0px');
+    $('.menu_ops p').siblings('.gold').slideUp(1); //자식선택하기
+
   });
 
-  $('.gold').hide();
-  $('.menu_ops p').click(function (e) {
-    e.preventDefault();
-    $(this).siblings('.gold').slideDown(500); //자식선택하기
-  });
-  $('.menu_ops p').dblclick(function (e) {
-    e.preventDefault();
-    $(this).siblings('.gold').slideUp(500); //자식선택하기
-  });
-});
-
-$(function () {
+  
   let isClicked = true;
+  
+  $('.gold').hide();
 
   $('.menu_ops p').click(function (e) {
     e.preventDefault();
@@ -39,6 +32,8 @@ $(function () {
 $('.menu_ops p').mouseleave(function () {
   $(this).siblings('.gold').slideUp(500); //자식선택하기
 });
+
+
 
 $(function () {
   $('.menu_btn ul li .aaa').hover(
@@ -104,46 +99,58 @@ $(function () {
       $('.menu_btn ul li .c').css('background-position', ' center center');
     }
   );
-});
+  
+  //FIXME -   나중에 좀 더 수정할것
+  $('.option1').click(function (e) {
+    e.preventDefault();
+    $('article img.pizza1 ').attr('src', 'imge/../image/2023314151710070.jpg'); // 기본값으로 되돌림
+  });
+  $('.option2').click(function (e) {
+    e.preventDefault();
+    $('article img.pizza1 ').attr('src', 'imge/20233141521172.jpg'); // 기본값으로 되돌림
+  });
+  $('.option3').click(function (e) {
+    e.preventDefault();
+    $('article img.pizza1 ').attr('src', 'imge/2023314142859082.jpg'); // 기본값으로 되돌림
+  });
+  $('.option4').click(function (e) {
+    e.preventDefault();
+    $('article img.pizza1 ').attr('src', 'imge/2023314153028392.jpg'); // 기본값으로 되돌림
+  });
+  
+  $('ul#main li').hover(
+    function () {
+      $(this).children('ul').css('z-index', '20');
+      $(this).children('ul li').css('border', '2px solid red');
+    },
+    function () {
+      $(this).children('ul').css('z-index', '0');
+    }
+    );
+    
 
-//FIXME -   나중에 좀 더 수정할것
-$('.option1').click(function (e) {
-  e.preventDefault();
-  $('article img.pizza1 ').attr('src', 'imge/../image/2023314151710070.jpg'); // 기본값으로 되돌림
-});
-$('.option2').click(function (e) {
-  e.preventDefault();
-  $('article img.pizza1 ').attr('src', 'imge/20233141521172.jpg'); // 기본값으로 되돌림
-});
-$('.option3').click(function (e) {
-  e.preventDefault();
-  $('article img.pizza1 ').attr('src', 'imge/2023314142859082.jpg'); // 기본값으로 되돌림
-});
-$('.option4').click(function (e) {
-  e.preventDefault();
-  $('article img.pizza1 ').attr('src', 'imge/2023314153028392.jpg'); // 기본값으로 되돌림
-});
+  // 메뉴 호버시 서브메뉴
+  $('ul#main li').hover(
+    function() {
+      setTimeout(() => {
+        $(this).find('li').stop().fadeIn(300);
+      }, 300);
+    },
+    function() {
+      setTimeout(() => {
+      $(this).find('li').stop().fadeOut(300);
+    }, 300);
+    }
+  );
 
-$('ul#main li').hover(
-  function () {
-    $(this).children('ul').css('z-index', '20');
-    $(this).children('ul li').css('border', '2px solid red');
-  },
-  function () {
-    $(this).children('ul').css('z-index', '0');
-  }
-);
 
-$('ul.sub').css('display', 'none');
-
-$('ul#main li').hover(function () {
-  $('ul.sub li').css('display', 'none');
-});
-// 상단 메뉴 클릭 시 이미지 띄우기
+    // 모바일 상단 메뉴 클릭 시 이미지 띄우기
 $('.btn_gnb').click(function () {
   if ($('#left').css('left') === '0px') {
-    $('#left').animate({ left: '-600px' }, 1000);
+    $('#left').animate({ left: '-700px' }, 1000);
   } else {
     $('#left').animate({ left: '0' }, 'fast');
   }
+});
+
 });

@@ -11,31 +11,16 @@ legend {
 
 @keyframes move {
   0% {
-    height: 0;
     border-top: 1px solid #dfdfdf;
+    height: 0;
   }
 
   100% {
-    height: 100px;
     border-top: 1px solid rgb(248, 193, 91);
     box-shadow: 0px 15px 5px -2px #c7c6c695;
+    height: 100px;
   }
 }
-
-// @keyframes moveLi {
-//   0% {
-//     display: none;
-//   }
-
-//   90% {
-//     display: none;
-
-//   }
-
-//   100% {
-//     display: block;
-//   }
-// }
 
 a {
   text-decoration: none;
@@ -126,6 +111,7 @@ header {
         }
 
         ul.sub {
+
           background-color: #ffffff;
           position: absolute;
           overflow: hidden;
@@ -136,12 +122,14 @@ header {
           display: flex;
           justify-content: center;
           text-align: center;
-          height: 0;
+          height: 0px;
 
 
           li {
+            display: none;
             // 안없어짐//FIXME
             width: 150px;
+            height: 20px;
             padding: 10px 0;
             margin: 30px 20px;
             border: 2px solid #5f5f5f;
@@ -250,12 +238,12 @@ header {
 
           .r_line {
             display: none; // FIXME
-            // overflow: hidden;
+            overflow: hidden;
             position: absolute;
             top: 0px;
             left: 0px;
             width: 100%;
-            // height: 0;
+            height: 0;
             height: 518px;
             border: 2px solid #cb1919;
             background-color: white;
@@ -289,11 +277,11 @@ header {
           }
 
           .menu_ops {
-            // display: none; //FIXME
+           // display: none; //FIXME
             position: absolute;
             left: 0px;
             top: 280px;
-            // height: 0; //NOTE
+            height: 0; //NOTE
             overflow: hidden; // 
 
             p {
@@ -605,7 +593,9 @@ header {
 
 @media(min-width:687px)and (max-width:1159px) {
 
-  .fa-solid {
+
+
+ #icon{
     display: none;
   }
 

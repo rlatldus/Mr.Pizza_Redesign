@@ -1,4 +1,7 @@
 @media (min-width: 1160px) {
+  #icon {
+    display: none;
+  }
   .fa-solid {
     display: none;
   }

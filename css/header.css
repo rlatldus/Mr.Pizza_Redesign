@@ -1,0 +1,235 @@
+legend {
+  display: none;
+}
+
+@keyframes move {
+  0% {
+    border-top: 1px solid #dfdfdf;
+    height: 0;
+  }
+  100% {
+    border-top: 1px solid rgb(248, 193, 91);
+    box-shadow: 0px 15px 5px -2px rgba(199, 198, 198, 0.5843137255);
+    height: 100px;
+  }
+}
+header {
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  font-size: 20px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+}
+header .logo {
+  display: block;
+  width: 164px;
+  height: 45px;
+  background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
+  text-indent: -999em;
+}
+header .logo a {
+  display: block;
+  color: #ba0d0d;
+}
+header .logo a img {
+  width: 180px;
+}
+header nav {
+  flex: 8;
+  right: 0px;
+}
+header nav #main {
+  display: flex;
+  justify-content: center;
+}
+header nav #main li {
+  display: block;
+  padding: 32px 20px;
+}
+header nav #main li:hover ul.sub {
+  animation: move 0.5s ease alternate forwards;
+}
+header nav #main li .menu {
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
+}
+header nav #main li .menu a {
+  padding: auto;
+  display: block;
+  font-size: 40px;
+}
+header nav #main li a:hover {
+  color: red;
+}
+header nav #main li ul.sub {
+  background-color: #ffffff;
+  position: absolute;
+  overflow: hidden;
+  top: 100px;
+  left: 0px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 0px;
+}
+header nav #main li ul.sub li {
+  display: none;
+  width: 150px;
+  height: 20px;
+  padding: 10px 0;
+  margin: 30px 20px;
+  border: 2px solid #5f5f5f;
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+header nav #main li ul.sub li:hover {
+  border: 2px solid red;
+}
+header nav #main li ul.sub li:hover a {
+  color: red;
+}
+header nav #main li ul.sub li a {
+  font-size: 14px;
+  display: block;
+  color: #5f5f5f;
+}
+header nav #main li ul.sub li a:hover li {
+  border: 1px solid red;
+}
+header div.menu {
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
+}
+
+@media (min-width: 1160px) {
+  #left {
+    display: none;
+  }
+  #icon {
+    display: none;
+  }
+  .fa-solid {
+    display: none;
+  }
+  #wrap header {
+    width: 1160px;
+  }
+}
+@media (max-width: 686px) {
+  #header {
+    width: 100%;
+  }
+  header {
+    padding: 0 20px;
+  }
+  header nav {
+    display: none;
+  }
+  header .right_menu .btn_gnb {
+    cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    vertical-align: top;
+    height: 50px;
+    background: #e20c3e;
+    border-radius: 50%;
+    position: relative;
+  }
+  header .right_menu .btn_gnb i {
+    left: 16px;
+    top: 16px;
+    color: white;
+    vertical-align: top;
+    border-radius: 50%;
+    position: relative;
+  }
+}
+#left {
+  position: absolute;
+  z-index: 50;
+  width: 90%;
+  height: 100vh;
+  padding: 5%;
+  background-color: white;
+}
+#left h2 {
+  padding-top: 100px;
+}
+#left ul {
+  width: 100%;
+  margin-top: 10px;
+}
+#left ul li {
+  margin-bottom: 8px;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+#left ul li a {
+  display: block;
+  padding: 8px 5px 8px;
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  font-family: NGBold;
+  color: #666666;
+  background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+}
+#left ul li a img {
+  padding: 1px 10px 0;
+}
+#left form.menual {
+  margin: 10px 0.8620689655%;
+}
+#left form.menual fieldset {
+  margin-top: 50px;
+  border: 1px solid #eeeeee;
+}
+#left form.menual fieldset h3 {
+  padding: 5px 10%;
+  line-height: 43px;
+  background: #eeeeee;
+  font-size: 16px;
+}
+#left form.menual fieldset input {
+  padding: 20px 1.724137931%;
+  margin: 10px 5%;
+  vertical-align: middle;
+}
+
+@media (min-width: 687px) and (max-width: 1159px) {
+  #left {
+    display: none;
+  }
+  #icon {
+    display: none;
+  }
+  #header {
+    width: 100%;
+  }
+  header {
+    padding: 0 20px;
+  }
+  header nav #main li img,
+  header nav #main li span {
+    text-align: center;
+    display: block;
+    margin: auto;
+  }
+  header nav #main li .menu a {
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */
