@@ -1,218 +1,220 @@
-
 /* 초기화 */
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  * body {
-    font-size: 12px;
-    /* font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;  */
-    color: #333;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-  }
-  
-  #wrap {
-    border: 0px solid red;
-  }
-  
-  header#header,
-  div#contents,
-  footer {
-    margin: 0 auto;
-  }
-  
-  /* 공통 */
-  button {
-    background: none;
-  }
-  
-  img {
-    border: none;
-    vertical-align: middle;
-  }
-  
-  a {
-    background: transparent;
-  }
-  
-  a:link {
-    color: black;
-    text-decoration: none;
-  }
-  
-  a:visited {
-    color: black;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: black;
-    text-decoration: none;
-  }
-  
-  a:active {
-    color: black;
-    text-decoration: none;
-  }
-  
-  a:focus {
-    color: black;
-    text-decoration: none;
-  }
-  
-  ul li {
-    list-style: none;
-  }
-  
-  .blind {
-    display: none;
-  }
+  margin: 0;
+  padding: 0;
+}
+
+* body {
+  font-size: 12px;
+  /* font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;  */
+  color: #333;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+#wrap {
+  border: 0px solid red;
+}
+
+header#header,
+div#contents,
+footer {
+  margin: 0 auto;
+}
+
+/* 공통 */
+button {
+  background: none;
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+
+a {
+  background: transparent;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+a:focus {
+  color: black;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+.blind {
+  display: none;
+}
 
 /* 푸터영역시작  */
 div.link_fix {
-    border-top: 1px solid #dddddd;
-    border-bottom: 1px solid #dddddd;
-  }
-  
-  .footer_renew {
-    border: 0px solid rgb(5, 206, 206);
-    height: 15px;
-  }
-  
-  /* 사이트이용안내 영역 시작 -- */
-  .footer_renew .line_area {
-    width: 1160px;
-    border: 0px solid darkgreen;
-    height: 50px;
-    margin: 0 auto;
-    position: relative;
-  }
-  
-  /* 개인정보처리방침 등.. 리스트 */
-  .footer_renew .line_area .link_list ul:after {
-    clear: both;
-    display: block;
-    content: "";
-  }
-  
-  /* 다른나라 홈페이지 링크 부분 */
-  
-  .dropdown-content {
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    border: 1px solid #dddddd;
-    width: 168px;
-    display: none;
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    top: 50px;
-    /* 다른 요소들보다 앞에 배치 */
-    text-align: left;
-  }
-  
-  .dropdown-content a {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 1em;
-    display: block;
-    padding-left: 20px;
-    background: #fff;
-    border: solid #dddddd;
-    border-width: 0 1px 1px 1px;
-    height: 49px;
-    line-height: 49px;
-    box-sizing: border-box;
-  }
-  
-  .dropdown-content a:hover {
-    background: #f1f1f1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* 다른나라 홈페이지 영역 종료 --// */
-  
-  
-  /* 사이트정보 영역 시작 -- */
-  .info_wrap {
-    padding-bottom: 10px;
-    width: 1160px;
-    height: 90px;
-    margin: 0 auto;
-    border: 0px solid black;
-    position: relative;
-  }
-  
-  /* 푸터- 주소영역 */
-  .footer_renew .info_wrap address {
-    padding-top: 20px;
-    font-style: normal;
-    font-size: 13px;
-    color: #8c8c8c;
-    font-family: 'Nanum Gothic', sans-serif;
-  }
-  
-  /* 푸터 sns 링크 영역 */
-  .footer_renew .sns_list li:hover {
-    transform: scale(1.2);
-  }
-  
-  .footer_renew .sns_list:after {
-    display: block;
-    content: "";
-    clear: both;
-  }
-  
-  .footer_renew .sns_list li {
-    float: left;
-    padding-right: 8px;
-  }
-  
-  .footer_renew .sns_list a {
-    display: block;
-    border-radius: 20%;
-  }
-  
-  .footer_renew .sns_list a span {
-    display: block;
-    font-size: 0;
-    width: 31px;
-    height: 31px;
-  }
-  
-  .footer_renew .sns_list li.facebook span {
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_facebook.png') 0 0 no-repeat
-  }
-  
-  .footer_renew .sns_list li.kakaostory span {
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_kakaostory.png') 0 0 no-repeat;
-  }
-  
-  .footer_renew .sns_list li.instagram span {
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_instagram.png') 0 0 no-repeat;
-  }
-  
-  .footer_renew .sns_list li.blog span {
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_blog.png') 0 0 no-repeat;
-  }
-  
-  /*sns링크 종료 --// */
-  
-  /* 푸터영역 끝 //  */
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
 
-@media screen and (max-width:767px) {
-        /* 퀵메뉴 사라지게함 */ */
-        section#quick {
-            display: none;
-          }
-          .quick_wrap{
-            display: none;
-          }
-/* 푸터영역 시작 */
+.footer_renew {
+  border: 0px solid rgb(5, 206, 206);
+  height: 15px;
+}
+
+/* 사이트이용안내 영역 시작 -- */
+.footer_renew .line_area {
+  /* width: 1160px; */
+  border: 0px solid darkgreen;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 개인정보처리방침 등.. 리스트 */
+.footer_renew .line_area .link_list ul:after {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+/* 다른나라 홈페이지 링크 부분 */
+
+.dropdown-content {
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border: 1px solid #dddddd;
+  width: 168px;
+  display: none;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  /* 다른 요소들보다 앞에 배치 */
+  text-align: left;
+}
+
+.dropdown-content a {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1em;
+  display: block;
+  padding-left: 20px;
+  background: #fff;
+  border: solid #dddddd;
+  border-width: 0 1px 1px 1px;
+  height: 49px;
+  line-height: 49px;
+  box-sizing: border-box;
+}
+
+.dropdown-content a:hover {
+  background: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 다른나라 홈페이지 영역 종료 --// */
+
+/* 사이트정보 영역 시작 -- */
+.info_wrap {
+  padding-bottom: 10px;
+  /* width: 1160px; */
+  height: 90px;
+  margin: 0 auto;
+  border: 0px solid black;
+  position: relative;
+}
+
+/* 푸터- 주소영역 */
+.footer_renew .info_wrap address {
+  padding-top: 20px;
+  font-style: normal;
+  font-size: 13px;
+  color: #8c8c8c;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* 푸터 sns 링크 영역 */
+.footer_renew .sns_list li:hover {
+  transform: scale(1.2);
+}
+
+.footer_renew .sns_list:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.footer_renew .sns_list li {
+  float: left;
+  padding-right: 8px;
+}
+
+.footer_renew .sns_list a {
+  display: block;
+  border-radius: 20%;
+}
+
+.footer_renew .sns_list a span {
+  display: block;
+  font-size: 0;
+  width: 31px;
+  height: 31px;
+}
+
+.footer_renew .sns_list li.facebook span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_facebook.png')
+    0 0 no-repeat;
+}
+
+.footer_renew .sns_list li.kakaostory span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_kakaostory.png')
+    0 0 no-repeat;
+}
+
+.footer_renew .sns_list li.instagram span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_instagram.png')
+    0 0 no-repeat;
+}
+
+.footer_renew .sns_list li.blog span {
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_blog.png')
+    0 0 no-repeat;
+}
+
+/*sns링크 종료 --// */
+
+/* 푸터영역 끝 //  */
+
+@media screen and (max-width: 767px) {
+  /* 퀵메뉴 사라지게함 */
+  */ section#quick {
+    display: none;
+  }
+  .quick_wrap {
+    display: none;
+  }
+  /* 푸터영역 시작 */
   footer {
     padding-bottom: 40px;
     width: 100%;
@@ -226,7 +228,7 @@ div.link_fix {
     padding-top: 15px;
   }
 
-  .footer_renew .line_area .link_list li+li {
+  .footer_renew .line_area .link_list li + li {
     font-size: 0.9em;
   }
 
@@ -277,15 +279,15 @@ div.link_fix {
   /* 푸터영역 종료 // */
 }
 
-@media (min-width:768px) and (max-width:1023px) {
-        /* 퀵메뉴 사라지게함 */ */
-        section#quick {
-            display: none;
-          }
-          .quick_wrap{
-            display: none;
-          }
-      /* 푸터 영역시작 */
+@media (min-width: 768px) and (max-width: 1159px) {
+  /* 퀵메뉴 사라지게함 */
+  */ section#quick {
+    display: none;
+  }
+  .quick_wrap {
+    display: none;
+  }
+  /* 푸터 영역시작 */
   footer {
     padding-bottom: 40px;
     width: 100%;
@@ -308,7 +310,7 @@ div.link_fix {
     transition: all 0.3s;
   }
 
-  .footer_renew .line_area .link_list li+li {
+  .footer_renew .line_area .link_list li + li {
     font-size: 1em;
     transition: all 0.3s;
   }
@@ -320,7 +322,6 @@ div.link_fix {
 
   /* 저작권주소 */
   div.info_wrap address {
-
     font-size: 1em;
   }
 
@@ -343,7 +344,6 @@ div.link_fix {
     font-family: 'Nanum Gothic', sans-serif;
   }
 
-
   /* 다른나라홈페이지 */
   .dropdown {
     margin-left: 620px;
@@ -361,9 +361,9 @@ div.link_fix {
     padding-top: 13px;
     height: 50px;
     box-sizing: border-box;
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png') 92% 50% no-repeat;
+    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png')
+      92% 50% no-repeat;
     transition: all 0.3s;
-
   }
 
   /* 푸터 sns 링크 영역 */
@@ -386,17 +386,17 @@ div.link_fix {
   /*푸터종료     //  */
 }
 
-@media (min-width:1024px) {
-      /* 퀵메뉴 */
+@media (min-width: 1160px) {
+  /* 퀵메뉴 */
   .quick_wrap {
     position: fixed;
     top: 50%;
     right: 0;
     z-index: 1;
-    margin-top: -177.5px
+    margin-top: -177.5px;
   }
 
-  .quick_wrap>ul {
+  .quick_wrap > ul {
     background: #f4f4f4;
     border-radius: 18px 0 0 18px;
     padding: 0 5px;
@@ -404,11 +404,11 @@ div.link_fix {
     overflow: visible;
   }
 
-  .quick_wrap>ul>li+li {
+  .quick_wrap > ul > li + li {
     border-top: #dbdbdb 1px solid;
   }
 
-  .quick_wrap>ul>li>a.quick_tit {
+  .quick_wrap > ul > li > a.quick_tit {
     display: block;
     padding: 18px 0;
     text-align: center;
@@ -419,12 +419,12 @@ div.link_fix {
     position: relative;
   }
 
-  .quick_wrap>ul>li>a.quick_tit:hover,
-  .quick_wrap>ul>li.on>a.quick_tit {
+  .quick_wrap > ul > li > a.quick_tit:hover,
+  .quick_wrap > ul > li.on > a.quick_tit {
     color: #000;
   }
 
-  .quick_wrap>ul>li>a>i {
+  .quick_wrap > ul > li > a > i {
     display: block;
     margin: 0 auto 4px;
   }
@@ -443,7 +443,7 @@ div.link_fix {
     padding-top: 1px;
     box-sizing: border-box;
   }
-      /* 푸터영역 */
+  /* 푸터영역 */
   footer {
     padding-bottom: 40px;
     width: 100%;
@@ -471,13 +471,14 @@ div.link_fix {
     padding-top: 13px;
     height: 50px;
     box-sizing: border-box;
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png') 92% 50% no-repeat;
+    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png')
+      92% 50% no-repeat;
   }
 
   .footer_renew .line_area .link_list ul:after {
     clear: both;
     display: block;
-    content: "";
+    content: '';
   }
 
   .footer_renew .line_area .link_list li {
@@ -486,7 +487,7 @@ div.link_fix {
     padding-top: 15px;
   }
 
-  .footer_renew .line_area .link_list li+li {
+  .footer_renew .line_area .link_list li + li {
     font-size: 1.1em;
   }
 
@@ -539,19 +540,19 @@ div.link_fix {
     position: relative;
   }
 
-  .footer_renew .award_wrap ul>li {
+  .footer_renew .award_wrap ul > li {
     float: left;
     font-size: 0.7em;
     display: table;
     padding-right: 10px;
   }
 
-  .footer_renew .award_wrap ul>li img {
+  .footer_renew .award_wrap ul > li img {
     float: left;
     margin-right: 10px;
   }
 
-  .footer_renew .award_wrap ul>li span {
+  .footer_renew .award_wrap ul > li span {
     display: table-cell;
     vertical-align: middle;
     font-family: 'Nanum Gothic', sans-serif;
@@ -559,4 +560,3 @@ div.link_fix {
 
   /* 사이트정보 영역 종료 // */
 }
-
