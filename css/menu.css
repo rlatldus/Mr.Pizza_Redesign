@@ -221,9 +221,6 @@ header div.menu {
 #wrap .article form fieldset article .menu_ops {
   position: absolute;
   left: 0px;
-  top: 280px;
-  height: 0;
-  overflow: hidden;
 }
 #wrap .article form fieldset article .menu_ops p a {
   display: block;
@@ -257,7 +254,7 @@ header div.menu {
 #wrap .article form fieldset article .menu_ops .menu_btn ul li {
   width: 33.33%;
 }
-#wrap .article form fieldset article .menu_ops .menu_btn ul li .aaa {
+#wrap .article form fieldset article .menu_ops .menu_btn ul li #memu01 {
   position: relative;
   margin-left: -1px;
   border: 1px solid #cccccc;
@@ -272,7 +269,7 @@ header div.menu {
   background-repeat: no-repeat;
   background-position: center center;
 }
-#wrap .article form fieldset article .menu_ops .menu_btn ul li .b {
+#wrap .article form fieldset article .menu_ops .menu_btn ul li #memu02 {
   position: relative;
   margin-left: -1px;
   border: 1px solid #cccccc;
@@ -287,7 +284,7 @@ header div.menu {
   background-repeat: no-repeat;
   background-position: center center;
 }
-#wrap .article form fieldset article .menu_ops .menu_btn ul li .c {
+#wrap .article form fieldset article .menu_ops .menu_btn ul li #memu03 {
   position: relative;
   margin-left: -1px;
   border: 1px solid #cccccc;
@@ -409,6 +406,9 @@ header div.menu {
     margin: 1% 0;
     width: 100%;
   }
+  #right section.right_menu1 .article form fieldset article:hover {
+    border: 2px solid #cb1919;
+  }
   #right section.right_menu1 .article form fieldset article img {
     padding-left: 10px;
     width: 220px;
@@ -469,6 +469,10 @@ header div.menu {
     display: block;
     width: 25%;
     padding-left: 2.724137931%;
+  }
+  #wrap main #section #left section {
+    position: relative;
+    top: 20px;
   }
   #wrap main #section #left h2 {
     padding-top: 100px;
@@ -539,8 +543,11 @@ header div.menu {
     padding: 20px 7px;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops {
+    height: 0;
     width: 94%;
     margin: 0 3%;
+    overflow: hidden;
+    top: 280px;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold {
     width: 100%;
