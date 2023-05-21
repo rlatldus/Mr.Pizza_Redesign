@@ -1,121 +1,88 @@
-// alert('a');
-
 $(function () {
-  //NOTE - 호버 시 피자 옵션 나옴
+
+  //NOTE - 호버 시 피자 옵션 나옴 // 이거 맨 밑이랑 연결하기
   $('form fieldset article').mouseenter(function () {
-    $(this).children('i').stop().slideDown(1); //자식선택하기
-    $(this).children('.menu_ops').css('height', '300px'); //자식선택하기
+    if($(this).children('.menu_ops').css('top') !== '20px'){
+    $(this).children('i').stop().slideDown(1); //
+    $(this).children('.menu_ops').css('height', '300px') // 실행
+  };
   });
 
   $('form fieldset article').mouseleave(function () {
+    if($(this).children('.menu_ops').css('top') !== '20px'){
     $(this).children('i').stop().slideUp(1);
     $(this).children('.menu_ops').css('height', '0px');
-    $('.menu_ops p').siblings('.gold').slideUp(1); //자식선택하기
-
+    }
   });
 
-  
-  let isClicked = true;
-  
+  if($('.menu_ops').css('top') == '20px'){
+    $('.menu_ops')
+    .show()
+  }
+
+  // 골드 메뉴 클릭 시 메뉴 나옴
   $('.gold').hide();
+  
+  $('.menu_ops p').each(function(){ 
+    let isClicked = true;
+    const gold = $(this).siblings('.gold');
 
-  $('.menu_ops p').click(function (e) {
-    e.preventDefault();
-    if (isClicked) {
-      $(this).siblings('.gold').stop().slideDown(500); // 기본값으로 되돌림
-    } else {
-      $(this).siblings('.gold').stop().slideUp(500);
-    }
-    isClicked = !isClicked; // 클릭 여부를 반대로 변경
+    $(this).click(function (e) {
+      e.preventDefault();
+      isClicked ?  gold.stop().slideDown(500) : gold.stop().slideUp(500);
+      isClicked = !isClicked;
+    });
+    $(this).siblings('.gold').mouseleave( function() {
+      gold.stop().slideUp(500);
+      isClicked = !isClicked;
+    });
   });
-});
-$('.menu_ops p').mouseleave(function () {
-  $(this).siblings('.gold').slideUp(500); //자식선택하기
-});
 
-
-
-$(function () {
-  $('.menu_btn ul li .aaa').hover(
-    function () {
-      $('.menu_btn ul li .aaa').css('background', 'none'); // 기본값으로 되돌림
-      $('.menu_btn ul li .aaa').css('text-indent', '0');
-      $('.menu_btn ul li .aaa').css('border', '2px solid #cb1919');
-      $('.menu_btn ul li .aaa').css('background-repeat', 'no-repeat');
-      $('.menu_btn ul li .aaa').css('background-position', ' center center');
-    },
-    function () {
-      $('.menu_btn ul li .aaa').css(
-        'background',
-        'url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif)'
-      ); // 기본값으로 되돌림
-      $('.menu_btn ul li .aaa').css('text-indent', '-9999em');
-      $('.menu_btn ul li .aaa').css('border', '1px solid #cccccc');
-      $('.menu_btn ul li .aaa').css('background-repeat', 'no-repeat');
-      $('.menu_btn ul li .aaa').css('background-position', ' center center');
+//미리보기, 장바구니, 바로주문
+  $('.menu_btn').each(function(){
+    
+    const origin= function () { // 기본값으로 되돌림
+      $(this)
+      .css('background', 'none')
+      .css('text-indent', '0')
+      .css('border', '2px solid #cb1919')
+      .css('background-repeat', 'no-repeat')
+      .css('background-position', ' center center')
     }
-  );
-});
-
-$(function () {
-  $('.menu_btn ul li .b').hover(
-    function () {
-      $('.menu_btn ul li .b').css('background', 'none'); // 기본값으로 되돌림
-      $('.menu_btn ul li .b').css('text-indent', '0');
-      $('.menu_btn ul li .b').css('border', '2px solid #cb1919');
-      $('.menu_btn ul li .b').css('background-repeat', 'no-repeat');
-      $('.menu_btn ul li .b').css('background-position', ' center center');
-    },
-    function () {
-      $('.menu_btn ul li .b').css(
+    const redColer = function () {//레드컬러로 수정
+      $(this)
+      .css(
         'background',
-        'url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif)'
-      ); // 기본값으로 되돌림
-      $('.menu_btn ul li .b').css('text-indent', '-9999em');
-      $('.menu_btn ul li .b').css('border', '1px solid #cccccc');
-      $('.menu_btn ul li .b').css('background-repeat', 'no-repeat');
-      $('.menu_btn ul li .b').css('background-position', ' center center');
+        `url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_${$(this).attr("id")}.gif)`
+      )
+      .css('text-indent', '-9999em')
+      .css('border', '1px solid #cccccc')
+      .css('background-repeat', 'no-repeat')
+      .css('background-position', ' center center')
+      console.log($(this).attr("id"));
     }
-  );
-});
-
-$(function () {
-  $('.menu_btn ul li .c').hover(
-    function () {
-      $('.menu_btn ul li .c').css('background', 'none'); // 기본값으로 되돌림
-      $('.menu_btn ul li .c').css('text-indent', '0');
-      $('.menu_btn ul li .c').css('border', '2px solid #cb1919');
-      $('.menu_btn ul li .c').css('background-repeat', 'no-repeat');
-      $('.menu_btn ul li .c').css('background-position', ' center center');
-    },
-    function () {
-      $('.menu_btn ul li .c').css(
-        'background',
-        'url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif)'
-      ); // 기본값으로 되돌림
-      $('.menu_btn ul li .c').css('text-indent', '-9999em');
-      $('.menu_btn ul li .c').css('border', '1px solid #cccccc');
-      $('.menu_btn ul li .c').css('background-repeat', 'no-repeat');
-      $('.menu_btn ul li .c').css('background-position', ' center center');
-    }
-  );
+    $(this).find('#memu01').hover(origin, redColer);
+    $(this).find('#memu02').hover(origin, redColer);
+    $(this).find('#memu03').hover(origin, redColer);
+  })
   
   //FIXME -   나중에 좀 더 수정할것
+// 클릭시 이미지 변경
   $('.option1').click(function (e) {
     e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'imge/../image/2023314151710070.jpg'); // 기본값으로 되돌림
+    $('article img.pizza1 ').attr('src', 'image/2023314151710070.jpg');
   });
   $('.option2').click(function (e) {
     e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'imge/20233141521172.jpg'); // 기본값으로 되돌림
+    $('article img.pizza1 ').attr('src', 'imge/20233141521172.jpg');
   });
   $('.option3').click(function (e) {
     e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'imge/2023314142859082.jpg'); // 기본값으로 되돌림
+    $('article img.pizza1 ').attr('src', 'imge/2023314142859082.jpg');
   });
   $('.option4').click(function (e) {
     e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'imge/2023314153028392.jpg'); // 기본값으로 되돌림
+    $('article img.pizza1 ').attr('src', 'imge/2023314153028392.jpg');
   });
   
   $('ul#main li').hover(
@@ -127,7 +94,6 @@ $(function () {
       $(this).children('ul').css('z-index', '0');
     }
     );
-    
 
   // 메뉴 호버시 서브메뉴
   $('ul#main li').hover(
@@ -143,7 +109,6 @@ $(function () {
     }
   );
 
-
     // 모바일 상단 메뉴 클릭 시 이미지 띄우기
 $('.btn_gnb').click(function () {
   if ($('#left').css('left') === '0px') {
@@ -153,4 +118,18 @@ $('.btn_gnb').click(function () {
   }
 });
 
+
+var currentPosition = parseInt($("#left section").css("top"));
+$(window).scroll(function(){
+  var position = $(window).scrollTop();
+  $("#left section").stop().animate({"top":position+currentPosition+"px"},500);
+  console.log( topvalue)
 });
+
+const element = $('#left section');
+const computedStyle = window.getComputedStyle(element);
+const topValue = computedStyle.getPropertyValue('top');
+
+console.log(topValue);
+});
+

@@ -277,12 +277,11 @@ header {
           }
 
           .menu_ops {
-           // display: none; //FIXME
+            // display: none; //FIXME
             position: absolute;
             left: 0px;
-            top: 280px;
-            height: 0; //NOTE
-            overflow: hidden; // 
+            // height: 0; //NOTE
+            // overflow: hidden; // 
 
             p {
 
@@ -329,7 +328,7 @@ header {
                 li {
                   width: 33.33%;
 
-                  .aaa {
+                  #memu01 {
                     position: relative;
                     margin-left: -1px;
                     border: 1px solid #cccccc;
@@ -345,7 +344,7 @@ header {
                     background-position: center center;
                   }
 
-                  .b {
+                  #memu02 {
                     position: relative;
                     margin-left: -1px;
                     border: 1px solid #cccccc;
@@ -361,7 +360,7 @@ header {
                     background-position: center center;
                   }
 
-                  .c {
+                  #memu03 {
                     position: relative;
                     margin-left: -1px;
                     border: 1px solid #cccccc;
@@ -541,6 +540,10 @@ header {
               margin: 1% 0;
               width: 100%;
 
+              &:hover {
+                border: 2px solid #cb1919;
+              }
+
               img {
                 padding-left: 10px;
                 width: 220px;
@@ -565,8 +568,6 @@ header {
                 padding: 0 2% 0 240px;
                 top: 20px;
                 left: 1%;
-
-                p {}
 
                 .gold {
                   width: calc(94% - 220px);
@@ -595,7 +596,7 @@ header {
 
 
 
- #icon{
+  #icon {
     display: none;
   }
 
@@ -646,6 +647,10 @@ header {
           width: 25%;
           padding-left: 2.72413793103%;
 
+          section{
+            position: relative;
+            top: 20px;
+          }
           // NOTE 왼쪽
           h2 {
             padding-top: 100px;
@@ -745,9 +750,12 @@ header {
                     }
 
                     .menu_ops {
-
+                      height: 0;
                       width: 94%;
                       margin: 0 3%;
+                      overflow: hidden;
+                      top: 280px;
+
 
                       p {
 

@@ -29,6 +29,10 @@
                     width: 25%;
                     padding-left: 2.72413793103%;
 
+                    section{
+                        position: relative;
+                        top: 20px;
+                      }
                     // NOTE 왼쪽
                     h2 {
                         padding-top: 100px;
@@ -125,7 +129,10 @@
 
 
                                         .menu_ops {
+                                            height: 0;
                                             margin: 0 10px;
+                                            overflow: hidden;
+                                            top: 280px;
 
                                             p {
 
