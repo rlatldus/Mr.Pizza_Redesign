@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스터피자</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/menu_left.css">
+    <link rel="stylesheet" href="css/menu_ractangle.css">
+    <link rel="stylesheet" href="css/mediapc.css">
+    <link rel="stylesheet" href="css/event.css">
+    <script src="https://kit.fontawesome.com/f56e50906e.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/menu.js"></script>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <!--header-->
+        <div id="header">
+            <header>
+                <div class="logo"><a href="https://www.mrpizza.co.kr/"></a> </div>
+                <nav>
+                    <ul id="main">
+                        <li> <a href=""><img alt="" src=imge/ico_gnb_01.png><span> 바로주문</span></a>
+                            <ul class="sub he font">
+                                <li><a href="#">로그인</a></li>
+                                <li><a href="#">회원가입</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="menu.html"><img alt="" src=imge/ico_gnb_02.png><span> 메뉴</span></a>
+                            <ul class="sub he font">
+                                <li><a href="#">피자</a></li>
+                                <li><a href="#">1인용피자</a></li>
+                                <li><a href="#">특가세트</a></li>
+                                <li><a href="#">샐러드&사이드</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href=""><img alt="" src=imge/ico_gnb_03.png><span> 매장</span></a></li>
+                        <li> <a href=""><img alt="" src=imge/ico_gnb_04.png><span> 이벤트</span></a>
+                            <ul class="sub he font">
+                                <li><a href="#">신제품 소개</a></li>
+                                <li><a href="#">진행중 이벤트</a></li>
+                                <li><a href="#">종료된 이벤트</a></li>
+                                <li><a href="#">할인안내</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="right_menu">
+                    <div class="menu">
+                        <a href=""></a>
+                    </div>
+                    <div class="btn_gnb"><i id="icon" class="fa-solid fa-bars"></i></div>
+                </div>
+            </header>
+        </div>
+        <!-- //header -->
+
+
+
+        <!-- container -->
+        <div id="container">
+            <!-- lnb -->
+            <aside id="lnb">
+                <h1>이벤트</h1>
+                <!-- NOTE 왼쪽 -->
+                <ul>
+                    <li><a href="https://www.mrpizza.co.kr/event/new_menu" title="신제품 소개">신제품 소개&nbsp;<img
+                                src="/imge/lnb_new_s.gif" alt="NEW"></a>
+                    </li>
+                    <li><a href="https://www.mrpizza.co.kr/event/event_on" title="진행중 이벤트">진행중 이벤트&nbsp;<img
+                                src="/imge/lnb_new_s.gif" alt="NEW"></a></li>
+                    <li><a href="https://www.mrpizza.co.kr/event/event_off" title="종료된 이벤트">종료된 이벤트</a></li>
+                    <li><a href="https://www.mrpizza.co.kr/discount/allianceDiscount" title="할인안내">할인안내</a></li>
+                </ul>
+            </aside>
+            <section id="contents">
+                <!-- NOTE 오른쪽 -->
+                <div id="eventFrm">
+
+                    <input type="hidden" id="cPage" name="cPage" value="1">
+                    <input type="hidden" id="seq" name="seq" value="0">
+
+                    <ul id="location">
+                        <li><a class="home" href="/index">HOME</a></li>
+                        <li><span>이벤트</span></li>
+                        <li><strong>진행중 이벤트</strong></li>
+                    </ul>
+
+                    <div class="cont_top">
+                        <h1>진행중 이벤트</h1>
+                    </div>
+
+                    <ul class="event_list new_event_list" id="ImgList">
+                        <li>
+                            <a href="javascript:goEventContents('4248')" class="img"><img src="/imge/미피와함께해!.jpg"
+                                    alt="포게더EVENT"></a>
+                            <div class="tit_wrap">
+                                <p class="tit">미피와 함께해! 포게더 EVENT </p>
+                                <p class="date">진행기간 : 2023.05.15 ~ 2023.05.31</p>
+                                <p class="ic">
+                                    <img src="/imge/ic_onlineOn_new.gif" alt="온라인">
+                                    <img src="/imge/ic_packageOn.gif" alt="방문포장">
+                                    <img src="/imge/매장식사.gif" alt="매장식사">
+                                    <img src="/imge/ic_callOn.gif" alt="전화주문">
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:goEventContents('4241')" class="img"><img src="/imge/뮤드림세트_이벤트.jpg"
+                                    alt="미스터피자뮤드림"></a>
+                            <div class="tit_wrap">
+                                <p class="tit">[미스터피자 X 뮤 온라인] Mu Dream 세트 출시 EVENT! </p>
+                                <p class="date">진행기간 : 2023.04.25 ~ 2023.05.25</p>
+                                <p class="ic">
+                                    <img src="/imge/ic_onlineOn_new.gif" alt="온라인">
+                                    <img src="/imge/ic_packageOn.gif" alt="방문포장">
+                                    <img src="/imge/매장식사.gif" alt="매장식사">
+                                    <img src="/imge/ic_callOn.gif" alt="전화주문">
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:goEventContents('3912')" class="img"><img src="/imge/롯데카드_이벤트.jpg"
+                                    alt="이제 미스터피자에서 롯데카드 15% 할인!                           "></a>
+                            <div class="tit_wrap">
+                                <p class="tit">이제 미스터피자에서 롯데카드 15% 할인! </p>
+                                <p class="date">진행기간 : 2017.11.08 ~ 2023.10.31</p>
+                                <p class="ic">
+                                    <img src="/imge/ic_onlineOn_new.gif" alt="온라인">
+                                    <img src="/imge/ic_packageOn.gif" alt="방문포장">
+                                    <img src="/imge/매장식사.gif" alt="매장식사">
+                                    <img src="/imge/ic_callOn.gif" alt="전화주문">
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:goEventContents('4105')" class="img"><img src="/imge/한몫잡은화요일_이벤트.jpg"
+                                    alt="[한몫잡은 화요일] 방문포장 시 프리미엄 3종 라지 40% 할인               "></a>
+                            <div class="tit_wrap">
+                                <p class="tit">[한몫잡은 화요일] 방문포장 시 프리미엄 3종 라지 40% 할인 </p>
+                                <p class="date">진행기간 : 2021.02.23 ~ 2023.05.31</p>
+                                <p class="ic">
+                                    <img src="/imge/ic_packageOn.gif" alt="방문포장">
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:goEventContents('4052')" class="img"><img src="/imge/수지맞은금요일_이벤트.jpg"
+                                    alt="[수지맞은 금요일] 방문포장 시 클래식 3종 L 1+1                    "></a>
+                            <div class="tit_wrap">
+                                <p class="tit">[수지맞은 금요일] 방문포장 시 클래식 3종 L 1+1 </p>
+                                <p class="date">진행기간 : 2020.02.12 ~ 2023.05.31</p>
+                                <p class="ic">
+                                    <img src="/imge/ic_packageOn.gif" alt="방문포장">
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="list_paging">
+                        <img src="/imge/paging_prev.gif" alt="이전페이지">
+                        <span>
+                            <strong>1</strong>
+                        </span>
+                        <img src="/imge/paging_next.gif" alt="다음페이지">
+                    </p>
+                </div>
+            </section>
+            <!-- //contents -->
+        </div>
+        <!-- //container -->
+
+        <!-- leftQuickMenu  -->
+        <section id="quick">
+            <h3 class="blind">퀵메뉴</h3>
+            <section class="quick_wrap">
+                <ul class="quick_menu">
+
+                    <li><a href="https://www.mrpizza.co.kr/login_join/login" class="quick_tit " id="quickLoginURL">
+                            <i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png"
+                                    alt="로그인"></i>로그인</a>
+                    </li>
+                    <li><a href="https://www.mrpizza.co.kr/login_join/join" class="quick_tit"><i><img
+                                    src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_02.png"
+                                    alt="회원가입"></i>회원가입</a>
+                    </li>
+                    <li class="inBox">
+                        <a href="#" onclick="javascript:cartOpen();" class="quick_tit quick_cart" title="장바구니">
+                            <i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_03.png" alt="장바구니"
+                                    onclick="javascript:alert('장바구니가 비어있습니다.')"></i>장바구니<em class="cart_num">0</em>
+                        </a>
+                    </li>
+                    <li class="inBox">
+                        <a href="#" onclick="javascript:reOrderOpen();" class="quick_tit quick_order"
+                            title="재주문"><i><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_04.png"
+                                    alt="재주문"></i>재주문</a>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <!-- leftQuickMenu // -->
+
+        <!--footer-->
+        <footer class="footer_renew">
+            <div class="footer_fix">
+                <section class="footer_section">
+                    <div class="link_fix">
+                        <div class="line_area">
+                            <div class="info_wrap">
+                                <h2 class="blind">사이트이용안내</h2>
+
+                                <ul class="link_list">
+                                    <li><a href="https://www.mrpizza.co.kr/login_join/rules"><span>개인정보처리방침</span></a>
+                                    </li>
+                                    <li><a href="https://www.mrpizza.co.kr/login_join/rules">이용약관</a></li>
+                                    <li><a href="https://www.mrpizza.co.kr/brand/franchise">가족점모집</a></li>
+                                    <li><a href="https://www.mrpizza.co.kr/cscenter/cscenter_main">고객만족센터</a></li>
+                                    <li><a href="#popGroupOrder" class="pop_open">단체주문/상품권</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- 다른나라 홈페이지 링크 -->
+                            <div class="dropdown">
+                                <span class="dropbtn">Korea </span>
+                                <div class="dropdown-content">
+                                    <a href="#">Korea</a>
+                                    <a href="http://usmpk.mrpizza.co.kr/en/" target="_blank">English</a>
+                                    <a href="http://chmpk.mrpizza.co.kr/ch/" target="_blank">Chinese</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 홈페이지 링크 영역 종료 // -->
+                    </div>
+                    <!-- 사이트이용 안내 종료 // -->
+
+
+
+
+                    <!-- 저작권 및 주소 영역 / 수상내역 시작 -- -->
+                    <div class="info_area">
+
+                        <!-- 저작권 및 주소 영역 시작  -->
+                        <div class="info_wrap">
+                            <div class="addressCopy">
+                                <address>경기도 성남시 분당구 판교로 255번길 35, 에이동 4층(삼평동) <br class="br">대표이사:김영광,진형일 개인정보
+                                    관리책임자:한상근
+                                    통신판매업:2023-성남분당A-0191
+                                    <br>
+                                    사업자등록번호 666-81-02675
+                                </address>
+                                <p class="copy">Copyright © Mr.Pizza All rights reserved.</p>
+                            </div>
+                            <h3 class="blind">SNS링크 바로가기</h3>
+                            <ul class="sns_list">
+                                <li class="facebook"><a
+                                        href="https://www.facebook.com/%EB%AF%B8%EC%8A%A4%ED%84%B0%ED%94%BC%EC%9E%90-109366961739420"
+                                        target="_blank"><span></span></a>
+                                </li>
+                                <li class="kakaostory"><a href="https://story.kakao.com/ch/mrpizza" target="_blank">
+                                        <span></span></a></li>
+                                <li class="instagram"><a href="https://instagram.com/mrpizzalove"
+                                        target="_blank"><span></span></a></li>
+                                <li class="blog"><a href="https://blog.naver.com/mrpizzalove"
+                                        target="_blank"><span></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 저작권 영역 종료 // -->
+
+
+                        <!-- 수상내역 시작  -->
+                        <div class="award_wrap">
+                            <ul>
+                                <li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_01.jpg"
+                                        alt="" /><span>대한민국
+                                        대표<br />고객만족도 조사<br />7회 수상<br />(2007·2009-2014)</span></li>
+                                <li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_02.jpg"
+                                        alt="" /><span>좋은기업
+                                        대상 <br />9회 연속수상</span></li>
+                                <li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_03.jpg"
+                                        alt="" /><span>브랜드스타<br />12회 연속수상</span></li>
+                                <li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_04_210119.jpg"
+                                        alt="" /><span>2021년<br />세계일류상품<br />차세대부분수상</span></li>
+                                <li><img src="//cdn.mrpizza.co.kr/2014_resources/images/common/img_award_05.jpg"
+                                        alt="" /><span>세계
+                                        피자대회<br />2019년 2관왕</span>
+                                </li>
+                            </ul>
+                            <p class="num">전화주문 <strong>1577-0077</strong></p>
+                        </div>
+                        <!-- 수상내역 종료 // -->
+
+                    </div>
+                    <!-- 저작권/수상내역 종료 // -->
+                </section>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+    </div>
+</body>
+
+</html>

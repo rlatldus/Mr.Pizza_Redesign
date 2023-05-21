@@ -130,9 +130,9 @@ $(document).ready(function () {
     function auto() {
     
         // 2초마다 start 호출
-        rollingId = setInterval(function () {
-            start();
-        }, 50000);
+        // rollingId = setInterval(function () {
+        //     start();
+        // }, 100000);
     }
     
     function start() {

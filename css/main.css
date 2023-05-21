@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 /* 초기화 */
@@ -14,11 +13,12 @@
 
 * body {
   font-size: 12px;
-  font: normal 13px/1.5 '나눔고딕', NanumGothic, NGNormal, '돋움', Dotum, Arial,
-    Tahoma, Geneva, Verdana;
+  font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana; 
   color: #333;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+ overflow-x: hidden;
+ /* overflow-y: hidden; */
 }
 
 #wrap {
@@ -37,7 +37,6 @@ button {
 }
 
 img {
-  /* overflow-x: hidden; */
   border: none;
   vertical-align: middle;
 }
@@ -79,6 +78,7 @@ ul li {
   display: none;
 }
 
+
 /* 서브이미지 잠시 안 보이게 주석처리해놈 */
 .submenu {
   display: none;
@@ -89,6 +89,7 @@ ul li {
 div #header {
   width: 100%;
   height: 100px;
+
 }
 
 div #header div.inner_box {
@@ -122,13 +123,13 @@ div #header div.inner_box ul li img {
 }
 
 div #header div.inner_box:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
 
 div#wrap #header div.inner_box nav:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -165,7 +166,7 @@ div #header div.inner_box nav ul li img {
 }
 
 #header nav.main_nav ul li.order_gnb span:before {
-  content: '';
+  content: "";
   display: block;
   height: 10px;
   position: absolute;
@@ -192,9 +193,10 @@ mark {
 
 /* 장바구니 마이페이지*/
 div #header:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
+
 }
 
 div #header div.btn_area {
@@ -211,6 +213,7 @@ div #header div.btn_area {
 div #header div.btn_area a {
   padding: 4px;
 }
+
 
 /* 헤더영역 끝 // */
 
@@ -229,7 +232,7 @@ div #header div.btn_area a {
 }
 
 .pop_main.pop_wrap .pop_cont {
-  padding: 0px;
+  padding: 0px
 }
 
 .pop_main.pop_wrap .btn_close {
@@ -274,11 +277,14 @@ div#contents {
 /* 메인배너 */
 /* banner */
 
+
 /* 2단  -------*/
 
 /* 이벤트 슬라이드 1 */
 
 /* 신규오픈점 영역 끝 ----------// */
+
+
 
 /* 3단 */
 /* 디스카운트 할인 슬라이드  */
@@ -290,8 +296,7 @@ div#contents {
   color: #000;
   padding-top: 40px;
   margin-bottom: 30px;
-  font: normal 22px '나눔고딕', NanumGothic, NGNormal, '돋움', Dotum, Arial,
-    Tahoma, Geneva, Verdana;
+  font: normal 22px "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
   font-weight: bold;
 }
 
@@ -327,9 +332,11 @@ section.dc_slide_wrap {
   width: 222px;
   margin-bottom: 20px;
 }
-
+.dc_area {
+  padding-left: 55px;
+}
 .dc_area .swiper-slide {
-  width: 232px;
+  width: 222px;
   height: 200px;
 }
 
@@ -360,7 +367,7 @@ section.dc_slide_wrap {
 
 section.dc_slide_wrap .dc_area ul:after {
   display: block;
-  content: '';
+  content: "";
   clear: both;
 }
 
@@ -370,6 +377,8 @@ section.dc_slide_wrap .dc_arear ul li {
 }
 
 /* 할인이벤트 영역 종료   // */
+
+
 
 /* 4단 시작 ----*/
 /* notice */
@@ -407,7 +416,7 @@ div.notice_fra_wrap .inner_renew {
 
 div.noice .inner_renew:after {
   display: block;
-  content: '';
+  content: "";
   clear: both;
 }
 
@@ -431,7 +440,7 @@ div.noice .inner_renew:after {
 
 .notice_wrap ul:after {
   display: block;
-  content: '';
+  content: "";
   clear: both;
 }
 
@@ -459,7 +468,7 @@ div.noice .inner_renew:after {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-family: '맑은고딕';
+  font-family: "맑은고딕";
 }
 
 .notice_area ul li a time {
@@ -477,7 +486,7 @@ div.noice .inner_renew:after {
   border-radius: 50%;
   position: absolute;
   bottom: 24px;
-  right: 20px;
+  right: 20px
 }
 
 .notice_wrap ul li.notice a i {
@@ -487,6 +496,7 @@ div.noice .inner_renew:after {
 .notice_wrap ul li.swiper-slide-active {
   border-left: none;
 }
+
 
 .notice_wrap .nt_prev,
 .notice_wrap .nt_next {
@@ -535,6 +545,7 @@ div.noice .inner_renew:after {
 .fra_wrap .franchise_wrap p {
   font-size: 20px;
   color: #fff;
+  ;
 }
 
 .fra_wrap .franchise_wrap strong {
@@ -544,6 +555,9 @@ div.noice .inner_renew:after {
 }
 
 /* 콘텐츠 영역 끝 // */
+
+
+
 
 /* 푸터영역시작  */
 div.link_fix {
@@ -569,7 +583,7 @@ div.link_fix {
 .footer_renew .line_area .link_list ul:after {
   clear: both;
   display: block;
-  content: '';
+  content: "";
 }
 
 /* 다른나라 홈페이지 링크 부분 */
@@ -611,6 +625,7 @@ div.link_fix {
 
 /* 다른나라 홈페이지 영역 종료 --// */
 
+
 /* 사이트정보 영역 시작 -- */
 .info_wrap {
   padding-bottom: 10px;
@@ -637,7 +652,7 @@ div.link_fix {
 
 .footer_renew .sns_list:after {
   display: block;
-  content: '';
+  content: "";
   clear: both;
 }
 
@@ -659,33 +674,32 @@ div.link_fix {
 }
 
 .footer_renew .sns_list li.facebook span {
-  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_facebook.png')
-    0 0 no-repeat;
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_facebook.png') 0 0 no-repeat
 }
 
 .footer_renew .sns_list li.kakaostory span {
-  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_kakaostory.png')
-    0 0 no-repeat;
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_kakaostory.png') 0 0 no-repeat;
 }
 
 .footer_renew .sns_list li.instagram span {
-  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_instagram.png')
-    0 0 no-repeat;
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_instagram.png') 0 0 no-repeat;
 }
 
 .footer_renew .sns_list li.blog span {
-  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_blog.png')
-    0 0 no-repeat;
+  background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/img_sns_blog.png') 0 0 no-repeat;
 }
 
 /*sns링크 종료 --// */
 
 /* 푸터영역 끝 //  */
 
+
+
+
 /* 브라우저 마다 보여지는 효과  */
 
 /* 767px~이하  모바일*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width:767px) {
   body {
     overflow-x: hidden;
   }
@@ -773,6 +787,9 @@ div.link_fix {
 
   /* 팝영역 종료 // */
 
+
+
+
   /* 메인콘텐츠 영역시작  */
   /* 메인배너 */
   .banner {
@@ -792,7 +809,7 @@ div.link_fix {
 
   .banner ul:after {
     display: block;
-    content: '';
+    content: "";
     clear: both;
   }
 
@@ -810,6 +827,7 @@ div.link_fix {
 
   /* 메인배너 끝  // */
 
+
   /* 2단영역 시작  */
   /* 이벤트 슬라이드 1 */
   section.evt_cf_wrap div.inner_renew {
@@ -818,6 +836,7 @@ div.link_fix {
     border: 0px solid green;
     position: relative;
     margin: 0 auto;
+
   }
 
   div.evt_wrap {
@@ -827,7 +846,7 @@ div.link_fix {
     width: 565px;
     overflow: hidden;
     height: 290px;
-    margin-left: 11%;
+    margin-left: 13.8%;
     transition: 0.5s;
   }
 
@@ -841,7 +860,7 @@ div.link_fix {
   div.swiper-container ul#swiper-slide:after {
     display: block;
     clear: both;
-    content: '';
+    content: "";
   }
 
   div.swiper-container ul#swiper-slide {
@@ -851,7 +870,10 @@ div.link_fix {
     height: 280px;
     border: 0px solid red;
     width: 1695px;
+
   }
+
+
 
   div.swiper-container ul#swiper-slide li {
     float: left;
@@ -865,11 +887,12 @@ div.link_fix {
     height: auto;
   }
 
+
   /* 활성화아이콘 */
 
   ul.control:after {
     clear: both;
-    content: '';
+    content: "";
     display: block;
   }
 
@@ -896,6 +919,7 @@ div.link_fix {
     font-size: 10px;
     display: block;
     background-color: rgb(254, 255, 248);
+    ;
     border-radius: 80%;
     border: 0.3px solid rgb(233, 231, 231);
   }
@@ -903,6 +927,7 @@ div.link_fix {
   ul.control li a:hover {
     transform: scale(1.3);
   }
+
 
   ul.control li a:active {
     background-color: rgb(254, 255, 248);
@@ -920,16 +945,17 @@ div.link_fix {
 
   /* 이벤트 슬라이드 영역 끝 ----------// */
 
+
   /* 2단 2번 째 구역 ==>신규오픈점 슬라이드 2  */
 
   .store_banner_wrap:before {
     clear: both;
-    content: '';
+    content: "";
     display: block;
   }
 
   .store_banner_wrap {
-    width: 100%;
+    width: 670px;
     height: 280px;
     transition: 1s;
   }
@@ -937,7 +963,7 @@ div.link_fix {
   .bxslider {
     position: relative;
     box-sizing: border-box;
-    width: 660px;
+    width: 100%;
   }
 
   .bxslider ul {
@@ -949,13 +975,14 @@ div.link_fix {
     position: absolute;
     left: 23px;
     top: 30px;
-    margin-left: 55px;
+    padding-left: 80px;
   }
 
   .bxslider ul li img {
-    max-width: 100%;
+    width: 100%;
     border-radius: 17px;
   }
+
 
   /* 슬라이드버튼 */
   .bx-controls-direction a {
@@ -965,13 +992,19 @@ div.link_fix {
     font-size: 0px;
     text-indent: -9999em;
   }
-
+  .bx-has-controls-direction {
+    position: absolute;
+    top: 65%;
+    left: 15%;
+    width: 550px;
+    border: 0px solid darkgoldenrod;
+    height: 80px;
+  }
   .bx-prev {
     position: absolute;
-    top: 68%;
-    left: 12%;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_prev.png)
-      no-repeat;
+    top: 20%;
+    left:1%;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_prev.png) no-repeat;
   }
 
   .bx-prev:hover {
@@ -980,15 +1013,15 @@ div.link_fix {
 
   .bx-next {
     position: absolute;
-    top: 68%;
-    right: 12%;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_next.png)
-      no-repeat;
+    top: 20%;
+    right: 1%;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_next.png) no-repeat;
   }
 
   .bx-next:hover {
     transform: scale(1.1);
   }
+
 
   /* 할인 이벤트 안내 영역 */
   .dc_slide_wrap {
@@ -1043,6 +1076,7 @@ div.link_fix {
     border: solid #b1b1b1;
     border-width: 2px 2px 0px 0px;
     transform: rotate(45deg);
+
   }
 
   .dc_btn_area .dc_btn_next {
@@ -1072,15 +1106,17 @@ div.link_fix {
   /* 할인배너 영역 끝 -----------// */
   /* 할인 이벤트 안내 영역 종료  //*/
 
+
+
   /* 공지사항영역  */
   .fra_wrap {
     position: absolute;
-    left: 85px;
+    left: 105px;
     top: 300px;
   }
 
   .notice_wrap {
-    margin-left: 80px;
+    margin-left: 105px;
   }
 
   .notice_wrap ul li {
@@ -1104,7 +1140,12 @@ div.link_fix {
 
   /* 공지사항영역 종료    // */
 
+
+
   /* 메인콘텐츠 영역 종료 // */
+
+
+
 
   /* 푸터영역 시작 */
   footer {
@@ -1113,14 +1154,16 @@ div.link_fix {
     height: 400px;
     margin: 0 auto;
   }
-
+  .link_list {
+    margin-left: 122px;
+  }
   .footer_renew .line_area .link_list li {
     float: left;
-    padding-right: 2%;
+    padding-right: 28px;
     padding-top: 15px;
   }
 
-  .footer_renew .line_area .link_list li + li {
+  .footer_renew .line_area .link_list li+li {
     font-size: 0.9em;
   }
 
@@ -1169,10 +1212,14 @@ div.link_fix {
   }
 
   /* 푸터영역 종료 // */
+
 }
 
-/* 768이상 ~ 1023이하 테블릿 */
-@media (min-width: 768px) and (max-width: 1023px) {
+
+
+
+/* 768이상 ~ 1159이하 테블릿 */
+@media (min-width:768px) and (max-width:1159px) {
   div#content {
     height: 1600px;
   }
@@ -1228,7 +1275,7 @@ div.link_fix {
   }
 
   #header nav.main_nav ul li.order_gnb span:before {
-    content: '';
+    content: "";
     display: block;
     height: 10px;
     position: absolute;
@@ -1261,10 +1308,14 @@ div.link_fix {
 
   /* 팝영역 종료 // */
 
+
+
+
   /* 메인콘텐츠 시작   */
   /* 1단 영역 메인배너 */
   .banner_wrap {
-    height: 250px;
+    height: 270px;
+    transition: all 0.9s;
   }
 
   .banner ul {
@@ -1280,41 +1331,43 @@ div.link_fix {
 
   .banner ul:after {
     display: block;
-    content: '';
+    content: "";
     clear: both;
   }
 
   .banner ul li {
     float: left;
-    height: 250px;
-    margin: 0;
-    padding: 0;
+    height: 270px;
+    margin-bottom: 10px;
     position: absolute;
   }
 
   ul.slider li img {
-    width: 1022px;
+    max-width: 1159px;
     height: auto !important;
-    transition: all 0.9s;
   }
 
   /* 1단 메인배너 영역 종료 // */
 
+
+
   /* 2단영역 이벤트 배너 */
   section.evt_cf_wrap div.inner_renew {
-    width: 1023px;
-    border: 0px solid green;
+    width: 1159px;
+    height: 280px;
+    border: 2px solid green;
     position: relative;
     margin-top: 60px;
     margin-bottom: 60px;
   }
 
   div.evt_wrap {
-    width: 565px;
+    width: 50%;
     height: 280px;
     box-sizing: border-box;
     overflow: hidden;
-    margin-left: 20px;
+    margin-left: 59px;
+    padding-top: 20px;
   }
 
   div.swiper-container {
@@ -1325,7 +1378,7 @@ div.link_fix {
   div.swiper-container ul#swiper-slide:after {
     display: block;
     clear: both;
-    content: '';
+    content: "";
   }
 
   div.swiper-container ul#swiper-slide {
@@ -1342,20 +1395,21 @@ div.link_fix {
 
   div.swiper-container ul li img {
     border-radius: 17px;
-    width: 100%;
+    max-width: 90%;
   }
+
 
   /* 활성화아이콘 */
   ul.control:after {
     clear: both;
-    content: '';
+    content: "";
     display: block;
   }
 
   ul.control {
     position: absolute;
-    bottom: -250px;
-    left: 210px;
+    bottom: -220px;
+    left: 190px;
     border: 0px solid red;
   }
 
@@ -1372,6 +1426,7 @@ div.link_fix {
     font-size: 10px;
     display: block;
     background-color: rgb(254, 255, 248);
+    ;
     border-radius: 80%;
   }
 
@@ -1395,15 +1450,17 @@ div.link_fix {
 
   /* 이벤트 슬라이드 영역 끝 ----------// */
 
+
+
   /* 2단 2번 째 구역 ==>신규오픈점 슬라이드 2  */
   .store_banner_wrap:before {
     clear: both;
-    content: '';
+    content: "";
     display: block;
   }
 
   .store_banner_wrap {
-    width: 550px;
+    width: 560px;
     height: 280px;
   }
 
@@ -1420,8 +1477,8 @@ div.link_fix {
 
   .bxslider ul li {
     position: absolute;
-    right: -585px;
-    top: -280px;
+    right: -680px;
+    top: -258px;
     width: 550px;
     height: auto !important;
   }
@@ -1429,10 +1486,11 @@ div.link_fix {
   .bxslider ul li img {
     position: absolute;
     right: 145px;
-    height: 280px;
+    height: 250px;
     transition: all 0.7s;
-    max-width: 70%;
+    max-width: 90%;
     border-radius: 17px;
+    width: 100%;
   }
 
   /* 슬라이드버튼 */
@@ -1459,9 +1517,9 @@ div.link_fix {
     width: 12px;
     height: 15px;
     text-indent: -999em;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_player.png)
-      no-repeat left top;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_player.png) no-repeat left top;
   }
+
 
   section.evt_cf_wrap div.inner_renew {
     width: 1160px;
@@ -1475,16 +1533,15 @@ div.link_fix {
 
   .bx-prev {
     position: absolute;
-    left: 610px;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_prev.png)
-      no-repeat;
+    left: 600px;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_prev.png) no-repeat;
   }
 
   .bx-next {
-    right: 175px;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_next.png)
-      no-repeat;
+    right:65px;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_next.png) no-repeat;
   }
+
 
   /* 할인이벤트 안내영역   */
   .dc_slide_wrap {
@@ -1511,7 +1568,7 @@ div.link_fix {
   .dc_area {
     width: 930px;
     overflow: hidden;
-    padding-left: 5px;
+    padding-left: 25px;
     height: 220px;
   }
 
@@ -1530,15 +1587,16 @@ div.link_fix {
   .dc_btn_area .dc_btn_prev {
     position: absolute;
     top: 48%;
-    left: 95%;
+    right: 0;
     border: solid #b1b1b1;
     border-width: 2px 2px 0px 0px;
     transform: rotate(45deg);
+
   }
 
   .dc_btn_area .dc_btn_next {
     position: absolute;
-    left: 3%;
+    left: -2%;
     top: 48%;
     border: solid #b1b1b1;
     border-width: 2px 2px 0px 0px;
@@ -1555,10 +1613,11 @@ div.link_fix {
 
   /* 할인이벤트 안내영역 종료 // */
 
+
   /* 3단영역 시작 */
   /* 공지사항 영역  */
   .notice_wrap {
-    margin-left: 70px;
+    margin-left: 164px;
     border: 0px solid green;
     float: left;
     width: 840px;
@@ -1592,6 +1651,7 @@ div.link_fix {
     margin: 0 auto;
     transition: 0.9s;
     padding-top: 40px;
+    margin-left: 7%;
   }
 
   .fra_wrap .franchise_wrap p {
@@ -1618,6 +1678,8 @@ div.link_fix {
 
   /* 메인콘텐츠 종료   // */
 
+
+
   /* 푸터 영역시작 */
   footer {
     padding-bottom: 40px;
@@ -1641,7 +1703,7 @@ div.link_fix {
     transition: all 0.3s;
   }
 
-  .footer_renew .line_area .link_list li + li {
+  .footer_renew .line_area .link_list li+li {
     font-size: 1em;
     transition: all 0.3s;
   }
@@ -1653,6 +1715,7 @@ div.link_fix {
 
   /* 저작권주소 */
   div.info_wrap address {
+
     font-size: 1em;
   }
 
@@ -1675,11 +1738,12 @@ div.link_fix {
     font-family: 'Nanum Gothic', sans-serif;
   }
 
+
   /* 다른나라홈페이지 */
   .dropdown {
     margin-left: 620px;
     position: absolute;
-    left: 9%;
+    left: 18%;
     top: 0;
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 1.1em;
@@ -1692,9 +1756,9 @@ div.link_fix {
     padding-top: 13px;
     height: 50px;
     box-sizing: border-box;
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png')
-      92% 50% no-repeat;
+    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png') 92% 50% no-repeat;
     transition: all 0.3s;
+
   }
 
   /* 푸터 sns 링크 영역 */
@@ -1717,8 +1781,12 @@ div.link_fix {
   /*푸터종료     //  */
 }
 
-/* 1118px이상 */
-@media (min-width: 1024px) {
+
+
+
+
+/* 1160px이상 */
+@media (min-width:1160px) {
   div #header {
     width: 100%;
     height: 100px;
@@ -1736,10 +1804,10 @@ div.link_fix {
     top: 50%;
     right: 0;
     z-index: 1;
-    margin-top: -177.5px;
+    margin-top: -177.5px
   }
 
-  .quick_wrap > ul {
+  .quick_wrap>ul {
     background: #f4f4f4;
     border-radius: 18px 0 0 18px;
     padding: 0 5px;
@@ -1747,11 +1815,11 @@ div.link_fix {
     overflow: visible;
   }
 
-  .quick_wrap > ul > li + li {
+  .quick_wrap>ul>li+li {
     border-top: #dbdbdb 1px solid;
   }
 
-  .quick_wrap > ul > li > a.quick_tit {
+  .quick_wrap>ul>li>a.quick_tit {
     display: block;
     padding: 18px 0;
     text-align: center;
@@ -1762,12 +1830,12 @@ div.link_fix {
     position: relative;
   }
 
-  .quick_wrap > ul > li > a.quick_tit:hover,
-  .quick_wrap > ul > li.on > a.quick_tit {
+  .quick_wrap>ul>li>a.quick_tit:hover,
+  .quick_wrap>ul>li.on>a.quick_tit {
     color: #000;
   }
 
-  .quick_wrap > ul > li > a > i {
+  .quick_wrap>ul>li>a>i {
     display: block;
     margin: 0 auto 4px;
   }
@@ -1822,12 +1890,12 @@ div.link_fix {
     list-style: none;
     left: 0;
     top: 0;
-    transition-duration: 0.8s;
+    transition: all 0.8s;
   }
 
   .banner ul:after {
     display: block;
-    content: '';
+    content: "";
     clear: both;
   }
 
@@ -1837,15 +1905,16 @@ div.link_fix {
     margin: 0;
     padding: 0;
     position: absolute;
+    width: 1920px;
   }
 
   .banner ul li img {
     overflow: hidden;
-    width: 1920px;
-    transition: all 0.8s;
+    max-width: 100%;
   }
 
   /* 메인콘텐츠 종료 //*/
+
 
   /* 2단  */
   section.evt_cf_wrap div.inner_renew {
@@ -1856,6 +1925,7 @@ div.link_fix {
     position: relative;
     margin-top: 60px;
     margin-bottom: 60px;
+
   }
 
   div.evt_wrap {
@@ -1880,7 +1950,7 @@ div.link_fix {
   div.swiper-container ul#swiper-slide:after {
     display: block;
     clear: both;
-    content: '';
+    content: "";
   }
 
   div.swiper-container ul#swiper-slide {
@@ -1900,11 +1970,12 @@ div.link_fix {
     width: 100%;
   }
 
+
   /* 활성화아이콘 */
 
   ul.control:after {
     clear: both;
-    content: '';
+    content: "";
     display: block;
   }
 
@@ -1929,6 +2000,7 @@ div.link_fix {
     display: block;
     padding: 00px;
     background-color: rgb(254, 255, 248);
+    ;
     border-radius: 80%;
   }
 
@@ -1952,11 +2024,12 @@ div.link_fix {
 
   /* 이벤트 슬라이드 영역 끝 ----------// */
 
+
   /* 2단 2번 째 구역 ==>신규오픈점 슬라이드 2  */
 
   .store_banner_wrap:before {
     clear: both;
-    content: '';
+    content: "";
     display: block;
   }
 
@@ -2004,14 +2077,12 @@ div.link_fix {
 
   .bx-prev {
     left: 600px;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_prev.png)
-      no-repeat;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_prev.png) no-repeat;
   }
 
   .bx-next {
     right: 6px;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_next.png)
-      no-repeat;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_next.png) no-repeat;
   }
 
   .bx-controls-auto {
@@ -2026,11 +2097,11 @@ div.link_fix {
     width: 12px;
     height: 15px;
     text-indent: -999em;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_player.png)
-      no-repeat left top;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/main/slide_player.png) no-repeat left top;
   }
 
   /* 2단 신규오픈점 종료 // */
+
 
   /* 할인이벤트 영역  */
   .dc_slide_wrap {
@@ -2075,15 +2146,16 @@ div.link_fix {
   .dc_btn_area .dc_btn_prev {
     position: absolute;
     top: 50%;
-    left: 1250px;
+    left: 94%;
     border: solid #b1b1b1;
     border-width: 2px 2px 0px 0px;
     transform: rotate(45deg);
+
   }
 
   .dc_btn_area .dc_btn_next {
     position: absolute;
-    left: 10px;
+    left: 50px;
     top: 50%;
     border: solid #b1b1b1;
     border-width: 2px 2px 0px 0px;
@@ -2108,6 +2180,7 @@ div.link_fix {
   /* 할인배너 영역 끝 -----------// */
 
   /* 할인이벤트 영역 종료   // */
+
 
   /* 푸터영역 */
   footer {
@@ -2137,14 +2210,13 @@ div.link_fix {
     padding-top: 13px;
     height: 50px;
     box-sizing: border-box;
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png')
-      92% 50% no-repeat;
+    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png') 92% 50% no-repeat;
   }
 
   .footer_renew .line_area .link_list ul:after {
     clear: both;
     display: block;
-    content: '';
+    content: "";
   }
 
   .footer_renew .line_area .link_list li {
@@ -2153,7 +2225,7 @@ div.link_fix {
     padding-top: 15px;
   }
 
-  .footer_renew .line_area .link_list li + li {
+  .footer_renew .line_area .link_list li+li {
     font-size: 1.1em;
   }
 
@@ -2206,19 +2278,19 @@ div.link_fix {
     position: relative;
   }
 
-  .footer_renew .award_wrap ul > li {
+  .footer_renew .award_wrap ul>li {
     float: left;
     font-size: 0.7em;
     display: table;
     padding-right: 10px;
   }
 
-  .footer_renew .award_wrap ul > li img {
+  .footer_renew .award_wrap ul>li img {
     float: left;
     margin-right: 10px;
   }
 
-  .footer_renew .award_wrap ul > li span {
+  .footer_renew .award_wrap ul>li span {
     display: table-cell;
     vertical-align: middle;
     font-family: 'Nanum Gothic', sans-serif;
