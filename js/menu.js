@@ -119,14 +119,13 @@ $('.btn_gnb').click(function () {
 });
 
 
-var currentPosition = parseInt($("#left section").css("top"));
+const currentPosition = parseInt($("#left section").css("top"));
 $(window).scroll(function(){
-  var position = $(window).scrollTop();
+  const position = $(window).scrollTop();
   $("#left section").stop().animate({"top":position+currentPosition+"px"},500);
-  console.log( topvalue)
 });
 
-const element = $('#left section');
+const element = $('#left section')[0];
 const computedStyle = window.getComputedStyle(element);
 const topValue = computedStyle.getPropertyValue('top');
 
