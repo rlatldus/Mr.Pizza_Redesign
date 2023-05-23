@@ -203,18 +203,39 @@ header {
     }
 }
 
-#left {
+  #left {
     position: absolute;
     z-index: 50;
     width: 90%;
-    height: 100vh;
-    padding: 5%;
+    padding:  5% 5% 2550px 5%;
     background-color: white;
-    // display: block;
+    display: block;
 
+    .left_section{
+      ul{
+        display: flex;
+        justify-content: space-around;
+        li{
+          width: 100%;
+          a{
+            text-align: center;
+          padding: 8px 5px 8px;
+
+          display: block;
+          border: 1px solid #cccccc;
+          font-size: 15px;
+          font-family: NGBold;
+          span{
+            display: block;
+          }
+          }
+        }
+      }
+    }
+    section{
     // NOTE 왼쪽
     h2 {
-      padding-top: 100px;
+      padding-top: 70px;
     }
 
     ul {
@@ -243,7 +264,7 @@ header {
       }
 
     }
-
+  }
     form.menual {
       // width: 16.379310344827587%;
       margin: 10px 0.8620689655172413%;

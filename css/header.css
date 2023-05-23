@@ -161,23 +161,41 @@ header div.menu {
   position: absolute;
   z-index: 50;
   width: 90%;
-  height: 100vh;
-  padding: 5%;
+  padding: 5% 5% 2550px 5%;
   background-color: white;
+  display: block;
 }
-#left h2 {
-  padding-top: 100px;
+#left .left_section ul {
+  display: flex;
+  justify-content: space-around;
 }
-#left ul {
+#left .left_section ul li {
+  width: 100%;
+}
+#left .left_section ul li a {
+  text-align: center;
+  padding: 8px 5px 8px;
+  display: block;
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  font-family: NGBold;
+}
+#left .left_section ul li a span {
+  display: block;
+}
+#left section h2 {
+  padding-top: 70px;
+}
+#left section ul {
   width: 100%;
   margin-top: 10px;
 }
-#left ul li {
+#left section ul li {
   margin-bottom: 8px;
   display: list-item;
   text-align: -webkit-match-parent;
 }
-#left ul li a {
+#left section ul li a {
   display: block;
   padding: 8px 5px 8px;
   border: 1px solid #cccccc;
@@ -186,7 +204,7 @@ header div.menu {
   color: #666666;
   background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
 }
-#left ul li a img {
+#left section ul li a img {
   padding: 1px 10px 0;
 }
 #left form.menual {
