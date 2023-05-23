@@ -671,14 +671,16 @@ header {
           display: block;
           width: 25%;
           padding-left: 2.72413793103%;
-
+          .left_section{
+            display: none;
+          }
           section{
             position: relative;
             top: 20px;
           }
           // NOTE 왼쪽
           h2 {
-            padding-top: 100px;
+            padding-top: 50px;
           }
 
           ul {

@@ -492,12 +492,15 @@ header div.menu {
     width: 25%;
     padding-left: 2.724137931%;
   }
+  #wrap main #section #left .left_section {
+    display: none;
+  }
   #wrap main #section #left section {
     position: relative;
     top: 20px;
   }
   #wrap main #section #left h2 {
-    padding-top: 100px;
+    padding-top: 50px;
   }
   #wrap main #section #left ul {
     width: 100%;

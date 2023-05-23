@@ -28,10 +28,10 @@
   }
   #wrap main #section #left section {
     position: relative;
-    top: 20px;
+    top: -20px;
   }
   #wrap main #section #left h2 {
-    padding-top: 100px;
+    padding-top: 50px;
   }
   #wrap main #section #left ul {
     width: 100%;
