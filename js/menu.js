@@ -118,26 +118,25 @@ $('.btn_gnb').click(function () {
   }
 });
 
-// if( $('.left_section').css())
-// $('.left_section').hide
-// (function () {
-//   if ($('#left').css('left') === '0px') {
-//     $('#left').animate({ left: '-700px' }, 1000);
-//   } else {
-//     $('#left').animate({ left: '0' }, 'fast');
-//   }
-// });
-
-const currentPosition = parseInt($("#left section").css("top"));
-$(window).scroll(function(){
-  const position = $(window).scrollTop();
-  $("#left section").stop().animate({"top":position+currentPosition+"px"},500);
-});
-
+//left 스크롤
 const element = $('#left section')[0];
 const computedStyle = window.getComputedStyle(element);
 const topValue = computedStyle.getPropertyValue('top');
 
-console.log(topValue);
-});
+const screenHeight = window.innerHeight;
+const currentPosition = parseInt($("#left section").css("top"));
 
+$(window).scroll(function(){
+  const position = $(window).scrollTop();
+  $("#left section").stop().animate({"top":position+currentPosition+"px"},500); // 탑이 현제left와 스크롤 높이 합
+  if( topValue>screenHeight){
+    topValue=screenHeight;
+    console.log(topValue);
+  }
+  
+})
+
+
+
+
+});
