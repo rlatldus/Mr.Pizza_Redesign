@@ -106,7 +106,7 @@ div.link_fix {
   display: none;
   z-index: 1;
   position: absolute;
-  left: 0;
+  left: -20px;
   top: 50px;
   /* 다른 요소들보다 앞에 배치 */
   text-align: left;
@@ -264,7 +264,7 @@ div.link_fix {
   }
 
   .footer_renew .info_wrap {
-    margin-left: 20px;
+    /* margin-left: 20px; */
   }
 
   /* sns리스트와 수상내역 숨기기 */
@@ -296,7 +296,7 @@ div.link_fix {
   }
 
   .footer_renew .info_wrap {
-    margin-left: 140px;
+    /* margin-left: 140px; */
   }
 
   .info_area {
@@ -346,9 +346,9 @@ div.link_fix {
 
   /* 다른나라홈페이지 */
   .dropdown {
-    margin-left: 620px;
+    /* margin-left: 90%px; */
     position: absolute;
-    left: 9%;
+    /* right: 20px; */
     top: 0;
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 1.1em;
@@ -356,8 +356,8 @@ div.link_fix {
     width: 168px;
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
-    padding-left: 21px;
-    padding-right: 31px;
+    /* padding-left: 21px; */
+    /* padding-right: 31px; */
     padding-top: 13px;
     height: 50px;
     box-sizing: border-box;
@@ -456,7 +456,7 @@ div.link_fix {
   }
 
   .dropdown {
-    margin-left: 200px;
+    /* margin-left: 200px; */
     position: absolute;
     right: 0px;
     top: 0;
@@ -466,8 +466,8 @@ div.link_fix {
     width: 168px;
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
-    padding-left: 21px;
-    padding-right: 31px;
+    /* padding-left: 21px; */
+    /* padding-right: 31px; */
     padding-top: 13px;
     height: 50px;
     box-sizing: border-box;

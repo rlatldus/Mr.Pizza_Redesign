@@ -157,17 +157,35 @@ header div.menu {
     position: relative;
   }
 }
-#left {
-  position: absolute;
-  z-index: 50;
-  width: 90%;
-  height: 100vh;
-  padding: 5%;
-  background-color: white;
-}
-#left h2 {
-  padding-top: 100px;
-}
+ #left {
+    position: absolute;
+    z-index: 50;
+    width: 90%;
+    padding: 5% 5% 2550px 5%;
+    background-color: white;
+    display: block;
+  }
+  #left .left_section ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  #left .left_section ul li {
+    width: 100%;
+  }
+  #left .left_section ul li a {
+    text-align: center;
+    padding: 8px 5px 8px;
+    display: block;
+    border: 1px solid #cccccc;
+    font-size: 15px;
+    font-family: NGBold;
+  }
+  #left .left_section ul li a span {
+    display: block;
+  }
+  #left section h2 {
+    padding-top: 70px;
+  }
 #left ul {
   width: 100%;
   margin-top: 10px;
