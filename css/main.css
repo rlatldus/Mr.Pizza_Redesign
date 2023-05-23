@@ -5,6 +5,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  }
+  body {
+    overflow: hidden;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    }
 /* 초기화 */
 * {
   margin: 0;
@@ -18,7 +29,7 @@
   color: #333;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   /* overflow-y: hidden; */
 }
 
@@ -689,7 +700,7 @@ div.link_fix {
 /* 767px~이하  모바일*/
 @media screen and (max-width: 767px) {
   body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 
   div#contents {
