@@ -15,6 +15,7 @@ legend {
     }
 }
 
+
 header {
     margin: 0 auto;
     align-items: center;
@@ -147,8 +148,9 @@ header {
 
     #left{
         display: none;
-        height: 0;
-        overflow: hidden;
+        .left_section{
+            display: none;
+          }
     }
 
     #icon {
@@ -203,102 +205,106 @@ header {
             }
         }
     }
+    #left {
+        position: absolute;
+        z-index: 50;
+        width: 90%;
+        padding:  5% 5% 2550px 5%;
+        background-color: white;
+        display: block;
+    
+        .left_section{
+          ul{
+            display: flex;
+            justify-content: space-around;
+            li{
+              width: 100%;
+              a{
+                background-image: none;
+                text-align: center;
+              padding: 8px 5px 8px;
+    
+              display: block;
+              border: 1px solid #cccccc;
+              font-size: 15px;
+              font-family: NGBold;
+              span{
+                display: block;
+              }
+              }
+            }
+          }
+        }
+        section{
+        // NOTE 왼쪽
+        h2 {
+          padding-top: 70px;
+        }
+    
+        ul {
+          width: 100%;
+          margin-top: 10px;
+    
+          li {
+            // width: 150px;
+            margin-bottom: 8px;
+            display: list-item;
+            text-align: -webkit-match-parent;
+    
+            a {
+              display: block;
+              padding: 8px 5px 8px;
+              border: 1px solid #cccccc;
+              font-size: 15px;
+              font-family: NGBold;
+              color: #666666;
+              background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+    
+              img {
+                padding: 1px 10px 0;
+              }
+            }
+          }
+    
+        }
+      }
+        form.menual {
+          // width: 16.379310344827587%;
+          margin: 10px 0.8620689655172413%;
+    
+          fieldset {
+            margin-top: 50px;
+            border: 1px solid #eeeeee;
+    
+            h3 {
+              padding: 5px 10%;
+              line-height: 43px;
+              background: #eeeeee;
+              font-size: 16px;
+            }
+    
+            input {
+              padding: 20px 1.7241379310344827%;
+              margin: 10px 5%;
+              vertical-align: middle;
+    
+            }
+    
+          }
+    
+        }
+      }
+    
 }
 
-  #left {
-    position: absolute;
-    z-index: 50;
-    width: 90%;
-    padding:  5% 5% 2550px 5%;
-    background-color: white;
-    display: block;
-
-    .left_section{
-      ul{
-        display: flex;
-        justify-content: space-around;
-        li{
-          width: 100%;
-          a{
-            background-image: none;
-            text-align: center;
-          padding: 8px 5px 8px;
-
-          display: block;
-          border: 1px solid #cccccc;
-          font-size: 15px;
-          font-family: NGBold;
-          span{
-            display: block;
-          }
-          }
-        }
-      }
-    }
-    section{
-    // NOTE 왼쪽
-    h2 {
-      padding-top: 70px;
-    }
-
-    ul {
-      width: 100%;
-      margin-top: 10px;
-
-      li {
-        // width: 150px;
-        margin-bottom: 8px;
-        display: list-item;
-        text-align: -webkit-match-parent;
-
-        a {
-          display: block;
-          padding: 8px 5px 8px;
-          border: 1px solid #cccccc;
-          font-size: 15px;
-          font-family: NGBold;
-          color: #666666;
-          background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
-
-          img {
-            padding: 1px 10px 0;
-          }
-        }
-      }
-
-    }
-  }
-    form.menual {
-      // width: 16.379310344827587%;
-      margin: 10px 0.8620689655172413%;
-
-      fieldset {
-        margin-top: 50px;
-        border: 1px solid #eeeeee;
-
-        h3 {
-          padding: 5px 10%;
-          line-height: 43px;
-          background: #eeeeee;
-          font-size: 16px;
-        }
-
-        input {
-          padding: 20px 1.7241379310344827%;
-          margin: 10px 5%;
-          vertical-align: middle;
-
-        }
-
-      }
-
-    }
-  }
-
+ 
 @media(min-width:687px)and (max-width:1159px) {
 
 #left{
     display: none;
+    .left_section{
+        display: none;
+      }
 }
 
     #icon {

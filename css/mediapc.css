@@ -23,6 +23,9 @@
     width: 25%;
     padding-left: 2.724137931%;
   }
+  #wrap main #section #left .left_section {
+    display: none;
+  }
   #wrap main #section #left section {
     position: relative;
     top: 20px;

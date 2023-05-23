@@ -117,8 +117,9 @@ header div.menu {
 @media (min-width: 1160px) {
   #left {
     display: none;
-    height: 0;
-    overflow: hidden;
+  }
+  #left .left_section {
+    display: none;
   }
   #icon {
     display: none;
@@ -158,79 +159,81 @@ header div.menu {
     border-radius: 50%;
     position: relative;
   }
+  #left {
+    position: absolute;
+    z-index: 50;
+    width: 90%;
+    padding: 5% 5% 2550px 5%;
+    background-color: white;
+    display: block;
+  }
+  #left .left_section ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  #left .left_section ul li {
+    width: 100%;
+  }
+  #left .left_section ul li a {
+    background-image: none;
+    text-align: center;
+    padding: 8px 5px 8px;
+    display: block;
+    border: 1px solid #cccccc;
+    font-size: 15px;
+    font-family: NGBold;
+  }
+  #left .left_section ul li a span {
+    display: block;
+  }
+  #left section h2 {
+    padding-top: 70px;
+  }
+  #left section ul {
+    width: 100%;
+    margin-top: 10px;
+  }
+  #left section ul li {
+    margin-bottom: 8px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  #left section ul li a {
+    display: block;
+    padding: 8px 5px 8px;
+    border: 1px solid #cccccc;
+    font-size: 15px;
+    font-family: NGBold;
+    color: #666666;
+    background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+  }
+  #left section ul li a img {
+    padding: 1px 10px 0;
+  }
+  #left form.menual {
+    margin: 10px 0.8620689655%;
+  }
+  #left form.menual fieldset {
+    margin-top: 50px;
+    border: 1px solid #eeeeee;
+  }
+  #left form.menual fieldset h3 {
+    padding: 5px 10%;
+    line-height: 43px;
+    background: #eeeeee;
+    font-size: 16px;
+  }
+  #left form.menual fieldset input {
+    padding: 20px 1.724137931%;
+    margin: 10px 5%;
+    vertical-align: middle;
+  }
 }
-#left {
-  position: absolute;
-  z-index: 50;
-  width: 90%;
-  padding: 5% 5% 2550px 5%;
-  background-color: white;
-  display: block;
-}
-#left .left_section ul {
-  display: flex;
-  justify-content: space-around;
-}
-#left .left_section ul li {
-  width: 100%;
-}
-#left .left_section ul li a {
-  background-image: none;
-  text-align: center;
-  padding: 8px 5px 8px;
-  display: block;
-  border: 1px solid #cccccc;
-  font-size: 15px;
-  font-family: NGBold;
-}
-#left .left_section ul li a span {
-  display: block;
-}
-#left section h2 {
-  padding-top: 70px;
-}
-#left section ul {
-  width: 100%;
-  margin-top: 10px;
-}
-#left section ul li {
-  margin-bottom: 8px;
-  display: list-item;
-  text-align: -webkit-match-parent;
-}
-#left section ul li a {
-  display: block;
-  padding: 8px 5px 8px;
-  border: 1px solid #cccccc;
-  font-size: 15px;
-  font-family: NGBold;
-  color: #666666;
-  background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
-}
-#left section ul li a img {
-  padding: 1px 10px 0;
-}
-#left form.menual {
-  margin: 10px 0.8620689655%;
-}
-#left form.menual fieldset {
-  margin-top: 50px;
-  border: 1px solid #eeeeee;
-}
-#left form.menual fieldset h3 {
-  padding: 5px 10%;
-  line-height: 43px;
-  background: #eeeeee;
-  font-size: 16px;
-}
-#left form.menual fieldset input {
-  padding: 20px 1.724137931%;
-  margin: 10px 5%;
-  vertical-align: middle;
-}
-
 @media (min-width: 687px) and (max-width: 1159px) {
   #left {
+    display: none;
+  }
+  #left .left_section {
     display: none;
   }
   #icon {

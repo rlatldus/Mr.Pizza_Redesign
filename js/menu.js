@@ -118,6 +118,15 @@ $('.btn_gnb').click(function () {
   }
 });
 
+// if( $('.left_section').css())
+// $('.left_section').hide
+// (function () {
+//   if ($('#left').css('left') === '0px') {
+//     $('#left').animate({ left: '-700px' }, 1000);
+//   } else {
+//     $('#left').animate({ left: '0' }, 'fast');
+//   }
+// });
 
 const currentPosition = parseInt($("#left section").css("top"));
 $(window).scroll(function(){
