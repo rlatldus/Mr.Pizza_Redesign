@@ -112,9 +112,9 @@ $(function () {
     // 모바일 상단 메뉴 클릭 시 이미지 띄우기
 $('.btn_gnb').click(function () {
   if ($('#left').css('left') === '0px') {
-    $('#left').animate({ left: '-700px' }, 1000);
+    $('#left').animate({ left: '-700px' }, 1000) && $('.leftback').animate({ left: '-700px' }, 1000)  ;
   } else {
-    $('#left').animate({ left: '0' }, 'fast');
+    $('#left').animate({ left: '0' }, 'fast')  && $('.leftback').animate({ left: '0' }, 'fast')  ;
   }
 });
 

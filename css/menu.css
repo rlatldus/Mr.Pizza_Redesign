@@ -350,6 +350,8 @@ header div.menu {
 
 @media (max-width: 686px) {
   #header {
+    z-index: 35;
+    position: absolute;
     width: 100%;
   }
   header {
@@ -376,11 +378,21 @@ header div.menu {
     border-radius: 50%;
     position: relative;
   }
+  .leftback {
+    z-index: 30;
+    left: 0;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+  }
   #left {
+    top: 150px;
     position: absolute;
     z-index: 50;
     width: 90%;
-    padding: 5% 5% 2550px 5%;
+    padding: 5%;
     background-color: white;
     display: block;
   }
