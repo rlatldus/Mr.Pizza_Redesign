@@ -35,12 +35,10 @@ li {
 //모달
 .modal{
   z-index: 50;
-  left: 0;
-  right: 0;
   width: 100%;
   height: 100%;
   background-color: #0000007a;
-  position: absolute;
+  position: fixed; // 세로 100퍼 만들기 !!
   display: flex;
   justify-content: center;
   align-items: center;
