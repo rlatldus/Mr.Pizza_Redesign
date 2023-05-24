@@ -120,21 +120,19 @@ $('.btn_gnb').click(function () {
 
 //left 스크롤
 const element = $('#left section')[0];
-const computedStyle = window.getComputedStyle(element);
-const topValue = computedStyle.getPropertyValue('top');
+const computedStyle = getComputedStyle(element);
+const topValue = computedStyle.top;
 
 const screenHeight = window.innerHeight;
 const currentPosition = parseInt($("#left section").css("top"));
 
 $(window).scroll(function(){
   const position = $(window).scrollTop();
-  $("#left section").stop().animate({"top":position+currentPosition+"px"},500); // 탑이 현제left와 스크롤 높이 합
-  if( topValue>screenHeight){
-    topValue=screenHeight;
-    console.log(topValue);
-  }
+  $("#left section").stop().animate({"top": position + currentPosition + "px"}, 500);
   
-})
+    console.log(screenHeight);
+  
+});
 
 
 
