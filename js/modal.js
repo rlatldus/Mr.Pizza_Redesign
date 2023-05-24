@@ -20,7 +20,7 @@ modalDiv.classList.add("modal");
 const innerDiv = document.createElement("div"); // 스타일 추가
 innerDiv.classList.add("inner"); //스타일 추가
 innerDiv.innerHTML = `
-<div><img src="../imge/modal.png" alt=""/></div>
+<div><img src="./../imge/modal.png" alt=""/></div>
 `;
 // const modalButtonremove = document.querySelector("#modalButtonremove")
 // modalButtonremove.addEventListener("click", close); // 생성
