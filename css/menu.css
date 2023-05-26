@@ -31,6 +31,8 @@ li {
 }
 
 .pop_123123 {
+  transition: all 1s;
+  display: none;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -46,9 +48,10 @@ li {
   transform: translate(-50%, -50%);
   position: fixed;
   display: block;
-  background: #3e3434;
+  width: 40%;
+  height: 130px;
   border: 1px solid #636363;
-  border-top: 2px solid #cb1919;
+  border-top: 4px solid #cb1919;
 }
 .pop_123123 .pop_cont_varo h1 {
   text-align: left;
@@ -61,16 +64,16 @@ li {
   border-bottom: 1px solid;
 }
 .pop_123123 .pop_cont_varo .pop_cont {
+  height: 100%;
   margin: 0;
+  padding-top: 50px;
   background: #fff;
   display: block;
   font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
-  color: #333;
 }
 .pop_123123 .pop_cont_varo .pop_cont .t_center_bold {
   text-align: center !important;
   font-family: NGBold;
-  color: #222;
   border: 0;
 }
 .pop_123123 .pop_cont_varo .pop_cont .t_center {
@@ -82,15 +85,18 @@ li {
 .pop_123123 .pop_cont_varo .pop_cont .t_center .button_btn {
   color: #000000;
   border-color: #b1b1b3;
-  margin: 10px;
   width: 98px;
   height: 28px;
+  margin: 10px;
   line-height: 28px;
   font-size: 12px;
   display: inline-block;
   border: 1px solid #514f4f;
   border-radius: 3px;
   vertical-align: middle;
+}
+.pop_123123 .pop_cont_varo .pop_cont .t_center .button_btn:hover {
+  background-color: #ececec;
 }
 .pop_123123 .pop_cont_varo .pop_cont .btn_close {
   top: 20px;
