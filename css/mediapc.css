@@ -93,23 +93,19 @@
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops {
     height: 0;
+    position: relative;
     margin: 0 10px;
     overflow: hidden;
     top: 280px;
   }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops p a {
-    margin-left: 3px;
-  }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold {
     width: 100%;
-    left: 2px;
+  }
+  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold .menu_btn {
+    width: 100%;
   }
   #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .gold li a {
     line-height: 30px;
-  }
-  #wrap main #section #right section.right_menu1 .article form fieldset article .menu_ops .menu_btn {
-    margin-right: 3px;
-    margin-left: -4px;
   }
 }
 

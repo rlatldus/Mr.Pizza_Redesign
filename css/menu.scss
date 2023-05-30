@@ -30,7 +30,9 @@ a {
 li {
   list-style: none;
 }
-
+.menuoption{
+  text-align: center;
+}
 //모달
 .pop_123123{
   transition: all 1s;
@@ -378,6 +380,7 @@ header {
           }
 
           .menu_ops {
+            text-align: center;
             // display: none; //FIXME
             position: absolute;
             left: 0px;
@@ -418,17 +421,19 @@ header {
             }
 
             .menu_btn {
-              margin-top: 20px;
+              width: 100%;
 
               ul {
                 display: flex;
-
+                justify-content: center;
                 li {
-                  width: 33.33%;
+                  width: 33.333%;
+                  box-sizing: border-box;
 
                   #memu01 {
+                    left: 1;
                     position: relative;
-                    margin-left: -1px;
+                    // margin-left: -1px;
                     border: 1px solid #cccccc;
                     text-indent: -9999em;
                     font-size: 12px;
@@ -444,7 +449,7 @@ header {
 
                   #memu02 {
                     position: relative;
-                    margin-left: -1px;
+                    // margin-left: -1px;
                     border: 1px solid #cccccc;
                     text-indent: -9999em;
                     font-size: 12px;
@@ -460,7 +465,7 @@ header {
 
                   #memu03 {
                     position: relative;
-                    margin-left: -1px;
+                    // margin-left: -1px;
                     border: 1px solid #cccccc;
                     text-indent: -9999em;
                     font-size: 12px;

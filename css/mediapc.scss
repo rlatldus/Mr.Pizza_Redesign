@@ -132,23 +132,17 @@
 
                                         .menu_ops {
                                             height: 0;
+                                            position: relative;
                                             margin: 0 10px;
+
                                             overflow: hidden;
                                             top: 280px;
 
-                                            p {
-
-                                                a {
-                                                    margin-left: 3px;
-
-                                                }
-                                            }
-
                                             .gold {
                                                 width: 100%;
-                                                left: 2px;
-
-
+                                                .menu_btn{
+                                                    width: 100%;
+                                                }
                                                 li {
 
                                                     a {
@@ -156,13 +150,6 @@
 
                                                     }
                                                 }
-                                            }
-
-                                            .menu_btn {
-                                                margin-right: 3px;
-                                                margin-left: -4px;
-
-                                                ul {}
                                             }
                                         }
                                     }
