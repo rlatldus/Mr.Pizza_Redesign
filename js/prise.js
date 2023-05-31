@@ -1,26 +1,57 @@
-function pizzaMenu(name,value, priseM, priseL, img) {
-    this.name = name;
-    this.value = value;
-    this.priseM = priseM;
-    this.priseL = priseL;
-    this.img = img;
-}
-const fogeder = "포게더";
+    let pizzaMenu= [
+        {
+          name: '포개더',
+          type: '골드',
+          smallPrice: 32000,
+          largePrice: 39500,
+          image: '	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314151710070.jpg'
+        },
+        {
+          name: '포개더',
+          type: '크림치즈',
+          smallPrice: 32000,
+          largePrice: 49500,
+          image: 'https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20233141521172.jpg'
+        },
+        {
+          name: '포개더',
+          type: '오리진',
+          smallPrice: 31000,
+          largePrice: 38500,
+          image: 'https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314142859082.jpg'
+        },
+        {
+          name: '포개더',
+          type: '치즈캡',
+          smallPrice: 35500,
+          largePrice: 43000,
+          image: 'https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314153028392.jpg'
+        }
+      ]
 
-function Pizzaoption(name){
-return[
-    new pizzaMenu(name,'골드',32000,39500,	'https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314151710070.jpg'  ),
-    new pizzaMenu(name,'크림치즈',32000,49500,	'https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20233141521172.jpg'  ),
-    new pizzaMenu(name,'오리진',31000,38500,	'https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314142859082.jpg'  ),
-    new pizzaMenu(name,'치즈캡',35500,43000,		'https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314153028392.jpg'  )
-]
-}
 
-const Menu = [...Pizzaoption(fogeder)]
-console.log(Menu)
+console.log(pizzaMenu)
 const menuImg = document.querySelectorAll(".pizza1");
-const firstmenuImg = menuImg[0].src
-const gold = document.querySelector('#OP0201').addEventListener('click',function(){
-    
+const gold = document.querySelector('#OP0201').addEventListener('click', function(e) {
+  e.preventDefault();
+  menuImg[0].src = pizzaMenu[0].image;
+});
+const creamcheeze = document.querySelector('#OP0202').addEventListener('click',function(e){
+  e.preventDefault();
+  menuImg[0].src = pizzaMenu[1].image;
+
 })
-console.log(firstmenuImg,"sss")
+const origin = document.querySelector('#OP0203').addEventListener('click',function(e){
+  e.preventDefault();
+  menuImg[0].src = pizzaMenu[2].image;
+
+})
+const cheezerap = document.querySelector('#OP0204').addEventListener('click',function(e){
+  e.preventDefault();
+  menuImg[0].src = pizzaMenu[3].image;
+
+})
+const eggtart = document.querySelector('#OP0205').addEventListener('click',function(e){
+  e.preventDefault();
+  menuImg[0].src = pizzaMenu[4].image;
+})

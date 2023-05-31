@@ -68,22 +68,22 @@ $(function () {
   
   //FIXME -   나중에 좀 더 수정할것
 // 클릭시 이미지 변경
-  $('.option1').click(function (e) {
-    e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'image/2023314151710070.jpg');
-  });
-  $('.option2').click(function (e) {
-    e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'imge/20233141521172.jpg');
-  });
-  $('.option3').click(function (e) {
-    e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'imge/2023314142859082.jpg');
-  });
-  $('.option4').click(function (e) {
-    e.preventDefault();
-    $('article img.pizza1 ').attr('src', 'imge/2023314153028392.jpg');
-  });
+  // $('.option1').click(function (e) {
+  //   e.preventDefault();
+  //   $('article img.pizza1 ').attr('src', 'image/2023314151710070.jpg');
+  // });
+  // $('.option2').click(function (e) {
+  //   e.preventDefault();
+  //   $('article img.pizza1 ').attr('src', 'imge/20233141521172.jpg');
+  // });
+  // $('.option3').click(function (e) {
+  //   e.preventDefault();
+  //   $('article img.pizza1 ').attr('src', 'imge/2023314142859082.jpg');
+  // });
+  // $('.option4').click(function (e) {
+  //   e.preventDefault();
+  //   $('article img.pizza1 ').attr('src', 'imge/2023314153028392.jpg');
+  // });
   
   $('ul#main li').hover(
     function () {
