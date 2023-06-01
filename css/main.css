@@ -1756,10 +1756,11 @@ div.link_fix {
 
   /* 퀵메뉴 */
   .quick_wrap {
-    position: fixed;
+    position: relative;
+    z-index: 100;
     top: 50%;
     right: 0;
-    z-index: 1;
+    z-index: 200;
     margin-top: -177.5px;
   }
 

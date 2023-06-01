@@ -27,6 +27,84 @@
   로고로 홈/ 회사소개, 메뉴, 지점안내, 창업안내, 이벤트 -->
     <!-- NOTE 워랩 -->
     <div id="wrap">
+            <!-- 오른쪽 퀵메뉴  -->
+            <section id="quick" >
+              <h3 class="blind">퀵메뉴</h3>
+              <section class="quick_wrap">
+                <ul class="quick_menu">
+                  <li>
+                    <a
+                      href="https://www.mrpizza.co.kr/login_join/login"
+                      class="quick_tit"
+                      id="quickLoginURL"
+                    >
+                      <i
+                        ><img
+                          src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png"
+                          alt="로그인" /></i
+                      >로그인</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.mrpizza.co.kr/login_join/join"
+                      class="quick_tit"
+                      ><i
+                        ><img
+                          src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_02.png"
+                          alt="회원가입" /></i
+                      >회원가입</a
+                    >
+                  </li>
+                  <li class="inBox">
+                    <a
+                      href="#"
+                      onclick="javascript:cartOpen();"
+                      class="quick_tit quick_cart"
+                      title="장바구니"
+                    >
+                      <i
+                        ><img
+                          src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_03.png"
+                          alt="장바구니"
+                          onclick="javascript:alert('장바구니가 비어있습니다.')" /></i
+                      >장바구니<em class="cart_num"></em>
+                    </a>
+                    <div class="basketbox">
+                      <!-- 장바구니 -->
+                      <div class="deliveryRadio">
+                        <label><input type="radio" name="delivery" />배달주문</label> 
+                        
+                        <label><input type="radio" name="delivery"/>방문주문</label>
+                      </div>
+                      <ul id="deliveryMenuoption"><!-- TODO -->
+                      </ul>
+                      <div class="deliveryText">
+                      <p >주문금액</p>
+                      <p ><span class="deliveryTextprise">0</span>원</p>
+                    </div>
+                      <img src="imge/basket_img.png" alt="" />
+                    </div>
+                  </li>
+        
+                  <li class="inBox">
+                    <a
+                      href="#"
+                      onclick="javascript:reOrderOpen();"
+                      class="quick_tit quick_order"
+                      title="재주문"
+                      ><i
+                        ><img
+                          src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_04.png"
+                          alt="재주문" /></i
+                      >재주문</a
+                    >
+                  </li>
+                </ul>
+              </section>
+        
+            </section>
+            <!-- 퀵메뉴 종료 // -->
       <!-- TODO헤더 -->
       <div id="header">
         <header>
@@ -170,29 +248,50 @@
                       <h4>포게더</h4>
                       <div class="input">
                         <label>
-                        <input type="radio" name="Menu" value="M" />
-                        <span class="pizza_style">M 32,000</span></label>
-                      <label><input type="radio" name="Menu" value="L" />
-                        <span class="pizza_style_s">L 39,500</span></label>
+                          <input type="radio" name="Menu" value="M" />
+                          <span id="M" class="pizza_style"
+                            >M 32,000</span
+                          ></label
+                        >
+                        <label
+                          ><input type="radio" name="Menu" value="L" />
+                          <span id="L" class="pizza_style_s"
+                            >L 39,500</span
+                          ></label
+                        >
                       </div>
                       <div class="menu_ops">
                         <div class="menuoption">
-                          <p><a href="#">골드</a></p>
+                          <p><a id="menutitle" href="#">골드</a></p>
                           <ul class="gold">
                             <li>
-                              <a id='OP0201' href="" class="option1" value="gold">골드</a>
+                              <a
+                                id="OP0201"
+                                href=""
+                                class="option1"
+                                value="gold"
+                                >골드</a
+                              >
                             </li>
                             <li>
-                              <a id='OP0202' href="" class="option2" value="">크림치즈</a>
+                              <a id="OP0202" href="" class="option2" value=""
+                                >크림치즈</a
+                              >
                             </li>
                             <li>
-                              <a id='OP0203' href="" class="option3" value="">오리진</a>
+                              <a id="OP0203" href="" class="option3" value=""
+                                >오리진</a
+                              >
                             </li>
                             <li>
-                              <a id='OP0204'  href="" class="option4" value="">치즈캡</a>
+                              <a id="OP0204" href="" class="option4" value=""
+                                >치즈캡</a
+                              >
                             </li>
                             <li>
-                              <a id='OP0205' href="" class="option4" value="">에그타르트</a>
+                              <a id="OP0205" href="" class="option4" value=""
+                                >에그타르트</a
+                              >
                             </li>
                           </ul>
                         </div>
@@ -203,7 +302,9 @@
                                 >미리보기</a
                               >
                             </li>
-                            <li><a href="" id="memu02">장바구니</a></li>
+                            <li>
+                              <a href="" id="memu02" class="basket" onclick="getSelectedRadioLabel()" >장바구니</a>
+                            </li>
                             <li>
                               <a href="" id="memu03" class="charge">바로주문</a>
                               <div class="pop_123123">
@@ -768,67 +869,8 @@
           </section>
         </div>
       </footer>
+
     </div>
-    <!-- 오른쪽 퀵메뉴  -->
-    <section id="quick">
-      <h3 class="blind">퀵메뉴</h3>
-      <section class="quick_wrap">
-        <ul class="quick_menu">
-          <li>
-            <a
-              href="https://www.mrpizza.co.kr/login_join/login"
-              class="quick_tit"
-              id="quickLoginURL"
-            >
-              <i
-                ><img
-                  src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_01.png"
-                  alt="로그인" /></i
-              >로그인</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.mrpizza.co.kr/login_join/join"
-              class="quick_tit"
-              ><i
-                ><img
-                  src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_02.png"
-                  alt="회원가입" /></i
-              >회원가입</a
-            >
-          </li>
-          <li class="inBox">
-            <a
-              href="#"
-              onclick="javascript:cartOpen();"
-              class="quick_tit quick_cart"
-              title="장바구니"
-            >
-              <i
-                ><img
-                  src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_03.png"
-                  alt="장바구니"
-                  onclick="javascript:alert('장바구니가 비어있습니다.')" /></i
-              >장바구니<em class="cart_num">0</em>
-            </a>
-          </li>
-          <li class="inBox">
-            <a
-              href="#"
-              onclick="javascript:reOrderOpen();"
-              class="quick_tit quick_order"
-              title="재주문"
-              ><i
-                ><img
-                  src="//cdn.mrpizza.co.kr/2014_resources/images/common/ico_quick_04.png"
-                  alt="재주문" /></i
-              >재주문</a
-            >
-          </li>
-        </ul>
-      </section>
-    </section>
-    <!-- 퀵메뉴 종료 // -->
+
   </body>
 </html>

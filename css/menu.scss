@@ -30,11 +30,92 @@ a {
 li {
   list-style: none;
 }
-.menuoption{
+.menuoption {
   text-align: center;
 }
+
+//장바구니
+.basketbox {
+  z-index: 100;
+  position: fixed;
+  width: 405px;
+  right: 90px;
+  top: 200px;
+  border: 1px solid #666666;
+  background: #fff;
+  text-align: left;
+  .deliveryRadio {
+    display: flex;
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 50px;
+      background-color: #dddddd;
+      input {
+        display: block;
+      }
+    }
+  }
+  .menuOption{
+    font-weight: bold;
+    display: flex;
+    height: 100px;
+    align-items: center;
+    padding: 0 20px;
+    p{
+      margin-right: 100px;
+
+    }
+    input{
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+    .sum{
+      margin:0 10px;
+      display: flex;
+      align-items: center;
+      a{
+        font-size: 20px;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+      }
+
+    }
+    button{
+      margin-left: 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  .deliveryText {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
+    p {
+      display: inline-block;
+      padding: 10px 20px;
+      font-weight: Normal;
+      font-family: NGBold;
+      span {
+        font-family: Verdana;
+        font-weight: bold;
+        font-size: 24px;
+        color: #cb1919 !important;
+      }
+    }
+  }
+}
+
 //모달
-.pop_123123{
+.pop_123123 {
   transition: all 1s;
   display: none;
   position: fixed;
@@ -48,10 +129,10 @@ li {
   .pop_cont_varo {
     top: 50%;
     left: 50%;
-  transform: translate(-50%, -50%);
-  position: fixed;
-  display: block;
-  width: 40%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    display: block;
+    width: 40%;
     height: 130px;
     border: 1px solid #636363;
     border-top: 4px solid #cb1919;
@@ -72,46 +153,44 @@ li {
       background: #fff;
       display: block;
       font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum,
-      Arial, Tahoma, Geneva, Verdana;
+        Arial, Tahoma, Geneva, Verdana;
 
       .t_center_bold {
         text-align: center !important;
         font-family: NGBold;
         border: 0;
-        
       }
       .t_center {
-          display: flex;
-          justify-content: center;
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+        align-items: center;
+        .button_btn {
+          color: #000000;
+          border-color: #b1b1b3;
+
+          width: 98px;
+          height: 28px;
+          margin: 10px;
+
+          line-height: 28px;
+          font-size: 12px;
+          display: inline-block;
+          border: 1px solid #514f4f;
+          border-radius: 3px;
           vertical-align: middle;
-          align-items: center;
-          .button_btn {
-            color: #000000;
-            border-color: #b1b1b3;
-
-            width: 98px;
-            height: 28px;
-            margin: 10px;
-
-            line-height: 28px;
-            font-size: 12px;
-            display: inline-block;
-            border: 1px solid #514f4f;
-            border-radius: 3px;
-            vertical-align: middle;
-            &:hover{
+          &:hover {
             background-color: #ececec;
-
-            }
           }
         }
-        .btn_close {
-          top:20px;
-          right: 20px;
-          position: absolute;
-          text-decoration: none;
-          color: #333;
-        }
+      }
+      .btn_close {
+        top: 20px;
+        right: 20px;
+        position: absolute;
+        text-decoration: none;
+        color: #333;
+      }
     }
   }
 }

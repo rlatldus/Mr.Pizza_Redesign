@@ -392,7 +392,7 @@ div.link_fix {
     position: fixed;
     top: 50%;
     right: 0;
-    z-index: 1;
+    z-index: 100;
     margin-top: -177.5px;
   }
 
