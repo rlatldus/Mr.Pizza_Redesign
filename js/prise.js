@@ -102,7 +102,7 @@ elementbasket.addEventListener("click", (e) => {
 const menuOptionAll = deliveryMenuoption.getElementsByClassName("menuOption");
 
 function getSelectedRadioLabel() {
-  //NOTE 장바구니 클릭
+  //NOTE 장바구니 모양 클릭
 
   console.log(menuOptionAll,"dfdd")
   if(menuOptionAll.length<5){ //NOTE 장바구니 수량이 5개 이하일때 실행
@@ -112,13 +112,13 @@ function getSelectedRadioLabel() {
     
     for (let i = 0; i < Menu.length; i++) {
       if (Menu[i].checked) {
-        const deliveryLabel = Menu[i].nextElementSibling.innerText;
-        const deliveryTextprise =
-        document.getElementsByClassName("deliveryTextprise")[0];
-        deliveryTextprise.innerHTML = deliveryLabel;
-        console.log(deliveryTextprise.innerHTML);
+        const deliveryTextprise = document.getElementsByClassName("deliveryTextprise")[0];
+
         i == 0 ? (pizzaSize = "M") : (pizzaSize = "L");
         pizzaPrise = Menu[i].nextElementSibling.innerText;
+
+        deliveryTextprise.innerHTML = pizzaPrise; // NOTE  모든 수량의 값으로 수정 필요
+        console.log(deliveryTextprise.innerHTML);
       }
     }
     
@@ -151,3 +151,22 @@ sumElements.forEach((item) => {
     alert("안녕");
   });
 });
+
+`<ul>
+<li>
+<div><input><button></button></div>
+<div></div>
+</li>
+<li>
+<div><input><button></button></div>
+<div></div>
+</li>
+<li>
+<div><input><button></button></div>
+<div></div>
+</li>
+<li>
+<div><input><button></button></div>
+<div></div>
+</li>
+</ul>`
