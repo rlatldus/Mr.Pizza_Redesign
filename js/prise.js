@@ -85,6 +85,8 @@ const change = (x) => {
   elementM.innerText = pizzaMenu[x].smallPrice;
   elementL.innerText = pizzaMenu[x].largePrice;
   pizzaType = pizzaMenu[x].type;
+  elementmenutitle.innerText = pizzaMenu[x].type;
+  
 };
 
 elementcart_num.innerText = 0; // 장바구니 숫자
@@ -97,37 +99,55 @@ elementbasket.addEventListener("click", (e) => {
     return elementcart_num.innerText == 5;
   }
 });
+const menuOptionAll = deliveryMenuoption.getElementsByClassName("menuOption");
 
 function getSelectedRadioLabel() {
   //NOTE 장바구니 클릭
-  const Menu = document.getElementsByName("Menu"); // 라디오 버튼
-  let pizzaSize;
-  let pizzaPrise;
 
-  for (let i = 0; i < Menu.length; i++) {
-    if (Menu[i].checked) {
-      const deliveryLabel = Menu[i].nextElementSibling.innerText;
-      const deliveryTextprise =
-      document.getElementsByClassName("deliveryTextprise")[0];
-      deliveryTextprise.innerHTML = deliveryLabel;
-      console.log(deliveryTextprise.innerHTML);
-      i == 0 ? (pizzaSize == "M") : (pizzaSize == "L");
-      pizzaPrise = Menu[i].nextElementSibling.innerText;
+  console.log(menuOptionAll,"dfdd")
+  if(menuOptionAll.length<5){ //NOTE 장바구니 수량이 5개 이하일때 실행
+    const Menu = document.getElementsByName("Menu"); // 라디오 버튼
+    let pizzaSize;
+    let pizzaPrise;
+    
+    for (let i = 0; i < Menu.length; i++) {
+      if (Menu[i].checked) {
+        const deliveryLabel = Menu[i].nextElementSibling.innerText;
+        const deliveryTextprise =
+        document.getElementsByClassName("deliveryTextprise")[0];
+        deliveryTextprise.innerHTML = deliveryLabel;
+        console.log(deliveryTextprise.innerHTML);
+        i == 0 ? (pizzaSize = "M") : (pizzaSize = "L");
+        pizzaPrise = Menu[i].nextElementSibling.innerText;
+      }
     }
-  }
-
+    
   menuOption.innerHTML = `
   <li class="menuOption">
   <p>포개더-${pizzaType} </p>
   <span>${pizzaSize}</span>
   <div class="sum">
-    <input class="spinner" type="text" value="1">
-    <a href="#" class="plusPrise">+</a>
-    <a href="#" class="downPrise">-</a>
+  <input class="spinner" type="text" value="1">
+  <button class="plusPrise">+</button>
+  <button class="downPrise">-</button>
   </div>
   <span class="optionPrise">${pizzaPrise}</span>
   <button>닫기</button>
   </li>
-`;
+  `;
   deliveryMenuoption.insertAdjacentHTML("afterbegin", menuOption.innerHTML);
-}
+}else{
+  alert("수량은 5개까지 입니다. 문의주세요");
+}}
+
+
+
+
+const sumElements = document.querySelectorAll(".sum");
+if(sumElements)
+sumElements.forEach((item) => {
+  const plusButton = item.querySelector(".plusPrise");
+  plusButton.addEventListener("click", function() {
+    alert("안녕");
+  });
+});

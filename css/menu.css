@@ -61,17 +61,18 @@ li {
 .basketbox .menuOption {
   font-weight: bold;
   display: flex;
+  justify-content: space-between;
   height: 100px;
   align-items: center;
   padding: 0 20px;
-}
-.basketbox .menuOption p {
-  margin-right: 100px;
 }
 .basketbox .menuOption input {
   width: 30px;
   height: 30px;
   text-align: center;
+}
+.basketbox .menuOption p {
+  width: 100px;
 }
 .basketbox .menuOption .sum {
   margin: 0 10px;
@@ -86,7 +87,6 @@ li {
   border: 1px solid black;
 }
 .basketbox .menuOption button {
-  margin-left: 30px;
   width: 30px;
   height: 30px;
 }
