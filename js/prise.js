@@ -44,27 +44,15 @@ const menuImg = document.querySelectorAll(".pizza1");
 const elementbasket = document.getElementsByClassName("basket")[0];
 const deliveryMenuoption = document.querySelector("#deliveryMenuoption"); // 장바구니 내용
 const menuOption = document.createElement("li");
-let pizzaSize;
-menuOption.innerHTML = `
-  <li class="menuOption">
-  <p>포개더</p>
-  <span>${pizzaSize}</span>
-  <div class="sum">
-    <input class="spinner" type="text" value="1">
-    <a href="#" class="plusPrise">+</a>
-    <a href="#" class="downPrise">-</a>
-  </div>
-  <span class="optionPrise">${pizzaPrise}</span>
-  <button>닫기</button>
-  </li>
-`;
+let pizzaType;
+
 
 const gold = document
   .querySelector("#OP0201")
   .addEventListener("click", (e) => {
     e.preventDefault();
     change(0);
-
+    console.log(pizzaType);
   });
 const creamcheeze = document
   .querySelector("#OP0202")
@@ -91,11 +79,12 @@ const eggtart = document
     change(4);
   });
 
-const change = (x) => { //이미지, 사이즈 텍스트 변경
-  menuImg[0].src = pizzaMenu[x].image; 
+const change = (x) => {
+  //이미지, 사이즈 텍스트 변경
+  menuImg[0].src = pizzaMenu[x].image;
   elementM.innerText = pizzaMenu[x].smallPrice;
   elementL.innerText = pizzaMenu[x].largePrice;
-
+  pizzaType = pizzaMenu[x].type;
 };
 
 elementcart_num.innerText = 0; // 장바구니 숫자
@@ -109,12 +98,12 @@ elementbasket.addEventListener("click", (e) => {
   }
 });
 
-
-
 function getSelectedRadioLabel() {
   //NOTE 장바구니 클릭
   const Menu = document.getElementsByName("Menu"); // 라디오 버튼
-  
+  let pizzaSize;
+  let pizzaPrise;
+
   for (let i = 0; i < Menu.length; i++) {
     if (Menu[i].checked) {
       const deliveryLabel = Menu[i].nextElementSibling.innerText;
@@ -122,14 +111,23 @@ function getSelectedRadioLabel() {
       document.getElementsByClassName("deliveryTextprise")[0];
       deliveryTextprise.innerHTML = deliveryLabel;
       console.log(deliveryTextprise.innerHTML);
-      if(i==0){
-        pizzaSize ="L"
-      }else{
-        pizzaSize ="M"
-      }
-      break;
+      i == 0 ? (pizzaSize == "M") : (pizzaSize == "L");
+      pizzaPrise = Menu[i].nextElementSibling.innerText;
     }
   }
+
+  menuOption.innerHTML = `
+  <li class="menuOption">
+  <p>포개더-${pizzaType} </p>
+  <span>${pizzaSize}</span>
+  <div class="sum">
+    <input class="spinner" type="text" value="1">
+    <a href="#" class="plusPrise">+</a>
+    <a href="#" class="downPrise">-</a>
+  </div>
+  <span class="optionPrise">${pizzaPrise}</span>
+  <button>닫기</button>
+  </li>
+`;
   deliveryMenuoption.insertAdjacentHTML("afterbegin", menuOption.innerHTML);
 }
-
