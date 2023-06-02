@@ -52,13 +52,14 @@ legend {
     }
 
     100% {
-        border-top: 1px solid rgb(248, 193, 91);
+        border-top: 1px solid #f8c15b;
         box-shadow: 0px 15px 5px -2px #c7c6c695;
         height: 100px;
     }
 }
 
 .header {
+    //NOTE header
     position: relative;
     display: flex;
     vertical-align: middle;
@@ -73,10 +74,11 @@ legend {
     @include media-pc {
         width: 1120px;
     }
+
     @include media-mo {
         z-index: 35;
         position: absolute;
-        width: 100%;
+        width: calc(100% - 40px);
     }
 
     .logo {
@@ -87,8 +89,8 @@ legend {
         text-indent: -999em;
     }
 
-    @include media-mo {
-        .btn_gnb {
+    .btn_gnb {
+        @include media-mo {
             cursor: pointer;
             display: inline-block;
             width: 50px;
@@ -108,17 +110,11 @@ legend {
 
             }
         }
-    }
 
-    @include media-pc {
-        #icon {
-            display: none;
-        }
-    }
-
-    @include media-tablet {
-        #icon {
-            display: none;
+        @include media-tablet-pc {
+            #icon {
+                display: none;
+            }
         }
     }
 
@@ -144,7 +140,7 @@ legend {
         display: flex;
         justify-content: space-between;
 
-        li {
+        .mainli {
             vertical-align: middle;
             padding: 0 25px;
 
@@ -152,65 +148,70 @@ legend {
                 animation: move 0.5s ease alternate forwards;
             }
 
-            a {
-                height: 100px;
+            .maina {
+                height: 80px;
+                align-items: center;
+                vertical-align: middle;
 
                 @include media-pc {
-                    align-items: center;
                     display: flex;
                 }
 
                 span,
                 img {
                     @include media-tablet {
-                        margin: 0 auto;
+                        margin: auto;
                     }
 
                     display: block;
                 }
             }
+        }
 
-            .sub {
-                display: flex;
-                position: absolute;
-                justify-content: center;
-                overflow: hidden;
-                margin-left: calc(-50vw + 50%);
-                top: 100px;
-                left: 0px;
-                width: 100vw;
-                height: 0px;
+        .sub {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            overflow: hidden;
+            margin-left: calc(-50vw + 50% - 16px);
+            top: 100px;
+            left: 0px;
+            width: 100vw;
+            height: 0px;
+            background-color: #ffffff;
+            text-align: center;
+
+            li {
+                margin: 30px 20px;
+                width: 150px;
+                border: 2px solid #5f5f5f;
+                border-radius: 25px;
                 background-color: #ffffff;
-                text-align: center;
 
-                li {
-                    margin: 30px 20px;
-                    padding: 10px 0;
-                    width: 150px;
-                    height: 20px;
-                    border: 2px solid #5f5f5f;
-                    border-radius: 25px;
-                    background-color: #ffffff;
+                &:nth-child(1) {
+                    margin-left: 50px;
+                }
 
-                    &:hover {
-                        border: 2px solid red;
-
-                        a {
-                            color: red;
-                        }
-                    }
+                &:hover {
+                    border: 2px solid red;
 
                     a {
-                        font-size: 14px;
-                        display: block;
-                        color: #5f5f5f;
+                        color: red;
+                    }
+                }
 
-                        &:hover li {
-                            border: 1px solid red;
-                        }
+                a {
+                    padding: 10px 0;
+                    font-size: 14px;
+                    display: block;
+                    color: #5f5f5f;
+
+                    &:hover li {
+                        border: 1px solid red;
                     }
                 }
             }
+
         }
     }
 }
@@ -227,11 +228,11 @@ legend {
                 display: block;
                 padding: 8px 5px;
                 border: 1px solid #cccccc;
-                font-size: 15px;
                 text-align: center;
                 font-family: NGBold;
 
                 span {
+                    font-size: 15px;
                     display: block;
                 }
             }

@@ -59,32 +59,24 @@ legend {
   padding: 20px 0px;
 
   main {
+    border-top: 1px solid #cccccc;
     @include media-pc() {
       width: 100%;
-      border-top: 1px solid #cccccc;
-    }
-
-    @include media-tablet() {
-      border-top: 1px solid #cccccc;
     }
 
     #section {
+      justify-content: center;
+      display: flex;
+      margin: 0 auto;
       @include media-pc() {
-        justify-content: center;
-        margin: 0 auto;
         width: 1160px;
-        display: flex;
       }
 
       @include media-tablet() {
-        justify-content: center;
-        margin: 0 auto;
         width: 100%;
-        display: flex;
       }
     }
   }
-
 }
 
 .menuoption {

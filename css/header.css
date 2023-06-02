@@ -24,7 +24,7 @@ legend {
     height: 0;
   }
   100% {
-    border-top: 1px solid rgb(248, 193, 91);
+    border-top: 1px solid #f8c15b;
     box-shadow: 0px 15px 5px -2px rgba(199, 198, 198, 0.5843137255);
     height: 100px;
   }
@@ -50,7 +50,7 @@ legend {
   .header {
     z-index: 35;
     position: absolute;
-    width: 100%;
+    width: calc(100% - 40px);
   }
 }
 .header .logo {
@@ -80,13 +80,8 @@ legend {
     position: relative;
   }
 }
-@media (min-width: 1160px) {
-  .header #icon {
-    display: none;
-  }
-}
-@media (max-width: 1160px) and (min-width: 686px) {
-  .header #icon {
+@media (min-width: 686px) {
+  .header .btn_gnb #icon {
     display: none;
   }
 }
@@ -112,38 +107,39 @@ legend {
   display: flex;
   justify-content: space-between;
 }
-.navbar #main li {
+.navbar #main .mainli {
   vertical-align: middle;
   padding: 0 25px;
 }
-.navbar #main li:hover ul.sub {
+.navbar #main .mainli:hover ul.sub {
   animation: move 0.5s ease alternate forwards;
 }
-.navbar #main li a {
-  height: 100px;
+.navbar #main .mainli .maina {
+  height: 80px;
+  align-items: center;
+  vertical-align: middle;
 }
 @media (min-width: 1160px) {
-  .navbar #main li a {
-    align-items: center;
+  .navbar #main .mainli .maina {
     display: flex;
   }
 }
-.navbar #main li a span,
-.navbar #main li a img {
+.navbar #main .mainli .maina span,
+.navbar #main .mainli .maina img {
   display: block;
 }
 @media (max-width: 1160px) and (min-width: 686px) {
-  .navbar #main li a span,
-  .navbar #main li a img {
-    margin: 0 auto;
+  .navbar #main .mainli .maina span,
+  .navbar #main .mainli .maina img {
+    margin: auto;
   }
 }
-.navbar #main li .sub {
+.navbar #main .sub {
   display: flex;
-  position: absolute;
   justify-content: center;
+  position: absolute;
   overflow: hidden;
-  margin-left: calc(-50vw + 50%);
+  margin-left: calc(-50vw + 50% - 16px);
   top: 100px;
   left: 0px;
   width: 100vw;
@@ -151,27 +147,29 @@ legend {
   background-color: #ffffff;
   text-align: center;
 }
-.navbar #main li .sub li {
+.navbar #main .sub li {
   margin: 30px 20px;
-  padding: 10px 0;
   width: 150px;
-  height: 20px;
   border: 2px solid #5f5f5f;
   border-radius: 25px;
   background-color: #ffffff;
 }
-.navbar #main li .sub li:hover {
+.navbar #main .sub li:nth-child(1) {
+  margin-left: 50px;
+}
+.navbar #main .sub li:hover {
   border: 2px solid red;
 }
-.navbar #main li .sub li:hover a {
+.navbar #main .sub li:hover a {
   color: red;
 }
-.navbar #main li .sub li a {
+.navbar #main .sub li a {
+  padding: 10px 0;
   font-size: 14px;
   display: block;
   color: #5f5f5f;
 }
-.navbar #main li .sub li a:hover li {
+.navbar #main .sub li a:hover li {
   border: 1px solid red;
 }
 
@@ -187,11 +185,11 @@ legend {
     display: block;
     padding: 8px 5px;
     border: 1px solid #cccccc;
-    font-size: 15px;
     text-align: center;
     font-family: NGBold;
   }
   .left_section li a span {
+    font-size: 15px;
     display: block;
   }
 }
