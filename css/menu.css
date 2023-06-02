@@ -34,6 +34,97 @@ li {
   text-align: center;
 }
 
+@keyframes fadeAni {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.header {
+  position: relative;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 100px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.header .logo {
+  display: block;
+  width: 165px;
+  height: 60px;
+  background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
+  text-indent: -999em;
+}
+.header .menu {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
+}
+
+.navbar #main {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar #main li {
+  vertical-align: middle;
+  padding: 0 25px;
+}
+.navbar #main li:hover ul.sub {
+  animation: move 0.5s ease alternate forwards;
+}
+.navbar #main li a {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+.navbar #main li a span,
+.navbar #main li a img {
+  display: block;
+}
+.navbar #main li .sub {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  overflow: hidden;
+  margin-left: calc(-50vw + 50%);
+  top: 100px;
+  left: 0px;
+  width: 100vw;
+  height: 0px;
+  background-color: #ffffff;
+  text-align: center;
+}
+.navbar #main li .sub li {
+  margin: 30px 20px;
+  padding: 10px 0;
+  width: 150px;
+  height: 20px;
+  border: 2px solid #5f5f5f;
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+.navbar #main li .sub li:hover {
+  border: 2px solid red;
+}
+.navbar #main li .sub li:hover a {
+  color: red;
+}
+.navbar #main li .sub li a {
+  font-size: 14px;
+  display: block;
+  color: #5f5f5f;
+}
+.navbar #main li .sub li a:hover li {
+  border: 1px solid red;
+}
+
 .basketbox {
   z-index: 100;
   position: fixed;
@@ -199,115 +290,6 @@ li {
   display: block;
   background-color: #ffffff;
   animation: fadeAni 200ms ease-out;
-}
-
-@keyframes fadeAni {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-header {
-  margin: 0 auto;
-  align-items: center;
-  position: relative;
-  height: 100px;
-  font-size: 20px;
-  font-weight: bolder;
-  display: flex;
-  justify-content: space-between;
-}
-header .logo {
-  display: block;
-  width: 164px;
-  height: 45px;
-  background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
-  text-indent: -999em;
-}
-header .logo a {
-  display: block;
-  color: #ba0d0d;
-}
-header .logo a img {
-  width: 180px;
-}
-header nav {
-  flex: 8;
-  right: 0px;
-}
-header nav #main {
-  display: flex;
-  justify-content: center;
-}
-header nav #main li {
-  display: block;
-  padding: 32px 20px;
-}
-header nav #main li:hover ul.sub {
-  animation: move 0.5s ease alternate forwards;
-}
-header nav #main li .menu {
-  display: inline-block;
-  vertical-align: top;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
-}
-header nav #main li .menu a {
-  padding: auto;
-  display: block;
-  font-size: 40px;
-}
-header nav #main li a:hover {
-  color: red;
-}
-header nav #main li ul.sub {
-  background-color: #ffffff;
-  position: absolute;
-  overflow: hidden;
-  top: 100px;
-  left: 0px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  height: 0px;
-}
-header nav #main li ul.sub li {
-  display: none;
-  width: 150px;
-  height: 20px;
-  padding: 10px 0;
-  margin: 30px 20px;
-  border: 2px solid #5f5f5f;
-  border-radius: 25px;
-  background-color: #ffffff;
-}
-header nav #main li ul.sub li:hover {
-  border: 2px solid red;
-}
-header nav #main li ul.sub li:hover a {
-  color: red;
-}
-header nav #main li ul.sub li a {
-  font-size: 14px;
-  display: block;
-  color: #5f5f5f;
-}
-header nav #main li ul.sub li a:hover li {
-  border: 1px solid red;
-}
-header div.menu {
-  display: inline-block;
-  vertical-align: top;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
 }
 
 #wrap {
