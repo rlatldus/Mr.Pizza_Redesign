@@ -1,7 +1,5 @@
-$content-max-width: 1240px;
-
-$breakpoints-tablet: 1023;
-$breakpoints-mobile: 767;
+$breakpoints-mobile: 686;
+$breakpoints-pc: 1160;
 
 @mixin media-mo() {
   @media (max-width: ($breakpoints-mobile+'px')) {
@@ -9,8 +7,20 @@ $breakpoints-mobile: 767;
   }
 }
 
-@mixin media-ta() {
-  @media (max-width: ($breakpoints-tablet+'px')) {
+@mixin media-tablet() {
+  @media (max-width: ($breakpoints-pc+'px')) and (min-width:($breakpoints-mobile+'px')) {
+    @content;
+  }
+}
+
+@mixin media-pc() {
+  @media (min-width: ($breakpoints-pc+'px')) {
+    @content;
+  }
+}
+
+@mixin media-tablet-pc() {
+  @media (min-width:($breakpoints-mobile+'px')) {
     @content;
   }
 }
@@ -22,23 +32,6 @@ $breakpoints-mobile: 767;
   color: #333;
 }
 
-legend {
-  display: none;
-}
-
-@keyframes move {
-  0% {
-    border-top: 1px solid #dfdfdf;
-    height: 0;
-  }
-
-  100% {
-    border-top: 1px solid rgb(248, 193, 91);
-    box-shadow: 0px 15px 5px -2px #c7c6c695;
-    height: 100px;
-  }
-}
-
 a {
   text-decoration: none;
   color: black;
@@ -48,8 +41,8 @@ li {
   list-style: none;
 }
 
-.menuoption {
-  text-align: center;
+legend {
+  display: none;
 }
 
 @keyframes fadeAni {
@@ -62,102 +55,42 @@ li {
   }
 }
 
-.header {
-  position: relative;
-  display: flex;
-  vertical-align: middle;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  height: 100px;
-  font-size: 20px;
-  font-weight: bolder;
+#wrap {
+  padding: 20px 0px;
 
-  .logo {
-    display: block;
-    width: 165px;
-    height: 60px;
-    background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
-    text-indent: -999em;
-  }
+  main {
+    @include media-pc() {
+      width: 100%;
+      border-top: 1px solid #cccccc;
+    }
 
-  .menu {
-    display: inline-block;
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
-  }
-}
+    @include media-tablet() {
+      border-top: 1px solid #cccccc;
+    }
 
-.navbar {
-  #main {
-    display: flex;
-    justify-content: space-between;
-
-    li {
-      vertical-align: middle;
-      padding: 0 25px;
-
-      &:hover ul.sub {
-        animation: move 0.5s ease alternate forwards;
-      }
-
-      a {
-        height: 100px;
-        display: flex;
-        align-items: center;
-
-        span,
-        img {
-          display: block;
-        }
-      }
-
-      .sub {
-        display: flex;
-        position: absolute;
+    #section {
+      @include media-pc() {
         justify-content: center;
-        overflow: hidden;
-        margin-left: calc(-50vw + 50%);
-        top: 100px;
-        left: 0px;
-        width: 100vw;
-        height: 0px;
-        background-color: #ffffff;
-        text-align: center;
+        margin: 0 auto;
+        width: 1160px;
+        display: flex;
+      }
 
-        li {
-          margin: 30px 20px;
-          padding: 10px 0;
-          width: 150px;
-          height: 20px;
-          border: 2px solid #5f5f5f;
-          border-radius: 25px;
-          background-color: #ffffff;
-
-          &:hover {
-            border: 2px solid red;
-
-            a {
-              color: red;
-            }
-          }
-
-          a {
-            font-size: 14px;
-            display: block;
-            color: #5f5f5f;
-
-            &:hover li {
-              border: 1px solid red;
-            }
-          }
-        }
+      @include media-tablet() {
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
       }
     }
   }
+
 }
+
+.menuoption {
+  text-align: center;
+}
+
 
 //장바구니
 .basketbox {
@@ -354,286 +287,10 @@ li {
 }
 
 
-#wrap {
-  padding: 20px 0;
 
-  #left {
-    height: 100%;
-    display: block;
-  }
 
-  #right {
-    text-align: center;
-
-    section.right_menu1 {
-      padding: 20px 0;
-      // width: 300px;
-      // height: 100vh;
-      width: 100%;
-
-      .location {
-        font-size: 12px;
-        font-style: normal;
-        text-decoration: none;
-        color: #333;
-        text-align: right;
-      }
-
-      ////FIXME 여기
-      .name {
-        padding: 40px 0 0 0;
-        line-height: 26px;
-        font-size: 26px;
-        color: #cb1919;
-        text-align: center;
-      }
-
-      p {
-        margin-top: 10px;
-        font-size: 16px;
-        text-align: center;
-        padding: 0 0 30px 0;
-      }
-    }
-  }
-
-  .article {
-    form {
-      display: flex;
-      width: 85%;
-      margin: 0 auto;
-      // flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: center;
-      border-top: 1px solid #c2c2c2;
-      align-content: space-around;
-
-      fieldset {
-        margin: 30px 0;
-        border: 0;
-        display: flex;
-        height: 100%;
-        width: 100%;
-        flex-wrap: wrap;
-
-        // justify-content: space-between;
-        article {
-          position: relative;
-          padding: 10px 0;
-          border: 1px solid #c2c2c2;
-          background-color: #ffffff;
-          height: 236px;
-
-          .r_line {
-            display: none; // FIXME
-            overflow: hidden;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 0;
-            height: 518px;
-            border: 2px solid #cb1919;
-            background-color: white;
-          }
-
-          img {
-            position: absolute;
-          }
-
-          h4 {
-            display: inline-block;
-            margin: 0;
-            line-height: 19px;
-            min-height: 14px;
-            min-width: 14px;
-            font-weight: normal;
-            position: absolute;
-            left: 14px;
-            top: 180px;
-            text-align: left;
-            font-size: 16px;
-            font-family: NGBold;
-          }
-
-          .input {
-            position: absolute;
-            top: 200px;
-            // padding: 20px ;
-          }
-
-          .menu_ops {
-            text-align: center;
-            // display: none; //FIXME
-            position: absolute;
-            left: 0px;
-            // height: 0; //NOTE
-            // overflow: hidden; //
-
-            p {
-              a {
-                // 골드
-                display: block;
-                line-height: 33px;
-                border: 1px solid #969696;
-                background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 95% center;
-              }
-            }
-
-            .gold {
-              z-index: 10;
-              // display: none;
-              position: absolute;
-              top: 45px;
-
-              li {
-                border: 1px solid #e2e2e2;
-                background: #fff;
-
-                a {
-                  display: block;
-                  line-height: 30px;
-                  background: #fafafa;
-
-                  &:hover {
-                    background: #e4e4e4;
-                  }
-                }
-              }
-            }
-
-            .menu_btn {
-              width: 100%;
-
-              ul {
-                display: flex;
-                justify-content: center;
-
-                li {
-                  width: 33.333%;
-                  box-sizing: border-box;
-
-                  #memu01 {
-                    left: 1;
-                    position: relative;
-                    // margin-left: -1px;
-                    border: 1px solid #cccccc;
-                    text-indent: -9999em;
-                    font-size: 12px;
-                    font-weight: bold;
-                    font-family: NGBold;
-                    color: #cb1919;
-                    padding: 15px 0px;
-                    display: block;
-                    background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
-                    background-repeat: no-repeat;
-                    background-position: center center;
-                  }
-
-                  #memu02 {
-                    position: relative;
-                    // margin-left: -1px;
-                    border: 1px solid #cccccc;
-                    text-indent: -9999em;
-                    font-size: 12px;
-                    font-weight: bold;
-                    font-family: NGBold;
-                    color: #cb1919;
-                    padding: 15px 0px;
-                    display: block;
-                    background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
-                    background-repeat: no-repeat;
-                    background-position: center center;
-                  }
-
-                  #memu03 {
-                    position: relative;
-                    // margin-left: -1px;
-                    border: 1px solid #cccccc;
-                    text-indent: -9999em;
-                    font-size: 12px;
-                    font-weight: bold;
-                    color: #cb1919;
-                    font-family: NGBold;
-
-                    padding: 15px 0px;
-                    display: block;
-                    background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
-                    background-repeat: no-repeat;
-                    background-position: center center;
-                  }
-                }
-              }
-            }
-
-            .menu_text {
-              padding: 10px 0;
-              font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움",
-                Dotum, Arial, Tahoma, Geneva, Verdana;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .pizza_style {
-    color: #f17304 !important;
-    cursor: default;
-    font-family: NGBold;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px;
-  }
-
-  .pizza_style_s {
-    color: #cb1919 !important;
-    cursor: default;
-    font-family: NGBold;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px;
-  }
-}
-
-@media (max-width: 686px) {
-  #header {
-    z-index: 35;
-    position: absolute;
-    width: 100%;
-  }
-
-  header {
-    padding: 0 20px;
-
-    nav {
-      display: none;
-    }
-
-    .right_menu {
-      .btn_gnb {
-        cursor: pointer;
-        display: inline-block;
-        width: 50px;
-        vertical-align: top;
-        height: 50px;
-        background: #e20c3e;
-        border-radius: 50%;
-        position: relative;
-
-        i {
-          left: 16px;
-          top: 16px;
-          color: white;
-          vertical-align: top;
-          border-radius: 50%;
-          position: relative;
-        }
-      }
-    }
-  }
-
-  .leftback {
+.leftback {
+  @include media-mo {
     z-index: 30;
     left: 0;
     top: 0px;
@@ -642,77 +299,80 @@ li {
     position: fixed;
     background-color: white;
   }
+}
 
-  #left {
+#left {
+  display: block;
+  height: 100%;
+
+  @include media-mo {
     top: 150px;
     position: absolute;
     z-index: 50;
     width: 90%;
     padding: 5%;
     background-color: white;
+  }
+
+  @include media-tablet() {
+    height: 100%;
+  }
+
+  @include media-tablet-pc() {
     display: block;
+    width: 25%;
+    padding-left: 2.72413793103%;
+  }
 
-    .left_section {
-      ul {
-        display: flex;
-        justify-content: space-around;
 
-        li {
-          width: 100%;
 
-          a {
-            text-align: center;
-            padding: 8px 5px 8px;
-
-            display: block;
-            border: 1px solid #cccccc;
-            font-size: 15px;
-            font-family: NGBold;
-
-            span {
-              display: block;
-            }
-          }
-        }
-      }
+  .section {
+    h2 {
+      padding-top: 70px;
     }
 
-    section {
 
-      // NOTE 왼쪽
-      h2 {
-        padding-top: 70px;
-      }
+    ul {
+      width: 100%;
 
-      ul {
-        width: 100%;
+      @include media-mo {
         margin-top: 10px;
+      }
 
-        li {
-          // width: 150px;
-          margin-bottom: 8px;
-          display: list-item;
-          text-align: -webkit-match-parent;
+      @include media-tablet() {
+        margin-top: 10px;
+      }
 
-          a {
-            display: block;
-            padding: 8px 5px 8px;
-            border: 1px solid #cccccc;
-            font-size: 15px;
-            font-family: NGBold;
-            color: #666666;
-            background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+      @include media-pc() {
+        margin: 10px;
+      }
 
-            img {
-              padding: 1px 10px 0;
-            }
+      li {
+        margin-bottom: 8px;
+
+        a {
+          display: block;
+          padding: 8px 5px 8px;
+          border: 1px solid #cccccc;
+          font-size: 15px;
+          font-family: NGBold;
+          color: #666666;
+          background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+
+          img {
+            padding: 1px 10px 0;
           }
         }
       }
     }
 
-    form.menual {
-      // width: 16.379310344827587%;
+
+    @include media-tablet-pc() {
+      position: relative;
+      top: 20px;
+    }
+
+    .menual {
       margin: 10px 0.8620689655172413%;
 
       fieldset {
@@ -734,61 +394,349 @@ li {
       }
     }
   }
+}
 
-  // display: none;
 
-  #right {
-    padding-top: 80px;
+
+
+#right {
+  padding-top: 80px;
+  width: 100%;
+  text-align: center;
+
+  @include media-pc() {
+    width: 80%;
+  }
+
+  @include media-tablet() {
+    width: 75%;
+  }
+
+  section.right_menu1 {
+    padding: 20px 0;
+    // width: 300px;
+    // height: 100vh;
     width: 100%;
 
-    section.right_menu1 {
-      .article {
-        form {
-          fieldset {
-            article {
-              margin: 1% 0;
+    .breadcrumb {
+      font-size: 12px;
+      font-style: normal;
+      text-decoration: none;
+      color: #333;
+      text-align: right;
+    }
+
+    .name {
+      padding: 40px 0 0 0;
+      line-height: 26px;
+      font-size: 26px;
+      color: #cb1919;
+      text-align: center;
+
+      p {
+        margin-top: 10px;
+        font-size: 16px;
+        text-align: center;
+        padding: 0 0 30px 0;
+      }
+    }
+  }
+}
+
+.article {
+  form {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-top: 1px solid #c2c2c2;
+    align-content: space-around;
+
+    fieldset {
+      margin: 30px 0;
+      border: 0;
+      display: flex;
+      height: 100%;
+      width: 100%;
+      flex-wrap: wrap;
+
+      // justify-content: space-between;
+      article {
+        position: relative;
+        padding: 10px 0;
+        border: 1px solid #c2c2c2;
+        background-color: #ffffff;
+        height: 236px;
+
+        @include media-mo() {
+          margin: 1% 0;
+          width: 100%;
+
+          &:hover {
+            border: 2px solid #cb1919;
+          }
+        }
+
+        @include media-tablet() {
+          margin: 1%;
+          width: 47%;
+          text-align: center;
+        }
+
+        @include media-pc() {
+          margin: 0.5%;
+          width: 32%;
+        }
+
+        .r_line {
+          display: none; // FIXME
+          overflow: hidden;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 0;
+          height: 518px;
+          border: 2px solid #cb1919;
+          background-color: white;
+        }
+
+        img {
+          position: absolute;
+
+          @include media-mo() {
+            padding-left: 10px;
+            width: 220px;
+            display: block;
+            margin: 0 auto;
+            left: 0;
+          }
+
+          @include media-tablet() {
+            object-fit: cover;
+            max-height: 160px;
+            width: 92%;
+            display: block;
+            margin: 0 auto;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+
+
+          @include media-pc() {
+            left: 11px;
+            width: 92%;
+            margin-top: 2%;
+          }
+        }
+
+        h4 {
+          display: inline-block;
+          margin: 0;
+          line-height: 19px;
+          min-height: 14px;
+          min-width: 14px;
+          font-weight: normal;
+          position: absolute;
+          left: 14px;
+          top: 180px;
+          text-align: left;
+          font-size: 16px;
+          font-family: NGBold;
+
+          @include media-mo() {
+            padding: 10px 1%;
+          }
+
+          @include media-tablet() {
+            font-weight: bolder;
+            padding: 1px 1%;
+          }
+
+          @include media-pc() {
+            padding: 10px;
+          }
+        }
+
+        .input {
+          position: absolute;
+          top: 200px;
+
+          @include media-mo() {
+            padding: 20px 5%;
+          }
+
+          @include media-tablet() {
+            position: absolute;
+            top: 200px;
+            padding: 20px 7px;
+          }
+
+          @include media-pc() {
+            padding: 20px;
+          }
+
+        }
+
+        .menu_ops {
+          text-align: center;
+          position: absolute;
+          left: 0px;
+
+          @include media-mo() {
+            width: calc(94% - 240px);
+
+            padding: 0 2% 0 240px;
+            top: 20px;
+            left: 1%;
+          }
+
+          @include media-tablet() {
+            height: 0;
+            width: 94%;
+            margin: 0 3%;
+            overflow: hidden;
+            top: 280px;
+          }
+
+          @include media-pc() {
+            height: 0;
+            position: relative;
+            margin: 0 10px;
+
+            overflow: hidden;
+            top: 280px;
+          }
+
+          p {
+            a {
+              // 골드
+              display: block;
+              line-height: 33px;
+              border: 1px solid #969696;
+              background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 95% center;
+            }
+          }
+
+          .gold {
+            z-index: 10;
+            // display: none;
+            position: absolute;
+            top: 45px;
+
+            @include media-mo() {
+              width: calc(94% - 220px);
+            }
+
+            @include media-tablet() {
+              width: 100%;
+            }
+
+            @include media-pc() {
               width: 100%;
 
-              &:hover {
-                border: 2px solid #cb1919;
+            }
+
+            ul {
+              @include media-mo() {
+                width: 100%;
               }
 
-              img {
-                padding-left: 10px;
-                width: 220px;
+              @include media-tablet() {
+                width: 100%;
+              }
+            }
+
+            li {
+              border: 1px solid #e2e2e2;
+              background: #fff;
+
+              a {
                 display: block;
-                margin: 0 auto;
-                left: 0;
-              }
+                line-height: 30px;
+                background: #fafafa;
 
-              h4 {
-                padding: 10px 1%;
-              }
-
-              .input {
-                position: absolute;
-                top: 200px;
-                padding: 20px 5%;
-              }
-
-              .menu_ops {
-                width: calc(94% - 240px);
-
-                padding: 0 2% 0 240px;
-                top: 20px;
-                left: 1%;
-
-                .gold {
-                  width: calc(94% - 220px);
-                }
-
-                .menu_btn {
-                  ul {
-                    width: 100%;
-                  }
+                &:hover {
+                  background: #e4e4e4;
                 }
               }
             }
+          }
+
+          .menu_btn {
+            @include media-tablet() {
+              margin-left: -4px;
+            }
+
+            width: 100%;
+
+            ul {
+              display: flex;
+              justify-content: center;
+
+              li {
+                width: 33.333%;
+                box-sizing: border-box;
+
+                #memu01 {
+                  left: 1;
+                  position: relative;
+                  // margin-left: -1px;
+                  border: 1px solid #cccccc;
+                  text-indent: -9999em;
+                  font-size: 12px;
+                  font-weight: bold;
+                  font-family: NGBold;
+                  color: #cb1919;
+                  padding: 15px 0px;
+                  display: block;
+                  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                }
+
+                #memu02 {
+                  position: relative;
+                  // margin-left: -1px;
+                  border: 1px solid #cccccc;
+                  text-indent: -9999em;
+                  font-size: 12px;
+                  font-weight: bold;
+                  font-family: NGBold;
+                  color: #cb1919;
+                  padding: 15px 0px;
+                  display: block;
+                  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                }
+
+                #memu03 {
+                  position: relative;
+                  // margin-left: -1px;
+                  border: 1px solid #cccccc;
+                  text-indent: -9999em;
+                  font-size: 12px;
+                  font-weight: bold;
+                  color: #cb1919;
+                  font-family: NGBold;
+
+                  padding: 15px 0px;
+                  display: block;
+                  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                }
+              }
+            }
+          }
+
+          .menu_text {
+            padding: 10px 0;
+            font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움",
+              Dotum, Arial, Tahoma, Geneva, Verdana;
           }
         }
       }
@@ -796,190 +744,20 @@ li {
   }
 }
 
-@media (min-width: 687px) and (max-width: 1159px) {
-  #icon {
-    display: none;
-  }
+.pizza_style {
+  color: #f17304 !important;
+  cursor: default;
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+}
 
-  #header {
-    width: 100%;
-  }
-
-  header {
-    padding: 0 20px;
-
-    nav {
-      #main {
-        li {
-
-          img,
-          span {
-            text-align: center;
-            display: block;
-            margin: auto;
-          }
-
-          .menu {
-            a {
-              text-align: center;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // NOTE 워랩
-  #wrap {
-
-    // --------------------헤더 끝
-    main {
-      border-top: 1px solid #cccccc;
-
-      #section {
-        justify-content: center;
-        margin: 0 auto;
-        width: 100%;
-        display: flex;
-
-        #left {
-          height: 100%;
-          display: block;
-          width: 25%;
-          padding-left: 2.72413793103%;
-
-          .left_section {
-            display: none;
-          }
-
-          section {
-            position: relative;
-            top: 20px;
-          }
-
-          // NOTE 왼쪽
-          h2 {
-            padding-top: 50px;
-          }
-
-          ul {
-            width: 100%;
-            margin-top: 10px;
-
-            li {
-              // width: 150px;
-              margin-bottom: 8px;
-              display: list-item;
-              text-align: -webkit-match-parent;
-
-              a {
-                display: block;
-                padding: 8px 5px 8px;
-                border: 1px solid #cccccc;
-                font-size: 15px;
-                font-family: NGBold;
-                color: #666666;
-                background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
-
-                img {
-                  padding: 1px 10px 0;
-                }
-              }
-            }
-          }
-
-          form.menual {
-            // width: 16.379310344827587%;
-            margin: 10px 0.8620689655172413%;
-
-            fieldset {
-              margin-top: 50px;
-              border: 1px solid #eeeeee;
-
-              h3 {
-                padding: 5px 10%;
-                line-height: 43px;
-                background: #eeeeee;
-                font-size: 16px;
-              }
-
-              input {
-                padding: 20px 1.7241379310344827%;
-                margin: 10px 5%;
-                vertical-align: middle;
-              }
-            }
-          }
-        }
-
-        // --------------------왼쪽 섹션 끝
-
-        //NOTE 두번째 세[ㄱ션
-        #right {
-          width: 75%;
-
-          section.right_menu1 {
-            .article {
-              form {
-                fieldset {
-                  article {
-                    margin: 1%;
-                    width: 47%;
-                    text-align: center;
-
-                    img {
-                      object-fit: cover;
-                      max-height: 160px;
-                      width: 92%;
-                      display: block;
-                      margin: 0 auto;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    }
-
-                    h4 {
-                      font-weight: bolder;
-                      padding: 1px 1%;
-                    }
-
-                    .input {
-                      position: absolute;
-                      top: 200px;
-                      padding: 20px 7px;
-                    }
-
-                    .menu_ops {
-                      height: 0;
-                      width: 94%;
-                      margin: 0 3%;
-                      overflow: hidden;
-                      top: 280px;
-
-                      p {
-                        a {
-                          // 골드
-                        }
-                      }
-
-                      .gold {
-                        width: 100%;
-                      }
-
-                      .menu_btn {
-                        margin-left: -4px;
-
-                        ul {
-                          width: 100%;
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+.pizza_style_s {
+  color: #cb1919 !important;
+  cursor: default;
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
 }
