@@ -39,11 +39,10 @@ legend {
   height: 100px;
   font-size: 20px;
   font-weight: bolder;
-  padding: 0 20px;
 }
 @media (min-width: 1160px) {
   .header {
-    width: 1120px;
+    width: 1160px;
   }
 }
 @media (max-width: 686px) {
@@ -60,28 +59,26 @@ legend {
   background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
   text-indent: -999em;
 }
-@media (max-width: 686px) {
-  .header .btn_gnb {
-    cursor: pointer;
-    display: inline-block;
-    width: 50px;
-    vertical-align: top;
-    height: 50px;
-    background: #e20c3e;
-    border-radius: 50%;
-    position: relative;
-  }
-  .header .btn_gnb i {
-    left: 16px;
-    top: 16px;
-    color: white;
-    vertical-align: top;
-    border-radius: 50%;
-    position: relative;
-  }
+.header .btn_gnb {
+  display: inline-block;
+  width: 50px;
+  vertical-align: top;
+  height: 50px;
+  background: #e20c3e;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+.header .btn_gnb i {
+  left: 16px;
+  top: 16px;
+  color: white;
+  vertical-align: top;
+  border-radius: 50%;
+  position: relative;
 }
 @media (min-width: 686px) {
-  .header .btn_gnb #icon {
+  .header .btn_gnb {
     display: none;
   }
 }
@@ -115,12 +112,18 @@ legend {
   animation: move 0.5s ease alternate forwards;
 }
 .navbar #main .mainli .maina {
-  height: 80px;
   align-items: center;
   vertical-align: middle;
 }
+@media (max-width: 1160px) and (min-width: 686px) {
+  .navbar #main .mainli .maina {
+    display: block;
+    padding: 20px 0;
+  }
+}
 @media (min-width: 1160px) {
   .navbar #main .mainli .maina {
+    height: 100px;
     display: flex;
   }
 }
@@ -173,25 +176,23 @@ legend {
   border: 1px solid red;
 }
 
-@media (max-width: 686px) {
-  .left_section {
-    display: flex;
-    justify-content: space-around;
-  }
-  .left_section li {
-    width: 100%;
-  }
-  .left_section li a {
-    display: block;
-    padding: 8px 5px;
-    border: 1px solid #cccccc;
-    text-align: center;
-    font-family: NGBold;
-  }
-  .left_section li a span {
-    font-size: 15px;
-    display: block;
-  }
+.left_section {
+  display: flex;
+  justify-content: space-around;
+}
+.left_section li {
+  width: 100%;
+}
+.left_section li a {
+  display: block;
+  padding: 8px 5px;
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-family: NGBold;
+}
+.left_section li a span {
+  font-size: 15px;
+  display: block;
 }
 @media (min-width: 686px) {
   .left_section {

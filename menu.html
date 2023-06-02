@@ -146,19 +146,21 @@
             </ul>
             <form class="menual">
               <fieldset>
-                <h3>메뉴정렬</h3>
                 <legend>메뉴정렬</legend>
-                <input type="radio" />신제품순<br />
-                <input type="radio" />인기제품순<br />
-                <input type="radio" />가격 낮은순<br />
-                <input type="radio" />가격 높은순<br />
+                <h3>메뉴정렬</h3>
+                <div class="range">
+                <label><input type="radio" name="rate" /> 신제품순</label>
+                <label><input type="radio" name="rate"/> 인기제품순</label>
+                <label><input type="radio" name="rate"/> 가격 낮은순</label>
+                <label><input type="radio" name="rate"/> 가격 높은순</label>
+                </div>
               </fieldset>
             </form>
           </section>
         </div>
         <!--TODO 두번째 ㅅ[ㄱ션] -->
         <div id="right">
-          <section class="right_menu1">
+          <section class="mainmenu">
             <div class="breadcrumb">
               <a href="">홈</a> > 피자 > 프리미엄 피자
             </div>
@@ -167,11 +169,10 @@
               <p>프리미엄 토핑을 더 풍서하게 특별하게 즐기는 피자</p>
             </div>
             <!-- NOTE 알티클 -->
-            <div class="article">
-              <form>
+              <form class="article">
                 <fieldset>
                   <legend>메뉴정렬</legend>
-                  <article class="pizza_module" style="z-index: 30">
+                  <article  style="z-index: 30">
                     <i class="r_line"></i>
 
                     <img alt="" class="pizza1" src="imge/2023314151710070.jpg" />
@@ -180,9 +181,9 @@
                     <div class="input">
                       <label>
                         <input type="radio" name="Menu" value="M" />
-                        <span id="M" class="pizza_style">M 32,000</span></label>
+                        <span id="M" class="pizza_style_M">M 32,000</span></label>
                       <label><input type="radio" name="Menu" value="L" />
-                        <span id="L" class="pizza_style_s">L 39,500</span></label>
+                        <span id="L" class="pizza_style_L">L 39,500</span></label>
                     </div>
                     <div class="menu_ops">
                       <div class="menuoption">
@@ -244,8 +245,8 @@
                     <img alt="" src="imge/2022112192627721.jpg" />
                     <h4>킹 브레드 쉬림프 골드</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <div class="menuoption">
@@ -275,8 +276,8 @@
                     <img alt="" src="imge/2022111817271616.jpg" />
                     <h4>킹 브레드 쉬림프 골드 칠리</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -304,8 +305,8 @@
                     <img alt="" src="imge/20201112153536343.jpg" />
                     <h4>햄벅한새우</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -332,8 +333,8 @@
                     <img alt="" src="imge/20207131895047.jpg" />
                     <h4>미스터트리오</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -360,8 +361,8 @@
                     <img alt="" src="imge/2023314151710070.jpg" />
                     <h4>치즈블라썸스테이크</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -388,8 +389,8 @@
                     <img alt="" src="imge/2023314151710070.jpg" />
                     <h4>치즈블라썸스테이크</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -416,8 +417,8 @@
                     <img alt="" src="imge/2023314151710070.jpg" />
                     <h4>치즈블라썸스테이크</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -444,8 +445,8 @@
                     <img alt="" src="imge/2023314151710070.jpg" />
                     <h4>치즈블라썸스테이크</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -472,8 +473,8 @@
                     <img alt="" src="imge/2023314151710070.jpg" />
                     <h4>치즈블라썸스테이크</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -500,8 +501,8 @@
                     <img alt="" src="imge/2023314151710070.jpg" />
                     <h4>치즈블라썸스테이크</h4>
                     <div class="input">
-                      <input type="radio" name="M" /><span class="pizza_style">L 32,000</span>
-                      <input type="radio" name="M" /><span class="pizza_style_s">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_M">L 32,000</span>
+                      <input type="radio" name="M" /><span class="pizza_style_L">L 32,000</span>
                     </div>
                     <div class="menu_ops">
                       <p><a href="#">골드</a></p>
@@ -525,7 +526,6 @@
                   </article>
                 </fieldset>
               </form>
-            </div>
             <!-- NOTE 슬라이드 창 -->
           </section>
           <div class="ractangle">

@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +25,10 @@ legend {
   display: none;
 }
 
+fieldset {
+  border: 0;
+}
+
 @keyframes fadeAni {
   from {
     opacity: 0;
@@ -32,25 +42,17 @@ legend {
 }
 #wrap main {
   border-top: 1px solid #cccccc;
-}
-@media (min-width: 1160px) {
-  #wrap main {
-    width: 100%;
-  }
+  width: 100%;
 }
 #wrap main #section {
   justify-content: center;
   display: flex;
   margin: 0 auto;
+  padding: 0 5%;
 }
 @media (min-width: 1160px) {
   #wrap main #section {
-    width: 1160px;
-  }
-}
-@media (max-width: 1160px) and (min-width: 686px) {
-  #wrap main #section {
-    width: 100%;
+    width: calc(1160px - 10%);
   }
 }
 
@@ -227,12 +229,12 @@ legend {
 
 @media (max-width: 686px) {
   .leftback {
+    position: fixed;
     z-index: 30;
     left: 0;
     top: 0px;
     height: 100%;
     width: 100%;
-    position: fixed;
     background-color: white;
   }
 }
@@ -243,11 +245,11 @@ legend {
 }
 @media (max-width: 686px) {
   #left {
-    top: 150px;
     position: absolute;
+    top: 150px;
     z-index: 50;
-    width: 90%;
     padding: 5%;
+    width: 90%;
     background-color: white;
   }
 }
@@ -259,347 +261,256 @@ legend {
 @media (min-width: 686px) {
   #left {
     display: block;
-    width: 25%;
-    padding-left: 2.724137931%;
+    width: 20%;
+    min-width: 170px;
   }
 }
 #left .section h2 {
-  padding-top: 70px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: 26px;
+  font-weight: Normal;
+  font-family: NGBold;
 }
-#left .section ul {
-  width: 100%;
-}
-@media (max-width: 686px) {
-  #left .section ul {
-    margin-top: 10px;
-  }
-}
-@media (max-width: 1160px) and (min-width: 686px) {
-  #left .section ul {
-    margin-top: 10px;
-  }
-}
-@media (min-width: 1160px) {
-  #left .section ul {
-    margin: 10px;
-  }
-}
-#left .section ul li {
+#left .section li {
   margin-bottom: 8px;
 }
-#left .section ul li a {
+#left .section li a {
   display: block;
-  padding: 8px 5px 8px;
+  padding: 10px;
   border: 1px solid #cccccc;
   font-size: 15px;
   font-family: NGBold;
   color: #666666;
+  display: flex;
+  align-items: center;
   background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
 }
-#left .section ul li a img {
-  padding: 1px 10px 0;
-}
-@media (min-width: 686px) {
-  #left .section {
-    position: relative;
-    top: 20px;
-  }
+#left .section li a img {
+  padding-left: 5px;
 }
 #left .section .menual {
-  margin: 10px 0.8620689655%;
-}
-#left .section .menual fieldset {
   margin-top: 50px;
   border: 1px solid #eeeeee;
 }
-#left .section .menual fieldset h3 {
-  padding: 5px 10%;
-  line-height: 43px;
+#left .section .menual h3 {
+  padding: 10px;
   background: #eeeeee;
   font-size: 16px;
 }
-#left .section .menual fieldset input {
-  padding: 20px 1.724137931%;
-  margin: 10px 5%;
+#left .section .menual .range {
+  padding: 10px 0;
+}
+#left .section .menual .range label {
+  display: block;
+  padding: 10px;
+  font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  font-size: 14px;
+  cursor: pointer;
+}
+#left .section .menual .range input {
   vertical-align: middle;
+  width: 22px;
+  height: 22px;
 }
 
 #right {
-  padding-top: 80px;
-  width: 100%;
   text-align: center;
 }
-@media (min-width: 1160px) {
+@media (max-width: 686px) {
+  #right {
+    padding-top: 80px;
+  }
+}
+@media (min-width: 686px) {
   #right {
     width: 80%;
+    padding-left: 60px;
   }
 }
-@media (max-width: 1160px) and (min-width: 686px) {
-  #right {
-    width: 75%;
-  }
-}
-#right section.right_menu1 {
+#right .mainmenu {
   padding: 20px 0;
   width: 100%;
 }
-#right section.right_menu1 .breadcrumb {
+#right .mainmenu .breadcrumb {
+  text-align: right;
   font-size: 12px;
   font-style: normal;
   text-decoration: none;
   color: #333;
-  text-align: right;
 }
-#right section.right_menu1 .name {
-  padding: 40px 0 0 0;
+#right .mainmenu .name {
+  padding-top: 50px;
   line-height: 26px;
   font-size: 26px;
   color: #cb1919;
   text-align: center;
 }
-#right section.right_menu1 .name p {
-  margin-top: 10px;
+#right .mainmenu p {
+  padding-bottom: 30px;
+  padding-top: 10px;
   font-size: 16px;
   text-align: center;
-  padding: 0 0 30px 0;
 }
 
-.article form {
-  display: flex;
-  width: 85%;
-  margin: 0 auto;
+.article {
   flex-wrap: wrap;
-  justify-content: center;
   border-top: 1px solid #c2c2c2;
-  align-content: space-around;
 }
-.article form fieldset {
-  margin: 30px 0;
-  border: 0;
+.article fieldset {
   display: flex;
-  height: 100%;
-  width: 100%;
   flex-wrap: wrap;
+  margin: 30px 0;
+  width: 100%;
+  gap: 5px;
 }
-.article form fieldset article {
+@media (max-width: 1160px) and (min-width: 686px) {
+  .article fieldset {
+    gap: 10px;
+  }
+}
+.article fieldset article {
   position: relative;
-  padding: 10px 0;
+  padding: 10px;
   border: 1px solid #c2c2c2;
   background-color: #ffffff;
   height: 236px;
 }
 @media (max-width: 686px) {
-  .article form fieldset article {
-    margin: 1% 0;
+  .article fieldset article {
     width: 100%;
   }
-  .article form fieldset article:hover {
+  .article fieldset article:hover {
     border: 2px solid #cb1919;
   }
 }
 @media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article {
-    margin: 1%;
-    width: 47%;
-    text-align: center;
+  .article fieldset article {
+    width: calc(50% - 28px);
   }
 }
 @media (min-width: 1160px) {
-  .article form fieldset article {
-    margin: 0.5%;
-    width: 32%;
+  .article fieldset article {
+    width: calc(33.3% - 26px);
   }
 }
-.article form fieldset article .r_line {
+.article fieldset article .r_line {
   display: none;
-  overflow: hidden;
   position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 0;
   height: 518px;
   border: 2px solid #cb1919;
   background-color: white;
 }
-.article form fieldset article img {
+.article fieldset article img {
   position: absolute;
+  display: block;
+  width: calc(100% - 20px);
 }
 @media (max-width: 686px) {
-  .article form fieldset article img {
-    padding-left: 10px;
+  .article fieldset article img {
     width: 220px;
-    display: block;
-    margin: 0 auto;
-    left: 0;
   }
 }
 @media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article img {
+  .article fieldset article img {
     object-fit: cover;
+    min-height: 130px;
     max-height: 160px;
-    width: 92%;
-    display: block;
-    margin: 0 auto;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
-@media (min-width: 1160px) {
-  .article form fieldset article img {
-    left: 11px;
-    width: 92%;
-    margin-top: 2%;
-  }
-}
-.article form fieldset article h4 {
-  display: inline-block;
-  margin: 0;
-  line-height: 19px;
-  min-height: 14px;
-  min-width: 14px;
-  font-weight: normal;
+.article fieldset article h4 {
   position: absolute;
+  display: inline-block;
   left: 14px;
   top: 180px;
+  line-height: 19px;
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bolder;
   font-family: NGBold;
 }
-@media (max-width: 686px) {
-  .article form fieldset article h4 {
-    padding: 10px 1%;
-  }
-}
-@media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article h4 {
-    font-weight: bolder;
-    padding: 1px 1%;
-  }
-}
-@media (min-width: 1160px) {
-  .article form fieldset article h4 {
-    padding: 10px;
-  }
-}
-.article form fieldset article .input {
+.article fieldset article .input {
   position: absolute;
   top: 200px;
+  padding: 20px 0px;
 }
-@media (max-width: 686px) {
-  .article form fieldset article .input {
-    padding: 20px 5%;
-  }
+.article fieldset article .input span {
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  cursor: default;
 }
-@media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article .input {
-    position: absolute;
-    top: 200px;
-    padding: 20px 7px;
-  }
+.article fieldset article .input span.pizza_style_M {
+  color: #f17304 !important;
 }
-@media (min-width: 1160px) {
-  .article form fieldset article .input {
-    padding: 20px;
-  }
+.article fieldset article .input span.pizza_style_L {
+  color: #cb1919 !important;
 }
-.article form fieldset article .menu_ops {
-  text-align: center;
+.article fieldset article .menu_ops {
   position: absolute;
-  left: 0px;
+  width: calc(100% - 20px);
 }
 @media (max-width: 686px) {
-  .article form fieldset article .menu_ops {
+  .article fieldset article .menu_ops {
     width: calc(94% - 240px);
     padding: 0 2% 0 240px;
     top: 20px;
     left: 1%;
   }
 }
-@media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article .menu_ops {
+@media (min-width: 686px) {
+  .article fieldset article .menu_ops {
     height: 0;
-    width: 94%;
-    margin: 0 3%;
     overflow: hidden;
     top: 280px;
   }
 }
-@media (min-width: 1160px) {
-  .article form fieldset article .menu_ops {
-    height: 0;
-    position: relative;
-    margin: 0 10px;
-    overflow: hidden;
-    top: 280px;
-  }
-}
-.article form fieldset article .menu_ops p a {
+.article fieldset article .menu_ops p a {
   display: block;
   line-height: 33px;
   border: 1px solid #969696;
   background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 95% center;
 }
-.article form fieldset article .menu_ops .gold {
-  z-index: 10;
+.article fieldset article .menu_ops .gold {
   position: absolute;
+  z-index: 10;
   top: 45px;
 }
 @media (max-width: 686px) {
-  .article form fieldset article .menu_ops .gold {
+  .article fieldset article .menu_ops .gold {
     width: calc(94% - 220px);
   }
 }
-@media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article .menu_ops .gold {
+@media (min-width: 686px) {
+  .article fieldset article .menu_ops .gold {
     width: 100%;
   }
 }
-@media (min-width: 1160px) {
-  .article form fieldset article .menu_ops .gold {
-    width: 100%;
-  }
-}
-@media (max-width: 686px) {
-  .article form fieldset article .menu_ops .gold ul {
-    width: 100%;
-  }
-}
-@media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article .menu_ops .gold ul {
-    width: 100%;
-  }
-}
-.article form fieldset article .menu_ops .gold li {
+.article fieldset article .menu_ops .gold li {
   border: 1px solid #e2e2e2;
   background: #fff;
 }
-.article form fieldset article .menu_ops .gold li a {
+.article fieldset article .menu_ops .gold li a {
   display: block;
   line-height: 30px;
   background: #fafafa;
 }
-.article form fieldset article .menu_ops .gold li a:hover {
+.article fieldset article .menu_ops .gold li a:hover {
   background: #e4e4e4;
 }
-.article form fieldset article .menu_ops .menu_btn {
-  width: 100%;
-}
-@media (max-width: 1160px) and (min-width: 686px) {
-  .article form fieldset article .menu_ops .menu_btn {
-    margin-left: -4px;
-  }
-}
-.article form fieldset article .menu_ops .menu_btn ul {
+.article fieldset article .menu_ops .menu_btn ul {
   display: flex;
   justify-content: center;
 }
-.article form fieldset article .menu_ops .menu_btn ul li {
+.article fieldset article .menu_ops .menu_btn ul li {
   width: 33.333%;
   box-sizing: border-box;
 }
-.article form fieldset article .menu_ops .menu_btn ul li #memu01 {
-  left: 1;
+.article fieldset article .menu_ops .menu_btn ul li a {
   position: relative;
   border: 1px solid #cccccc;
   text-indent: -9999em;
@@ -609,59 +520,21 @@ legend {
   color: #cb1919;
   padding: 15px 0px;
   display: block;
-  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
 }
-.article form fieldset article .menu_ops .menu_btn ul li #memu02 {
-  position: relative;
-  border: 1px solid #cccccc;
-  text-indent: -9999em;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: NGBold;
-  color: #cb1919;
-  padding: 15px 0px;
-  display: block;
-  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
+.article fieldset article .menu_ops .menu_btn ul li #memu01 {
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif) no-repeat center center;
 }
-.article form fieldset article .menu_ops .menu_btn ul li #memu03 {
-  position: relative;
-  border: 1px solid #cccccc;
-  text-indent: -9999em;
-  font-size: 12px;
-  font-weight: bold;
-  color: #cb1919;
-  font-family: NGBold;
-  padding: 15px 0px;
-  display: block;
-  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
+.article fieldset article .menu_ops .menu_btn ul li #memu02 {
+  margin-left: -1px;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif) no-repeat center center;
 }
-.article form fieldset article .menu_ops .menu_text {
+.article fieldset article .menu_ops .menu_btn ul li #memu03 {
+  margin-left: -1px;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif) no-repeat center center;
+}
+.article fieldset article .menu_ops .menu_text {
   padding: 10px 0;
   font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
-}
-
-.pizza_style {
-  color: #f17304 !important;
-  cursor: default;
-  font-family: NGBold;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 5px;
-}
-
-.pizza_style_s {
-  color: #cb1919 !important;
-  cursor: default;
-  font-family: NGBold;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 5px;
 }
 
 /*# sourceMappingURL=menu.css.map */

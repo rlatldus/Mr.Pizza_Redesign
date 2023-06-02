@@ -69,10 +69,9 @@ legend {
     height: 100px;
     font-size: 20px;
     font-weight: bolder;
-    padding: 0 20px;
 
     @include media-pc {
-        width: 1120px;
+        width: 1160px;
     }
 
     @include media-mo {
@@ -90,8 +89,6 @@ legend {
     }
 
     .btn_gnb {
-        @include media-mo {
-            cursor: pointer;
             display: inline-block;
             width: 50px;
             vertical-align: top;
@@ -99,6 +96,7 @@ legend {
             background: #e20c3e;
             border-radius: 50%;
             position: relative;
+            cursor: pointer;
 
             i {
                 left: 16px;
@@ -109,12 +107,9 @@ legend {
                 position: relative;
 
             }
-        }
 
         @include media-tablet-pc {
-            #icon {
-                display: none;
-            }
+            display: none;
         }
     }
 
@@ -149,11 +144,16 @@ legend {
             }
 
             .maina {
-                height: 80px;
                 align-items: center;
                 vertical-align: middle;
 
+                @include media-tablet() {
+                    display: block;
+                    padding: 20px 0;
+                }
+
                 @include media-pc {
+                    height: 100px;
                     display: flex;
                 }
 
@@ -217,7 +217,6 @@ legend {
 }
 
 .left_section {
-    @include media-mo {
         display: flex;
         justify-content: space-around;
 
@@ -237,7 +236,6 @@ legend {
                 }
             }
         }
-    }
 
     @include media-tablet-pc() {
         display: none;
