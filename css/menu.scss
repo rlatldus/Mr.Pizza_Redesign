@@ -39,6 +39,12 @@ $breakpoints-pc: 1160;
   color: #333;
 }
 
+input[type="radio"] {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -69,15 +75,20 @@ fieldset {
 #wrap {
   padding: 20px 0px;
 
-  main {
+  .main {
+    text-align: center;
+    text-align: center;
     border-top: 1px solid #cccccc;
-    width: 100%;
+    padding: 0 5%;
 
     #section {
-      justify-content: center;
-      display: flex;
       margin: 0 auto;
-      padding: 0 5%;
+      justify-content: space-between;
+      display: flex;
+
+      @include media-mo() {
+        display: block;
+      }
 
       @include media-pc() {
         width: calc(1160px - 10%);
@@ -305,7 +316,6 @@ fieldset {
     position: absolute;
     top: 150px;
     z-index: 50;
-    padding: 5%;
     width: 90%;
     background-color: white;
   }
@@ -364,6 +374,7 @@ fieldset {
         padding: 10px 0;
 
         label {
+          text-align: left;
           display: block;
           padding: 10px;
           font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
@@ -371,11 +382,6 @@ fieldset {
           cursor: pointer;
         }
 
-        input {
-          vertical-align: middle;
-          width: 22px;
-          height: 22px;
-        }
       }
     }
   }
@@ -473,13 +479,23 @@ fieldset {
         background-color: white;
       }
 
+      @include media-mo() {
+        .menuimg {
+          width: 30%;
+          background-color: #000000;
+
+        }
+      }
+
       img {
         position: absolute;
         display: block;
         width: calc(100% - 20px);
 
         @include media-mo() {
-          width: 220px;
+          width: calc(50% - 10px);
+          height: 150px;
+          object-fit: cover;
         }
 
         @include media-tablet() {
@@ -490,28 +506,40 @@ fieldset {
 
       }
 
-      h4 {
-        position: absolute;
-        display: inline-block;
-        left: 14px;
-        top: 180px;
-        line-height: 19px;
-        text-align: left;
-        font-size: 18px;
-        font-weight: bolder;
-        font-family: NGBold;
-      }
-
       .input {
         position: absolute;
         top: 200px;
-        padding: 20px 0px;
+        text-align: left;
+        @include media-tablet(){
+          top: 120px;
+          padding-top: 20%;
+        }
+        @include media-mo() {
+          top: 70px;
+        }
+        h4 {
+          padding-top: 5px;
+          left: 14px;
+          font-size: 18px;
+          font-weight: bolder;
+          font-family: NGBold;
+
+          @include media-mo() {
+            width: calc(100% - 10px);
+            padding-top: 50%;
+          }
+        }
+        
+        label {
+          display: inline-flex;
+          align-items: center;
+        }
 
         span {
           font-family: NGBold;
           font-size: 16px;
           font-weight: bold;
-          padding: 5px;
+          padding: 0 5px;
           cursor: default;
 
           &.pizza_style_M {
@@ -521,18 +549,19 @@ fieldset {
           &.pizza_style_L {
             color: #cb1919 !important;
           }
+
+
         }
       }
 
       .menu_ops {
-        position: absolute;
         width: calc(100% - 20px);
+        position: absolute;
 
         @include media-mo() {
-          width: calc(94% - 240px);
-          padding: 0 2% 0 240px;
           top: 20px;
-          left: 1%;
+          left: calc(50% + 10px);
+          width: calc(50% - 20px);
         }
 
         @include media-tablet-pc() {
@@ -581,6 +610,7 @@ fieldset {
         }
 
         .menu_btn {
+
           ul {
             display: flex;
             justify-content: center;
