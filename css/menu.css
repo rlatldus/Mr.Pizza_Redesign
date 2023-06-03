@@ -12,6 +12,12 @@
   color: #333;
 }
 
+input[type=radio] {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -40,18 +46,24 @@ fieldset {
 #wrap {
   padding: 20px 0px;
 }
-#wrap main {
+#wrap .main {
+  text-align: center;
+  text-align: center;
   border-top: 1px solid #cccccc;
-  width: 100%;
-}
-#wrap main #section {
-  justify-content: center;
-  display: flex;
-  margin: 0 auto;
   padding: 0 5%;
 }
+#wrap .main #section {
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+}
+@media (max-width: 686px) {
+  #wrap .main #section {
+    display: block;
+  }
+}
 @media (min-width: 1160px) {
-  #wrap main #section {
+  #wrap .main #section {
     width: calc(1160px - 10%);
   }
 }
@@ -248,7 +260,6 @@ fieldset {
     position: absolute;
     top: 150px;
     z-index: 50;
-    padding: 5%;
     width: 90%;
     background-color: white;
   }
@@ -302,16 +313,12 @@ fieldset {
   padding: 10px 0;
 }
 #left .section .menual .range label {
+  text-align: left;
   display: block;
   padding: 10px;
   font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
   font-size: 14px;
   cursor: pointer;
-}
-#left .section .menual .range input {
-  vertical-align: middle;
-  width: 22px;
-  height: 22px;
 }
 
 #right {
@@ -404,6 +411,12 @@ fieldset {
   border: 2px solid #cb1919;
   background-color: white;
 }
+@media (max-width: 686px) {
+  .article fieldset article .menuimg {
+    width: 30%;
+    background-color: #000000;
+  }
+}
 .article fieldset article img {
   position: absolute;
   display: block;
@@ -411,7 +424,9 @@ fieldset {
 }
 @media (max-width: 686px) {
   .article fieldset article img {
-    width: 220px;
+    width: calc(50% - 10px);
+    height: 150px;
+    object-fit: cover;
   }
 }
 @media (max-width: 1160px) and (min-width: 686px) {
@@ -421,27 +436,44 @@ fieldset {
     max-height: 160px;
   }
 }
-.article fieldset article h4 {
+.article fieldset article .input {
   position: absolute;
-  display: inline-block;
-  left: 14px;
-  top: 180px;
-  line-height: 19px;
+  top: 200px;
   text-align: left;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .article fieldset article .input {
+    top: 120px;
+    padding-top: 20%;
+  }
+}
+@media (max-width: 686px) {
+  .article fieldset article .input {
+    top: 70px;
+  }
+}
+.article fieldset article .input h4 {
+  padding-top: 5px;
+  left: 14px;
   font-size: 18px;
   font-weight: bolder;
   font-family: NGBold;
 }
-.article fieldset article .input {
-  position: absolute;
-  top: 200px;
-  padding: 20px 0px;
+@media (max-width: 686px) {
+  .article fieldset article .input h4 {
+    width: calc(100% - 10px);
+    padding-top: 50%;
+  }
+}
+.article fieldset article .input label {
+  display: inline-flex;
+  align-items: center;
 }
 .article fieldset article .input span {
   font-family: NGBold;
   font-size: 16px;
   font-weight: bold;
-  padding: 5px;
+  padding: 0 5px;
   cursor: default;
 }
 .article fieldset article .input span.pizza_style_M {
@@ -451,15 +483,14 @@ fieldset {
   color: #cb1919 !important;
 }
 .article fieldset article .menu_ops {
-  position: absolute;
   width: calc(100% - 20px);
+  position: absolute;
 }
 @media (max-width: 686px) {
   .article fieldset article .menu_ops {
-    width: calc(94% - 240px);
-    padding: 0 2% 0 240px;
     top: 20px;
-    left: 1%;
+    left: calc(50% + 10px);
+    width: calc(50% - 20px);
   }
 }
 @media (min-width: 686px) {
