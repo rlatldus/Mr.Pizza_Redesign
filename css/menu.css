@@ -73,7 +73,7 @@ fieldset {
 }
 
 .basketbox {
-  z-index: 100;
+  z-index: 32;
   position: fixed;
   width: 405px;
   right: 90px;
@@ -148,29 +148,27 @@ fieldset {
 }
 
 .pop_123123 {
-  transition: all 1s;
   display: none;
   position: fixed;
   width: 100%;
   height: 100%;
   top: 50%;
   left: 50%;
-  background-color: rgba(0, 0, 0, 0.4705882353);
+  z-index: 200;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.4705882353);
 }
 .pop_123123 .pop_cont_varo {
+  position: fixed;
+  display: block;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: fixed;
-  display: block;
   width: 40%;
-  height: 130px;
   border: 1px solid #636363;
   border-top: 4px solid #cb1919;
 }
-.pop_123123 .pop_cont_varo h1 {
+.pop_123123 .pop_cont_varo h3 {
   text-align: left;
   padding: 7px;
   line-height: 28px;
@@ -202,10 +200,9 @@ fieldset {
 .pop_123123 .pop_cont_varo .pop_cont .t_center .button_btn {
   color: #000000;
   border-color: #b1b1b3;
-  width: 98px;
-  height: 28px;
-  margin: 10px;
-  line-height: 28px;
+  margin: 20px;
+  width: 100px;
+  height: 5px;
   font-size: 12px;
   display: inline-block;
   border: 1px solid #514f4f;
@@ -216,15 +213,16 @@ fieldset {
   background-color: #ececec;
 }
 .pop_123123 .pop_cont_varo .pop_cont .btn_close {
-  top: 20px;
-  right: 20px;
+  top: 3px;
+  right: 10px;
   position: absolute;
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .modal {
-  z-index: 50;
+  z-index: 33;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4784313725);
@@ -233,16 +231,22 @@ fieldset {
   justify-content: center;
   align-items: center;
 }
-.modal .inner {
+
+.inner {
+  position: fixed;
+  width: 70%;
   display: block;
   background-color: #ffffff;
   animation: fadeAni 200ms ease-out;
+}
+.inner img {
+  width: 100%;
 }
 
 @media (max-width: 686px) {
   .leftback {
     position: fixed;
-    z-index: 30;
+    z-index: 34;
     left: 0;
     top: 0px;
     height: 100%;
@@ -566,6 +570,48 @@ fieldset {
 .article fieldset article .menu_ops .menu_text {
   padding: 10px 0;
   font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+}
+
+.edge_list {
+  margin-top: 50px 0 0;
+  justify-content: space-between;
+  display: flex;
+  padding: 0;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .edge_list {
+    position: absolute;
+    left: 0;
+    width: 90%;
+    padding: 0 5%;
+  }
+}
+@media (max-width: 686px) {
+  .edge_list {
+    display: none;
+  }
+}
+.edge_list li {
+  width: 100%;
+}
+.edge_list li a {
+  text-align: left;
+  padding: 10px 0 0 20px;
+  margin: 20px 0;
+  display: block;
+  height: 75px;
+  border: 1px solid #c7c7c7;
+  font-family: NGBold;
+  color: #666;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_edge.gif) no-repeat 95% center;
+}
+.edge_list li a p {
+  padding-top: 10px;
+  font-family: NGBold;
+  color: #666;
+}
+.edge_list li a span {
+  color: #ff7400;
 }
 
 /*# sourceMappingURL=menu.css.map */

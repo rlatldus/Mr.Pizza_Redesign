@@ -55,7 +55,6 @@ legend {
 @keyframes move {
     0% {
         border-top: 1px solid #dfdfdf;
-        height: 0;
     }
 
     100% {
@@ -256,39 +255,3 @@ legend {
     }
 }
 
-.edge_list {
-    @include media-mo(){
-        display: none;
-    }
-    margin-top: 50px 0 0;
-    justify-content: space-between;
-    display: flex;
-    padding: 0;
-
-    li {
-        width: 100%;
-
-        a {
-            text-align: left;
-            padding: 10px 0 0 20px;
-            margin: 20px 0;
-            display: block;
-            height: 75px;
-            border: 1px solid #c7c7c7;
-            font-family: NGBold;
-            color: #666;
-            background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_edge.gif) no-repeat 226px center;
-
-            p {
-
-                padding-top: 10px;
-                font-family: NGBold;
-                color: #666;
-            }
-
-            span {
-                color: #ff7400;
-            }
-        }
-    }
-}

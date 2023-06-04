@@ -18,7 +18,7 @@ modalDiv.classList.add("modal");
 const innerDiv = document.createElement("div"); // 스타일 추가
 innerDiv.classList.add("inner"); //스타일 추가
 innerDiv.innerHTML = `
-<div><img src="./../imge/modal.png" alt=""/></div>
+<img src="./../imge/modal.png" alt=""/>
 `;
 //모달 생성
 
