@@ -255,10 +255,6 @@ fieldset {
   }
 }
 
-.leftalign {
-  position: relative;
-}
-
 #left {
   display: block;
   height: 100%;
@@ -281,9 +277,6 @@ fieldset {
 }
 @media (min-width: 686px) {
   #left {
-    position: absolute;
-    top: 10px;
-    width: 20%;
     min-width: 170px;
     max-width: 230px;
   }

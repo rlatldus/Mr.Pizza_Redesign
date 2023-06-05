@@ -52,7 +52,12 @@ $(function () {
     const redColer = function () {
       //레드컬러로 수정
       $(this)
-        .css("background", `url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_${$(this).attr("id")}.gif)`)
+        .css(
+          "background",
+          `url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_${$(
+            this
+          ).attr("id")}.gif)`
+        )
         .css("text-indent", "-9999em")
         .css("border", "1px solid #cccccc")
         .css("background-repeat", "no-repeat")
@@ -87,47 +92,56 @@ $(function () {
       }, 300);
     }
   );
-  
-  if($("#right").css("padding-left") === "30px" ){
-    $("#left").css("left","0px");
-    $(".leftback").css("left","0px");
-  }
 
   // 모바일 상단 메뉴 클릭 시 이미지 띄우기
   $(".btn_gnb").click(function () {
-    if ($("#left").css("left") === "0px"  ) {
-      $("#left").animate({ left: "-700px" }, 1000) && $(".leftback").animate({ left: "-700px" }, 1000);
+    $("#left").css("left") === "0px";
+    $(".leftback").css("left", "0px");
+
+    if ($("#left").css("left") === "0px") {
+      $("#left").animate({ left: "-700px" }, 1000) &&
+        $(".leftback").animate({ left: "-700px" }, 1000);
     } else {
-      $("#left").animate({ left: "0" }, "fast") && $(".leftback").animate({ left: "0" }, "fast");
+      $("#left").animate({ left: "0" }, "fast") &&
+        $(".leftback").animate({ left: "0" }, "fast");
     }
-
   });
-  
 
+  function performTask() {
+    // 반응형으로 보이게 함
+    if ($(window).width() >= 686) {
+      $("#left").css("left", "5%");
+      $(".leftback").css("left", "5%");
+    }
+    if ($(window).width() < 686 && $("#left").css("left") !== "-700px") {
+      $("#left").css("left", "0px");
+    }
+  }
+  
+  setInterval(performTask, 1);
+  
   //left 스크롤
   const element = $("#left ");
-
+  
   const originalPosition = element.offset().top;
-  const fixedPosition = originalPosition - 50;
+  const fixedPosition = originalPosition - 0;
   
   $(window).scroll(function () {
     const currentPosition = $(this).scrollTop();
-  
+    
     if (currentPosition >= fixedPosition) {
+
       element.css({
         position: "fixed",
-        top: "0px"
+        top: "0px",
       });
-      console.log(currentPosition,"dfdfdf")
-    } 
-    else {
+      console.log(currentPosition, "dfdfdf");
+    } else {
       element.css({
         position: "absolute",
-        top: "200px"
+        top: "200px",
       });
-      console.log(currentPosition,"dfsdsfdf")
-
+      console.log(currentPosition, "dfsdsfdf");
     }
   });
-
-})
+});

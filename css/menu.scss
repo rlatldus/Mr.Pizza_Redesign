@@ -307,7 +307,8 @@ fieldset {
   }
 }
 .leftalign{
-  position: relative;
+  // position: relative;
+  // width: 20%;
 }
 #left {
   display: block;
@@ -328,9 +329,6 @@ fieldset {
   }
 
   @include media-tablet-pc() {
-    position: absolute;
-    top: 10px;
-    width: 20%;
     min-width: 170px;
     max-width: 230px;
   }
