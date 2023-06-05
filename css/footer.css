@@ -281,9 +281,7 @@ div.link_fix {
 
 @media (min-width: 768px) and (max-width: 1159px) {
   /* 퀵메뉴 사라지게함 */
-  */ section#quick {
-    display: none;
-  }
+ */
   .quick_wrap {
     display: none;
   }

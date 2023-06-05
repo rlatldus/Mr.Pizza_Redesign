@@ -137,13 +137,11 @@ $(function () {
         position: "fixed",
         top: "0px",
       });
-      console.log(currentPosition, "dfdfdf");
     } else {
       element.css({
         position: "absolute",
         top: "230px",
       });
-      console.log(currentPosition, "dfsdsfdf");
     }
   });
 });

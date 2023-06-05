@@ -1261,9 +1261,9 @@ div.link_fix {
 
   /* 헤더 영역 종료   // */
   /* 퀵메뉴 사라지게함 */
-  section#quick {
+  /* section#quick {
     display: none;
-  }
+  } */
 
   /* 팝영역 */
   #todayPop {
