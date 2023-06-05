@@ -312,8 +312,10 @@ fieldset {
 #left {
   display: block;
   height: 100%;
-
+  
   @include media-mo {
+    padding: 30px;
+    left: 0;
     position: absolute;
     top: 150px;
     z-index: 50;
@@ -330,7 +332,7 @@ fieldset {
     width: 20%;
     min-width: 170px;
   }
-.left_section{}
+
   .section {
     h2 {
       padding-top: 50px;
@@ -585,20 +587,15 @@ fieldset {
           position: absolute;
           z-index: 10;
           top: 45px;
-
-          @include media-mo() {
-            width: calc(94% - 220px);
-          }
-
-          @include media-tablet-pc() {
-            width: 100%;
-          }
+          width: calc(100% - 2px);
 
           li {
+            width: 100%;
             border: 1px solid #e2e2e2;
             background: #fff;
 
             a {
+            width: 100%;
               display: block;
               line-height: 30px;
               background: #fafafa;

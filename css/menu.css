@@ -261,6 +261,8 @@ fieldset {
 }
 @media (max-width: 686px) {
   #left {
+    padding: 30px;
+    left: 0;
     position: absolute;
     top: 150px;
     z-index: 50;
@@ -514,22 +516,15 @@ fieldset {
   position: absolute;
   z-index: 10;
   top: 45px;
-}
-@media (max-width: 686px) {
-  .article fieldset article .menu_ops .gold {
-    width: calc(94% - 220px);
-  }
-}
-@media (min-width: 686px) {
-  .article fieldset article .menu_ops .gold {
-    width: 100%;
-  }
+  width: calc(100% - 2px);
 }
 .article fieldset article .menu_ops .gold li {
+  width: 100%;
   border: 1px solid #e2e2e2;
   background: #fff;
 }
 .article fieldset article .menu_ops .gold li a {
+  width: 100%;
   display: block;
   line-height: 30px;
   background: #fafafa;

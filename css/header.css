@@ -21,6 +21,7 @@ legend {
 @keyframes move {
   0% {
     border-top: 1px solid #dfdfdf;
+    height: 0px;
   }
   100% {
     border-top: 1px solid #f8c15b;
@@ -152,6 +153,7 @@ legend {
   text-align: center;
 }
 .navbar #main .sub li {
+  display: none;
   margin: 30px 20px;
   width: 150px;
   border: 2px solid #5f5f5f;
