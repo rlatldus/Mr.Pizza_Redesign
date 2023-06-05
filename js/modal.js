@@ -49,3 +49,12 @@ function show(showItem){
 function hidden(hiddenItem){
 hiddenItem.style.display ="none"
 }
+
+
+
+const menuToggle = document.querySelector('.btn_gnb');
+const menu = document.querySelector('#left');
+
+menuToggle.addEventListener('click', function() {
+  menu.classList.toggle('active');
+})
