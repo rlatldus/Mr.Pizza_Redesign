@@ -87,30 +87,47 @@ $(function () {
       }, 300);
     }
   );
+  
+  if($("#right").css("padding-left") === "30px" ){
+    $("#left").css("left","0px");
+    $(".leftback").css("left","0px");
+  }
 
   // 모바일 상단 메뉴 클릭 시 이미지 띄우기
   $(".btn_gnb").click(function () {
-    if ($("#left").css("left") === "0px") {
+    if ($("#left").css("left") === "0px"  ) {
       $("#left").animate({ left: "-700px" }, 1000) && $(".leftback").animate({ left: "-700px" }, 1000);
     } else {
       $("#left").animate({ left: "0" }, "fast") && $(".leftback").animate({ left: "0" }, "fast");
     }
+
   });
+  
 
   //left 스크롤
-  const element = $("#left section")[0];
-  const computedStyle = getComputedStyle(element);
-  const topValue = computedStyle.top;
+  const element = $("#left ");
 
-  const screenHeight = window.innerHeight;
-  const currentPosition = parseInt($("#left section").css("top"));
-
+  const originalPosition = element.offset().top;
+  const fixedPosition = originalPosition - 50;
+  
   $(window).scroll(function () {
-    const position = $(window).scrollTop();
-    $("#left section")
-      .stop()
-      .animate({ top: position + currentPosition + "px" }, 500);
+    const currentPosition = $(this).scrollTop();
+  
+    if (currentPosition >= fixedPosition) {
+      element.css({
+        position: "fixed",
+        top: "0px"
+      });
+      console.log(currentPosition,"dfdfdf")
+    } 
+    else {
+      element.css({
+        position: "absolute",
+        top: "200px"
+      });
+      console.log(currentPosition,"dfsdsfdf")
 
-    console.log(screenHeight);
+    }
   });
+
 })

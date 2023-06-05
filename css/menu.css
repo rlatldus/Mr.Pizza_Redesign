@@ -255,16 +255,20 @@ fieldset {
   }
 }
 
+.leftalign {
+  position: relative;
+}
+
 #left {
   display: block;
   height: 100%;
+  top: 200px;
 }
 @media (max-width: 686px) {
   #left {
-    padding: 30px;
     left: 0;
+    padding: 20px 5% 0;
     position: absolute;
-    top: 150px;
     z-index: 50;
     width: 90%;
     background-color: white;
@@ -277,9 +281,11 @@ fieldset {
 }
 @media (min-width: 686px) {
   #left {
-    display: block;
+    position: absolute;
+    top: 10px;
     width: 20%;
     min-width: 170px;
+    max-width: 230px;
   }
 }
 #left .section h2 {
@@ -337,8 +343,13 @@ fieldset {
 }
 @media (min-width: 686px) {
   #right {
-    width: 80%;
-    padding-left: 60px;
+    width: calc(75% - 30px);
+    padding-left: 30px;
+  }
+}
+@media (min-width: 686px) and (min-width: 840px) {
+  #right {
+    padding-left: 25%;
   }
 }
 #right .mainmenu {
