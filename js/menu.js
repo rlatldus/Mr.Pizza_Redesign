@@ -109,12 +109,14 @@ $(function () {
 
   function performTask() {
     // 반응형으로 보이게 함
+    
     if ($(window).width() >= 686) {
       $("#left").css("left", "5%");
       $(".leftback").css("left", "5%");
     }
     if ($(window).width() < 686 && $("#left").css("left") !== "-700px") {
       $("#left").css("left", "0px");
+      $(".leftback").css("left", "0px");
     }
   }
   
@@ -139,7 +141,7 @@ $(function () {
     } else {
       element.css({
         position: "absolute",
-        top: "200px",
+        top: "230px",
       });
       console.log(currentPosition, "dfsdsfdf");
     }

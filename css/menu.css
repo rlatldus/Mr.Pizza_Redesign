@@ -200,8 +200,8 @@ fieldset {
 .pop_123123 .pop_cont_varo .pop_cont .t_center .button_btn {
   color: #000000;
   border-color: #b1b1b3;
-  margin: 20px;
-  width: 100px;
+  margin: 5%;
+  width: 40%;
   height: 5px;
   font-size: 12px;
   display: inline-block;
@@ -213,8 +213,10 @@ fieldset {
   background-color: #ececec;
 }
 .pop_123123 .pop_cont_varo .pop_cont .btn_close {
-  top: 3px;
+  font-size: 12px;
+  top: 0px;
   right: 10px;
+  width: 50px;
   position: absolute;
   text-decoration: none;
   color: #ffffff;
@@ -256,27 +258,28 @@ fieldset {
 }
 
 #left {
+  position: absolute;
   display: block;
   height: 100%;
-  top: 200px;
+  top: 230px;
 }
 @media (max-width: 686px) {
   #left {
     left: 0;
     padding: 20px 5% 0;
-    position: absolute;
     z-index: 50;
     width: 90%;
     background-color: white;
   }
 }
-@media (max-width: 1160px) and (min-width: 686px) {
+@media (min-width: 1160px) {
   #left {
-    height: 100%;
+    margin-left: 5%;
   }
 }
 @media (min-width: 686px) {
   #left {
+    width: 20%;
     min-width: 170px;
     max-width: 230px;
   }
@@ -301,6 +304,9 @@ fieldset {
   display: flex;
   align-items: center;
   background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+}
+#left .section li a:hover {
+  border: 1px solid #e21d1d;
 }
 #left .section li a img {
   padding-left: 5px;
@@ -389,7 +395,7 @@ fieldset {
 .article fieldset article {
   position: relative;
   padding: 10px;
-  border: 1px solid #c2c2c2;
+  border: 1px solid #ccc;
   background-color: #ffffff;
   height: 236px;
 }
