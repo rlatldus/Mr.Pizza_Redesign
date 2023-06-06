@@ -1,4 +1,4 @@
-let pizzaMenu = [
+const pizzaMenu1 = [
   {
     id: "#OP0201",
     name: "포개더",
@@ -31,49 +31,173 @@ let pizzaMenu = [
     largePrice: 43000,
     image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314153028392.jpg",
   },
+  {
+    id: "#OP0205",
+    name: "포개더",
+    type: "에그타르트",
+    smallPrice: 32000,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023314152452464.jpg",
+  },
 ];
-let elementM = document.getElementById("M");
-let elementL = document.getElementById("L");
-let elementmenutitle = document.getElementById("menutitle");
-let elementcart_num = document.getElementsByClassName("cart_num")[0];
+const pizzaMenu2 = [
+  {
+    id: "#OP0206",
+    name: "킹 브레드 쉬림프 골드",
+    type: "골드",
+    smallPrice: 35000,
+    largePrice: 41500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2022112192334891.jpg",
+  },
+  {
+    id: "#OP0207",
+    name: "킹 브레드 쉬림프 골드",
+    type: "크림치즈",
+    smallPrice: 35000,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2022112192334891.jpg",
+  },
+  {
+    id: "#OP0208",
+    name: "킹 브레드 쉬림프 골드",
+    type: "오리진",
+    smallPrice: 33000,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2022112192627721.jpg",
+  },
+  {
+    id: "#OP0209",
+    name: "킹 브레드 쉬림프 골드",
+    type: "치즈캡",
+    smallPrice: 37500,
+    largePrice: 44000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/202211219241426.jpg",
+  },
+  {
+    id: "#OP0210",
+    name: "킹 브레드 쉬림프 골드",
+    type: "에그타르트",
+    smallPrice: 35000,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/202211219256086.jpg",
+  },
+];
+const pizzaMenu3 = [
+  {
+    id: "#OP0211",
+    name: "킹 브레드 쉬림프 골드 칠리",
+    type: "골드",
+    smallPrice: 35000,
+    largePrice: 41500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2022112192334891.jpg",
+  },
+  {
+    id: "#OP0212",
+    name: "킹 브레드 쉬림프 골드 칠리",
+    type: "크림치즈",
+    smallPrice: 35000,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2022112192334891.jpg",
+  },
+  {
+    id: "#OP0213",
+    name: "킹 브레드 쉬림프 골드 칠리",
+    type: "오리진",
+    smallPrice: 33000,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2022112192627721.jpg",
+  },
+  {
+    id: "#OP0214",
+    name: "킹 브레드 쉬림프 골드 칠리",
+    type: "치즈캡",
+    smallPrice: 37500,
+    largePrice: 44000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/202211219241426.jpg",
+  },
+  {
+    id: "#OP0215",
+    name: "킹 브레드 쉬림프 골드 칠리",
+    type: "에그타르트",
+    smallPrice: 35000,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/202211219256086.jpg",
+  },
+];
+const pizzaMenu4 = [
+  {
+    id: "#OP0216",
+    name: "햄벅한새우",
+    type: "골드",
+    smallPrice: 33500,
+    largePrice: 41500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20201112153636027.jpg",
+  },
+  {
+    id: "#OP0217",
+    name: "햄벅한새우",
+    type: "크림치즈",
+    smallPrice: 33500,
+    largePrice: 41500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2020111618627452.jpg",
+  },
+  {
+    id: "#OP0218",
+    name: "햄벅한새우",
+    type: "오리진",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20201112153536343.jpg",
+  },
+  {
+    id: "#OP0219",
+    name: "햄벅한새우",
+    type: "치즈캡",
+    smallPrice: 36000,
+    largePrice: 44000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2020112791451396.jpg",
+  },
+  {
+    id: "#OP0220",
+    name: "햄벅한새우",
+    type: "에그타르트",
+    smallPrice: 33500,
+    largePrice: 41500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20201112153718255.jpg",
+  },
+];
 
-// innerText 변경
+const pizzaMenus = [pizzaMenu1, pizzaMenu2, pizzaMenu3, pizzaMenu4];
 
-console.log(pizzaMenu);
-const menuImg = document.querySelectorAll(".pizza1");
-const elementbasket = document.getElementsByClassName("basket")[0];
-const deliveryMenuoption = document.querySelector("#deliveryMenuoption"); // 장바구니 내용
-const menuOption = document.createElement("li");
-let pizzaType;
-let gold;
+//선택한 피자
+const elementM = document.querySelectorAll(".M");
+const elementL = document.querySelectorAll(".L");
+const elementmenutitle = document.querySelectorAll(".menutitle");
+const menuImg = document.querySelectorAll(".pizzaselect");
+let select;
 
-for (let x; x < pizzaMenu.length; x++) { // 나중에 수정할 것 ㅜㅜ
-   gold = document.querySelector(pizzaMenu[x].id).addEventListener("click", (e) => {
-    e.preventDefault();
-    menuImg[0].src = pizzaMenu[x].image;
-    elementM.innerText = pizzaMenu[x].smallPrice;
-    elementL.innerText = pizzaMenu[x].largePrice;
-    pizzaType = pizzaMenu[x].type;
-    elementmenutitle.innerText = pizzaMenu[x].type;
-  });
+for (let i = 0; i < pizzaMenus.length; i++) {
+  const pizzaMenu = pizzaMenus[i];
+  for (let x = 0; x < pizzaMenu.length; x++) {
+    // 포개더의 메뉴 5개
+    select = document.querySelector(pizzaMenu[x].id).addEventListener("click", (e) => {
+      e.preventDefault();
+      menuImg[i].src = pizzaMenu[x].image;
+      elementM[i].innerText = pizzaMenu[x].smallPrice;
+      elementL[i].innerText = pizzaMenu[x].largePrice;
+      pizzaType = pizzaMenu[x].type;
+      elementmenutitle[i].innerText = pizzaMenu[x].type;
+    });
+  }
 }
-// const creamcheeze = document.querySelector(pizzaMenu[1].id).addEventListener("click", (e) => {
-//   e.preventDefault();
-//   change(1);
-// });
-// const origin = document.querySelector(pizzaMenu[2].id).addEventListener("click", (e) => {
-//   e.preventDefault();
-//   change(2);
-// });
-// const cheezerap = document.querySelector(pizzaMenu[3].id).addEventListener("click", (e) => {
-//   e.preventDefault();
-//   change(3);
-// });
-// const eggtart = document.querySelector("pizzaMenu[4].id").addEventListener("click", (e) => {
-//   e.preventDefault();
-//   change(4);
-// });
 
+
+const menuOption = document.createElement("li");
+
+let elementcart_num = document.getElementsByClassName("cart_num")[0];
+const deliveryMenuoption = document.querySelector("#deliveryMenuoption"); // 장바구니 내용
+
+const elementbasket = document.getElementsByClassName("basket")[0];
 elementcart_num.innerText = 0; // 장바구니 숫자
 elementbasket.addEventListener("click", (e) => {
   e.preventDefault();
@@ -98,9 +222,9 @@ function sumInputValues() {
   return total;
 }
 
+//NOTE 장바구니 모양 클릭
 function getSelectedRadioLabel() {
   let totalprise = 0;
-  //NOTE 장바구니 모양 클릭
   const total = sumInputValues();
   console.log(menuOptionAll, "dfdd");
   if (menuOptionAll.length < 5 || total < 5) {

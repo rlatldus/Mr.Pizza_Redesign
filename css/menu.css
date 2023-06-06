@@ -492,10 +492,10 @@ fieldset {
   padding: 0 5px;
   cursor: default;
 }
-.article fieldset article .input span.pizza_style_M {
+.article fieldset article .input span.M {
   color: #f17304 !important;
 }
-.article fieldset article .input span.pizza_style_L {
+.article fieldset article .input span.L {
   color: #cb1919 !important;
 }
 .article fieldset article .menu_ops {
