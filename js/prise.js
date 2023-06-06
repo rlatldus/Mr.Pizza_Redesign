@@ -179,7 +179,6 @@ let select;
 for (let i = 0; i < pizzaMenus.length; i++) {
   const pizzaMenu = pizzaMenus[i];
   for (let x = 0; x < pizzaMenu.length; x++) {
-    // 포개더의 메뉴 5개
     select = document.querySelector(pizzaMenu[x].id).addEventListener("click", (e) => {
       e.preventDefault();
       menuImg[i].src = pizzaMenu[x].image;
@@ -192,22 +191,26 @@ for (let i = 0; i < pizzaMenus.length; i++) {
 }
 
 
-const menuOption = document.createElement("li");
 
-let elementcart_num = document.getElementsByClassName("cart_num")[0];
-const deliveryMenuoption = document.querySelector("#deliveryMenuoption"); // 장바구니 내용
-
-const elementbasket = document.getElementsByClassName("basket")[0];
+const elementcart_num = document.getElementsByClassName("cart_num")[0]; //왼쪽빨간 장바구니
+const deliveryMenuoption = document.querySelector("#deliveryMenuoption"); // 왼쪽 장바구니 내용
+const elementbasketAll = document.querySelectorAll(".basket"); // 모든 장바구니
+const menuOption = document.createElement("li"); //장바구니 창조
 elementcart_num.innerText = 0; // 장바구니 숫자
-elementbasket.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (elementcart_num.innerText < 5) {
-    elementcart_num.innerText++;
-  } else {
-    alert("수량은 5개까지 입니다. 문의주세요");
-    return elementcart_num.innerText == 5;
-  }
-});
+
+for (i = 0; i < pizzaMenus.length; i++){
+  elementbasketAll[i].addEventListener("click", (e) => {
+    e.preventDefault();
+    if (elementcart_num.innerText < 5) {
+      elementcart_num.innerText++;
+    } else {
+      alert("수량은 5개까지 입니다. 문의주세요");
+      return elementcart_num.innerText == 5;
+    }
+  });
+
+}
+
 const menuOptionAll = deliveryMenuoption.getElementsByClassName("menuOption");
 
 function sumInputValues() {
