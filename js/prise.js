@@ -268,10 +268,11 @@ function getSelectedRadioLabel() {
 
 function pluse(button) {
   //플러스 버튼 클릭 시 1플러스
-  const total = sumInputValues();
   const spinner = button.parentNode.querySelector(".spinner");
+  const total = sumInputValues();
+  console.log(spinner.value,"ss")
   if (total < 5) {
-    spinner.value = Number(spinner.value) + 1;
+    return spinner.value = Number(spinner.value) + 1;
   } else {
     alert("수량은 5개까지 입니다. 문의주세요");
   }
