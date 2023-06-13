@@ -227,8 +227,8 @@ function sumInputValues() {
 }
 
 //NOTE 장바구니 모양 클릭
+let totalprise = 0;
 function getSelectedRadioLabel() {
-  let totalprise = 0;
   const total = sumInputValues();
   console.log(menuOptionAll, "dfdd");
   if (menuOptionAll.length < 5 || total < 5) {
@@ -239,13 +239,14 @@ function getSelectedRadioLabel() {
 
     for (let i = 0; i < Menu.length; i++) {
       if (Menu[i].checked) {
-        i == 0 ? (pizzaSize = "M") : (pizzaSize = "L");
+        i === 0 ? (pizzaSize = "M") : (pizzaSize = "L");
         pizzaPrise = Menu[i].nextElementSibling.innerText;
+        console.log(pizzaPrise,"hh")
         totalprise += Number(pizzaPrise);
       }
+      deliveryTextprise.innerHTML = totalprise;
+      console.log(totalprise,"bb");
     }
-    deliveryTextprise.innerHTML = totalprise;
-    console.log(totalprise);
 
     menuOption.innerHTML = `
   <li class="menuOption">
