@@ -185,6 +185,7 @@ for (let i = 0; i < pizzaMenus.length; i++) {
       elementM[i].innerText = pizzaMenu[x].smallPrice;
       elementL[i].innerText = pizzaMenu[x].largePrice;
       pizzaType = pizzaMenu[x].type;
+      pizzaName = pizzaMenu[x].name;
       elementmenutitle[i].innerText = pizzaMenu[x].type;
     });
   }
@@ -248,7 +249,7 @@ function getSelectedRadioLabel() {
 
     menuOption.innerHTML = `
   <li class="menuOption">
-  <p>포개더-${pizzaType} </p>
+  <p>${pizzaName}-${pizzaType} </p>
   <span>${pizzaSize}</span>
   <div class="sum">
   <input class="spinner" type="text" value='1'>
