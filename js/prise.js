@@ -477,6 +477,8 @@ function sumInputValues() {
   return total;
 }
 
+
+
 //NOTE 장바구니 모양 클릭
 let totalprise = 0;
 function getSelectedRadioLabel() {
@@ -510,14 +512,16 @@ function getSelectedRadioLabel() {
       console.log(totalprise,"bb");
     }
 
+    
+
     menuOption.innerHTML = `
   <li class="menuOption">
   <p>${pizzaName}-${menutitle} </p>
   <span>${pizzaSize}</span>
   <div class="sum">
-  <input class="spinner" type="text" value='1' >
-  <button class="plusPrise" onclick="pluse(this)">+</button>
-  <button class="downPrise" onclick="down(this)">-</button>
+    <input class="spinner" type="text" value='1' >
+    <button class="plusPrise" onclick="pluse(this)">+</button>
+    <button class="downPrise" onclick="down(this)">-</button>
   </div>
   <span class="optionPrise">${pizzaPrise}</span>
   <button onclick="removeList(this)">닫기</button>
@@ -531,13 +535,20 @@ function getSelectedRadioLabel() {
 function pluse(button) {
   //플러스 버튼 클릭 시 1플러스
   const spinner = button.parentNode.querySelector(".spinner");
+
   const total = sumInputValues();
   console.log(spinner.value,"ss")
   if (total < 5) {
     spinner.value = Number(spinner.value) + 1;
-  } else {
-    alert("수량은 5개까지 입니다. 문의주세요");
-  }
+    const Menu = document.getElementsByName("Menu"); // 라디오 버튼
+    for (let i = 0; i < Menu.length; i++) {
+      if (Menu[i].checked) {
+        const optionPriseElement = button.parentNode.parentNode.querySelector(".optionPrise");
+        const multipliedValue = Number(spinner.value) * Menu[i].nextElementSibling.innerText;
+        optionPriseElement.innerText = multipliedValue;
+    }
+  } 
+}
 }
 function down(button) {
   //마이너스 버튼 클릭 시 1마이너스
@@ -546,6 +557,14 @@ function down(button) {
   if (total <= 5) {
     spinner.value = Number(spinner.value) - 1;
     spinner.value = spinner.value >= 0 ? spinner.value : 0;
+    const Menu = document.getElementsByName("Menu"); // 라디오 버튼
+    for (let i = 0; i < Menu.length; i++) {
+      if (Menu[i].checked) {
+        const optionPriseElement = button.parentNode.parentNode.querySelector(".optionPrise");
+        const multipliedValue = Number(spinner.value) * Menu[i].nextElementSibling.innerText;
+        optionPriseElement.innerText = multipliedValue;
+    }
+  } 
   }
   if ((spinner.value == 0)) {
     removeList(); //NOTE - 수정피료
@@ -556,3 +575,4 @@ function removeList(button) {
   const menuOption = button.closest(".menuOption");
   menuOption.parentNode.removeChild(menuOption);
 }
+
