@@ -239,10 +239,11 @@ function getSelectedRadioLabel() {
 
     for (let i = 0; i < Menu.length; i++) {
       if (Menu[i].checked) {
-        i === 0 ? (pizzaSize = "M") : (pizzaSize = "L");
+        i % 2 == 0? (pizzaSize = "M") : (pizzaSize = "L");
         pizzaPrise = Menu[i].nextElementSibling.innerText;
         console.log(pizzaPrise,"hh")
         totalprise += Number(pizzaPrise);
+        console.log(i,"ddddd")
       }
       deliveryTextprise.innerHTML = totalprise;
       console.log(totalprise,"bb");
