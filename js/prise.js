@@ -166,8 +166,259 @@ const pizzaMenu4 = [
     image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20201112153718255.jpg",
   },
 ];
-
-const pizzaMenus = [pizzaMenu1, pizzaMenu2, pizzaMenu3, pizzaMenu4];
+const pizzaMenu5 = [
+  {
+    id: "#OP0221",
+    name: "미스터트리오",
+    type: "골드",
+    smallPrice: 33500,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2020713183051650.jpg",
+  },
+  {
+    id: "#OP0222",
+    name: "미스터트리오",
+    type: "크림치즈",
+    smallPrice: 33500,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2020713183051650.jpg",
+  },
+  {
+    id: "#OP0223",
+    name: "미스터트리오",
+    type: "오리진",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2020713183051650.jpg",
+  },
+  {
+    id: "#OP0224",
+    name: "미스터트리오",
+    type: "치즈캡",
+    smallPrice: 36000,
+    largePrice: 44000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2020713185613352.jpg",
+  },
+  {
+    id: "#OP0225",
+    name: "미스터트리오",
+    type: "에그타르트",
+    smallPrice: 33500,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2021210142821532.jpg",
+  },
+];
+const pizzaMenu6= [
+  {
+    id: "#OP0226",
+    name: "치즈블라썸스테이크",
+    type: "골드",
+    smallPrice: 34000,
+    largePrice: 41500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023316112521633.png",
+  },
+  {
+    id: "#OP0227",
+    name: "치즈블라썸스테이크",
+    type: "크림치즈",
+    smallPrice: 34000,
+    largePrice: 41500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023316133927892.png",
+  },
+  {
+    id: "#OP0228",
+    name: "치즈블라썸스테이크",
+    type: "오리진",
+    smallPrice: 32000,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023316133821010.png",
+  },
+  {
+    id: "#OP0229",
+    name: "치즈블라썸스테이크",
+    type: "치즈캡",
+    smallPrice: 36500,
+    largePrice: 44000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2023316134218499.png",
+  },
+  {
+    id: "#OP0230",
+    name: "치즈블라썸스테이크",
+    type: "에그타르트",
+    smallPrice: 34000,
+    largePrice: 41500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/202331613415811.png",
+  },
+];
+const pizzaMenu7= [
+  {
+    id: "#OP0231",
+    name: "새우천왕",
+    type: "골드",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2018530133324258.jpg",
+  },
+  {
+    id: "#OP0232",
+    name: "새우천왕",
+    type: "크림치즈",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20185301485342.jpg",
+  },
+  {
+    id: "#OP0233",
+    name: "새우천왕",
+    type: "오리진",
+    smallPrice: 30500,
+    largePrice: 38500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201853011381874.jpg",
+  },
+  {
+    id: "#OP0234",
+    name: "새우천왕",
+    type: "치즈캡",
+    smallPrice: 35000,
+    largePrice: 43000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2018530162537277.jpg",
+  },
+  {
+    id: "#OP0235",
+    name: "새우천왕",
+    type: "에그타르트",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/(75).jpg",
+  },
+];
+const pizzaMenu8= [
+  {
+    id: "#OP0236",
+    name: "쉬림프 골드",
+    type: "골드",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20151198579060.jpg",
+  },
+  {
+    id: "#OP0237",
+    name: "쉬림프 골드",
+    type: "크림치즈",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: 	"https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201511910511035.jpg",
+  },
+  {
+    id: "#OP0238",
+    name: "쉬림프 골드",
+    type: "오리진",
+    smallPrice: 30500,
+    largePrice: 38500,
+    image: 	"https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201511910500770.jpg",
+  },
+  {
+    id: "#OP0239",
+    name: "쉬림프 골드",
+    type: "치즈캡",
+    smallPrice: 35000,
+    largePrice: 43000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2015119105434334.jpg",
+  },
+  {
+    id: "#OP0240",
+    name: "쉬림프 골드",
+    type: "에그타르트",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/2015119105733670.jpg",
+  },
+];
+const pizzaMenu9= [
+  {
+    id: "#OP0241",
+    name: "하프앤하프",
+    type: "골드",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20186113109773.jpg",
+  },
+  {
+    id: "#OP0242",
+    name: "하프앤하프",
+    type: "크림치즈",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: 	"https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20186114297672.jpg",
+  },
+  {
+    id: "#OP0243",
+    name: "하프앤하프",
+    type: "오리진",
+    smallPrice: 30500,
+    largePrice: 38500,
+    image: 	"https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201511910500770.jpg",
+  },
+  {
+    id: "#OP0244",
+    name: "하프앤하프",
+    type: "치즈캡",
+    smallPrice: 35000,
+    largePrice: 43000,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201861145333562.jpg",
+  },
+  {
+    id: "#OP0245",
+    name: "하프앤하프",
+    type: "에그타르트",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20186115318329.jpg",
+  },
+];
+const pizzaMenu10= [
+  {
+    id: "#OP0246",
+    name: "포테이토 골드",
+    type: "골드",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/20186111554536.jpg",
+  },
+  {
+    id: "#OP0247",
+    name: "포테이토 골드",
+    type: "크림치즈",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: 	"	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201861142356514.jpg",
+  },
+  {
+    id: "#OP0248",
+    name: "포테이토 골드",
+    type: "오리진",
+    smallPrice: 30500,
+    largePrice: 38500,
+    image: 	"	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201861142356514.jpg",
+  },
+  {
+    id: "#OP0249",
+    name: "포테이토 골드",
+    type: "치즈캡",
+    smallPrice: 35000,
+    largePrice: 43000,
+    image: "	https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201861142356514.jpg",
+  },
+  {
+    id: "#OP0250",
+    name: "포테이토 골드",
+    type: "에그타르트",
+    smallPrice: 31500,
+    largePrice: 39500,
+    image: "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201861135015196.jpg",
+  },
+];
+const pizzaMenus = [pizzaMenu1, pizzaMenu2, pizzaMenu3, pizzaMenu4,pizzaMenu5,pizzaMenu6,pizzaMenu7,pizzaMenu8,pizzaMenu9,pizzaMenu10];
 
 //선택한 피자
 const elementM = document.querySelectorAll(".M");
@@ -237,10 +488,20 @@ function getSelectedRadioLabel() {
     let pizzaPrise;
     const deliveryTextprise = document.getElementsByClassName("deliveryTextprise")[0];
 
+    let pizzaName;
+    let menutitle;
+
     for (let i = 0; i < Menu.length; i++) {
       if (Menu[i].checked) {
         i % 2 == 0? (pizzaSize = "M") : (pizzaSize = "L");
         pizzaPrise = Menu[i].nextElementSibling.innerText;
+        if(pizzaName === undefined){
+          pizzaName = document.querySelectorAll('h4')[Math.floor(i / 2)].innerText
+          menutitle = document.querySelectorAll('.menutitle')[Math.floor(i / 2)].innerText
+        }else{
+          pizzaName ===pizzaName
+          menutitle === menutitle
+        }
         console.log(pizzaPrise,"hh")
         totalprise += Number(pizzaPrise);
         console.log(i,"ddddd")
@@ -251,10 +512,10 @@ function getSelectedRadioLabel() {
 
     menuOption.innerHTML = `
   <li class="menuOption">
-  <p>${pizzaName}-${pizzaType} </p>
+  <p>${pizzaName}-${menutitle} </p>
   <span>${pizzaSize}</span>
   <div class="sum">
-  <input class="spinner" type="text" value='1'>
+  <input class="spinner" type="text" value='1' >
   <button class="plusPrise" onclick="pluse(this)">+</button>
   <button class="downPrise" onclick="down(this)">-</button>
   </div>
@@ -273,7 +534,7 @@ function pluse(button) {
   const total = sumInputValues();
   console.log(spinner.value,"ss")
   if (total < 5) {
-    return spinner.value = Number(spinner.value) + 1;
+    spinner.value = Number(spinner.value) + 1;
   } else {
     alert("수량은 5개까지 입니다. 문의주세요");
   }
@@ -286,7 +547,7 @@ function down(button) {
     spinner.value = Number(spinner.value) - 1;
     spinner.value = spinner.value >= 0 ? spinner.value : 0;
   }
-  if ((spinner.value = 0)) {
+  if ((spinner.value == 0)) {
     removeList(); //NOTE - 수정피료
   }
 }
