@@ -537,30 +537,16 @@ function sumInputValues() {
   return total;
 }
 
-const deliveryTextprise = document.querySelector(".deliveryTextprise") //NOTE 수정필요..
 let total = 0;
-
-const optionPrise = document.querySelectorAll(".optionPrise");
-optionPrise.forEach((element) => {
-  const value = parseFloat(element.innerText);
-  if (!isNaN(value)) {
-    total += value;
-optionPrise.innerText = total
-  }
-});
-
-
-console.log(total);
-
 //NOTE 장바구니 모양 클릭
 let totalprise = 0;
+let pizzaPrise;
 function getSelectedRadioLabel() {
   const total = sumInputValues();
   console.log(menuOptionAll, "dfdd");
   if (menuOptionAll.length < 5 || total < 5) {
     const Menu = document.getElementsByName("Menu"); // 라디오 버튼
     let pizzaSize;
-    let pizzaPrise;
     const deliveryTextprise =
       document.getElementsByClassName("deliveryTextprise")[0];
     let pizzaName;
@@ -580,12 +566,10 @@ function getSelectedRadioLabel() {
           pizzaName === pizzaName;
           menutitle === menutitle;
         }
-        console.log(pizzaPrise, "hh");
         totalprise += Number(pizzaPrise);
-        console.log(i, "ddddd");
       }
       deliveryTextprise.innerHTML = totalprise;
-      console.log(totalprise, "bb");
+      console.log(total, totalprise, "dfdfdf");
     }
 
     menuOption.innerHTML = `
@@ -621,6 +605,12 @@ function pluse(button) {
         const multipliedValue =
           Number(spinner.value) * Menu[i].nextElementSibling.innerText;
         optionPriseElement.innerText = multipliedValue;
+        const deliveryTextprise =
+          document.getElementsByClassName("deliveryTextprise")[0];
+        pizzaPrise = Menu[i].nextElementSibling.innerText;
+        totalprise += Number(pizzaPrise);
+        console.log(total, totalprise, "dfdfdf");
+        deliveryTextprise.innerHTML = totalprise;
       }
     }
   }
@@ -629,7 +619,7 @@ function down(button) {
   //마이너스 버튼 클릭 시 1마이너스
   const total = sumInputValues();
   const spinner = button.parentNode.querySelector(".spinner");
-  if (total <= 5) {
+  if (total <= 5  && spinner.value>0) {
     spinner.value = Number(spinner.value) - 1;
     spinner.value = spinner.value >= 0 ? spinner.value : 0;
     const Menu = document.getElementsByName("Menu"); // 라디오 버튼
@@ -640,15 +630,24 @@ function down(button) {
         const multipliedValue =
           Number(spinner.value) * Menu[i].nextElementSibling.innerText;
         optionPriseElement.innerText = multipliedValue;
+        const deliveryTextprise =
+          document.getElementsByClassName("deliveryTextprise")[0];
+        pizzaPrise = Menu[i].nextElementSibling.innerText;
+        totalprise -= Number(pizzaPrise);
+        console.log(total, totalprise, "dfdfdf");
+        deliveryTextprise.innerHTML = totalprise;
       }
     }
   }
-  if (spinner.value == 0) {
-    removeList(); //NOTE - 수정피료
-  }
+  console.log(spinner.value,"kk")
 }
 
 function removeList(button) {
-  const menuOption = button.closest(".menuOption");
-  menuOption.parentNode.removeChild(menuOption);
+  if (button && button.parentNode) {
+    const menuOption = button.parentNode.closest(".menuOption");
+    if (menuOption) {
+      menuOption.parentNode.removeChild(menuOption);
+      totalprise -= Number(pizzaPrise);
+    }
+  }
 }
