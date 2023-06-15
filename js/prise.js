@@ -532,6 +532,7 @@ function sumInputValues() {
   for (let i = 0; i < spinner.length; i++) {
     const value = Number(spinner[i].value);
     total += value;
+    elementcart_num.innerText =total;
   }
 
   return total;
@@ -611,6 +612,8 @@ function pluse(button) {
         totalprise += Number(pizzaPrise);
         console.log(total, totalprise, "dfdfdf");
         deliveryTextprise.innerHTML = totalprise;
+
+        elementcart_num.innerText =total;
       }
     }
   }
@@ -636,6 +639,8 @@ function down(button) {
         totalprise -= Number(pizzaPrise);
         console.log(total, totalprise, "dfdfdf");
         deliveryTextprise.innerHTML = totalprise;
+
+        elementcart_num.innerText =total;
       }
     }
   }
