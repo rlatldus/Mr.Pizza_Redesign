@@ -1,7 +1,7 @@
 # Mr.Pizza_Redesign
 
 ## 미스터피자 웹 페이지 리디자인
- https://rlatldus.github.io/Mr.Pizza_Redesign/
+[ https://rlatldus.github.io/Mr.Pizza_Redesign/](https://rlatldus.github.io/Mr.Pizza_Redesign/menu.html)
 
 ## 실제 웹사이트
 https://www.mrpizza.co.kr/
