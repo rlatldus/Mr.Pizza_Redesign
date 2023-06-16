@@ -1,5 +1,4 @@
 //.신규오픈점 슬라이드
-
 $(document).ready(function () {
 
     var $panel = $(".bxslider").find("ul");
@@ -81,15 +80,29 @@ $(document).ready(function () {
         });
     }
 });
+
+
 // 신규오픈점 슬라이드 종료 --//
 
 
 
 
+
+
+    // top메뉴
+//      TOP 버튼 
+// function topBtn() {
+//     $('.btn_top').click(function() {
+// 		$("html,body").animate( {scrollTop:0 }, 500, 'easeInOutQuart' );
+// 		return false;
+//     });
+// }
+
+
 //할인이벤트 슬라이드
 
 $(document).ready(function () {
-    var $panel = $(".dc_area").find("ul");
+    var $panel = $(".dc_wra").find("ul");
     
     var itemWidth = $panel.children().outerWidth(); // 아이템 가로 길이
     var itemLength = $panel.children().length;      // 아이템 수

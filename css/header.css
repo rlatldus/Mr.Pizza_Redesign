@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -184,6 +185,31 @@ legend {
   border: 1px solid red;
 }
 
+#wrap {
+  padding: 20px 0px;
+}
+#wrap .main {
+  text-align: center;
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  padding: 0 5%;
+}
+#wrap .main #section {
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+}
+@media (max-width: 686px) {
+  #wrap .main #section {
+    display: block;
+  }
+}
+@media (min-width: 1160px) {
+  #wrap .main #section {
+    width: calc(1160px - 10%);
+  }
+}
+
 .left_section {
   display: flex;
   justify-content: space-around;
@@ -206,6 +232,179 @@ legend {
   .left_section {
     display: none;
   }
+}
+
+.basketbox {
+  z-index: 32;
+  position: fixed;
+  width: 405px;
+  right: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #666666;
+  background: #fff;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.basketbox .deliveryRadio {
+  display: flex;
+}
+.basketbox .deliveryRadio label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+  background-color: #dddddd;
+}
+.basketbox .deliveryRadio label input {
+  display: block;
+}
+.basketbox .menuOption {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  padding: 0 20px;
+}
+.basketbox .menuOption input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.basketbox .menuOption p {
+  width: 100px;
+}
+.basketbox .menuOption .sum {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.basketbox .menuOption .sum button {
+  font-size: 20px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.basketbox .menuOption button {
+  width: 30px;
+  height: 30px;
+}
+.basketbox .deliveryText {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.basketbox .deliveryText p {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+.basketbox .deliveryText p span {
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 24px;
+  color: #cb1919 !important;
+}
+
+.basketbox.show {
+  opacity: 1;
+}
+
+.menuoption {
+  text-align: center;
+}
+
+@media (max-width: 686px) {
+  .leftback {
+    position: fixed;
+    z-index: 34;
+    left: 0;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+#left {
+  position: absolute;
+  display: block;
+  height: 100%;
+  top: 230px;
+}
+@media (max-width: 686px) {
+  #left {
+    left: 0;
+    padding: 20px 5% 0;
+    z-index: 50;
+    width: 90%;
+    background-color: white;
+  }
+}
+@media (min-width: 1160px) {
+  #left {
+    margin-left: 5%;
+  }
+}
+@media (min-width: 686px) {
+  #left {
+    width: 20%;
+    min-width: 170px;
+    max-width: 230px;
+  }
+}
+#left .section h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 26px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+#left .section li {
+  margin-bottom: 8px;
+}
+#left .section li a {
+  display: block;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  font-family: NGBold;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+}
+#left .section li a:hover {
+  border: 1px solid #e21d1d;
+}
+#left .section li a img {
+  padding-left: 5px;
+}
+#left .section .menual {
+  margin-top: 50px;
+  border: 1px solid #eeeeee;
+}
+#left .section .menual h3 {
+  padding: 10px;
+  background: #eeeeee;
+  font-size: 16px;
+}
+#left .section .menual .range {
+  padding: 10px 0;
+}
+#left .section .menual .range label {
+  text-align: left;
+  display: block;
+  padding: 10px;
+  font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=header.css.map */
