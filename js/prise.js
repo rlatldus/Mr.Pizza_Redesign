@@ -467,6 +467,45 @@ const pizzaMenu10 = [
       "https://cdn.mrpizza.co.kr/2011/uploadV1/product_new/201861135015196.jpg",
   },
 ];
+
+const quick_cart = document.querySelector('#basket');
+const basketbox = document.querySelector('.basketbox');
+
+quick_cart.addEventListener("click", function(e) {
+  e.preventDefault();
+  toggleModal(basketbox);
+});
+
+// 모달창 모듈
+function toggleModal(modal) {
+  if (modal.classList.contains("show")) {
+    hideModal(modal);
+  }else{
+    showModal(modal);
+  }
+}
+
+function showModal(modal) {
+  modal.style.display = "block";
+  setTimeout(function() {
+    modal.classList.add("show");
+  }, 250);
+}
+
+function hideModal(modal) {
+  modal.classList.remove("show");
+  setTimeout(function() {
+    modal.style.display = "none";
+  }, 250);
+}
+function showHideModal(modal) {
+  showModal(modal);
+
+  setTimeout(function() {
+    hideModal(modal);
+  }, 1000);
+}
+
 const pizzaMenus = [
   pizzaMenu1,
   pizzaMenu2,
@@ -479,6 +518,7 @@ const pizzaMenus = [
   pizzaMenu9,
   pizzaMenu10,
 ];
+
 
 //선택한 피자
 const elementM = document.querySelectorAll(".M");
@@ -515,6 +555,7 @@ for (i = 0; i < pizzaMenus.length; i++) {
     e.preventDefault();
     if (elementcart_num.innerText < 5) {
       elementcart_num.innerText++;
+      showHideModal(basketbox) 
     } else {
       alert("수량은 5개까지 입니다. 문의주세요");
       return elementcart_num.innerText == 5;
@@ -543,6 +584,7 @@ let total = 0;
 let totalprise = 0;
 let pizzaPrise;
 function getSelectedRadioLabel() {
+
   const total = sumInputValues();
   console.log(menuOptionAll, "dfdd");
   if (menuOptionAll.length < 5 || total < 5) {

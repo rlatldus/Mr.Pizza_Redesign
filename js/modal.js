@@ -40,6 +40,8 @@ btn_close.addEventListener("click", function (e) {
   hidden(pizzaModal);
 });
 
+
+
 //모달창 모듈
 function show(showItem) {
   showItem.style.display = "block";

@@ -11,7 +11,62 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+  /* 퀵메뉴 */
+  .quick_wrap {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 100;
+    margin-top: -177.5px;
+  }
 
+  .quick_wrap > ul {
+    background: #f4f4f4;
+    border-radius: 18px 0 0 18px;
+    padding: 0 5px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .quick_wrap > ul > li + li {
+    border-top: #dbdbdb 1px solid;
+  }
+
+  .quick_wrap > ul > li > a.quick_tit {
+    display: block;
+    padding: 18px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #8c8c8c;
+    width: 80px;
+    position: relative;
+  }
+
+  .quick_wrap > ul > li > a.quick_tit:hover,
+  .quick_wrap > ul > li.on > a.quick_tit {
+    color: #000;
+  }
+
+  .quick_wrap > ul > li > a > i {
+    display: block;
+    margin: 0 auto 4px;
+  }
+
+  .quick_wrap .cart_num {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    display: block;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #e20c3e;
+    font-size: 11px;
+    color: #fff;
+    padding-top: 1px;
+    box-sizing: border-box;
+  }
 #wrap {
   border: 0px solid red;
 }
@@ -63,10 +118,6 @@ a:focus {
 
 ul li {
   list-style: none;
-}
-
-.blind {
-  display: none;
 }
 
 /* 푸터영역시작  */
@@ -208,12 +259,8 @@ div.link_fix {
 
 @media screen and (max-width: 766px) {
   /* 퀵메뉴 사라지게함 */
-  */ section#quick {
-    display: none;
-  }
-  .quick_wrap {
-    display: none;
-  }
+
+
   /* 푸터영역 시작 */
   footer {
     padding-bottom: 40px;
@@ -281,10 +328,7 @@ div.link_fix {
 
 @media (min-width: 768px) and (max-width: 1159px) {
   /* 퀵메뉴 사라지게함 */
- */
-  .quick_wrap {
-    display: none;
-  }
+ 
   /* 푸터 영역시작 */
   footer {
     padding-bottom: 40px;
@@ -385,62 +429,7 @@ div.link_fix {
 }
 
 @media (min-width: 1160px) {
-  /* 퀵메뉴 */
-  .quick_wrap {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    z-index: 100;
-    margin-top: -177.5px;
-  }
 
-  .quick_wrap > ul {
-    background: #f4f4f4;
-    border-radius: 18px 0 0 18px;
-    padding: 0 5px;
-    position: relative;
-    overflow: visible;
-  }
-
-  .quick_wrap > ul > li + li {
-    border-top: #dbdbdb 1px solid;
-  }
-
-  .quick_wrap > ul > li > a.quick_tit {
-    display: block;
-    padding: 18px 0;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: #8c8c8c;
-    width: 80px;
-    position: relative;
-  }
-
-  .quick_wrap > ul > li > a.quick_tit:hover,
-  .quick_wrap > ul > li.on > a.quick_tit {
-    color: #000;
-  }
-
-  .quick_wrap > ul > li > a > i {
-    display: block;
-    margin: 0 auto 4px;
-  }
-
-  .quick_wrap .cart_num {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    display: block;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    background: #e20c3e;
-    font-size: 11px;
-    color: #fff;
-    padding-top: 1px;
-    box-sizing: border-box;
-  }
   /* 푸터영역 */
   footer {
     padding-bottom: 40px;

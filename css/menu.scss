@@ -101,16 +101,22 @@ fieldset {
   text-align: center;
 }
 
+.basketbox.show {
+  opacity: 1;
+}
 //장바구니
 .basketbox {
   z-index: 32;
   position: fixed;
   width: 405px;
   right: 90px;
-  top: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   border: 1px solid #666666;
   background: #fff;
   text-align: left;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 
   .deliveryRadio {
     display: flex;
