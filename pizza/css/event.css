@@ -1,0 +1,587 @@
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+* body {
+    font-size: 12px;
+    color: #333;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    overflow: hidden;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+  header#header,
+  div#contents,
+  footer {
+    margin: 0 auto;
+  }
+  
+  /* 공통 */
+  button {
+    background: none;
+  }
+  
+  img {
+    border: none;
+    vertical-align: middle;
+  }
+  
+  a {
+    background: transparent;
+  }
+  
+  a:link {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:focus {
+    color: black;
+    text-decoration: none;
+  }
+  
+  ul li {
+    list-style: none;
+  }
+  
+  .blind {
+    display: none;
+  }
+#wrap{
+  margin: 0 auto;
+  width: 100%;
+  border: 0px solid green;
+}
+
+#lnb h1 {
+  padding: 36px 0 3px;
+  border-bottom: 3px solid #000000;
+  font-size: 24px;
+  line-height: 36px;
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 70%;
+}
+#lnb ul {
+  padding: 15px 0px;
+}
+
+#lnb ul li {
+  margin-bottom: 8px
+}
+
+#lnb ul li a {
+  display: block;
+  padding-left: 10px;
+  font-size: 15px;
+}
+#lnb ul li a:hover,
+#lnb ul li a:focus,
+#lnb>ul>li>a:active,
+#lnb>ul>li.active>a {
+    color: #cb1919;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/bg_lnbActive.gif) no-repeat left 6px;
+}
+#lnb>ul>li>ul {
+  padding: 5px 10px;
+}
+#lnb>ul>li>ul>li>a {
+  display: block;
+  padding-left: 9px;
+}
+#lnb>ul>li>ul>li>a:hover,
+#lnb>ul>li>ul>li>a:focus,
+#lnb>ul>li>ul>li>a:active,
+#lnb>ul>li>ul>li.active>a {
+  color: #cb1919;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/bg_lnbActive3.gif) no-repeat left center;
+}
+
+
+
+#location {
+  position: absolute;
+  right: 40px;
+  top: 0px;
+  border: 0px solid black;
+}
+
+#location>li {
+  float: left;
+  padding-left: 7px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/bg_location.gif) no-repeat left center;
+}
+
+#location>li:first-child {
+  padding-left: 0px;
+  background: none
+}
+
+#location>li>a,
+#location>li>span,
+#location>li>strong {
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 12px;
+  font-family: 맑은고딕;
+}
+
+#location>li>strong {
+  padding-right: 0;
+}
+
+.wide_cont #location {
+  top: 10px;
+}
+
+/* 소제목 */
+.cont_top {
+  padding: 36px 0 40px;
+  border: 0px solid goldenrod;
+}
+
+.cont_top h1 {
+  padding: 0 0 3px 20px;
+  border-bottom: 3px solid #000000;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/bg_contTop.gif) no-repeat 5px center;
+  font-family: NGBold;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+
+
+
+
+
+/* 이벤트 */
+.event_list li {
+  clear: both;
+  padding: 20px 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.event_list li .img {
+  position: relative;
+  float: left;
+}
+
+.event_list li .img img {
+  width: 380px;
+  height: 90px;
+}
+
+.event_list li .img strong {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 225px;
+  padding-left: 155px;
+  line-height: 90px;
+  background: #000 url(//cdn.mrpizza.co.kr/2014_resources/images/event/bg_eventOff.png) no-repeat 102px center;
+  color: #fff;
+  font-size: 16px;
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+}
+
+.event_list li>div {
+  position: relative;
+  margin-left: 380px;
+  min-height: 64px;
+  padding-bottom: 26px;
+  font-size: 14px;
+  border: 0px solid firebrick;
+}
+
+.event_list li div .date {
+  color: #666;
+}
+.event_list li div .ic {
+  position: absolute;
+  left:0;
+  bottom: 0;
+  height: 60px;
+  border: 0px solid darkblue;
+}
+.event_list li div .ic:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.event_list li div .ic img {
+  margin-right: 4px;
+  float: left;
+}
+
+/* new 이벤트 리스트 */
+.new_event_list li .img {
+  display: block;
+  float: none;
+  border: 0px solid blueviolet;
+}
+
+.new_event_list li .img img {
+  width: 100%;
+  height: auto;
+}
+
+.new_event_list li>div {
+  margin-left: 0;
+  box-sizing: border-box;
+  padding-right: 345px;
+  margin-top: 20px;
+}
+
+.new_event_list li div .ic {
+  right: 0;
+  top: 0;
+  width: 336px;
+  left: auto;
+  bottom: auto;
+}
+
+.new_event_list li div .ic img {
+  margin-right: 0;
+  margin-left: 6px;
+}
+
+.new_event_list li .img strong {
+  width: 100%;
+  height: 185px;
+  line-height: 185px;
+  font-size: 26px;
+  box-sizing: border-box;
+  background-position: 252px center;
+  padding-left: 305px;
+}
+
+/* 목록 */
+.list_paging {
+  clear: both;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.list_paging span {
+  margin: 0 6px 0 9px;
+}
+
+.list_paging span a,
+.list_paging span strong {
+  display: inline-block;
+  width: 23px;
+  line-height: 23px;
+  margin-left: -3px;
+  border: 1px solid #e5e5e5;
+  vertical-align: middle;
+}
+
+.list_paging.red span a,
+.list_paging span strong {
+  border: 1px solid #ffffff;
+  color: #fff;
+}
+
+.list_paging span a:hover,
+.list_paging span a:focus,
+.list_paging span a:active,
+.list_paging span strong {
+  color: #fff;
+  border-color: #333333;
+  background: #333333;
+}
+
+/* contents //*/
+
+/* footer */
+
+/* footer // */
+
+/* 767px~이하  모바일*/
+@media screen and (max-width: 767px) {
+  #wrap {
+    height:1600px;
+    width: 100%;
+  }
+  .footer_renew .info_wrap {
+    margin: 0;
+  }
+  #container {
+    margin: 0 auto;
+    height:auto;
+    width: 100%;
+    padding-top: 100px;
+    border: 0px solid gold;
+    position: relative;
+  }
+  footer.footer_renew {
+    border: 0px solid darkblue;
+    float:left;
+    width: 1160px;
+    height: 140px;
+  }
+  .footer_section {
+    width:100vw;
+  }
+  .link_list {
+    width: 100vw;
+  }
+  .link_list li a{
+    font-size: 0.8em;
+  }
+  #eventFrm{
+    margin-left: 8%;
+  }
+  #contents {
+    padding-top: 30px;
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+  }
+  #lnb {
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #lnb li{
+    float: left;
+    border: 0px solid forestgreen;
+    
+  }
+  #lnb h1 {
+    padding: 26px 0 3px;
+    border-bottom: 2px solid #000000;
+    font-size: 1.5em;
+    line-height: 36px;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 90%;
+    margin: 0 auto;
+  }
+  #lnb ul {
+    margin-left: 3%;
+  }
+  #lnb ul li img {
+    display: none;
+  }
+  #lnb ul li {
+    margin-bottom: 8px
+  }
+  #lnb ul li a {
+    font-size: 1em;
+    display: block;
+  }
+  #lnb ul li a:hover,
+#lnb ul li a:focus,
+#lnb>ul>li>a:active,
+#lnb>ul>li.active>a {
+    color: #cb1919;
+    background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/bg_lnbActive.gif) no-repeat left 6px;
+}
+#lnb>ul>li>ul {
+  padding: 5px 10px;
+}
+#lnb>ul>li>ul>li>a {
+  display: block;
+  padding-left: 9px;
+}
+#lnb>ul>li>ul>li>a:hover,
+#lnb>ul>li>ul>li>a:focus,
+#lnb>ul>li>ul>li>a:active,
+#lnb>ul>li>ul>li.active>a {
+  color: #cb1919;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/bg_lnbActive3.gif) no-repeat left center;
+}
+  #location {
+    display: none;
+  }
+  .cont_top {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .cont_top h1{
+    font-size: 1.5em;
+    line-height: 46px;
+    border-bottom: 2px solid #000000;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 100%;
+    height: auto;
+    background: none;
+  }
+  .cont_top h1 .h1_guide {
+    font-size: 13px;
+    margin-left: 15px;
+  }
+  .tit_wrap {
+    margin: 0 auto;
+  }
+  .tit_wrap p {
+    font-size: 0.5em;
+  }
+  .tit {
+    width: 500px;
+  }
+  .date {
+    width: 500px;
+  }
+  div p.ic img{
+    width: 13%;
+    padding-right: 2%;
+  }
+  p.ic {
+    /* display: none; */
+    padding-top: 40px;
+  }
+  .list_paging {
+    padding-bottom: 32px;
+  }
+  .sns_list  li {
+    display: block;
+  }
+/* .sns_list {
+  padding-top: 20px;
+  width: 300px;} */
+.footer_renew .sns_list:after {
+  display: block;
+  content: '';
+  clear: both
+}
+
+}
+
+
+/* 768이상 ~ 1159이하 테블릿 */
+@media (min-width: 768px) and (max-width: 1159px) {
+  #wrap {
+    height:1700px;
+  }
+  #container {
+    margin: 0 auto;
+    height:auto;
+    width: 90%;
+    border: 0px solid gold;
+  }
+  /* contents */
+  /* 왼쪽 서브메뉴 */
+  #lnb {
+    float: left;
+    width: 30%;
+    /* padding-left: 40px; */
+    border: 0px solid forestgreen;
+  }
+  #lnb h1 {
+    padding: 36px 0 3px;
+    border-bottom: 3px solid #000000;
+    font-size: 2em;
+    line-height: 36px;
+    font-family: 'Nanum Gothic', sans-serif;
+  }
+  #lnb ul {
+    padding: 15px 0px;
+  }
+  
+  #lnb ul li {
+    margin-bottom: 8px
+  }
+  #lnb ul li a {
+    font-size: 1.1em;
+  }
+#contents {
+  position: relative;
+  float: left;
+  width: 60%;
+  height: auto;
+  min-height: 700px;
+  /* padding-right: 40px; */
+  border: 0px solid rgb(33, 2, 107);
+  margin-top: 25px;
+}
+div p.ic img{
+  max-width: 40%;
+}
+.list_paging {
+  padding-bottom: 35px;
+}
+
+.footer_renew {
+  height: 250px;
+  border: 0px solid darkblue;
+  float: left;
+}
+.info_wrap {
+  margin: 0;
+}
+.dropdown {
+  position: absolute;
+}
+}
+
+
+
+/* 1160px이상 */
+@media (min-width: 1160px) {
+  #wrap {
+    height:1400px;
+  }  
+  
+footer.footer_renew {
+  border: 0px solid darkblue;
+  float:left;
+height: auto;} 
+  #container {
+    margin: 0 auto;
+    height: 1780px;
+    width: 1160px;
+    border: 0px solid gold;
+  }
+  /* contents */
+  /* 왼쪽 서브메뉴 */
+  #lnb {
+    float: left;
+    width: 32%;
+    /* padding-left: 40px; */
+    border: 0px solid forestgreen;
+  }
+  /* #contents {
+    position: relative;
+    float: left;
+    min-height: 700px;
+    border: 5px solid rgb(196, 22, 129);
+    margin-top: 25px;
+  } */
+  #eventFrm{
+    width: 65%;
+    border: px saddlebrown solid;
+    float: left;
+    position: relative;
+  }
+}

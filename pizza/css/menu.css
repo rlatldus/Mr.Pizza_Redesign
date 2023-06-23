@@ -1,0 +1,1236 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  color: #333;
+}
+
+input[type=radio] {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+legend {
+  display: none;
+}
+
+fieldset {
+  border: 0;
+}
+
+@keyframes fadeAni {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes move {
+  0% {
+    border-top: 1px solid #dfdfdf;
+    height: 0px;
+  }
+  100% {
+    border-top: 1px solid #f8c15b;
+    box-shadow: 0px 15px 5px -2px rgba(199, 198, 198, 0.5843137255);
+    height: 100px;
+  }
+}
+#header {
+  text-align: center;
+}
+#header .header {
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  #header .header {
+    width: 94%;
+  }
+}
+
+@media (max-width: 686px) {
+  #header .header {
+    z-index: 35;
+    position: absolute;
+    width: 94%;
+  }
+}
+#header .header .logo {
+  display: block;
+  width: 165px;
+  height: 60px;
+  background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
+  text-indent: -999em;
+}
+#header .header .btn_gnb {
+  display: inline-block;
+  width: 50px;
+  vertical-align: top;
+  height: 50px;
+  background: #e20c3e;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+#header .header .btn_gnb i {
+  position: relative;
+  left: 0px;
+  top: 16px;
+  color: white;
+  vertical-align: top;
+  border-radius: 50%;
+}
+@media (min-width: 686px) {
+  #header .header .btn_gnb {
+    display: none;
+  }
+}
+#header .header .menu {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  #header .header .menu {
+    text-align: center;
+  }
+}
+
+@media (max-width: 686px) {
+  .navbar {
+    display: none;
+  }
+}
+.navbar #main {
+  display: flex;
+  justify-content: space-around;
+}
+.navbar #main .mainli {
+  vertical-align: middle;
+  padding: 0 25px;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .navbar #main .mainli {
+    padding: 0 20px;
+  }
+}
+.navbar #main .mainli:hover ul.sub {
+  animation: move 0.5s ease alternate forwards;
+}
+.navbar #main .mainli .maina {
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+  height: 100px;
+}
+@media (max-width: 940px) {
+  .navbar #main .mainli .maina {
+    display: inline-block;
+    padding-top: 20px;
+    height: 80px;
+  }
+}
+.navbar #main .mainli .maina span,
+.navbar #main .mainli .maina img {
+  display: block;
+  margin: auto;
+}
+.navbar #main .sub {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  overflow: hidden;
+  margin-left: calc(-50vw + 50% - 16px);
+  top: 100px;
+  left: 0px;
+  width: 100vw;
+  height: 0px;
+  background-color: #ffffff;
+  text-align: center;
+}
+.navbar #main .sub li {
+  display: none;
+  margin: 30px 20px;
+  width: 150px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+.navbar #main .sub li:nth-child(1) {
+  margin-left: 50px;
+}
+.navbar #main .sub li:hover {
+  border: 2px solid red;
+}
+.navbar #main .sub li:hover a {
+  color: red;
+}
+.navbar #main .sub li a {
+  padding: 10px 0;
+  font-size: 14px;
+  display: block;
+  color: #5f5f5f;
+}
+.navbar #main .sub li a:hover li {
+  border: 1px solid red;
+}
+
+#wrap {
+  padding: 20px 0px;
+}
+#wrap .main {
+  text-align: center;
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  padding: 0 5%;
+}
+#wrap .main #section {
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+}
+@media (max-width: 686px) {
+  #wrap .main #section {
+    display: block;
+  }
+}
+@media (min-width: 1160px) {
+  #wrap .main #section {
+    width: calc(1160px - 10%);
+  }
+}
+
+.left_section {
+  display: flex;
+  justify-content: space-around;
+}
+.left_section li {
+  width: 100%;
+}
+.left_section li a {
+  display: block;
+  padding: 8px 5px;
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-family: NGBold;
+}
+.left_section li a span {
+  font-size: 15px;
+  display: block;
+}
+@media (min-width: 686px) {
+  .left_section {
+    display: none;
+  }
+}
+
+.basketbox {
+  z-index: 32;
+  position: fixed;
+  width: 405px;
+  right: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #666666;
+  background: #fff;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.basketbox .deliveryRadio {
+  display: flex;
+}
+.basketbox .deliveryRadio label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+  background-color: #dddddd;
+}
+.basketbox .deliveryRadio label input {
+  display: block;
+}
+.basketbox .menuOption {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  padding: 0 20px;
+}
+.basketbox .menuOption input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.basketbox .menuOption p {
+  width: 100px;
+}
+.basketbox .menuOption .sum {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.basketbox .menuOption .sum button {
+  font-size: 20px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.basketbox .menuOption button {
+  width: 30px;
+  height: 30px;
+}
+.basketbox .deliveryText {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.basketbox .deliveryText p {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+.basketbox .deliveryText p span {
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 24px;
+  color: #cb1919 !important;
+}
+
+.basketbox.show {
+  opacity: 1;
+}
+
+.menuoption {
+  text-align: center;
+}
+
+@media (max-width: 686px) {
+  .leftback {
+    position: fixed;
+    z-index: 34;
+    left: 0;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+#left {
+  position: absolute;
+  display: block;
+  height: 100%;
+  top: 230px;
+}
+@media (max-width: 686px) {
+  #left {
+    left: 0;
+    padding: 20px 5% 0;
+    z-index: 50;
+    width: 90%;
+    background-color: white;
+  }
+}
+@media (min-width: 1160px) {
+  #left {
+    margin-left: 5%;
+  }
+}
+@media (min-width: 686px) {
+  #left {
+    width: 20%;
+    min-width: 170px;
+    max-width: 230px;
+  }
+}
+#left .section h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 26px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+#left .section li {
+  margin-bottom: 8px;
+}
+#left .section li a {
+  display: block;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  font-family: NGBold;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+}
+#left .section li a:hover {
+  border: 1px solid #e21d1d;
+}
+#left .section li a img {
+  padding-left: 5px;
+}
+#left .section .menual {
+  margin-top: 50px;
+  border: 1px solid #eeeeee;
+}
+#left .section .menual h3 {
+  padding: 10px;
+  background: #eeeeee;
+  font-size: 16px;
+}
+#left .section .menual .range {
+  padding: 10px 0;
+}
+.range{
+  background-color: white;
+}
+#left .section .menual .range label {
+  text-align: left;
+  display: block;
+  padding: 10px;
+  font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#wrap {
+  padding: 20px 0px;
+}
+#wrap .main {
+  text-align: center;
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  padding: 0 5%;
+}
+#wrap .main #section {
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+}
+@media (max-width: 686px) {
+  #wrap .main #section {
+    display: block;
+  }
+}
+@media (min-width: 1160px) {
+  #wrap .main #section {
+    width: calc(1160px - 10%);
+  }
+}
+
+.left_section {
+  display: flex;
+  justify-content: space-around;
+}
+.left_section li {
+  width: 100%;
+}
+.left_section li a {
+  display: block;
+  padding: 8px 5px;
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-family: NGBold;
+}
+.left_section li a span {
+  font-size: 15px;
+  display: block;
+}
+@media (min-width: 686px) {
+  .left_section {
+    display: none;
+  }
+}
+
+.basketbox {
+  z-index: 32;
+  position: fixed;
+  width: 405px;
+  right: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #666666;
+  background: #fff;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.basketbox .deliveryRadio {
+  display: flex;
+}
+.basketbox .deliveryRadio label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+  background-color: #dddddd;
+}
+.basketbox .deliveryRadio label input {
+  display: block;
+}
+.basketbox .menuOption {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  padding: 0 20px;
+}
+.basketbox .menuOption input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.basketbox .menuOption p {
+  width: 100px;
+}
+.basketbox .menuOption .sum {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.basketbox .menuOption .sum button {
+  font-size: 20px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.basketbox .menuOption button {
+  width: 30px;
+  height: 30px;
+}
+.basketbox .deliveryText {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.basketbox .deliveryText p {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+.basketbox .deliveryText p span {
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 24px;
+  color: #cb1919 !important;
+}
+
+.basketbox.show {
+  opacity: 1;
+}
+
+.menuoption {
+  text-align: center;
+}
+
+@media (max-width: 686px) {
+  .leftback {
+    position: fixed;
+    z-index: 34;
+    left: 0;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+#left {
+  position: absolute;
+  display: block;
+  height: 100%;
+  top: 230px;
+}
+@media (max-width: 686px) {
+  #left {
+    left: 0;
+    padding: 20px 5% 0;
+    z-index: 50;
+    width: 90%;
+    background-color: white;
+  }
+}
+@media (min-width: 1160px) {
+  #left {
+    margin-left: 5%;
+  }
+}
+@media (min-width: 686px) {
+  #left {
+    width: 20%;
+    min-width: 170px;
+    max-width: 230px;
+  }
+}
+#left .section h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 26px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+#left .section li {
+  margin-bottom: 8px;
+}
+#left .section li a {
+  display: block;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  font-family: NGBold;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+}
+#left .section li a:hover {
+  border: 1px solid #e21d1d;
+}
+#left .section li a img {
+  padding-left: 5px;
+}
+#left .section .menual {
+  margin-top: 50px;
+  border: 1px solid #eeeeee;
+}
+#left .section .menual h3 {
+  padding: 10px;
+  background: #eeeeee;
+  font-size: 16px;
+}
+#left .section .menual .range {
+  padding: 10px 0;
+}
+#left .section .menual .range label {
+  text-align: left;
+  display: block;
+  padding: 10px;
+  font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#wrap {
+  padding: 20px 0px;
+}
+#wrap .main {
+  text-align: center;
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  padding: 0 5%;
+}
+#wrap .main #section {
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+}
+@media (max-width: 686px) {
+  #wrap .main #section {
+    display: block;
+  }
+}
+@media (min-width: 1160px) {
+  #wrap .main #section {
+    width: calc(1160px - 10%);
+  }
+}
+
+.menuoption {
+  text-align: center;
+}
+
+.basketbox.show {
+  opacity: 1;
+}
+
+.basketbox {
+  z-index: 32;
+  position: fixed;
+  width: 405px;
+  right: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #666666;
+  background: #fff;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.basketbox .deliveryRadio {
+  display: flex;
+}
+.basketbox .deliveryRadio label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+  background-color: #dddddd;
+}
+.basketbox .deliveryRadio label input {
+  display: block;
+}
+.basketbox .menuOption {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  padding: 0 20px;
+}
+.basketbox .menuOption input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.basketbox .menuOption p {
+  width: 100px;
+}
+.basketbox .menuOption .sum {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.basketbox .menuOption .sum button {
+  font-size: 20px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.basketbox .menuOption button {
+  width: 30px;
+  height: 30px;
+}
+.basketbox .deliveryText {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.basketbox .deliveryText p {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+.basketbox .deliveryText p span {
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 24px;
+  color: #cb1919 !important;
+}
+
+.pop_123123 {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  z-index: 200;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.4705882353);
+}
+.pop_123123 .pop_cont_varo {
+  position: fixed;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  border: 1px solid #636363;
+  border-top: 4px solid #cb1919;
+}
+.pop_123123 .pop_cont_varo h3 {
+  text-align: left;
+  padding: 7px;
+  line-height: 28px;
+  font-size: 18px;
+  color: #fff;
+  background: #55575d;
+  border-top: 1px solid #4b4c52;
+  border-bottom: 1px solid;
+}
+.pop_123123 .pop_cont_varo .pop_cont {
+  height: 100%;
+  margin: 0;
+  padding-top: 50px;
+  background: #fff;
+  display: block;
+  font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+}
+.pop_123123 .pop_cont_varo .pop_cont .t_center_bold {
+  text-align: center !important;
+  font-family: NGBold;
+  border: 0;
+}
+.pop_123123 .pop_cont_varo .pop_cont .t_center {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+}
+.pop_123123 .pop_cont_varo .pop_cont .t_center .button_btn {
+  color: #000000;
+  border-color: #b1b1b3;
+  margin: 5%;
+  width: 40%;
+  height: 5px;
+  font-size: 12px;
+  display: inline-block;
+  border: 1px solid #514f4f;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+.pop_123123 .pop_cont_varo .pop_cont .t_center .button_btn:hover {
+  background-color: #ececec;
+}
+.pop_123123 .pop_cont_varo .pop_cont .btn_close {
+  font-size: 12px;
+  top: 0px;
+  right: 10px;
+  width: 50px;
+  position: absolute;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.modal {
+  z-index: 33;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4784313725);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  position: fixed;
+  width: 70%;
+  display: block;
+  background-color: #ffffff;
+  animation: fadeAni 200ms ease-out;
+}
+.inner img {
+  width: 100%;
+}
+
+@media (max-width: 686px) {
+  .leftback {
+    position: fixed;
+    z-index: 34;
+    left: 0;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+#left {
+  position: absolute;
+  display: block;
+  height: 100%;
+  top: 230px;
+}
+@media (max-width: 686px) {
+  #left {
+    left: 0;
+    padding: 20px 5% 0;
+    z-index: 50;
+    width: 90%;
+    background-color: white;
+  }
+}
+@media (min-width: 1160px) {
+  #left {
+    margin-left: 5%;
+  }
+}
+@media (min-width: 686px) {
+  #left {
+    width: 20%;
+    min-width: 170px;
+    max-width: 230px;
+  }
+}
+#left .section h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 26px;
+  font-weight: Normal;
+  font-family: NGBold;
+}
+#left .section li {
+  margin-bottom: 8px;
+}
+#left .section li a {
+  display: block;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  font-size: 15px;
+  font-family: NGBold;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  background: url(../imge/bg_lnbActive2On.gif) no-repeat 95% center;
+}
+#left .section li a:hover {
+  border: 1px solid #e21d1d;
+}
+#left .section li a img {
+  padding-left: 5px;
+}
+#left .section .menual {
+  margin-top: 50px;
+  border: 1px solid #eeeeee;
+}
+#left .section .menual h3 {
+  padding: 10px;
+  background: #eeeeee;
+  font-size: 16px;
+}
+#left .section .menual .range {
+  padding: 10px 0;
+}
+#left .section .menual .range label {
+  text-align: left;
+  display: block;
+  padding: 10px;
+  font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#right {
+  text-align: center;
+}
+@media (max-width: 686px) {
+  #right {
+    padding-top: 80px;
+  }
+}
+@media (min-width: 686px) {
+  #right {
+    width: calc(75% - 30px);
+    padding-left: 30px;
+  }
+}
+@media (min-width: 686px) and (min-width: 840px) {
+  #right {
+    padding-left: 25%;
+  }
+}
+#right .mainmenu {
+  padding: 20px 0;
+  width: 100%;
+}
+#right .mainmenu .breadcrumb {
+  text-align: right;
+  font-size: 12px;
+  font-style: normal;
+  text-decoration: none;
+  color: #333;
+}
+#right .mainmenu .name {
+  padding-top: 50px;
+  line-height: 26px;
+  font-size: 26px;
+  color: #cb1919;
+  text-align: center;
+}
+#right .mainmenu p {
+  padding-bottom: 30px;
+  padding-top: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.article {
+  flex-wrap: wrap;
+  border-top: 1px solid #c2c2c2;
+}
+.article fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px 0;
+  width: 100%;
+  gap: 5px;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .article fieldset {
+    gap: 10px;
+  }
+}
+.article fieldset article {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  height: 236px;
+}
+@media (max-width: 686px) {
+  .article fieldset article {
+    width: 100%;
+  }
+  .article fieldset article:hover {
+    border: 2px solid #cb1919;
+  }
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .article fieldset article {
+    width: calc(50% - 28px);
+  }
+}
+@media (min-width: 1160px) {
+  .article fieldset article {
+    width: calc(32% - 26px);
+  }
+}
+.article fieldset article .r_line {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 518px;
+  border: 2px solid #cb1919;
+  background-color: white;
+}
+@media (max-width: 686px) {
+  .article fieldset article .menuimg {
+    width: 30%;
+    background-color: #000000;
+  }
+}
+.article fieldset article img {
+  position: absolute;
+  display: block;
+  width: calc(100% - 20px);
+}
+@media (max-width: 686px) {
+  .article fieldset article img {
+    width: calc(50% - 10px);
+    height: 150px;
+    object-fit: cover;
+  }
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .article fieldset article img {
+    object-fit: cover;
+    min-height: 130px;
+    max-height: 160px;
+  }
+}
+.article fieldset article .input {
+  position: absolute;
+  top: 200px;
+  text-align: left;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .article fieldset article .input {
+    top: 120px;
+    padding-top: 20%;
+  }
+}
+@media (max-width: 686px) {
+  .article fieldset article .input {
+    top: 70px;
+  }
+}
+.article fieldset article .input h4 {
+  padding-top: 5px;
+  left: 14px;
+  font-size: 18px;
+  font-weight: bolder;
+  font-family: NGBold;
+}
+@media (max-width: 686px) {
+  .article fieldset article .input h4 {
+    width: calc(100% - 10px);
+    padding-top: 50%;
+  }
+}
+.article fieldset article .input label {
+  display: inline-flex;
+  align-items: center;
+}
+.article fieldset article .input span {
+  font-family: NGBold;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 5px;
+  cursor: default;
+}
+.article fieldset article .input span.M {
+  color: #f17304 !important;
+}
+.article fieldset article .input span.L {
+  color: #cb1919 !important;
+}
+.article fieldset article .menu_ops {
+  width: calc(100% - 20px);
+  position: absolute;
+}
+@media (max-width: 686px) {
+  .article fieldset article .menu_ops {
+    top: 20px;
+    left: calc(50% + 10px);
+    width: calc(50% - 20px);
+  }
+}
+@media (min-width: 686px) {
+  .article fieldset article .menu_ops {
+    height: 0;
+    overflow: hidden;
+    top: 280px;
+  }
+}
+.article fieldset article .menu_ops p a {
+  display: block;
+  line-height: 33px;
+  border: 1px solid #969696;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_menusel.gif) no-repeat 95% center;
+}
+.article fieldset article .menu_ops .gold {
+  position: absolute;
+  z-index: 10;
+  top: 45px;
+  width: calc(100% - 2px);
+}
+.article fieldset article .menu_ops .gold li {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  background: #fff;
+}
+.article fieldset article .menu_ops .gold li a {
+  width: 100%;
+  display: block;
+  line-height: 30px;
+  background: #fafafa;
+}
+.article fieldset article .menu_ops .gold li a:hover {
+  background: #e4e4e4;
+}
+.article fieldset article .menu_ops .menu_btn ul {
+  display: flex;
+  justify-content: center;
+}
+.article fieldset article .menu_ops .menu_btn ul li {
+  width: 33.333%;
+  box-sizing: border-box;
+}
+.article fieldset article .menu_ops .menu_btn ul li a {
+  position: relative;
+  border: 1px solid #cccccc;
+  text-indent: -9999em;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: NGBold;
+  color: #cb1919;
+  padding: 15px 0px;
+  display: block;
+}
+.article fieldset article .menu_ops .menu_btn ul li #memu01 {
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu01.gif) no-repeat center center;
+}
+.article fieldset article .menu_ops .menu_btn ul li #memu02 {
+  margin-left: -1px;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu02.gif) no-repeat center center;
+}
+.article fieldset article .menu_ops .menu_btn ul li #memu03 {
+  margin-left: -1px;
+  background: url(https://cdn.mrpizza.co.kr/2014_resources/images/product/ic_memu03.gif) no-repeat center center;
+}
+.article fieldset article .menu_ops .menu_text {
+  padding: 10px 0;
+  font: normal 13px/1.5 "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+}
+
+.edge_list {
+  margin-top: 50px 0 0;
+  justify-content: space-between;
+  display: flex;
+  padding: 0;
+}
+@media (max-width: 1160px) and (min-width: 686px) {
+  .edge_list {
+    position: absolute;
+    left: 0;
+    width: 90%;
+    padding: 0 5%;
+  }
+}
+@media (max-width: 686px) {
+  .edge_list {
+    display: none;
+  }
+}
+.edge_list li {
+  width: 100%;
+}
+.edge_list li a {
+  text-align: left;
+  padding: 10px 0 0 20px;
+  margin: 20px 0;
+  display: block;
+  height: 75px;
+  border: 1px solid #c7c7c7;
+  font-family: NGBold;
+  color: #666;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/product/bg_edge.gif) no-repeat 95% center;
+}
+.edge_list li a p {
+  padding-top: 10px;
+  font-family: NGBold;
+  color: #666;
+}
+.edge_list li a span {
+  color: #ff7400;
+}
+
+/*# sourceMappingURL=menu.css.map */
