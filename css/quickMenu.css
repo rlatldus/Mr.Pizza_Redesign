@@ -77,38 +77,44 @@ div.link_fix {
 }
 
 .footer_renew {
+  padding-top: 150px;
   border: 0px solid rgb(5, 206, 206);
-  height: 300px;
+  /* height: 300px; */
+}
+
+@media (min-width:1160px) {
+  .footer_renew .line_area {
+    width: 1140px;
+  }
 }
 
 /* 사이트이용안내 영역 시작 -- */
 .footer_renew .line_area {
-  width: 1160px;
+
+  display: flex;
+  justify-content: space-between;
   border: 0px solid darkgreen;
   height: 50px;
   margin: 0 auto;
-  position: relative;
 }
 
-/* 개인정보처리방침 등.. 리스트 */
-.footer_renew .line_area .link_list ul:after {
-  clear: both;
-  display: block;
-  content: '';
+.link_list, .sns_list{
+  display: flex;
 }
 
 /* 다른나라 홈페이지 링크 부분 */
 
 .dropdown-content {
+  display: none;
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
   border: 1px solid #dddddd;
   width: 168px;
-  display: none;
+  position: a;
+  /* display: none; */
   z-index: 1;
-  position: absolute;
   left: 0;
-  top: 50px;
+  top: 200px;
   /* 다른 요소들보다 앞에 배치 */
   text-align: left;
 }
@@ -131,19 +137,20 @@ div.link_fix {
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: none;
 }
 
 /* 다른나라 홈페이지 영역 종료 --// */
-
 /* 사이트정보 영역 시작 -- */
 .info_wrap {
-  padding-bottom: 10px;
-  width: 1160px;
-  height: 90px;
+  display: flex;
   margin: 0 auto;
+  justify-content:space-between;
   border: 0px solid black;
-  position: relative;
+}
+@media (min-width:1160px) {
+  .info_wrap { width: 1140px;
+  }
 }
 
 /* 푸터- 주소영역 */
@@ -167,7 +174,6 @@ div.link_fix {
 }
 
 .footer_renew .sns_list li {
-  float: left;
   padding-right: 8px;
 }
 
@@ -208,18 +214,11 @@ div.link_fix {
 /* 푸터영역 끝 //  */
 
 @media screen and (max-width: 767px) {
-  /* 퀵메뉴 사라지게함 */
-  */ section#quick {
-    display: none;
-  }
-  .quick_wrap {
-    display: none;
-  }
+
   /* 푸터영역 시작 */
   footer {
     padding-bottom: 40px;
     width: 100%;
-    height: 400px;
     margin: 0 auto;
   }
 
@@ -245,9 +244,7 @@ div.link_fix {
 
   /* 저작권주소 줄바꿈 */
   div.info_wrap address {
-    /* font-size: 0.8em;
-    position: absolute;
-    top: 0px; */
+
     display: none;
   }
 
@@ -256,7 +253,6 @@ div.link_fix {
   }
 
   .info_wrap .copy {
-    position: absolute;
     top: 75px;
     font-size: 0.8em;
     color: #8c8c8c;
@@ -274,9 +270,7 @@ div.link_fix {
   }
 
   .sns_list {
-    display: block;
     padding-top: 20px;
-    width: 300px;
   }
 
   .sns_list li {
@@ -285,24 +279,18 @@ div.link_fix {
   /* 푸터영역 종료 // */
 }
 
+
 @media (min-width: 768px) and (max-width: 1159px) {
-  /* 퀵메뉴 사라지게함 */
-  section#quick {
-    display: none;
-  }
-  .quick_wrap {
-    display: none;
-  }
+
   /* 푸터 영역시작 */
   footer {
     padding-bottom: 40px;
     width: 100%;
-    height: 350px;
     margin: 0 auto;
   }
 
   .footer_renew .info_wrap {
-    margin-left: 140px;
+    /* margin-left: 140px; */
   }
 
   .info_area {
@@ -310,7 +298,6 @@ div.link_fix {
   }
 
   .footer_renew .line_area .link_list li {
-    float: left;
     padding-right: 2%;
     padding-top: 15px;
     transition: all 0.3s;
@@ -336,7 +323,6 @@ div.link_fix {
   }
 
   .addressCopy {
-    position: absolute;
     top: 50px;
   }
 
@@ -352,10 +338,6 @@ div.link_fix {
 
   /* 다른나라홈페이지 */
   .dropdown {
-    margin-left: 620px;
-    position: absolute;
-    left: 9%;
-    top: 0;
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 1.1em;
     display: inline-block;
@@ -375,7 +357,6 @@ div.link_fix {
   /* 푸터 sns 링크 영역 */
   .footer_renew .sns_list {
     padding-top: 20px;
-    position: absolute;
     top: 0;
     left: 0;
   }
@@ -391,178 +372,180 @@ div.link_fix {
 
   /*푸터종료     //  */
 }
+    /* 퀵메뉴 */
+    .quick_wrap {
+      top: 50%;
+      right: 0;
+      z-index: 31;
+      margin-top: -177.5px;
+    }
+  
 
-@media (min-width: 1160px) {
-  /* 퀵메뉴 */
-  .quick_wrap {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    z-index: 1;
-    margin-top: -177.5px;
-  }
+      /* 퀵메뉴 */
+      .quick_wrap {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        z-index: 31;
+        margin-top: -177.5px;
+      }
+    
+      .quick_wrap > ul {
+        background: #f4f4f4;
+        border-radius: 18px 0 0 18px;
+        padding: 0 5px;
+        position: relative;
+        overflow: visible;
+      }
+    
+      .quick_wrap > ul > li + li {
+        border-top: #dbdbdb 1px solid;
+      }
+    
+      .quick_wrap > ul > li > a.quick_tit {
+        display: block;
+        padding: 18px 0;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: #8c8c8c;
+        width: 80px;
+        position: relative;
+      }
+    
+      .quick_wrap > ul > li > a.quick_tit:hover,
+      .quick_wrap > ul > li.on > a.quick_tit {
+        color: #000;
+      }
+    
+      .quick_wrap > ul > li > a > i {
+        display: block;
+        margin: 0 auto 4px;
+      }
+    
+      .quick_wrap .cart_num {
+        position: absolute;
+        top: 12px;
+        right: 18px;
+        display: block;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        background: #e20c3e;
+        font-size: 11px;
+        color: #fff;
+        padding-top: 1px;
+        box-sizing: border-box;
+      }
 
-  .quick_wrap > ul {
-    background: #f4f4f4;
-    border-radius: 18px 0 0 18px;
-    padding: 0 5px;
-    position: relative;
-    overflow: visible;
-  }
+    /* 푸터영역 */
+    footer {
+      padding-bottom: 40px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    .info_wrap address br.br {
+      display: none;
+    }
+  
+    .dropdown {
+      right: 0px;
+      top: 0;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 1.2em;
+      display: inline-block;
+      width: 168px;
+      border-left: 1px solid #dddddd;
+      border-right: 1px solid #dddddd;
+      padding-left: 21px;
+      padding-right: 31px;
+      padding-top: 13px;
+      height: 50px;
+      box-sizing: border-box;
+      background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png')
+        92% 50% no-repeat;
+    }
+  
+    .footer_renew .line_area .link_list ul:after {
+      clear: both;
+      display: block;
+      content: '';
+    }
+  
+    .footer_renew .line_area .link_list li {
+      padding-right: 20px;
+      padding-top: 15px;
+      font-size: 0.5em;
 
-  .quick_wrap > ul > li + li {
-    border-top: #dbdbdb 1px solid;
-  }
-
-  .quick_wrap > ul > li > a.quick_tit {
-    display: block;
-    padding: 18px 0;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: #8c8c8c;
-    width: 80px;
-    position: relative;
-  }
-
-  .quick_wrap > ul > li > a.quick_tit:hover,
-  .quick_wrap > ul > li.on > a.quick_tit {
-    color: #000;
-  }
-
-  .quick_wrap > ul > li > a > i {
-    display: block;
-    margin: 0 auto 4px;
-  }
-
-  .quick_wrap .cart_num {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    display: block;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    background: #e20c3e;
-    font-size: 11px;
-    color: #fff;
-    padding-top: 1px;
-    box-sizing: border-box;
-  }
-  /* 푸터영역 */
-  footer {
-    padding-bottom: 40px;
-    width: 100%;
-    height: 400px;
-    margin: 0 auto;
-  }
-
-  .info_wrap address br.br {
-    display: none;
-  }
-
-  .dropdown {
-    margin-left: 200px;
-    position: absolute;
-    right: 0px;
-    top: 0;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 1.2em;
-    display: inline-block;
-    width: 168px;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    padding-left: 21px;
-    padding-right: 31px;
-    padding-top: 13px;
-    height: 50px;
-    box-sizing: border-box;
-    background: url('//cdn.mrpizza.co.kr/2014_resources/images/common/ico_sel_arrow.png')
-      92% 50% no-repeat;
-  }
-
-  .footer_renew .line_area .link_list ul:after {
-    clear: both;
-    display: block;
-    content: '';
-  }
-
-  .footer_renew .line_area .link_list li {
-    float: left;
-    padding-right: 30px;
-    padding-top: 15px;
-  }
-
-  .footer_renew .line_area .link_list li + li {
-    font-size: 1.1em;
-  }
-
-  .footer_renew .line_area .link_list li span {
-    color: #dc0000;
-    font-size: 1.1em;
-  }
-
-  /* 카피라이터 */
-  .footer_renew .info_wrap .copy {
-    padding-top: 13px;
-    font-size: 13px;
-    color: #8c8c8c;
-    font-size: 14px;
-    font-family: 'Nanum Gothic', sans-serif;
-  }
-
-  /* sns링크 */
-  .footer_renew .sns_list {
-    padding-top: 10px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  /* 전화주문 */
-  .award_wrap .num {
-    font-family: 'Jua', sans-serif;
-    color: #484848;
-    font-size: 1.8em;
-    font-weight: bold;
-    position: absolute;
-    right: 0;
-  }
-
-  .footer_renew .award_wrap .num strong {
-    color: #e20c3e;
-    font-size: 1.3em;
-    font-family: 'Jua', sans-serif;
-    font-weight: bold;
-  }
-
-  /* 사이트정보 안 쪽 수상내역 + 전화번호  */
-  .award_wrap {
-    width: 1160px;
-    padding-top: 10px;
-    padding-bottom: 120px;
-    border: 0px solid hotpink;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .footer_renew .award_wrap ul > li {
-    float: left;
-    font-size: 0.7em;
-    display: table;
-    padding-right: 10px;
-  }
-
-  .footer_renew .award_wrap ul > li img {
-    float: left;
-    margin-right: 10px;
-  }
-
-  .footer_renew .award_wrap ul > li span {
-    display: table-cell;
-    vertical-align: middle;
-    font-family: 'Nanum Gothic', sans-serif;
-  }
-
-  /* 사이트정보 영역 종료 // */
-}
+    }
+  
+    .footer_renew .line_area .link_list li + li {
+      font-size: 1.1em;
+    }
+  
+    .footer_renew .line_area .link_list li span {
+      color: #dc0000;
+      font-size: 1.1em;
+    }
+  
+    /* 카피라이터 */
+    .footer_renew .info_wrap .copy {
+      padding-top: 13px;
+      font-size: 13px;
+      color: #8c8c8c;
+      font-size: 14px;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+  
+    /* sns링크 */
+    .footer_renew .sns_list {
+      padding-top: 10px;
+      top: 10px;
+      right: 10px;
+    }
+  
+    /* 전화주문 */
+    .award_wrap .num {
+      font-family: 'Jua', sans-serif;
+      color: #484848;
+      font-size: 1.8em;
+      font-weight: bold;
+      right: 0;
+    }
+  
+    .footer_renew .award_wrap .num strong {
+      color: #e20c3e;
+      font-size: 1.3em;
+      font-family: 'Jua', sans-serif;
+      font-weight: bold;
+    }
+  
+    /* 사이트정보 안 쪽 수상내역 + 전화번호  */
+    .award_wrap {
+      width: 1140px;
+      padding-top: 10px;
+      padding-bottom: 120px;
+      border: 0px solid hotpink;
+      margin: 0 auto;
+    }
+  
+    .footer_renew .award_wrap ul > li {
+      float: left;
+      font-size: 0.7em;
+      display: table;
+      padding-right: 10px;
+    }
+  
+    .footer_renew .award_wrap ul > li img {
+      float: left;
+      margin-right: 10px;
+    }
+  
+    .footer_renew .award_wrap ul > li span {
+      display: table-cell;
+      vertical-align: middle;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+  
+    /* 사이트정보 영역 종료 // */
