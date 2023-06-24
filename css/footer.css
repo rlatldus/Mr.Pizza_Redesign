@@ -14,6 +14,7 @@
 
 #wrap {
   border: 0px solid red;
+  height: auto;
 }
 
 header#header,
@@ -77,7 +78,7 @@ div.link_fix {
 
 .footer_renew {
   border: 0px solid rgb(5, 206, 206);
-  height: 15px;
+  /* height: 300px; */
 }
 
 /* 사이트이용안내 영역 시작 -- */
@@ -244,9 +245,10 @@ div.link_fix {
 
   /* 저작권주소 줄바꿈 */
   div.info_wrap address {
-    font-size: 0.8em;
+    /* font-size: 0.8em;
     position: absolute;
-    top: 0px;
+    top: 0px; */
+    display: none;
   }
 
   .info_wrap address br.br {
@@ -255,11 +257,10 @@ div.link_fix {
 
   .info_wrap .copy {
     position: absolute;
-    top: 85px;
-    font-size: 13px;
+    top: 75px;
+    font-size: 0.8em;
     color: #8c8c8c;
-    padding-bottom: 10px;
-    font-size: 14px;
+    padding-bottom: 30px;
     font-family: 'Nanum Gothic', sans-serif;
   }
 
@@ -273,15 +274,20 @@ div.link_fix {
   }
 
   .sns_list {
-    display: none;
+    display: block;
+    padding-top: 20px;
+    width: 300px;
   }
 
+  .sns_list li {
+    padding-right: 10%;
+  }
   /* 푸터영역 종료 // */
 }
 
 @media (min-width: 768px) and (max-width: 1159px) {
   /* 퀵메뉴 사라지게함 */
-  */ section#quick {
+  section#quick {
     display: none;
   }
   .quick_wrap {
@@ -291,7 +297,7 @@ div.link_fix {
   footer {
     padding-bottom: 40px;
     width: 100%;
-    height: 350px;
+    /* height: 350px; */
     margin: 0 auto;
   }
 
