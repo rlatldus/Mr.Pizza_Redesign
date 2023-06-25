@@ -14,13 +14,11 @@ a {
 li {
   list-style: none;
 }
-
-legend {
-  display: none;
-}
-
 fieldset {
   border: 0;
+}
+legend {
+  display: none;
 }
 
 @keyframes move {
@@ -37,12 +35,6 @@ fieldset {
 #header {
   text-align: center;
 }
-@media (min-width: 1160px) {
-  #header {
-    width: calc(1160px - 6%);
-    margin: 0 auto;
-  }
-}
 #header .header {
   margin: 0 auto;
   position: relative;
@@ -54,24 +46,40 @@ fieldset {
   font-size: 20px;
   font-weight: bolder;
 }
+@media (min-width: 1160px) {
+  #header {
+    width: calc(1160px - 6%);
+    margin: 0 auto;
+  }
+  #header.header {
+  }
+}
+#section {
+  display: none;
+}
 @media (max-width: 1160px) and (min-width: 686px) {
+  #section {
+    display: none;
+  }
   #header .header {
     width: 94%;
   }
 }
+
 @media (max-width: 686px) {
   #header .header {
     z-index: 35;
     position: absolute;
-    padding: 0 3%;
     width: 94%;
+    padding: 0 3%;
   }
 }
 #header .header .logo {
   display: block;
   width: 165px;
   height: 60px;
-  background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png) 0 0 no-repeat;
+  background: url(//cdn.mrpizza.co.kr/2022_resources/images/20220901/img_logo_PC.png)
+    0 0 no-repeat;
   text-indent: -999em;
 }
 #header .header .btn_gnb {
@@ -84,11 +92,6 @@ fieldset {
   position: relative;
   cursor: pointer;
 }
-@media (min-width: 686px) {
-  #header .header .btn_gnb {
-    display: none;
-  }
-}
 #header .header .btn_gnb i {
   position: relative;
   left: 0px;
@@ -97,12 +100,18 @@ fieldset {
   vertical-align: top;
   border-radius: 50%;
 }
+@media (min-width: 686px) {
+  #header .header .btn_gnb {
+    display: none;
+  }
+}
 #header .header .menu {
   display: inline-block;
   vertical-align: middle;
   width: 50px;
   height: 50px;
-  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png) 0 0 no-repeat;
+  background: url(//cdn.mrpizza.co.kr/2014_resources/images/common/ico_cart.png)
+    0 0 no-repeat;
 }
 @media (max-width: 1160px) and (min-width: 686px) {
   #header .header .menu {
@@ -124,6 +133,9 @@ fieldset {
   padding: 0 25px;
 }
 @media (max-width: 1160px) and (min-width: 686px) {
+  #left {
+    display: none;
+  }
   .navbar #main .mainli {
     padding: 0 20px;
   }
@@ -157,6 +169,7 @@ fieldset {
   margin-left: calc(-50vw + 50% - 16px);
   top: 100px;
   left: 0px;
+  /* width: 100vw; */
   height: 0px;
   background-color: #ffffff;
   text-align: center;
@@ -198,7 +211,6 @@ fieldset {
   padding: 0 5%;
 }
 #wrap .main #section {
-  display: none;
   margin: 0 auto;
   justify-content: space-between;
   display: flex;
@@ -338,6 +350,7 @@ fieldset {
 
 #left {
   position: absolute;
+  /* display: block; */
   height: 100%;
   top: 230px;
 }
@@ -350,15 +363,10 @@ fieldset {
     background-color: white;
   }
 }
-@media (max-width: 1160px) and (min-width: 686px) {
-  #left {
-    display: none;
-  }
-}
 @media (min-width: 1160px) {
   #left {
-    margin-left: 5%;
     display: none;
+    margin-left: 5%;
   }
 }
 @media (min-width: 686px) {
@@ -411,7 +419,8 @@ fieldset {
   text-align: left;
   display: block;
   padding: 10px;
-  font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma, Geneva, Verdana;
+  font: normal "나눔고딕", NanumGothic, NGNormal, "돋움", Dotum, Arial, Tahoma,
+    Geneva, Verdana;
   font-size: 14px;
   cursor: pointer;
 }

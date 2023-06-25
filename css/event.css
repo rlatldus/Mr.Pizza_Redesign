@@ -339,6 +339,7 @@
     margin: 0 auto;
     height:auto;
     width: 100%;
+    padding-top: 100px;
     border: 0px solid gold;
     position: relative;
   }

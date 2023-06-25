@@ -73,6 +73,7 @@ fieldset {
     width: 94%;
   }
 }
+
 @media (max-width: 686px) {
   #header .header {
     z-index: 35;
@@ -414,6 +415,8 @@ fieldset {
 }
 #left .section .menual .range {
   padding: 10px 0;
+}
+.range{
   background-color: white;
 }
 #left .section .menual .range label {
