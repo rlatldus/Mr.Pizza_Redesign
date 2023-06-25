@@ -21,11 +21,10 @@
 
 |                                                           Result                                                           | Description                                                                                                                                                                                                                                                                                                                        |
 | :------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/49d8fcbe-3ed2-4073-9260-07d3c3aceb0b" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/6a343f82-8cee-4448-ae83-ead46760e74d" style="width: 400px;" alt="Blackjack"></div>|
+|<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/64f0e35a-da7d-48c3-ae5b-a6c4fb9a52ef" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/49d8fcbe-3ed2-4073-9260-07d3c3aceb0b" style="width: 400px;" alt="Blackjack"></div>|
 
 <br>
-![반응형o]()
-![반응형o-2]()
+
 
 <!-- 기간 -->
 ### Taken time
