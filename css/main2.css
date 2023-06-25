@@ -452,7 +452,7 @@ article#todayPop div.pop_cont p img {
     display: block;
     width: 58px;
     height: 58px;
-    background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+    background: url(imge/bg_main_tit.png) 0 0 no-repeat;
     position: absolute;
     top: 20px;
     left: 55px;
@@ -603,7 +603,7 @@ article#todayPop div.pop_cont p img {
     display: block;
     width: 58px;
     height: 58px;
-    background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+    background: url(imge/bg_main_tit.png) 0 0 no-repeat;
     position: absolute;
     top: 18px;
     left: 10px;
@@ -711,7 +711,7 @@ article#todayPop div.pop_cont p img {
   }
 
   .notice_wrap ul li.notice a i {
-    background: #ffda30 url(/imge/ico_notice.png) 0 0 no-repeat;
+    background: #ffda30 url(imge/ico_notice.png) 0 0 no-repeat;
     background-size: 20px;
   }
 
@@ -765,7 +765,7 @@ article#todayPop div.pop_cont p img {
   .franchise_wrap {
     min-width: 80%;
     height: 220px !important;
-    background: url(/imge/bg_franchise.png) 0 no-repeat;
+    background: url(imge/bg_franchise.png) 0 no-repeat;
     text-align: center;
     font-family: "Nanum Gothic", sans-serif;
     padding-top: 18px;
@@ -1053,7 +1053,7 @@ article#todayPop div.pop_cont p img {
     display: block;
     width: 58px;
     height: 58px;
-    background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+    background: url(imge/bg_main_tit.png) 0 0 no-repeat;
     position: absolute;
     top: 20px;
     left: 50%;
@@ -1200,7 +1200,7 @@ article#todayPop div.pop_cont p img {
     display: block;
     width: 58px;
     height: 58px;
-    background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+    background: url(imge/bg_main_tit.png) 0 0 no-repeat;
     position: absolute;
     top: 7px;
     left: 0;
@@ -1296,7 +1296,7 @@ article#todayPop div.pop_cont p img {
   }
 
   .notice_wrap ul li.notice a i {
-    background: #ffda30 url(/imge/ico_notice.png) 0 0 no-repeat;
+    background: #ffda30 url(imge/ico_notice.png) 0 0 no-repeat;
   }
 
   .notice_wrap ul li.swiper-slide-active {
@@ -1350,7 +1350,7 @@ article#todayPop div.pop_cont p img {
   .franchise_wrap {
     min-width: 26vw;
     height: 220px !important;
-    background: url(/imge/bg_franchise.png) 0 no-repeat;
+    background: url(imge/bg_franchise.png) 0 no-repeat;
     text-align: center;
     font-family: "Nanum Gothic", sans-serif;
     padding-top: 58px;
@@ -1647,7 +1647,7 @@ article#todayPop div.pop_cont p img {
     display: block;
     width: 58px;
     height: 58px;
-    background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+    background: url(imge/bg_main_tit.png) 0 0 no-repeat;
     position: absolute;
     top: 20px;
     left: 50%;
@@ -1791,7 +1791,7 @@ article#todayPop div.pop_cont p img {
     display: block;
     width: 58px;
     height: 58px;
-    background: url(/imge/bg_main_tit.png) 0 0 no-repeat;
+    background: url(imge/bg_main_tit.png) 0 0 no-repeat;
     position: absolute;
     top: 7px;
     left: 0;
@@ -1883,7 +1883,7 @@ article#todayPop div.pop_cont p img {
   }
 
   .notice_wrap ul li.notice a i {
-    background: #ffda30 url(/imge/ico_notice.png) 0 0 no-repeat;
+    background: #ffda30 url(imge/ico_notice.png) 0 0 no-repeat;
   }
 
   .notice_wrap ul li.swiper-slide-active {
@@ -1932,7 +1932,7 @@ article#todayPop div.pop_cont p img {
   .franchise_wrap {
     min-width: 26vw;
     height: 220px !important;
-    background: url(/imge/bg_franchise.png) 0 no-repeat;
+    background: url(imge/bg_franchise.png) 0 no-repeat;
     text-align: center;
     font-family: "Nanum Gothic", sans-serif;
     padding-top: 58px;
