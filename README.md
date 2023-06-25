@@ -1,10 +1,8 @@
-## Title
-
-BLACK-JACK
+## Title - Mr.Pizza_Redesign
 
 ### Currency_exchange
 
-딜러에게 카드를 2장씩 받아 21에 가까운 수를 만드는 사람이 이기며 21을 초과하면 지는 게임을 개발해보았다.
+기존 미스터피자 웹페이지의 부족한 부분을 변경해보았다. 우선 반응형으로 변경했고, 정적인 헤더 부분을 동적으로 심플하게 만들었다.
 
 <!-- Stack(기술) -->
 ### Stack
@@ -13,6 +11,7 @@ BLACK-JACK
 <!-- Code logo -->
 <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
 <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
+<img src="https://img.shields.io/badge/SCSS-1572B6?style=flat-square&logo=SCSS&logoColor=white"/>
 <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/>
 </p>
 
@@ -22,9 +21,11 @@ BLACK-JACK
 
 |                                                           Result                                                           | Description                                                                                                                                                                                                                                                                                                                        |
 | :------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|<div><img src="https://github.com/rlatldus/BLACK-JACK/assets/122216298/40d12059-351a-4c79-a46a-644e169a3b66" style="width: 400px;" alt="Blackjack"></div> | <h3 style="margin: 0;">A Simple SVG Walkthrough</h3> <h5>✨기능</h5> ▪️ 화면에 <b>커서모양</b>효과를 구현합니다. <br>▪️ 게임을 시작하거나 그만하거나, 다시시작 할 수 있습니다. <br>▪️기회는 세번 주어지고 21점을 넘으면 bust,21점이면 무, 21점을 안 넘으면 win을 출력합니다. |
+|<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/49d8fcbe-3ed2-4073-9260-07d3c3aceb0b" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/6a343f82-8cee-4448-ae83-ead46760e74d" style="width: 400px;" alt="Blackjack"></div>|
 
 <br>
+![반응형o]()
+![반응형o-2]()
 
 <!-- 기간 -->
 ### Taken time
