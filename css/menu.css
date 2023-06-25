@@ -70,20 +70,13 @@ fieldset {
 }
 @media (max-width: 1160px) and (min-width: 686px) {
   #header .header {
-    padding: 0 3%;
     width: 94%;
-  }
-}
-@media (min-width: 1160px) {
-  #header .header {
-    width: 1140px;
   }
 }
 @media (max-width: 686px) {
   #header .header {
     z-index: 35;
     position: absolute;
-    padding: 0 3%;
     width: 94%;
   }
 }
@@ -421,6 +414,7 @@ fieldset {
 }
 #left .section .menual .range {
   padding: 10px 0;
+  background-color: white;
 }
 #left .section .menual .range label {
   text-align: left;
@@ -1031,7 +1025,7 @@ fieldset {
 }
 @media (min-width: 1160px) {
   .article fieldset article {
-    width: calc(33.3% - 26px);
+    width: calc(32% - 26px);
   }
 }
 .article fieldset article .r_line {

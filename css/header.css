@@ -19,6 +19,10 @@ legend {
   display: none;
 }
 
+fieldset {
+  border: 0;
+}
+
 @keyframes move {
   0% {
     border-top: 1px solid #dfdfdf;
@@ -33,6 +37,12 @@ legend {
 #header {
   text-align: center;
 }
+@media (min-width: 1160px) {
+  #header {
+    width: calc(1160px - 6%);
+    margin: 0 auto;
+  }
+}
 #header .header {
   margin: 0 auto;
   position: relative;
@@ -46,13 +56,7 @@ legend {
 }
 @media (max-width: 1160px) and (min-width: 686px) {
   #header .header {
-    padding: 0 3%;
     width: 94%;
-  }
-}
-@media (min-width: 1160px) {
-  #header .header {
-    width: 1140px;
   }
 }
 @media (max-width: 686px) {
@@ -80,6 +84,11 @@ legend {
   position: relative;
   cursor: pointer;
 }
+@media (min-width: 686px) {
+  #header .header .btn_gnb {
+    display: none;
+  }
+}
 #header .header .btn_gnb i {
   position: relative;
   left: 0px;
@@ -87,11 +96,6 @@ legend {
   color: white;
   vertical-align: top;
   border-radius: 50%;
-}
-@media (min-width: 686px) {
-  #header .header .btn_gnb {
-    display: none;
-  }
 }
 #header .header .menu {
   display: inline-block;
@@ -153,7 +157,6 @@ legend {
   margin-left: calc(-50vw + 50% - 16px);
   top: 100px;
   left: 0px;
-  width: 100vw;
   height: 0px;
   background-color: #ffffff;
   text-align: center;
@@ -195,6 +198,7 @@ legend {
   padding: 0 5%;
 }
 #wrap .main #section {
+  display: none;
   margin: 0 auto;
   justify-content: space-between;
   display: flex;
@@ -334,7 +338,6 @@ legend {
 
 #left {
   position: absolute;
-  display: block;
   height: 100%;
   top: 230px;
 }
@@ -347,9 +350,15 @@ legend {
     background-color: white;
   }
 }
+@media (max-width: 1160px) and (min-width: 686px) {
+  #left {
+    display: none;
+  }
+}
 @media (min-width: 1160px) {
   #left {
     margin-left: 5%;
+    display: none;
   }
 }
 @media (min-width: 686px) {

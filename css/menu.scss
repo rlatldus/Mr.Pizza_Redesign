@@ -106,19 +106,12 @@ fieldset {
     font-weight: bolder;
 
     @include media-tablet() {
-      padding: 0 3%;
       width: 94%;
-    }
-
-    @include media-pc() {
-      width: 1140px; //NOTE
     }
 
     @include media-mo {
       z-index: 35;
       position: absolute;
-
-      padding: 0 3%;
       width: 94%;
     }
 
@@ -489,7 +482,7 @@ fieldset {
   
         .range {
           padding: 10px 0;
-  
+    background-color: white;
           label {
             text-align: left;
             display: block;
@@ -1157,7 +1150,7 @@ fieldset {
       }
 
       @include media-pc() {
-        width: calc(33.3% - 26px);
+width: calc(32% - 26px);
       }
 
       .r_line {
