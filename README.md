@@ -29,7 +29,7 @@
 
 |  Main   |  Menu  |  Event 
  :----: | :---: |:---: |
-<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>| <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>| <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>| <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>
+<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div> | <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>| <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>
 
 |                                                           Main                                                           |                                              Menu                                     | Event                       |
 | :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
