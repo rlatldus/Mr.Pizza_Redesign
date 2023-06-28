@@ -32,27 +32,22 @@
 ![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/69dcfb78-4ef9-4121-9653-e161552d1ae2) | ![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/ff445884-b06c-46ac-a68e-b599e605373f) | ![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/0abb9fb1-4c8a-4a00-8ad6-a86432f3045f)
 
 
-|                                                           Main                                                           |                                              Menu                                     | Event                       |
-| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
-|<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/64f0e35a-da7d-48c3-ae5b-a6c4fb9a52ef" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/49d8fcbe-3ed2-4073-9260-07d3c3aceb0b" style="width: 400px;" alt="Blackjack"></div>|
 
 
-
-
-|                                                           Before                                                           |                                              Result                                                                |
-| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
+| Before  | Result |
+| :----: | :----: |
 |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/64f0e35a-da7d-48c3-ae5b-a6c4fb9a52ef" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/49d8fcbe-3ed2-4073-9260-07d3c3aceb0b" style="width: 400px;" alt="Blackjack"></div>|
 
 <br>
 
-|                                                           Before                                                           |                                         Result                                                                                                                                                                                                                                                                                                                       |
-| :------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| Before  | Result |
+| :----: | :----: |
 |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/f1745760-3330-4157-ab91-2fd13706af5d" style="width: 400px;" alt="Blackjack"></div>|<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/df8bcc92-f1ba-4bfe-8b88-201490d4ed87" style="width: 400px;" alt="Blackjack"></div>|
 
 <br>
 
-|                                                           Before                                                           |                                         Result                                                                     |
-| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
+| Before  | Result |
+| :----: | :----: |
 |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/6e38899c-3534-4b1c-98cd-dc6d1c23253a" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/29e3623a-c314-4f2a-803d-fc66390fe56e" style="width: 400px;" alt="Blackjack"></div>|
 
 <br>
