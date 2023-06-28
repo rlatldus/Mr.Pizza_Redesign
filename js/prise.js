@@ -621,8 +621,8 @@ function getSelectedRadioLabel() {
   <span>${pizzaSize}</span>
   <div class="sum">
     <input class="spinner" type="text" value='1' >
-    <button class="plusPrise" onclick="pluse(this)">+</button>
-    <button class="downPrise" onclick="down(this)">-</button>
+      <button class="plusPrise" onclick="pluse(this)">+</button>
+      <button class="downPrise" onclick="down(this)">-</button>
   </div>
   <span class="optionPrise">${pizzaPrise}</span>
   <button onclick="removeList(this)">닫기</button>
