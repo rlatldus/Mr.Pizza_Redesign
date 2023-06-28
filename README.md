@@ -30,8 +30,14 @@
 |                                                           Main                                                           |                                              Menu                                                                |                                                           Event                                                           |
 | :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
  :-----------------------------------------------------------------------------------------------------------------: |
- |![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349)|![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349)|
- |![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349)|![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349)|
+ ||<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>| <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>| <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>| <div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/1fca57d0-ca76-4fb3-84bf-fbf1d273d349"></div>|
+
+|                                                           Main                                                           |                                              Menu                                     | Event                       |
+| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
+|<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/64f0e35a-da7d-48c3-ae5b-a6c4fb9a52ef" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/49d8fcbe-3ed2-4073-9260-07d3c3aceb0b" style="width: 400px;" alt="Blackjack"></div>|
+
+
+
 
 |                                                           Before                                                           |                                              Result                                                                |
 | :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
@@ -45,7 +51,7 @@
 
 <br>
 
-|                                                           Before                                                           |                                         Result                                                                                                                                                                                                                                                                                                                       |
+|                                                           Before                                                           |                                         Result                                                                     |
 | :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
 |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/6e38899c-3534-4b1c-98cd-dc6d1c23253a" style="width: 400px;" alt="Blackjack"></div> |<div><img src="https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/29e3623a-c314-4f2a-803d-fc66390fe56e" style="width: 400px;" alt="Blackjack"></div>|
 
