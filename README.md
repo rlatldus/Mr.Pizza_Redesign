@@ -1,4 +1,12 @@
 ## Title - Mr.Pizza_Redesign
+
+# Mr.Pizza_Redesign
+기존 미스터피자 웹페이지의 부족한 부분을 변경해보는게 목표<br />
+- **`Team name` :** diarychatbot ( 미스터피자사이트 리디자인 )
+- **`Project duration` :** 2023.04.20 - 2023.06.14
+- **`Team members` :** 김시연, 심다영
+- **`Link` :** [Mr.Pizza_Redesign 방문하기](jintakim.shop)
+- 
 ![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/ce816473-9e40-4010-8176-aab7ed1dc6dc)
 
 
