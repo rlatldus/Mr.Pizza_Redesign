@@ -1,6 +1,5 @@
 ## Title - Mr.Pizza_Redesign
-
-![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/f7bbd464-0bcf-449a-a90b-8e52ec57798f)
+![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/ce816473-9e40-4010-8176-aab7ed1dc6dc)
 
 
 ### Currency_exchange
