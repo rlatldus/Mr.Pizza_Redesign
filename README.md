@@ -5,7 +5,7 @@
 - **`Team name` :** diarychatbot ( 미스터피자사이트 리디자인 )
 - **`Project duration` :** 2023.04.20 - 2023.06.14
 - **`Team members` :** 김시연, 심다영
-- **`Link` :** [Mr.Pizza_Redesign 방문하기](jintakim.shop)
+- **`Link` :** [Mr.Pizza_Redesign 방문하기](https://rlatldus.github.io/Mr.Pizza_Redesign/menu.html)
 - 
 ![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/ce816473-9e40-4010-8176-aab7ed1dc6dc)
 
