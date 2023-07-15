@@ -27,17 +27,6 @@
 </p>
 
 <br>
-
-### Result <a href="https://rlatldus.github.io/Mr.Pizza_Redesign/menu.html">(<u>Link:Click</u>👆🏻)</a>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-![2023032101000902600067071](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/97c76706-1731-464c-b6ba-a572fa74a9e4)
-
 <br>
 <br>
 
