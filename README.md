@@ -1,5 +1,8 @@
 ## Title - Mr.Pizza_Redesign
 
+![image](https://github.com/rlatldus/Mr.Pizza_Redesign/assets/122216298/f7bbd464-0bcf-449a-a90b-8e52ec57798f)
+
+
 ### Currency_exchange
 
 기존 미스터피자 웹페이지의 부족한 부분을 변경해보는게 목표였습니다. 우선 반응형으로 변경했고, 정적인 헤더 부분을 동적으로 심플하게 만들었습니다. 심다영, 김시연 학우분과 팀프로젝트를 진행 시작였습니다.
